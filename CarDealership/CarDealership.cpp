@@ -7,12 +7,12 @@
  *      Professor: Alban Rei Ryan
  *
  *  Info:
- *              In order to be chosen, this program will be offered for 
- *				the midterm program with two other programs. 
+ *			In order to be chosen, this program will be offered for 
+ *			the midterm program with two other programs. 
  *				
  *
  *  Notes:
- *				Midterm progarm for presentaion 
+ *			Midterm program for presentation 
  */
 
 #include <iostream>
