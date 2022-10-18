@@ -264,7 +264,7 @@ int main()
 				std::cout << "                   Car Dealership Management (CDM)                    \n\n";
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "                             Admin Access                             \n";
-				std::cout << "                           (" << user << ")                           \n\n";
+				std::cout << "                               (" << user << ")                       \n\n";
 				SetConsoleTextAttribute(h, 13);
 				std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 				SetConsoleTextAttribute(h, 1);
