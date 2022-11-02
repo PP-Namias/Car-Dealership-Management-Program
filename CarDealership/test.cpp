@@ -291,3 +291,66 @@ int main()
 
     return 0;
 }
+
+
+
+void login()
+{
+    Student laccount;
+    string username, pass;
+    bool exist;
+    int choice;
+
+    cout << "Welcome to CSD Login portal, please input your username and password!\n";
+    cout << "Name: ";
+    cin >> laccount.username;
+
+    cout << "Password: ";
+    cin >> laccount.password;
+
+    ifstream input(laccount.username + ".txt");
+
+    while (input >> username >> pass)
+    {
+        if (username == laccount.username && pass == laccount.password)
+        {
+            exist = true;
+        }
+    }
+
+    if (exist == true)
+    {
+        system("cls");
+        cout << "Welcome! " << laccount.username << "\n";
+        ifstream show;
+        show.open(laccount.username + "details.txt");
+        if (show)
+        {
+            system("cls");
+            // Attaches the username to the name1 para matawag siya globally
+            name1 = laccount.username;
+            cout << "Directing you to your dashboard\n";
+            dashboard();
+        }
+
+        else
+        {
+            system("cls");
+            cout << "Create your own dashboard\n";
+            c_dashboard();
+        }
+        input.close();
+    }
+
+    if (exist == false)
+    {
+        system("cls");
+        cout << "Account not found.....Please try again\n";
+        cout << "Type in 0 to retry: ";
+        cin >> choice;
+        if (choice == 0)
+        {
+            main();
+        }
+    }
+}

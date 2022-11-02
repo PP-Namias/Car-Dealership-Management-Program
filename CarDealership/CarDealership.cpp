@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Programmer: Namias, Jhon Keneth Ryan B.
  *
  *          Title: Car Dealership
@@ -14,7 +14,6 @@
  *  Notes:
  *			Midterm program for presentation 
  */
-
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <conio.h>
@@ -31,23 +30,53 @@
 #include <time.h>  
 #include <iomanip>
 #include <sstream>
+#include <locale>
+#include <fcntl.h>
+#include <io.h>
 
 class NamiasClass {
 public:
+	// Text color settings
+	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+	// SetConsoleTextAttribute(h, 1);
+
 	void display_menu(const std::string& manufacturer,
 		const std::string names[],
 		const int prices[],
 		const size_t numCars) {
-		std::cout << manufacturer << " Cars" << std::endl;
-		
+		SetConsoleTextAttribute(h, 13);
+		std::cout << manufacturer << " Cars:" << std::endl;
+	
 		for (size_t i = 0; i < numCars; i++) {
-			std::cout << "    (" << i + 1
-				<< ") "
-				<< names[i]
-				<< " for "
-				<< prices[i]
-				<< " pesos"
-				<< std::endl;
+
+			SetConsoleTextAttribute(h, 10);
+			std::cout << "   [";
+			SetConsoleTextAttribute(h, 15);
+			std::cout << i + 1;
+			SetConsoleTextAttribute(h, 10);
+			std::cout << "] ";
+			SetConsoleTextAttribute(h, 9);
+			std::cout << names[i];
+			SetConsoleTextAttribute(h, 11);
+			std::cout << "\tfor ";
+			SetConsoleTextAttribute(h, 9);
+
+
+			// structuring currency
+			struct group_facet : public std::numpunct<char> {
+			protected:
+				std::string do_grouping() const { return "\003"; }
+			};
+
+			std::cout.imbue(std::locale(std::cout.getloc(), new group_facet));
+
+			std::cout << std::fixed << prices[i];
+
+			SetConsoleTextAttribute(h, 11);
+			std::cout << " pesos";
+			SetConsoleTextAttribute(h, 11);
+			std::cout << std::endl;
+
 		}
 
 	}
@@ -56,15 +85,22 @@ public:
 		const size_t numColors) {
 		
 		for (size_t a = 0; a < numColors; a++) {
-			std::cout << "    (" << a + 1
-				<< ") "
-				<< color_index[a]
-				<< std::endl;
+			SetConsoleTextAttribute(h, 10);
+			std::cout << "    [";
+			SetConsoleTextAttribute(h, 15);
+			std::cout << a + 1;
+			SetConsoleTextAttribute(h, 10);
+			std::cout << "] ";
+			SetConsoleTextAttribute(h, 9);
+			std::cout << color_index[a];
+			SetConsoleTextAttribute(h, 10);
+			std::cout << std::endl;
 		}
-
-		std::cout << "\n  Please select the Number of Color: ";
 	}
 };
+
+
+
 
 // Identifiers
 void login();
@@ -97,12 +133,211 @@ struct house_search
 	std::string type[3] = { "Low Density", "Medium Density", "High Density" };
 };
 
-// Title screen callout once
+// Title screen call-out once
 bool flag = false;
+
+
+/*
+
+"GR_Yaris",
+"Vios_GR",
+"Camry",
+"Prius",
+"Yaris",
+"Vios",
+"Wigo",
+"Veloz",
+"Fortuner",
+"Raize",
+"RAV4",
+"Rush",
+"Avanza",
+"Innova",
+"Hiace",
+"Hilux",
+"Alphard",
+
+
+
+
+
+		Camry
+		Corolla_Altis
+		Vios
+		Wigo
+		Yaris
+		Corolla_Cross
+		FJ_Cruiser
+		Fortuner
+		Land_Cruiser
+		Accord
+		Accord_Hybrid
+		Civic
+		Clarity
+		CR_V
+		HR_V
+		Insight
+		Odyssey
+
+2740000,
+2402000,
+2402000,
+2436000,
+1114000,
+985000,
+705000,
+1250000,
+2519000,
+1051000,
+2500000,
+1176000,
+1059000,
+1764000,
+1166000,
+1919000,
+4160000,
+
+*/
+
 
 int main()
 {
-	
+
+	system("TITLE Car Dealership Management Program By: @PP-Namias");
+	//goto OrderLogs;
+	// Text file to array dynamically XD [Color]
+	std::string toyota_car_color[15];
+	int number_of_color = 0;
+
+	// test txt to array
+	std::ifstream Cars_Color("Text Files/Cars_Color.txt");
+	if (Cars_Color.is_open())
+	{
+		std::string line;
+		std::ifstream myCars_Color("Text Files/Cars_Color.txt");
+
+		while (std::getline(myCars_Color, line))
+			++number_of_color;
+
+		for (int i = 0; i < number_of_color; ++i)
+		{
+			Cars_Color >> toyota_car_color[i];
+		}
+	}
+	toyota_car_color[number_of_color];
+
+
+
+	// Text file to array dynamically XD [Name]
+	std::string toyota_car_names[17];
+	int number_of_name = 0;
+
+	// test txt to array
+	std::ifstream Cars_Name("Text Files/Cars_Name.txt");
+	if (Cars_Name.is_open())
+	{
+		std::string line;
+		std::ifstream myCars_Name("Text Files/Cars_Name.txt");
+
+		while (std::getline(myCars_Name, line))
+			++number_of_name;
+
+		for (int i = 0; i < number_of_name; ++i)
+		{
+			Cars_Name >> toyota_car_names[i];
+		}
+	}
+	toyota_car_names[number_of_name];
+
+
+
+
+	// Text file to array dynamically XD [Price]
+	int toyota_car_prices[17];
+	int number_of_price = 0;
+
+	// test txt to array
+	std::ifstream Cars_Price("Text Files/Cars_Price.txt");
+	if (Cars_Price.is_open())
+	{
+		std::string line;
+		std::ifstream myCars_Price("Text Files/Cars_Price.txt");
+
+		while (std::getline(myCars_Price, line))
+			++number_of_price;
+
+		for (int i = 0; i < number_of_price; ++i)
+		{
+			Cars_Price >> toyota_car_prices[i];
+		}
+	}
+	toyota_car_prices[number_of_price];
+
+
+
+
+
+
+
+	/*
+	int toyota_car_prices[] = {
+		2740000,
+		2402000,
+		2402000,
+		2436000,
+		1114000,
+		985000,
+		705000,
+		1250000,
+		2519000,
+		1051000,
+		2500000,
+		1176000,
+		1059000,
+		1764000,
+		1166000,
+		1919000,
+		4160000
+	};
+
+	std::string toyota_car_names[] = {
+
+		"GR_Yaris",
+		"Vios_GR",
+		"Camry",
+		"Prius",
+		"Yaris",
+		"Vios",
+		"Wigo",
+		"Veloz",
+		"Fortuner",
+		"Raize",
+		"RAV4",
+		"Rush",
+		"Avanza",
+		"Innova",
+		"Hiace",
+		"Hilux",
+		"Alphard"
+	};
+
+	std::string toyota_car_color[] = {
+	"White",
+	"Black",
+	"Gray",
+	"Silver",
+	"Red",
+	"Blue",
+	"Brown",
+	"Green",
+	"Beige",
+	"Orange",
+	"Gold",
+	"Yellow",
+	"Purple"
+	};
+	*/
+
 	// Text color settings
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 	// SetConsoleTextAttribute(h, 1);
@@ -126,6 +361,7 @@ int main()
 		system("color a");
 		system("cls");
 
+		// Title design XD
 		std::cout << std::endl;
 		std::cout << "     .----------------.   .----------------.   .----------------. \n";
 
@@ -329,7 +565,16 @@ int main()
 		std::cout << " |\n";
 
 		std::cout << "     '----------------'   '----------------'   '----------------' \n";
-		std::cout << "                  Car Dealership Management Program               \n";
+
+		std::cout << "                  ";
+		SetConsoleTextAttribute(h, 1);
+		std::cout << "Car ";
+		SetConsoleTextAttribute(h, 4);
+		std::cout << "Dealership ";
+		SetConsoleTextAttribute(h, 13);
+		std::cout << "Management ";
+		SetConsoleTextAttribute(h, 11);
+		std::cout << "Program               \n";
 
 		std::cout << std::endl;
 
@@ -389,11 +634,7 @@ int main()
 		std::cout << "/_/      ";
 		SetConsoleTextAttribute(h, 6);
 		std::cout << "    /_/  \n";
-
-
 		SetConsoleTextAttribute(h, 10);
-
-
 
 		std::cout << std::endl;
 		std::cout << std::endl;
@@ -405,14 +646,6 @@ int main()
 
 	
 
-
-
-
-
-
-
-
-
 	char order_more = 'n',
 		 order_confirmation;
 
@@ -423,69 +656,16 @@ int main()
 		Color;
 		
 		
-	int toyota_car_prices[] = {
-		2042000,
-		1595000,
-		1056000,
-		700000,
-		1065000,
-		1650000,
-		2083000,
-		2414000,
-		4950000,
-		2308000,
-		2508000,
-		1115000,
-		1249000,
-		1678000,
-		1296000,
-		1038000,
-		2298000
-	};
-
-	std::string toyota_car_names[] = {
-		"Camry",
-		"Corolla Altis",
-		"Vios",
-		"Wigo",
-		"Yaris",
-		"Corolla_Cross",
-		"FJ_Cruiser",
-		"Fortuner",
-		"Land_Cruiser",
-		"Accord",
-		"Accord_Hybrid",
-		"Civic",
-		"Clarity",
-		"CR_V",
-		"HR_V",
-		"Insight",
-		"Odyssey"
-	};
-	std::string toyota_car_color[] = {
-		"White",
-		"Black",
-		"Gray",
-		"Silver",
-		"Red",
-		"Blue",
-		"Brown",
-		"Green",
-		"Beige",
-		"Orange",
-		"Gold",
-		"Yellow",
-		"Purple"
-	};
 
 		// system defaults
-		system("color 01");
 		system("mode 70, 100");
 
+		// main choices
 		int choice;
 		int adminchoice;
 		int employeechoice;
 
+		// sub choices
 		int employeeData;
 		int carsData;
 
@@ -533,27 +713,66 @@ int main()
 
 		
 		// Login Form
-	LoginForm:
+		LoginForm:
+		system("color a");
+		system("cls");
 		std::cout << std::endl;
-		SetConsoleTextAttribute(h, 13);
+		SetConsoleTextAttribute(h, 7);
 		std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 		SetConsoleTextAttribute(h, 1);
 		std::cout << "                   Car Dealership Management (CDM)                    \n\n";
 		SetConsoleTextAttribute(h, 10);
 		std::cout << "                      Welcome to the Login Menu                       \n\n";
-		SetConsoleTextAttribute(h, 13);
+		SetConsoleTextAttribute(h, 7);
 		std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 		SetConsoleTextAttribute(h, 1);
+
+		SetConsoleTextAttribute(h, 10);
+		std::cout << "    [";
+		SetConsoleTextAttribute(h, 15);
+		std::cout << "1";
+		SetConsoleTextAttribute(h, 10);
+		std::cout << "] ";
+		SetConsoleTextAttribute(h, 1);
+		std::cout << "Admin\n";
+
+
+		SetConsoleTextAttribute(h, 10);
+		std::cout << "    [";
+		SetConsoleTextAttribute(h, 15);
+		std::cout << "2";
+		SetConsoleTextAttribute(h, 10);
+		std::cout << "] ";
+		SetConsoleTextAttribute(h, 1);
+		std::cout << "Employee\n";
 		
-		std::cout << "   [1] Admin\n";
-		std::cout << "   [2] Employee\n";
-		std::cout << "   [3] Guest\n\n";
 
+		SetConsoleTextAttribute(h, 10);
+		std::cout << "    [";
+		SetConsoleTextAttribute(h, 15);
+		std::cout << "3";
+		SetConsoleTextAttribute(h, 10);
+		std::cout << "] ";
+		SetConsoleTextAttribute(h, 1);
+		std::cout << "Guest\n\n";
+
+		SetConsoleTextAttribute(h, 10);
+		std::cout << "    [";
+		SetConsoleTextAttribute(h, 15);
+		std::cout << "4";
+		SetConsoleTextAttribute(h, 10);
+		std::cout << "] ";	
 		SetConsoleTextAttribute(h, 2);
-		std::cout << "   [4] About Us\n\n";
+		std::cout << "About Us\n\n";
 
+		SetConsoleTextAttribute(h, 10);
+		std::cout << "    [";
 		SetConsoleTextAttribute(h, 4);
-		std::cout << "   [5] Quit\n\n";
+		std::cout << "5";
+		SetConsoleTextAttribute(h, 10);
+		std::cout << "] ";
+		SetConsoleTextAttribute(h, 4);
+		std::cout << "Exit\n\n";
 		
 		SetConsoleTextAttribute(h, 1);
 		std::cout << "   Please insert your choice: ";
@@ -562,22 +781,23 @@ int main()
 		std::cin.ignore();
 
 
-	// Admin
-	AdminLogin:
+		// Admin
 		if (choice == 1) {
+		AdminLogin:
+			system("color a");
 			system("cls");
 			
 			int adminlogin = 0;
 			std::string user, pass, u, p;
 
 			std::cout << std::endl;
-			SetConsoleTextAttribute(h, 13);
+			SetConsoleTextAttribute(h, 7);
 			std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 			SetConsoleTextAttribute(h, 1);
 			std::cout << "                   Car Dealership Management (CDM)                    \n\n";
 			SetConsoleTextAttribute(h, 10);
 			std::cout << "                             Admin Login                              \n\n";
-			SetConsoleTextAttribute(h, 13);
+			SetConsoleTextAttribute(h, 7);
 			std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 			SetConsoleTextAttribute(h, 1);
 
@@ -655,15 +875,15 @@ int main()
 
 				else if (u != user)
 				{
-					std::cout << "\n\n   Invalid username please try again";
-					Sleep(3000);
+					std::cout << "\n\n   Invalid Username please try again";
+					Sleep(2000);
 					goto AdminLogin;
 				}
 
 				else if (p != pass)
 				{
-					std::cout << "\n\n   Invalid password please try again";
-					Sleep(3000);
+					std::cout << "\n\n   Invalid Password please try again";
+					Sleep(2000);
 					goto AdminLogin;
 				}
 
@@ -672,14 +892,10 @@ int main()
 					adminlogin = 0;
 					system("cls");
 					system("color 4f");
-					std::cout << "\n\n   Wrong username or password!"
+					std::cout << "\n\n   Wrong Username or Password!"
 							  << "\n   Try to login again\n\n";
-					
-					std::cout << "\n   Press Enter to Continue!";
-					std::cin.get();
-					std::cin.get();
-
-					main();
+					Sleep(2000);
+					goto AdminLogin;
 				}
 
 			}
@@ -692,9 +908,10 @@ int main()
 				
 				// Login
 			AdminMenu:
+				system("color a");
 				system("cls");
 				std::cout << std::endl;
-				SetConsoleTextAttribute(h, 13);
+				SetConsoleTextAttribute(h, 7);
 				std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 				SetConsoleTextAttribute(h, 1);
 				std::cout << "                   Car Dealership Management (CDM)                    \n\n";
@@ -705,18 +922,71 @@ int main()
 				std::cout << user;
 				SetConsoleTextAttribute(h, 10);
 				std::cout << ")                       \n\n";
-				SetConsoleTextAttribute(h, 13);
+				SetConsoleTextAttribute(h, 7);
 				std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 				SetConsoleTextAttribute(h, 1);
 
-				std::cout << "   [1] Employee Data\n";
-				std::cout << "   [2] Cars Data\n";
-				std::cout << "   [3] Order Logs\n";
-				std::cout << "   [4] Order Cars\n";
+
+				SetConsoleTextAttribute(h, 10);
+				std::cout << "    [";
+				SetConsoleTextAttribute(h, 15);
+				std::cout << "1";
+				SetConsoleTextAttribute(h, 10);
+				std::cout << "] ";
+				SetConsoleTextAttribute(h, 1);
+				std::cout << "Employee Data\n";
+				
+				SetConsoleTextAttribute(h, 10);
+				std::cout << "    [";
+				SetConsoleTextAttribute(h, 15);
+				std::cout << "2";
+				SetConsoleTextAttribute(h, 10);
+				std::cout << "] ";
+				SetConsoleTextAttribute(h, 1);
+				std::cout << "Cars Data\n";
+				
+				SetConsoleTextAttribute(h, 10);
+				std::cout << "    [";
+				SetConsoleTextAttribute(h, 15);
+				std::cout << "3";
+				SetConsoleTextAttribute(h, 10);
+				std::cout << "] ";
+				SetConsoleTextAttribute(h, 1);
+				std::cout << "Order Logs\n";
+				
+				SetConsoleTextAttribute(h, 10);
+				std::cout << "    [";
+				SetConsoleTextAttribute(h, 15);
+				std::cout << "4";
+				SetConsoleTextAttribute(h, 10);
+				std::cout << "] ";
+				SetConsoleTextAttribute(h, 1);
+				std::cout << "Order Cars\n";
+
+
+
+				SetConsoleTextAttribute(h, 10);
+				std::cout << "    [";
+				SetConsoleTextAttribute(h, 15);
+				std::cout << "5";
+				SetConsoleTextAttribute(h, 10);
+				std::cout << "] ";
+				SetConsoleTextAttribute(h, 1);
+
 				SetConsoleTextAttribute(h, 2);
-				std::cout << "   [5] About Us\n\n";
+				std::cout << "About Us\n\n";
+
+
+				SetConsoleTextAttribute(h, 10);
+				std::cout << "    [";
 				SetConsoleTextAttribute(h, 4);
-				std::cout << "   [6] Back\n\n";
+				std::cout << "6";
+				SetConsoleTextAttribute(h, 10);
+				std::cout << "] ";
+				SetConsoleTextAttribute(h, 1);
+
+				SetConsoleTextAttribute(h, 4);
+				std::cout << "Back\n\n";
 				SetConsoleTextAttribute(h, 1);
 				
 				std::cout << "   Please insert your choice: ";
@@ -729,26 +999,74 @@ int main()
 				// Employee Data
 				EmployeeData:
 				if (adminchoice == 1) {
+					system("color a");
 					system("cls");
 
 					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 13);
+					SetConsoleTextAttribute(h, 7);
 					std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 					SetConsoleTextAttribute(h, 1);
 					std::cout << "                   Car Dealership Management (CDM)                    \n\n";
 					SetConsoleTextAttribute(h, 10);
 					std::cout << "                            Employee Data                             \n\n";
-					SetConsoleTextAttribute(h, 13);
+					SetConsoleTextAttribute(h, 7);
 					std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 					SetConsoleTextAttribute(h, 1);
 
-					std::cout << "   [1] Add Employee Data\n";
-					std::cout << "   [2] Display Employee Data\n";
-					std::cout << "   [3] Search Employee Data\n";
-					std::cout << "   [4] Edit Employee Data\n";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "    [";
+					SetConsoleTextAttribute(h, 15);
+					std::cout << "1";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "] ";
+					SetConsoleTextAttribute(h, 1);
+					std::cout << "Add Employee Data\n";
+					
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "    [";
+					SetConsoleTextAttribute(h, 15);
+					std::cout << "2";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "] ";
+					SetConsoleTextAttribute(h, 1);
+					std::cout << "View Employee Data\n";
+					
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "    [";
+					SetConsoleTextAttribute(h, 15);
+					std::cout << "3";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "] ";
+					SetConsoleTextAttribute(h, 1);
+					std::cout << "Search Employee Data\n";
+					
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "    [";
+					SetConsoleTextAttribute(h, 15);
+					std::cout << "4";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "] ";
+					SetConsoleTextAttribute(h, 1);
+					std::cout << "Edit Employee Data\n";
+					
+					
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "    [";
 					SetConsoleTextAttribute(h, 4);
-					std::cout << "   [5] Delete Employee Data\n\n";
-					std::cout << "   [6] Back\n\n";
+					std::cout << "5";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "] ";
+					SetConsoleTextAttribute(h, 4);
+					std::cout << "Delete Employee Data\n\n";
+					
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "    [";
+					SetConsoleTextAttribute(h, 4);
+					std::cout << "6";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "] ";
+					SetConsoleTextAttribute(h, 4);
+					std::cout << "Back\n\n";
 
 					SetConsoleTextAttribute(h, 1);
 					std::cout << "   Please insert your choice: ";
@@ -764,13 +1082,13 @@ int main()
 						system("cls");
 
 						std::cout << std::endl;
-						SetConsoleTextAttribute(h, 13);
+						SetConsoleTextAttribute(h, 7);
 						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 						SetConsoleTextAttribute(h, 1);
 						std::cout << "                   Car Dealership Management (CDM)                    \n\n";
 						SetConsoleTextAttribute(h, 10);
 						std::cout << "                          Add Employee Data                           \n\n";
-						SetConsoleTextAttribute(h, 13);
+						SetConsoleTextAttribute(h, 7);
 						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 						SetConsoleTextAttribute(h, 1);
 
@@ -794,18 +1112,19 @@ int main()
 
 					}
 
-					// Display Employee Data
+					// View Employee Data
 					else if (employeeData == 2) {
+					DisplayEmployee: 
 						system("cls");
 
 						std::cout << std::endl;
-						SetConsoleTextAttribute(h, 13);
+						SetConsoleTextAttribute(h, 7);
 						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 						SetConsoleTextAttribute(h, 1);
 						std::cout << "                   Car Dealership Management (CDM)                    \n\n";
 						SetConsoleTextAttribute(h, 10);
-						std::cout << "                        Display Employee Data                         \n\n";
-						SetConsoleTextAttribute(h, 13);
+						std::cout << "                          View Employee Data                          \n\n";
+						SetConsoleTextAttribute(h, 7);
 						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n";
 						SetConsoleTextAttribute(h, 1);
 
@@ -839,136 +1158,379 @@ int main()
 
 					// Search Employee Data
 					else if (employeeData == 3) {
+					SearchEmployeeData:
+						system("color a");
 						system("cls");
-						forgot();
 
+						std::cout << std::endl;
+						SetConsoleTextAttribute(h, 7);
+						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
+						SetConsoleTextAttribute(h, 1);
+						std::cout << "                   Car Dealership Management (CDM)                    \n\n";
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "                        Search Employee Data                          \n\n";
+						SetConsoleTextAttribute(h, 7);
+						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n";
+						SetConsoleTextAttribute(h, 1);
 
-
-
-						
-						
-						/*
-						// Recovering Employee Data
 						int ch;
-						system("cls");
-						std::cout << "\n   Forgotten? We're here for help";
-						std::cout << "\n   (1) Search your ID by Username";
-						std::cout << "\n   (2) Search your ID by Password";
-						std::cout << "\n   (3) Main menu\n";
-						std::cout << "\n   Enter your choice: ";
-						std::cin >> ch;
 						
+						std::cout << std::endl;
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "    [";
+						SetConsoleTextAttribute(h, 15);
+						std::cout << "1";
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "] ";
+						SetConsoleTextAttribute(h, 1);
+						std::cout << "Search your Password by Username";
+						std::cout << std::endl;
+						
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "    [";
+						SetConsoleTextAttribute(h, 15);
+						std::cout << "2";
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "] ";
+						SetConsoleTextAttribute(h, 1);
+						std::cout << "Search your Username by Password";
+						std::cout << std::endl;
+						
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "    [";
+						SetConsoleTextAttribute(h, 4);
+						std::cout << "3";
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "] ";
+						SetConsoleTextAttribute(h, 4);
+						std::cout << "Back";
+						std::cout << std::endl;
+						std::cout << std::endl;
+
+						SetConsoleTextAttribute(h, 1);
+						std::cout << "   Enter your choice: ";
+						SetConsoleTextAttribute(h, 13);
+						std::cin >> ch;
+
 						switch (ch)
 						{
-							case 1:
+						case 1:
+						{
+
+							int login = 0;
+							std::string searchuser, su, sp;
+							std::cout << std::endl;
+							std::cout << std::endl;
+							std::cout << "   Enter in your Username: ";
+							std::cin >> searchuser;
+
+							std::ifstream searchu("Text Files/Employee.txt");
+
+							while (searchu >> su >> sp)
 							{
-								int login = 0;
-								std::string searchuser, su, sp;
-								std::cout << "\n   Enter your remembered Username: ";
-								std::cin >> searchuser;
-
-								std::ifstream searchu("Employee.txt");
-								while (searchu >> su >> sp)
+								if (su == searchuser)
 								{
-									if (su == searchuser)
-									{
-										login = 1;
-
-									}
+									// if matched its found
+									login = 1;
 								}
-								searchu.close();
-								
-								if (login == 1)
-								{
-									std::cout << "\n\n   Nice, Your account has been found";
-									std::cout << "\n\n   Your Password ~> .:[" << sp << "]:.";
-									
-									std::cout << "\n   Press Enter to go back to Menu";
-									std::cin.get();
-									std::cin.get();
-									system("cls");
-									main();
-								}
-								
-								else
-								{
-									std::cout << "\n   Sorry, Your Username is not found in our database\n";
-									std::cout << "\n   Please kindly contact your system administrator for more details \n";
-									
-									std::cout << "\n   Press Enter to go back to Menu";
-									std::cin.get();
-									std::cin.get();
-									system("cls");
-									main();
-								}
-								break;
 							}
-							
-							case 2:
+							searchu.close();
+
+							if (login == 1)
 							{
-								int login = 0;
-								std::string searchpass, su2, sp2;
-								std::cout << "\n   Enter the remembered Password: ";
-								std::cin >> searchpass;
-
-								std::ifstream searchp("Employee.txt");
-								while (searchp >> su2 >> sp2)
-								{
-									if (sp2 == searchpass)
-									{
-										login = 1;
-									}
-								}
-								searchp.close();
+								std::cout << std::endl;
+								std::cout << std::endl;
+								std::cout << "   Noice, your account has been found";
+								std::cout << std::endl;
+								std::cout << std::endl;
+								std::cout << "   Your password is |[\"" << sp <<"\"]|";
 								
-								if (login == 1)
-								{
-									std::cout << "\n\n   Your Password is found in the database";
-									std::cout << "\n\n   Your ID ~> .:[" << su2 << "]:.";
-								
-									std::cout << "\n   Press Enter to go back to Menu";
-									std::cin.get();
-									std::cin.get();
-									system("cls");
-									main();
-								}
-								
-								else
-								{
-									std::cout << "\n\n   Sorry, We cannot found your password in our database";
-									std::cout << "\n\n   Kindly contact your administrator for more information";
-								
-									std::cout << "\n   Press Enter to go back to Menu";
-									std::cin.get();
-									std::cin.get();
-									system("cls");
-									main();
-								}
-
-								break;
+								system("pause");
+								Sleep(2000);
+								goto EmployeeData;
 							}
 
-							case 3:
+							else
 							{
+								std::cout << std::endl;
+								std::cout << "   Sorry, Your username is not found in our database";
+								std::cout << std::endl;
+								std::cout << std::endl;
+								std::cout << "   Please kindly contact your system administrator for more details";
 								std::cin.get();
-								main();
-							}
-							
-							default:
-								std::cout << "Sorry, You entered wrong choice. Kindly try again" << std::endl;
-								forgot();
+								std::cin.get();
+								
+								system("pause");
+								Sleep(2000);
+								goto EmployeeData;
 							}
 
-							*/
+							break;
+
+						}
+
+						case 2:
+						{
+							int login = 0;
+							std::string searchpass, su2, sp2;
+							std::cout << std::endl;
+							std::cout << std::endl;
+							std::cout << "   Enter in your Password: ";
+							std::cin >> searchpass;
+
+							std::ifstream searchp("Text Files/Employee.txt");
+							
+							while (searchp >> su2 >> sp2)
+							{
+								if (sp2 == searchpass)
+								{
+									// if matched its found
+									login = 1;
+								}
+							}
+
+							searchp.close();
+							
+							if (login == 1)
+							{
+								std::cout << std::endl;
+								std::cout << std::endl;
+								std::cout << "   Noice, your account has been found";
+								std::cout << std::endl;
+								std::cout << std::endl;
+								std::cout << "   Your username is |[\"" << su2 << "\"]|";
+								
+								system("pause");
+								Sleep(2000);
+								goto EmployeeData;
+							
+							}
+
+							else
+							{
+								std::cout << std::endl;
+								std::cout << "   Sorry, We cannot found your password in our database";
+								std::cout << std::endl;
+								std::cout << std::endl;
+								std::cout << "   Please kindly contact your system administrator for more details";
+							
+								system("pause");
+								Sleep(2000);
+								goto EmployeeData;
+							}
+
+							break;
+						}
+
+						case 3:
+						{
+							std::cout << std::endl;
+							std::cout << "   Sorry, You entered wrong choice. Kindly try again";
+							std::cout << std::endl;
+
+							system("pause");
+							Sleep(2000);
+							goto EmployeeData;
+						}
+
+						default:
+							std::cout << "Sorry, You entered wrong choice. Kindly try again";
+							std::cout << std::endl;
+
+							system("pause");
+							Sleep(2000);
+							goto EmployeeData;
+						}
+
 					}
 
 					// Edit Employee Data
 					else if (employeeData == 4) {
-
+					  
 					}
 
 					// Delete Employee Data
 					else if (employeeData == 5) {
+					DeleteEmployee:
+						system("color a");
+						system("cls");
+
+						std::cout << std::endl;
+						SetConsoleTextAttribute(h, 7);
+						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
+						SetConsoleTextAttribute(h, 1);
+						std::cout << "                   Car Dealership Management (CDM)                    \n\n";
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "                        Delete Employee Data                          \n\n";
+						SetConsoleTextAttribute(h, 7);
+						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n";
+						SetConsoleTextAttribute(h, 1);
+
+						std::ifstream EmployeeFile("Text Files/Employee.txt");
+
+						std::string name;
+						std::string pass;
+
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "\n======================================================================" << std::endl;
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "\tLine\t|    Username\t |    Password";
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "\n======================================================================" << std::endl;
+
+						SetConsoleTextAttribute(h, 1);
+					
+						int j = 0;
+						while (EmployeeFile >> name >> pass) {
+							
+							j++;
+
+							SetConsoleTextAttribute(h, 10);
+							std::cout << "\t[";
+							SetConsoleTextAttribute(h, 15);
+							std::cout << j;
+							SetConsoleTextAttribute(h, 10);
+							std::cout << "]\t|    ";
+							SetConsoleTextAttribute(h, 9);
+							std::cout << name << "\t      ";
+							SetConsoleTextAttribute(h, 11);
+							std::cout << pass << std::endl;
+							SetConsoleTextAttribute(h, 13);
+							std::cout << "----------------------------------------------------------------------";
+							std::cout << std::endl;
+
+						}
+						
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "   Press ESC button to go back" << std::endl;
+						std::cout << std::endl;
+						std::cout << std::endl;
+						std::cout << "   Type the number of line to delete";
+						std::cout << std::endl;
+
+					
+
+
+					
+						// deletion per line
+
+						// variables for storing the filename of the file and the line number to 
+						// delete in the file  
+						int line_number;
+
+					
+						// Prompt the user to enter the line number to delete in the file, store it 
+						// into line_number
+
+						std::cout << std::endl;
+						std::cout << "   Line: ";
+
+
+						// ESC button back
+						int esc;
+						esc = _getch();
+						if (esc == 27) {
+							system("cls");
+							goto EmployeeData;
+						}
+
+
+						std::cin >> line_number;
+
+						// fstream object will be used to read all of the existing lines in the file
+						std::fstream read_file;
+
+						// Open the file with the provided filename
+						read_file.open("Text Files/Employee.txt");
+
+						// If file failed to open, exit with an error message and error exit status
+						if (read_file.fail())
+						{
+							system("color 4f");
+							std::cout << std::endl;
+							std::cout << "   Error opening file." << std::endl;
+							
+							Sleep(3000);
+							goto DeleteEmployee;
+							// returning 1 instead of 0 is a signal to the shell that something went 
+							// wrong in the execution of the program    
+						}
+
+						// Create a vector to store all the file lines, and a string line to store 
+						// each line that we read
+						std::vector<std::string> lines;
+						std::string line;
+
+						// Read each line of the file and store it as the next element of the vector,
+						// the loop will stop when there are no more lines to read
+						while (getline(read_file, line))
+							lines.push_back(line);
+
+						// Close our access to the file since we are done reading with it  
+						read_file.close();
+
+						// The vector will now contain an element for each line in the file, so the 
+						 // size of the vector is the number of lines in the file.  Check to make 
+						 // sure the line number requested does not exceed the number of lines in 
+						 // the file, if it does, exit with an error message and status.
+						if (line_number > lines.size())
+						{
+							std::cout << std::endl;
+							std::cout << "   Line " << line_number;
+							std::cout << " not in file." << std::endl;
+
+							// Inform user how many lines ARE in the file as part of the error message
+							std::cout << "   File has " << lines.size();
+							std::cout << " lines." << std::endl;
+
+							Sleep(3000);
+							goto DeleteEmployee;
+						}
+
+						// Create ofstream object for writing to the file
+						std::ofstream write_file;
+
+						// Open the file with the provided filename
+						write_file.open("Text Files/Employee.txt");
+
+						// If the file failed to open, exit with an error message and exit status
+						if (write_file.fail())
+						{
+							system("color 4f");
+
+							std::cout << std::endl;
+							std::cout << "   Error opening file." << std::endl;
+						
+							
+							Sleep(3000);
+							goto DeleteEmployee;
+						}
+
+						// Write all of the lines stored in the vector back to the file, EXCEPT the
+						// line that we want to delete.
+
+						// Line number 1 will be stored at vector index 0, line number 2 will be 
+						// stored at vector index 1, and so on because vectors are zero-indexed, so 
+						// decrement line_number to help us identify when we've reached the 
+						// associated line in the file.
+						line_number--;
+
+						// Loop through the vector elements to write each line back to the file 
+						// EXCEPT the line we want to delete.
+						for (int i = 0; i < lines.size(); i++)
+							if (i != line_number)
+								write_file << lines[i] << std::endl;
+
+						// Close our access to the file since we are done working with it
+						write_file.close();
+
+						std::cout << std::endl;
+						std::cout << "   Line " << line_number + 1 <<" has been deleted";
+
+						Sleep(3000);
+						goto EmployeeData;
+
+
 
 					}
 
@@ -979,44 +1541,120 @@ int main()
 
 					}
 
-
-
-
-
-
 				}
 
 				// Cars Data
 				else if (adminchoice == 2) {
-					CarData:
-
+				CarData:
+					system("color a");
 					system("cls");
 
 					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 13);
+					SetConsoleTextAttribute(h, 7);
 					std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 					SetConsoleTextAttribute(h, 1);
 					std::cout << "                   Car Dealership Management (CDM)                    \n\n";
 					SetConsoleTextAttribute(h, 10);
 					std::cout << "                               Cars Data                              \n\n";
-					SetConsoleTextAttribute(h, 13);
+					SetConsoleTextAttribute(h, 7);
 					std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n";
 					SetConsoleTextAttribute(h, 1);
 
 
 					int CarChoice;
-					std::cout << std::endl
-						<< "   [1] View Cars Color"
-						<< std::endl
-						<< "   [2] View Cars Name"
-						<< std::endl
-						<< "   [3] View Cars Price"
-						<< std::endl
-						<< std::endl;
-						
+
+					std::cout << std::endl;
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "    [";
+					SetConsoleTextAttribute(h, 15);
+					std::cout << "1";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "] ";
+					SetConsoleTextAttribute(h, 1);
+					std::cout << "View Cars Name & Price";
+					std::cout << std::endl;
+
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "    [";
+					SetConsoleTextAttribute(h, 15);
+					std::cout << "2";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "] ";
+					SetConsoleTextAttribute(h, 1);
+					std::cout << "Add Cars Name & Price";
+					std::cout << std::endl;
+
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "    [";
+					SetConsoleTextAttribute(h, 15);
+					std::cout << "3";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "] ";
+					SetConsoleTextAttribute(h, 1);
+					std::cout << "Edit Cars Name & Price";
+					std::cout << std::endl;
+
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "    [";
 					SetConsoleTextAttribute(h, 4);
-					std::cout << "   [4] Back"
-							  << std::endl;
+					std::cout << "4";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "] ";
+					SetConsoleTextAttribute(h, 4);
+					std::cout << "Delete Cars Name & Price";
+					std::cout << std::endl;
+
+					std::cout << std::endl;
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "    [";
+					SetConsoleTextAttribute(h, 15);
+					std::cout << "5";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "] ";
+					SetConsoleTextAttribute(h, 1);
+					std::cout << "View Cars Color";
+					std::cout << std::endl;
+					
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "    [";
+					SetConsoleTextAttribute(h, 15);
+					std::cout << "6";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "] ";
+					SetConsoleTextAttribute(h, 1); 
+					std::cout << "Add Cars Color";
+					std::cout << std::endl;
+					
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "    [";
+					SetConsoleTextAttribute(h, 15);
+					std::cout << "7";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "] ";
+					SetConsoleTextAttribute(h, 1); 
+					std::cout << "Edit Cars Color";
+					std::cout << std::endl;
+					
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "    [";
+					SetConsoleTextAttribute(h, 4);
+					std::cout << "8";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "] ";
+					SetConsoleTextAttribute(h, 4); 
+					std::cout << "Delete Cars Color";
+					std::cout << std::endl;
+					
+					std::cout << std::endl;
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "    [";
+					SetConsoleTextAttribute(h, 4);
+					std::cout << "9";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "] ";
+					SetConsoleTextAttribute(h, 4);
+					std::cout << "Back";
+					std::cout << std::endl;
 
 					SetConsoleTextAttribute(h, 1);
 					std::cout << std::endl
@@ -1026,148 +1664,674 @@ int main()
 					std::cin >> CarChoice;
 
 
-					// View Cars Color
-					if (CarChoice == 1)
-					{
+					
+					// View Cars Name & Price
+					if (CarChoice == 1) {
+						system("color a");
+						system("cls");
 
-						// Car Color
-						std::ifstream Cars_Color("Text Files/Cars_Color.txt");
-						if (Cars_Color.is_open())
-						{
-							std::cout << std::endl
-									  << "   Car Colors XD"
-									  << std::endl;	  
-
-
-							int number_of_color = 0;
-							std::string line;
-							std::ifstream myCars_Color("Text Files/Cars_Color.txt");
-
-							while (std::getline(myCars_Color, line))
-								++number_of_color;
-
-							std::string Toyota_Cars_Color[50];
-
-							for (int i = 0; i < number_of_color; ++i)
-							{
-
-								Cars_Color >> Toyota_Cars_Color[i];
-								std::cout << "     ("
-										  << i+1
-										  << ") "
-										  << Toyota_Cars_Color[i]
-										  << std::endl;
-
-							}
-
-							std::cout << std::endl
-									  << "   ";
-
-							system("pause");
-							goto CarData;
-						}
-
-					}
-
-
-					// View Cars Name
-					else if (CarChoice == 2) {
+						std::cout << std::endl;
+						SetConsoleTextAttribute(h, 7);
+						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
+						SetConsoleTextAttribute(h, 1);
+						std::cout << "                   Car Dealership Management (CDM)                    \n\n";
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "                        View Cars Name & Price                        \n\n";
+						SetConsoleTextAttribute(h, 7);
+						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n";
+						SetConsoleTextAttribute(h, 1);
 
 						NamiasClass NamiasObject;
-						NamiasObject.display_menu("\n   Toyota", toyota_car_names, toyota_car_prices, sizeof(toyota_car_names) / sizeof(toyota_car_names[0]));
+						NamiasObject.display_menu("\n  Toyota", toyota_car_names, toyota_car_prices, sizeof(toyota_car_names) / sizeof(toyota_car_names[0]));
+
+						std::cout << std::endl;
 						std::cout << "   ";
 						system("pause");
 						goto CarData;
-						
-						
-						/*
-						// Car Name
-						std::ifstream Cars_Name("Text Files/Cars_Name.txt");
-						if (Cars_Name.is_open())
-						{
 
-							std::cout << std::endl
-								<< "   Car Name XD"
-								<< std::endl;
-
-
-							int number_of_names = 0;
-							std::string line;
-							std::ifstream myCars_Name("Text Files/Cars_Name.txt");
-
-							while (std::getline(myCars_Name, line))
-								++number_of_names;
-
-							std::string Toyota_Cars_Name[50];
-
-							for (int i = 0; i < number_of_names; ++i)
-							{
-								Cars_Name >> Toyota_Cars_Name[i];
-								std::cout << "     ("
-										  << i+1
-										  << ") "
-										  << Toyota_Cars_Name[i]
-										  << std::endl;
-							
-							}
-							std::cout << "   ";
-							system("pause");
-							goto CarData;
-						}
-						*/
 					}
 
-					// View Cars Price
-					else if (CarChoice == 3) {
+					// Add Cars Name & Price
+					else if (CarChoice == 2) {
+
+						system("cls");
+
+						std::cout << std::endl;
+						SetConsoleTextAttribute(h, 7);
+						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
+						SetConsoleTextAttribute(h, 1);
+						std::cout << "                   Car Dealership Management (CDM)                    \n\n";
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "                        Add Cars Name & Price                         \n\n";
+						SetConsoleTextAttribute(h, 7);
+						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
+						SetConsoleTextAttribute(h, 1);
+
+
+						std::string addname, addprice;
+						std::cout << "\n   Enter the Car Name: ";
+						SetConsoleTextAttribute(h, 13);
+						std::cin >> addname;
+						SetConsoleTextAttribute(h, 1);
 						
-						// Car Price
+						std::cout << "\n   Enter the Car Price: ";
+						SetConsoleTextAttribute(h, 13);
+						std::cin >> addprice;
+						SetConsoleTextAttribute(h, 1);
+
+						std::ofstream Cars_Name("Text Files/Cars_Name.txt", std::ios::app);
+						Cars_Name << std::endl << addname;
+						std::cout << "\n   Car Name Added!\n";
+
+						std::ofstream Cars_Price("Text Files/Cars_Price.txt", std::ios::app);
+						Cars_Price << std::endl << addprice;
+						std::cout << "\n   Car Name & Price Added!\n";
+
+						std::cout << std::endl;
+						std::cout << "   ";
+						system("pause");
+						goto CarData;
+
+
+					}
+
+					// Edit Cars Name & Price
+					else if (CarChoice == 3) {
+
+
+
+					}
+
+					// Delete Cars Name & Price
+					else if (CarChoice == 4) {
+					DeleteCarsNamePrice:
+						system("color a");
+						system("cls");
+
+						std::cout << std::endl;
+						SetConsoleTextAttribute(h, 7);
+						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
+						SetConsoleTextAttribute(h, 1);
+						std::cout << "                   Car Dealership Management (CDM)                    \n\n";
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "                       Delete Car Name & Price                       \n\n";
+						SetConsoleTextAttribute(h, 7);
+						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n";
+						SetConsoleTextAttribute(h, 1);
+
+						std::ifstream Cars_Name("Text Files/Cars_Name.txt");
 						std::ifstream Cars_Price("Text Files/Cars_Price.txt");
-						if (Cars_Price.is_open())
-						{
 
-							std::cout << std::endl
-								<< "   Car Price XD"
-								<< std::endl;
+						std::string CName;
+						std::string CPrice;
+
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "\n======================================================================" << std::endl;
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "|      ";
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "Line";
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "\t |      ";
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "Name";
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "\t  |\t";
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "Price";
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "\t\t\t\t|";
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "\n======================================================================" << std::endl;
+						SetConsoleTextAttribute(h, 1);
+
+						int i = 0;
+						while ((Cars_Name >> CName) && (Cars_Price >> CPrice)) {
+							i++;
+
+							SetConsoleTextAttribute(h, 13);
+							std::cout << "|"; 
+							SetConsoleTextAttribute(h, 10);
+							std::cout << "      [";
+							SetConsoleTextAttribute(h, 15);
+							std::cout << i;
+							SetConsoleTextAttribute(h, 10);
+							std::cout << "]\t";
+							SetConsoleTextAttribute(h, 13);
+							std::cout << " |     ";
+							SetConsoleTextAttribute(h, 9);
+							std::cout << CName;
+							std::cout << "\t";
+							SetConsoleTextAttribute(h, 13);
+							std::cout << "  |\t";
+							SetConsoleTextAttribute(h, 11);
+							std::cout << CPrice;
+							SetConsoleTextAttribute(h, 9);
+							std::cout << " pesos\t\t\t|"; 
+							SetConsoleTextAttribute(h, 13);
+							std::cout << "----------------------------------------------------------------------";
+							std::cout << std::endl;
+
+						}
+
+						/*
+						while (Cars_Price >> CPrice) {
+
+							std::cout << "|\t";
+							SetConsoleTextAttribute(h, 11);
+							std::cout << CPrice;
+							std::cout << std::endl;
+							SetConsoleTextAttribute(h, 13);
+							std::cout << "----------------------------------------------------------------------";
+							std::cout << std::endl;
+
+						}
+						*/
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "   Press ESC button to go back" << std::endl;
+						std::cout << std::endl;
+						std::cout << std::endl;
+						std::cout << "   Type the number of line to delete";
+						std::cout << std::endl;
 
 
-							int number_of_price = 0;
-							std::string line;
-							std::ifstream myCars_Color("Text Files/Cars_Price.txt");
 
-							while (std::getline(myCars_Color, line))
-								++number_of_price;
 
-							std::string Toyota_Cars_Price[50];
 
-							for (int i = 0; i < number_of_price; ++i)
-							{
+						// deletion per line
 
-								Cars_Price >> Toyota_Cars_Price[i];
-								std::cout << "     ("
-										  << i + 1
-										  << ") "
-										  << Toyota_Cars_Price[i]
-										  << " Pesos"
-										  << std::endl;
+						// variables for storing the filename of the file and the line number to 
+						// delete in the file  
+						int line_number;
 
-							}
 
-							std::cout << std::endl
-								<< "   ";
+						// Prompt the user to enter the line number to delete in the file, store it 
+						// into line_number
 
-							system("pause");
+						std::cout << "   Line: ";
+
+
+						// ESC button back
+						int esc;
+						esc = _getch();
+						if (esc == 27) {
+							system("cls");
 							goto CarData;
 						}
+
+
+						std::cin >> line_number;
+
+						// fstream object will be used to read all of the existing lines in the file
+						std::fstream Cars_Name_file;
+
+						// Open the file with the provided filename
+						Cars_Name_file.open("Text Files/Cars_Name.txt");
+
+						// If file failed to open, exit with an error message and error exit status
+						if (Cars_Name_file.fail())
+						{
+							system("color 4f");
+							std::cout << std::endl;
+							std::cout << "   Error opening file." << std::endl;
+
+							Sleep(3000);
+							goto DeleteCarsNamePrice;
+							// returning 1 instead of 0 is a signal to the shell that something went 
+							// wrong in the execution of the program    
+						}
+
+						// Create a vector to store all the file lines, and a string line to store 
+						// each line that we read
+						std::vector<std::string> linesNames;
+						std::string lineNames;
+
+						// Read each line of the file and store it as the next element of the vector,
+						// the loop will stop when there are no more lines to read
+						while (getline(Cars_Name_file, lineNames))
+							linesNames.push_back(lineNames);
+
+						// Close our access to the file since we are done reading with it  
+						Cars_Name_file.close();
+
+						// The vector will now contain an element for each line in the file, so the 
+						 // size of the vector is the number of lines in the file.  Check to make 
+						 // sure the line number requested does not exceed the number of lines in 
+						 // the file, if it does, exit with an error message and status.
+						if (line_number > linesNames.size())
+						{
+							std::cout << std::endl;
+							std::cout << "   Line " << line_number;
+							std::cout << " not in file." << std::endl;
+
+							// Inform user how many lines ARE in the file as part of the error message
+							std::cout << "   File has " << linesNames.size();
+							std::cout << " lines." << std::endl;
+
+							Sleep(3000);
+							goto DeleteCarsNamePrice;
+						}
+
+						// Create ofstream object for writing to the file
+						std::ofstream write_name;
+
+						// Open the file with the provided filename
+						write_name.open("Text Files/Cars_Name.txt");
+
+						// If the file failed to open, exit with an error message and exit status
+						if (write_name.fail())
+						{
+							system("color 4f");
+
+							std::cout << std::endl;
+							std::cout << "   Error opening file." << std::endl;
+
+
+							Sleep(3000);
+							goto DeleteCarsNamePrice;
+						}
+
+						// Write all of the lines stored in the vector back to the file, EXCEPT the
+						// line that we want to delete.
+
+						// Line number 1 will be stored at vector index 0, line number 2 will be 
+						// stored at vector index 1, and so on because vectors are zero-indexed, so 
+						// decrement line_number to help us identify when we've reached the 
+						// associated line in the file.
+						line_number--;
+
+						// Loop through the vector elements to write each line back to the file 
+						// EXCEPT the line we want to delete.
+						for (int i = 0; i < linesNames.size(); i++)
+							if (i != line_number)
+								write_name << lineNames[i] << std::endl;
+
+						// Close our access to the file since we are done working with it
+						write_name.close();
+
+						
+						
+						
+						
+						
+
+						// fstream object will be used to read all of the existing lines in the file
+						std::fstream Cars_Price_file;
+
+						// Open the file with the provided filename
+						Cars_Price_file.open("Text Files/Cars_Price.txt");
+
+						// If file failed to open, exit with an error message and error exit status
+						if (Cars_Price_file.fail())
+						{
+							system("color 4f");
+							std::cout << std::endl;
+							std::cout << "   Error opening file." << std::endl;
+
+							Sleep(3000);
+							goto DeleteCarsNamePrice;
+							// returning 1 instead of 0 is a signal to the shell that something went 
+							// wrong in the execution of the program    
+						}
+
+						// Create a vector to store all the file lines, and a string line to store 
+						// each line that we read
+						std::vector<std::string> linesPrices;
+						std::string linePrices;
+
+						// Read each line of the file and store it as the next element of the vector,
+						// the loop will stop when there are no more lines to read
+						while (getline(Cars_Price_file, linePrices))
+							linesPrices.push_back(linePrices);
+
+						// Close our access to the file since we are done reading with it  
+						Cars_Price_file.close();
+
+						// The vector will now contain an element for each line in the file, so the 
+						 // size of the vector is the number of lines in the file.  Check to make 
+						 // sure the line number requested does not exceed the number of lines in 
+						 // the file, if it does, exit with an error message and status.
+						if (line_number > linesPrices.size())
+						{
+							std::cout << std::endl;
+							std::cout << "   Line " << line_number;
+							std::cout << " not in file." << std::endl;
+
+							// Inform user how many lines ARE in the file as part of the error message
+							std::cout << "   File has " << linesPrices.size();
+							std::cout << " lines." << std::endl;
+
+							Sleep(3000);
+							goto DeleteCarsNamePrice;
+						}
+
+						// Create ofstream object for writing to the file
+						std::ofstream write_price;
+
+						// Open the file with the provided filename
+						write_price.open("Text Files/Cars_Price.txt");
+
+						// If the file failed to open, exit with an error message and exit status
+						if (write_price.fail())
+						{
+							system("color 4f");
+
+							std::cout << std::endl;
+							std::cout << "   Error opening file." << std::endl;
+
+
+							Sleep(3000);
+							goto DeleteCarsNamePrice;
+						}
+
+						// Write all of the lines stored in the vector back to the file, EXCEPT the
+						// line that we want to delete.
+
+						// Line number 1 will be stored at vector index 0, line number 2 will be 
+						// stored at vector index 1, and so on because vectors are zero-indexed, so 
+						// decrement line_number to help us identify when we've reached the 
+						// associated line in the file.
+						line_number--;
+
+						// Loop through the vector elements to write each line back to the file 
+						// EXCEPT the line we want to delete.
+						for (int i = 0; i < linesPrices.size(); i++)
+							if (i != line_number)
+								write_price << linePrices[i] << std::endl;
+
+						// Close our access to the file since we are done working with it
+						write_price.close();
+
+
+
+
+
+
+						
+						std::cout << std::endl;
+						std::cout << "   Line " << line_number + 1 << " has been deleted";
+
+						
+						
+						
+						
+						
+						
+						
+						
+						system("pause");
+						goto AdminMenu;
+
+
+
+
+					}
+
+					// View Cars Color
+					else if (CarChoice == 5)
+					{
+						system("color a");
+						system("cls");
+
+						std::cout << std::endl;
+						SetConsoleTextAttribute(h, 7);
+						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
+						SetConsoleTextAttribute(h, 1);
+						std::cout << "                   Car Dealership Management (CDM)                    \n\n";
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "                           View Cars Color                            \n\n";
+						SetConsoleTextAttribute(h, 7);
+						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n";
+						SetConsoleTextAttribute(h, 1);
+
+						// Car Color
+						std::cout << std::endl;
+						std::cout << "  Car colors:";
+						std::cout << std::endl;
+
+						NamiasClass NamiasObject2;
+						NamiasObject2.display_color(toyota_car_color, sizeof(toyota_car_color) / sizeof(toyota_car_color[0]));
+
+						std::cout << std::endl;
+						std::cout << "   ";
+						system("pause");
+						goto CarData;
+
+
+					}
+
+					// Add Cars Color
+					else if (CarChoice == 6) {
+
+						system("cls");
+
+						std::cout << std::endl;
+						SetConsoleTextAttribute(h, 7);
+						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
+						SetConsoleTextAttribute(h, 1);
+						std::cout << "                   Car Dealership Management (CDM)                    \n\n";
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "                            Add Car Colors                            \n\n";
+						SetConsoleTextAttribute(h, 7);
+						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
+						SetConsoleTextAttribute(h, 1);
+
+
+						std::string addcolor;
+						std::cout << "\n   Enter the Color: ";
+						SetConsoleTextAttribute(h, 13);
+						std::cin >> addcolor;
+						SetConsoleTextAttribute(h, 1);
+
+						std::ofstream reg("Text Files/Cars_Color.txt", std::ios::app);
+						reg << std::endl << addcolor;
+						std::cout << "\n   Car Color Added!\n";
+					
+						std::cout << std::endl;
+						std::cout << "   ";
+						system("pause");
+						goto CarData;
+
+
+					}
+
+					// Edit Cars Color
+					else if (CarChoice == 7) {
+
+
+					}
+
+					// Delete Cars Color
+					else if (CarChoice == 8) {
+					DeleteCarsColor:
+						system("color a");
+						system("cls");
+
+						std::cout << std::endl;
+						SetConsoleTextAttribute(h, 7);
+						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
+						SetConsoleTextAttribute(h, 1);
+						std::cout << "                   Car Dealership Management (CDM)                    \n\n";
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "                           Delete Car Color                           \n\n";
+						SetConsoleTextAttribute(h, 7);
+						std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n";
+						SetConsoleTextAttribute(h, 1);
+
+						std::ifstream CarColorFile("Text Files/Cars_Color.txt");
+
+						std::string Color;
+
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "\n======================================================================" << std::endl;
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "\tLine\t|    Color";
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "\n======================================================================" << std::endl;
+
+						SetConsoleTextAttribute(h, 1);
+
+						int j = 0;
+						while (CarColorFile >> Color) {
+
+							j++;
+
+							SetConsoleTextAttribute(h, 10);
+							std::cout << "\t[";
+							SetConsoleTextAttribute(h, 15);
+							std::cout << j;
+							SetConsoleTextAttribute(h, 10);
+							std::cout << "]\t|    ";
+							SetConsoleTextAttribute(h, 9);
+							std::cout << Color;
+							std::cout << std::endl;
+							SetConsoleTextAttribute(h, 13);
+							std::cout << "----------------------------------------------------------------------";
+							std::cout << std::endl;
+
+						}
+
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "   Press ESC button to go back" << std::endl;
+						std::cout << std::endl;
+						std::cout << std::endl;
+						std::cout << "   Type the number of line to delete";
+						std::cout << std::endl;
+
+
+
+
+
+						// deletion per line
+
+						// variables for storing the filename of the file and the line number to 
+						// delete in the file  
+						int line_number;
+
+
+						// Prompt the user to enter the line number to delete in the file, store it 
+						// into line_number
+
+						std::cout << std::endl;
+						std::cout << "   Line: ";
+
+
+						// ESC button back
+						int esc;
+						esc = _getch();
+						if (esc == 27) {
+							system("cls");
+							goto CarData;
+						}
+
+
+						std::cin >> line_number;
+
+						// fstream object will be used to read all of the existing lines in the file
+						std::fstream read_file;
+
+						// Open the file with the provided filename
+						read_file.open("Text Files/Employee.txt");
+
+						// If file failed to open, exit with an error message and error exit status
+						if (read_file.fail())
+						{
+							system("color 4f");
+							std::cout << std::endl;
+							std::cout << "   Error opening file." << std::endl;
+
+							Sleep(3000);
+							goto DeleteCarsColor;
+							// returning 1 instead of 0 is a signal to the shell that something went 
+							// wrong in the execution of the program    
+						}
+
+						// Create a vector to store all the file lines, and a string line to store 
+						// each line that we read
+						std::vector<std::string> lines;
+						std::string line;
+
+						// Read each line of the file and store it as the next element of the vector,
+						// the loop will stop when there are no more lines to read
+						while (getline(read_file, line))
+							lines.push_back(line);
+
+						// Close our access to the file since we are done reading with it  
+						read_file.close();
+
+						// The vector will now contain an element for each line in the file, so the 
+						 // size of the vector is the number of lines in the file.  Check to make 
+						 // sure the line number requested does not exceed the number of lines in 
+						 // the file, if it does, exit with an error message and status.
+						if (line_number > lines.size())
+						{
+							std::cout << std::endl;
+							std::cout << "   Line " << line_number;
+							std::cout << " not in file." << std::endl;
+
+							// Inform user how many lines ARE in the file as part of the error message
+							std::cout << "   File has " << lines.size();
+							std::cout << " lines." << std::endl;
+
+							Sleep(3000);
+							goto DeleteCarsColor;
+						}
+
+						// Create ofstream object for writing to the file
+						std::ofstream write_file;
+
+						// Open the file with the provided filename
+						write_file.open("Text Files/Employee.txt");
+
+						// If the file failed to open, exit with an error message and exit status
+						if (write_file.fail())
+						{
+							system("color 4f");
+
+							std::cout << std::endl;
+							std::cout << "   Error opening file." << std::endl;
+
+
+							Sleep(3000);
+							goto DeleteCarsColor;
+						}
+
+						// Write all of the lines stored in the vector back to the file, EXCEPT the
+						// line that we want to delete.
+
+						// Line number 1 will be stored at vector index 0, line number 2 will be 
+						// stored at vector index 1, and so on because vectors are zero-indexed, so 
+						// decrement line_number to help us identify when we've reached the 
+						// associated line in the file.
+						line_number--;
+
+						// Loop through the vector elements to write each line back to the file 
+						// EXCEPT the line we want to delete.
+						for (int i = 0; i < lines.size(); i++)
+							if (i != line_number)
+								write_file << lines[i] << std::endl;
+
+						// Close our access to the file since we are done working with it
+						write_file.close();
+
+						std::cout << std::endl;
+						std::cout << "   Line " << line_number + 1 << " has been deleted";
+
+						system("pause");
+						goto CarData;
+
 
 					}
 
 					// Back
-					else if (CarChoice == 4) {
+					else if (CarChoice == 9) {
 
 						Sleep(500);
 						goto AdminMenu;
 
 					}
+
+
 
 					else {
 						std::cout << std::endl 
@@ -1175,7 +2339,7 @@ int main()
 							<< std::endl;
 
 						Sleep(2000);
-						goto CarData;
+						goto AdminMenu;
 
 
 
@@ -1205,16 +2369,18 @@ int main()
 
 				// Order Logs
 				else if (adminchoice == 3) {
+				OrderLogs:
+				system("color a");
 				system("cls");
 
 				std::cout << std::endl;
-				SetConsoleTextAttribute(h, 13);
+				SetConsoleTextAttribute(h, 7);
 				std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 				SetConsoleTextAttribute(h, 1);
 				std::cout << "                   Car Dealership Management (CDM)                    \n\n";
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "                              Order Logs                              \n\n";
-				SetConsoleTextAttribute(h, 13);
+				SetConsoleTextAttribute(h, 7);
 				std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n";
 				SetConsoleTextAttribute(h, 1);
 
@@ -1230,55 +2396,74 @@ int main()
 
 				SetConsoleTextAttribute(h, 13);
 				std::cout << "\n======================================================================" << std::endl;
-				SetConsoleTextAttribute(h, 10);
-				std::cout << "      Date";
 				SetConsoleTextAttribute(h, 13);
-				std::cout << "    |\t";
+				std::cout << "|    ";
+				SetConsoleTextAttribute(h, 10);
+				std::cout << "Date";
+				SetConsoleTextAttribute(h, 13);
+				std::cout << "     |\t";
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "  Time";
 				SetConsoleTextAttribute(h, 13);
-				std::cout << "   |  ";
+				std::cout << "   |   ";
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "Car Name";
 				SetConsoleTextAttribute(h, 13);
-				std::cout << "  |\t ";
+				std::cout << "   | ";
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "Car Color";
 				SetConsoleTextAttribute(h, 13);
-				std::cout << "  |\t";
+				std::cout << " |\t";
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "Car Price";
 				SetConsoleTextAttribute(h, 13);
+				std::cout << "\t|";
 				std::cout << "\n======================================================================" << std::endl;
-
 				SetConsoleTextAttribute(h, 1);
+
+
 				while (Order_Logs >> date >> time >> car_name >> car_color >> car_price) {
-					std::cout << "   " << date << "\t" << time << "    " << car_name << "\t " << car_color << "\t\t" << car_price << std::endl;
+					SetConsoleTextAttribute(h, 13);
+					std::cout << "| ";
+					SetConsoleTextAttribute(h, 9);
+					std::cout << date;
+					SetConsoleTextAttribute(h, 13);
+					std::cout << " |\t";
+					SetConsoleTextAttribute(h, 11);
+					std::cout << time;
+					SetConsoleTextAttribute(h, 13);
+					std::cout << " |   ";
+					SetConsoleTextAttribute(h, 9);
+					std::cout << car_name;
+					SetConsoleTextAttribute(h, 13);
+					std::cout << "\t| ";
+					SetConsoleTextAttribute(h, 11);
+					std::cout << car_color;
+					SetConsoleTextAttribute(h, 13);
+					std::cout << "\t    | \t";
+					SetConsoleTextAttribute(h, 9);
+					
+
+					std::cout << std::fixed << car_price;
+
+
+					// std::cout << car_price;
+					SetConsoleTextAttribute(h, 13);
+					std::cout << "\t\t|";
+					std::cout << std::endl;
+					SetConsoleTextAttribute(h, 13);
 					std::cout << "----------------------------------------------------------------------";
 					std::cout << std::endl;
 				}
 
+				SetConsoleTextAttribute(h, 1);
 				std::cout << std::endl;
 				std::cout << "\n   All Order Logs Data!";
-				std::cout << "\n   Press Enter to Continue!";
-				std::cin.get();
+				std::cout << std::endl;
+				std::cout << "   ";
+				system("pause");
 				system("cls");
 				goto AdminMenu;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1286,12 +2471,14 @@ int main()
 
 				// Order Cars
 				else if (adminchoice == 4) {
-					system("cls");
+				system("color a");
+				system("cls");
 					goto OrderCars;
 				}
 
 				// About Us
 				else if (adminchoice == 5) {
+					system("color a");
 					AboutUs();
 					std::cout << "\n\n   Press ENTER to go back ";
 					std::cin.get();
@@ -1300,6 +2487,7 @@ int main()
 
 				// Back
 				else if (adminchoice == 6) {
+					system("color a");
 					system("cls");
 					goto LoginForm;
 				}
@@ -1325,22 +2513,23 @@ int main()
 			}
 		}
 		
-		// Employee (not done yet)
+		// Employee ((not done yet)) some what  working)
 		else if (choice == 2) {
 		Employeelogin:
+			system("color a");
 			system("cls");
 
 			int Employeelogin = 0;
 			std::string user, pass, u, p;
 
 			std::cout << std::endl;
-			SetConsoleTextAttribute(h, 13);
+			SetConsoleTextAttribute(h, 7);
 			std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 			SetConsoleTextAttribute(h, 1);
 			std::cout << "                   Car Dealership Management (CDM)                    \n\n";
 			SetConsoleTextAttribute(h, 10);
 			std::cout << "                            Employee Login                            \n\n";
-			SetConsoleTextAttribute(h, 13);
+			SetConsoleTextAttribute(h, 7);
 			std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 			SetConsoleTextAttribute(h, 1);
 
@@ -1405,15 +2594,9 @@ int main()
 
 			std::ifstream input("Text Files/Employee.txt");
 
-			std::cout << u << " " << p;
-
-			return 0;
-
 			while (input >> u >> p)
 			{
-				std::cout << u << " " << p;
 
-				return 0;
 				if (u == user && p == pass)
 				{
 					Employeelogin = 1;
@@ -1425,15 +2608,15 @@ int main()
 
 				else if (u != user)
 				{
-					std::cout << "\n\n   Invalid username please try again";
-					Sleep(3000);
+					std::cout << "\n\n   Invalid Username please try again";
+					Sleep(2000);
 					goto Employeelogin;
 				}
 
 				else if (p != pass)
 				{
-					std::cout << "\n\n   Invalid password please try again";
-					Sleep(3000);
+					std::cout << "\n\n   Invalid Password please try again";
+					Sleep(2000);
 					goto Employeelogin;
 				}
 
@@ -1442,14 +2625,10 @@ int main()
 					Employeelogin = 0;
 					system("cls");
 					system("color 4f");
-					std::cout << "\n\n   Wrong username or password!"
+					std::cout << "\n\n   Wrong Username or Password!"
 						<< "\n   Try to login again\n\n";
-
-					std::cout << "\n   Press Enter to Continue!";
-					std::cin.get();
-					std::cin.get();
-
-					main();
+					Sleep(2000);
+					goto Employeelogin;
 				}
 
 			}
@@ -1458,19 +2637,24 @@ int main()
 
 			if (Employeelogin == 1)
 			{
+			EmployeeMenu:
+				system("color a");
 				system("cls");
-				std::cin.get();
 
 				// Login
 				std::cout << std::endl;
-				SetConsoleTextAttribute(h, 13);
+				SetConsoleTextAttribute(h, 7);
 				std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 				SetConsoleTextAttribute(h, 1);
 				std::cout << "                   Car Dealership Management (CDM)                    \n\n";
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "                           Employee Access                            \n";
-				std::cout << "                             (" << user << ")                         \n\n";
-				SetConsoleTextAttribute(h, 13);
+				std::cout << "                               (";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << user;
+				SetConsoleTextAttribute(h, 10);
+				std::cout << ")                     \n\n";
+				SetConsoleTextAttribute(h, 7);
 				std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
 				SetConsoleTextAttribute(h, 1);
 
@@ -1479,42 +2663,148 @@ int main()
 				SetConsoleTextAttribute(h, 2);
 				std::cout << "   [3] About Us\n\n";
 				SetConsoleTextAttribute(h, 4);
-				std::cout << "   [4] Exit\n\n";
+				std::cout << "   [4] Back\n\n";
 				SetConsoleTextAttribute(h, 1);
 
 				std::cout << "   Please insert your choice: ";
 
 				SetConsoleTextAttribute(h, 13);
-				std::cin >> adminchoice;
+				std::cin >> employeechoice;
 				std::cout << std::endl;
 				std::cin.ignore();
 
 				// Order Logs
-				if (adminchoice == 1) {
+				if (employeechoice == 1) {
+					system("color a");
+					system("cls");
+
+					std::cout << std::endl;
+					SetConsoleTextAttribute(h, 7);
+					std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n\n";
+					SetConsoleTextAttribute(h, 1);
+					std::cout << "                   Car Dealership Management (CDM)                    \n\n";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "                              Order Logs                              \n\n";
+					SetConsoleTextAttribute(h, 7);
+					std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n";
+					SetConsoleTextAttribute(h, 1);
+
+					std::ifstream Order_Logs("Text Files/Order_Logs.txt");
+
+					std::string date;
+					std::string time;
+					std::string car_name;
+					std::string car_color;
+					std::string car_price;
+					std::string car_payment;
+					std::string car_change;
+
+					SetConsoleTextAttribute(h, 13);
+					std::cout << "\n======================================================================" << std::endl;
+					SetConsoleTextAttribute(h, 13);
+					std::cout << "|     ";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "Date";
+					SetConsoleTextAttribute(h, 13);
+					std::cout << "    |\t";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "  Time";
+					SetConsoleTextAttribute(h, 13);
+					std::cout << "   |   ";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "Car Name";
+					SetConsoleTextAttribute(h, 13);
+					std::cout << "   | ";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "Car Color";
+					SetConsoleTextAttribute(h, 13);
+					std::cout << " |\t";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "Car Price";
+					SetConsoleTextAttribute(h, 13);
+					std::cout << "\t|";
+					std::cout << "\n======================================================================" << std::endl;
+					SetConsoleTextAttribute(h, 1);
+
+
+					while (Order_Logs >> date >> time >> car_name >> car_color >> car_price) {
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "|  ";
+						SetConsoleTextAttribute(h, 9);
+						std::cout << date;
+						SetConsoleTextAttribute(h, 13);
+						std::cout << " |\t";
+						SetConsoleTextAttribute(h, 11);
+						std::cout << time;
+						SetConsoleTextAttribute(h, 13);
+						std::cout << " |   ";
+						SetConsoleTextAttribute(h, 9);
+						std::cout << car_name;
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "\t| ";
+						SetConsoleTextAttribute(h, 11);
+						std::cout << car_color;
+						SetConsoleTextAttribute(h, 13);
+
+						std::cout << "\t    |\t";
+						SetConsoleTextAttribute(h, 9);
+						std::cout << car_price;
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "\t\t|";
+						std::cout << std::endl;
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "----------------------------------------------------------------------";
+						std::cout << std::endl;
+					}
+
+					SetConsoleTextAttribute(h, 1);
+					std::cout << std::endl;
+					std::cout << "\n   All Order Logs Data!";
+					std::cout << std::endl;
+					std::cout << "   ";
+					system("pause");
+					system("cls");
+					goto EmployeeMenu;
+
+
+
 
 				}
 
 				// Order Cars
-				else if (adminchoice == 2) {
-
+				else if (employeechoice == 2) {
+					system("cls");
+					system("color a");
+					goto OrderCars;
 				}
 
 				// About Us
-				else if (adminchoice == 3) {
+				else if (employeechoice == 3) {
+					system("color a");
 					AboutUs();
 					std::cout << "\n\n   Press ENTER to go back ";
 					std::cin.get();
 
+					goto EmployeeMenu;
+
 				}
 
-				// Exit
-				else if (adminchoice == 4) {
-
+				// Back
+				else if (employeechoice == 4) {
+					system("cls");
+					system("color a");
+					std::cin.ignore();
+					goto LoginForm;
 				}
 
 				// Wrong input
 				else {
-					//default
+					system("cls");
+					system("color 4f");
+					std::cout << "\n   Wrong input entered!\n" << std::endl;
+					Sleep(2000);
+					std::cin.ignore();
+					goto LoginForm;
 				}
 
 
@@ -1523,9 +2813,13 @@ int main()
 			// Wrong login
 			else
 			{
-				std::cout << "\nLOGIN ERROR!!!"
-						  << "\nPlease check your username and password\n";
-				main();
+				system("cls");
+				system("color 4f");
+				std::cout << "\n   LOGIN ERROR!!!"
+						  << "\n   Please check your Username and Password\n";
+				Sleep(3000);
+				std::cin.ignore();
+				goto LoginForm;
 			}
 		}
 
@@ -1542,23 +2836,29 @@ int main()
 		// Guest
 		else if (choice == 3) {
 			// go directly no need for logic
+			system("color a");
+			system("cls");
+			goto OrderCars;
 		}
 
 		// About Us
 		else if (choice == 4) {
+			system("color a");
 			AboutUs();
 			std::cout << "\n\n   Press ENTER to go back ";
 			std::cin.get();
 
-			main();
-
+			Sleep(3000);
+			goto LoginForm;
 		}
+
 		// Exit
 		else if (choice == 5) {
 			system("cls");
 			system("color 01");
 			std::cout << "\n   Thanks for using this program\n"
-					  << "\n   This program is created by @PP_Namias\n\n";
+					  << "\n   This program is created by @PP-Namias\n\n";
+			Sleep(3000);
 			return 0;
 		}
 
@@ -1567,7 +2867,8 @@ int main()
 			system("cls");
 			system("color 4f");
 			std::cout << "\n   Wrong input entered!\n" << std::endl;
-			return 0;
+			Sleep(3000);
+			goto LoginForm;
 		}
 
 
@@ -1616,18 +2917,31 @@ int main()
 		std::cout << std::endl;
 		std::cout << "  Welcome to Toyota Car Dealership\n"
 				  << "  Here's the list of Cars: \n ";
-		
+
+		SetConsoleTextAttribute(h, 10);
+		std::cout << "\n  Press ESC button to go back" << std::endl;
+
 		// Callout car names/prices [formated]
 		NamiasClass NamiasObject;
-		NamiasObject.display_menu("\n   Toyota", toyota_car_names, toyota_car_prices, sizeof(toyota_car_names) / sizeof(toyota_car_names[0]));
+		NamiasObject.display_menu("\n  Toyota", toyota_car_names, toyota_car_prices, sizeof(toyota_car_names) / sizeof(toyota_car_names[0]));
 		
 		std::cout << "\n  Input Number According to the type of Car: ";
+
+		// ESC button back
+		int esc;
+		esc = _getch();
+		if (esc == 27) {
+			system("cls");
+			goto LoginForm;
+		}
+
 		std::cin >> Cars;
 		
 		if (Cars < 1 || Cars > sizeof(toyota_car_names) / sizeof(toyota_car_names[0])) {
 			system("cls");
 			system("color 4f");
 			std::cout << "\n  Invalid input please try ordering again.\n";
+			std::cin.ignore();
 			Sleep(2000);
 			goto OrderCars;
 		}
@@ -1664,6 +2978,9 @@ int main()
 				// Callout all Color [Fomated]
 				NamiasClass NamiasObject2;
 				NamiasObject2.display_color(toyota_car_color, sizeof(toyota_car_color) / sizeof(toyota_car_color[0]));
+			
+				std::cout << "\n  Please select the Number of Color: "; 
+				
 				std::cin >> Color;
 
 				// Verification
@@ -1672,7 +2989,7 @@ int main()
 					system("color 4f");
 					std::cout << "  Please try again if you entered the incorrect information.";
 					Sleep(2000);
-					goto SelectColor;
+					goto OrderCars;
 				}
 
 				else if (Color >= 1 || Color <= sizeof(toyota_car_color) / sizeof(toyota_car_color[0])) {
@@ -1742,12 +3059,12 @@ int main()
 						std::cout << "\n  Invalid input please try ordering again.\n";
 						std::cin.ignore();
 						Sleep(2000);
-						goto Cashier;
+						goto OrderCars;
 					}
 
 					// Receipt
 					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 13);
+					SetConsoleTextAttribute(h, 7);
 					std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n";
 					std::cout << std::endl;
 					SetConsoleTextAttribute(h, 1);
@@ -1758,7 +3075,7 @@ int main()
 							  << "                       Email: jkrbn99@gmail.com                       \n"
 							  << "                        Website: Toyota.com.ph                        \n"
 							  << std::endl;
-					SetConsoleTextAttribute(h, 13);
+					SetConsoleTextAttribute(h, 7);
 					std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n";
 					SetConsoleTextAttribute(h, 1);
 					std::cout << std::endl;
@@ -1769,12 +3086,12 @@ int main()
 					auto tm = *std::localtime(&t);
 
 					std::ostringstream oss;
-					oss << std::put_time(&tm, "%d_%m_%Y\t%H_%M_%S");
+					oss << std::put_time(&tm, "%b/%d/%Y\t%H:%M:%S");
 					auto str = oss.str();
 
-					std::ofstream reg("Text Files/Order_Logs.txt", std::ios::app);
-					reg << std::endl << str << "\t" << toyota_car_names[Cars - 1] << '\t' << toyota_car_color[Color - 1] << '\t' << toyota_car_prices[Cars - 1] << '\t';
-					std::cin.get();
+					std::ofstream Order_Logs("Text Files/Order_Logs.txt", std::ios::app);
+					Order_Logs << std::endl << str << "\t" << toyota_car_names[Cars - 1] << '\t' << toyota_car_color[Color - 1] << '\t' << toyota_car_prices[Cars - 1];
+					Order_Logs.close();
 
 					// Order again?
 					std::cout << "\n  Do you want to order again? Type Y if yes and type N if no: ";
@@ -1814,7 +3131,7 @@ int main()
 					system("color 4f");
 					std::cout << "\n  Invalid input please try again.\n";		
 					Sleep(2000);
-					goto SelectColor;
+					goto OrderCars;
 				}
 
 
@@ -1921,22 +3238,27 @@ void forgot()
 {
 	int ch;
 	system("cls");
-	std::cout << "Forgotten ? We're here for help\n";
-	std::cout << "1.Search your id by username" << std::endl;
-	std::cout << "2.Search your id by password" << std::endl;
-	std::cout << "3.Main menu" << std::endl;
+	std::cout << std::endl;
+	std::cout << "   [1] Search your Password by Username" << std::endl;
+	std::cout << "   [2] Search your Username by Password" << std::endl;
+	std::cout << "   [3] Back" << std::endl;
+	std::cout << std::endl;
+
 	std::cout << "Enter your choice :";
 	std::cin >> ch;
+	
 	switch (ch)
 	{
 	case 1:
 	{
+
 		int login = 0;
 		std::string searchuser, su, sp;
-		std::cout << "\nEnter your remembered username :";
+		std::cout << "\nEnter your remembered Username :";
 		std::cin >> searchuser;
 
 		std::ifstream searchu("Text Files/Employee.txt");
+		
 		while (searchu >> su >> sp)
 		{
 			if (su == searchuser)
@@ -1945,6 +3267,7 @@ void forgot()
 			}
 		}
 		searchu.close();
+
 		if (login == 1)
 		{
 			std::cout << "\n\nHurray, account found\n";
@@ -1954,6 +3277,7 @@ void forgot()
 			system("cls");
 			main();
 		}
+
 		else
 		{
 			std::cout << "\nSorry, Your userID is not found in our database\n";
@@ -1962,7 +3286,9 @@ void forgot()
 			std::cin.get();
 			main();
 		}
+
 		break;
+
 	}
 	case 2:
 	{
@@ -2003,12 +3329,14 @@ void forgot()
 
 	case 3:
 	{
-		std::cin.get();
+		std::cout << "Sorry, You entered wrong choice. Kindly try again" << std::endl;
+		Sleep(2000);
 		main();
 	}
 	default:
 		std::cout << "Sorry, You entered wrong choice. Kindly try again" << std::endl;
-		forgot();
+		Sleep(2000);
+		main();
 	}
 
 
@@ -2164,3 +3492,70 @@ void deleteHouse()
 void AboutUs() {
 
 }
+
+
+
+
+/*
+void login()
+{
+	//Student laccount;
+	string username, pass;
+	bool exist;
+	int choice;
+
+	cout << "Welcome to CSD Login portal, please input your username and password!\n";
+	cout << "Name: ";
+	cin >> laccount.username;
+
+	cout << "Password: ";
+	cin >> laccount.password;
+
+	ifstream input(laccount.username + ".txt");
+
+	while (input >> username >> pass)
+	{
+		if (username == laccount.username && pass == laccount.password)
+		{
+			exist = true;
+		}
+	}
+
+	if (exist == true)
+	{
+		system("cls");
+		cout << "Welcome! " << laccount.username << "\n";
+		ifstream show;
+		show.open(laccount.username + "details.txt");
+		if (show)
+		{
+			system("cls");
+			// Attaches the username to the name1 para matawag siya globally
+			name1 = laccount.username;
+			cout << "Directing you to your dashboard\n";
+			dashboard();
+		}
+
+		else
+		{
+			system("cls");
+			cout << "Create your own dashboard\n";
+			c_dashboard();
+		}
+		input.close();
+	}
+
+	if (exist == false)
+	{
+		system("cls");
+		cout << "Account not found.....Please try again\n";
+		cout << "Type in 0 to retry: ";
+		cin >> choice;
+		if (choice == 0)
+		{
+			main();
+		}
+	}
+}
+
+*/

@@ -13,25 +13,68 @@ This project, which is a topic of the Fundamentals of Programming course, involv
 
 ## Features
 
-Planned (❌) and currently working (✔) - but not necessarily fully completed - features:
+Planned (✘) and currently working (✔) - but not necessarily fully completed - features:
 
 
 ### Admin (Not yet added)
 
-- ❌ Edit Employee Data
-- ❌ Edit Cars Data
-- ❌ Order Logs
+- ✔ Edit Employee Data
+    * ✔ Add Employee Data
+    * ✔ Display Employee Data
+    * ✘ Search Employee Data
+    * ✔ Edit Employee Data
+    * ✔ Delete Employee Data
+> 
+- ✔ Cars Data
+    * ✔ View Cars Name & Price
+    * ✔ Add Cars Name & Price
+    * ✘ Edit Cars Name & Price
+    * ✔ Delete Cars Name & Price
+    * ✔ View Cars Color
+    * ✔ Add Cars Color
+    * ✘ Edit Cars Color
+    * ✔ Delete Cars Color
+>
+- ✔ Order Logs
+    * ✔ Date
+    * ✔ Time 
+    * ✔ Car Name 
+    * ✔ Car Color 
+    * ✔ Car Price 
+>
 - ✔ Order Cars
-- ❌ About Us
+    * ✔ Cars Name & Price
+    * ✔ Cars Colors
+    * ✔ Cashier
+    * ✔ All logic corrected
+>
+- ✔ About Us
 
 ### Employee (Not yet added)
-- ❌ Order Logs
+- ✔ Order Logs
+    * ✔ Date
+    * ✔ Time 
+    * ✔ Car Name 
+    * ✔ Car Color 
+    * ✔ Car Price 
+>
 - ✔ Order Cars
-- ❌ About Us
+    * ✔ Cars Name & Price
+    * ✔ Cars Colors
+    * ✔ Cashier
+    * ✔ All logic corrected
+>
+- ✔ About Us
 
 ### Guest (Public)
 - ✔ Order Cars
-- ❌ About Us
+    * ✔ Cars Name & Price
+    * ✔ Cars Colors
+    * ✔ Cashier
+    * ✔ All logic corrected
+>
+- ✔ About Us
+
 
 <p align="center">
 <img src="images/Features.png" alt="Features flowchart">
@@ -41,7 +84,6 @@ Planned (❌) and currently working (✔) - but not necessarily fully completed 
 The user must first log in; if they do not already have an account, they can utilize the 'Guest' or public entry option.
 Once in the Main, all users may proceed to order Toyota cars.
 However, only those with admin level access may view the order logs and edit a car's data. Administrators must answer for their conduct. 
-
 
 ## How to Run
 
@@ -54,29 +96,13 @@ However, only those with admin level access may view the order logs and edit a c
 2. Open the extracted file and open "CarDealership.exe" 
 3. Thats it. 
 
-> Note: Some issues were not yet fixed thus I will be updating this in several upcoming weeks/months. And I hope that this project will be used for educational purposes and that the system itself maintains its copyrights as proposed.
-
-<<<<<<< Updated upstream
-Enjoy :)
-
-![Car-Dealership-Program Demo](images/demo.gif)
-
-
-=======
-<p align="center">
-<img src="images/demo.gif" alt="Demo">
-</p>
-
 ## Limitation 
 - No GUI interface
 - Can only take 1 order at a time
 - Can't display product images
 
-## Hierarchy 
+> Note: Some issues were not yet fixed thus I will be updating this in several upcoming weeks/months. And I hope that this project will be used for educational purposes and that the system itself maintains its copyrights as proposed.
 
-<p align="center">
-<img src="images/Hierachy CDM.png" alt="Demo">
-</p>
+![Car-Dealership-Program Demo](images/demo.gif)
 
 Enjoy :)
->>>>>>> Stashed changes
