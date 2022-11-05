@@ -16,7 +16,7 @@ This project, which is a topic of the Fundamentals of Programming course, involv
 Planned (✘) and currently working (✓) - but not necessarily fully completed - features:
 
 
-### Admin (Not yet added)
+### Admin 
 
 - ✓ Edit Employee Data
     * ✓ Add Employee Data
@@ -50,7 +50,7 @@ Planned (✘) and currently working (✓) - but not necessarily fully completed 
 >
 - ✓ About Us
 
-### Employee (Not yet added)
+### Employee
 - ✓ Order Logs
     * ✓ Date
     * ✓ Time 
