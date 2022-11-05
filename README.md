@@ -13,68 +13,69 @@ This project, which is a topic of the Fundamentals of Programming course, involv
 
 ## Features
 
-Planned (✘) and currently working (✔) - but not necessarily fully completed - features:
+Planned (✘) and currently working (✓) - but not necessarily fully completed - features:
 
 
 ### Admin (Not yet added)
 
-- ✔ Edit Employee Data
-    * ✔ Add Employee Data
-    * ✔ Display Employee Data
-    * ✘ Search Employee Data
-    * ✔ Edit Employee Data
-    * ✔ Delete Employee Data
+- ✓ Edit Employee Data
+    * ✓ Add Employee Data
+    * ✓ Display Employee Data
+    * ✓ Search Employee Data
+    * ✓ Edit Employee Data
+    * ✓ Delete Employee Data
 > 
-- ✔ Cars Data
-    * ✔ View Cars Name & Price
-    * ✔ Add Cars Name & Price
+- ✓ Cars Data
+    * ✓ View Cars Name & Price
+    * ✓ Add Cars Name & Price
     * ✘ Edit Cars Name & Price
-    * ✔ Delete Cars Name & Price
-    * ✔ View Cars Color
-    * ✔ Add Cars Color
-    * ✘ Edit Cars Color
-    * ✔ Delete Cars Color
+    * ✓ Delete Cars Name & Price
+    * ✓ View Cars Color
+    * ✓ Add Cars Color
+    * ✓ Edit Cars Color
+    * ✓ Delete Cars Color
 >
-- ✔ Order Logs
-    * ✔ Date
-    * ✔ Time 
-    * ✔ Car Name 
-    * ✔ Car Color 
-    * ✔ Car Price 
+- ✓ Order Logs
+    * ✓ Date
+    * ✓ Time 
+    * ✓ Car Name 
+    * ✓ Car Color 
+    * ✓ Car Price 
 >
-- ✔ Order Cars
-    * ✔ Cars Name & Price
-    * ✔ Cars Colors
-    * ✔ Cashier
-    * ✔ All logic corrected
+- ✓ Order Cars
+    * ✓ Cars Name & Price
+    * ✓ Cars Colors
+    * ✓ Cashier
+    * ✓ All logic corrected
 >
-- ✔ About Us
+- ✓ About Us
 
 ### Employee (Not yet added)
-- ✔ Order Logs
-    * ✔ Date
-    * ✔ Time 
-    * ✔ Car Name 
-    * ✔ Car Color 
-    * ✔ Car Price 
+- ✓ Order Logs
+    * ✓ Date
+    * ✓ Time 
+    * ✓ Car Name 
+    * ✓ Car Color 
+    * ✓ Car Price 
 >
-- ✔ Order Cars
-    * ✔ Cars Name & Price
-    * ✔ Cars Colors
-    * ✔ Cashier
-    * ✔ All logic corrected
+- ✓ Order Cars
+    * ✓ Cars Name & Price
+    * ✓ Cars Colors
+    * ✓ Cashier
+    * ✓ All logic corrected
 >
-- ✔ About Us
+- ✓ About Us
 
 ### Guest (Public)
-- ✔ Order Cars
-    * ✔ Cars Name & Price
-    * ✔ Cars Colors
-    * ✔ Cashier
-    * ✔ All logic corrected
+- ✓ Order Cars
+    * ✓ Cars Name & Price
+    * ✓ Cars Colors
+    * ✓ Cashier
+    * ✓ All logic corrected
 >
-- ✔ About Us
+- ✓ About Us
 
+<p> ​</p>
 
 <p align="center">
 <img src="images/Features.png" alt="Features flowchart">
@@ -101,8 +102,10 @@ However, only those with admin level access may view the order logs and edit a c
 - Can only take 1 order at a time
 - Can't display product images
 
-> Note: Some issues were not yet fixed thus I will be updating this in several upcoming weeks/months. And I hope that this project will be used for educational purposes and that the system itself maintains its copyrights as proposed.
+<p> ​</p>
 
 ![Car-Dealership-Program Demo](images/demo.gif)
+
+> Note: Some issues were not yet fixed thus I will be updating this in several upcoming weeks/months. And I hope that this project will be used for educational purposes and that the system itself maintains its copyrights as proposed.
 
 Enjoy :)
