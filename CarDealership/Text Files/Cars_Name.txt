@@ -1,8 +1,8 @@
 Alphard
 Avanza
 Camry
-Fortuner
-GR_Yaris
+Corolla
+GR_86
 Hiace
 Hilux
 Innova

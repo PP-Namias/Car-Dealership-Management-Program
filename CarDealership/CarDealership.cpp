@@ -14,6 +14,7 @@
  *  Notes:
  *			Midterm program for presentation 
  */
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <conio.h>
@@ -54,7 +55,7 @@ public:
 			SetConsoleTextAttribute(h, 15);
 			std::cout << i + 1;
 			SetConsoleTextAttribute(h, 10);
-			std::cout << "] ";
+			std::cout << "]\t";
 			SetConsoleTextAttribute(h, 9);
 			std::cout << names[i];
 			SetConsoleTextAttribute(h, 11);
