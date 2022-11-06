@@ -1,7 +1,8 @@
 ﻿  CarDealership.cpp
-C:\Users\jkrbn\OneDrive\Desktop\Project\C++\Car-Dealership-Program\CarDealership\CarDealership.cpp(1449,21): warning C4102: 'DisplayEmployee': unreferenced label
-C:\Users\jkrbn\OneDrive\Desktop\Project\C++\Car-Dealership-Program\CarDealership\CarDealership.cpp(1565,24): warning C4102: 'SearchEmployeeData': unreferenced label
-C:\Users\jkrbn\OneDrive\Desktop\Project\C++\Car-Dealership-Program\CarDealership\CarDealership.cpp(3977,14): warning C4102: 'OrderLogs': unreferenced label
-C:\Users\jkrbn\OneDrive\Desktop\Project\C++\Car-Dealership-Program\CarDealership\CarDealership.cpp(4866,16): warning C4102: 'SelectColor': unreferenced label
-C:\Users\jkrbn\OneDrive\Desktop\Project\C++\Car-Dealership-Program\CarDealership\CarDealership.cpp(718,6): warning C4101: 'carsData': unreferenced local variable
+C:\Users\jkrbn\OneDrive\Desktop\Project\C++\Car-Dealership-Program\CarDealership\CarDealership.cpp(1477,21): warning C4102: 'DisplayEmployee': unreferenced label
+C:\Users\jkrbn\OneDrive\Desktop\Project\C++\Car-Dealership-Program\CarDealership\CarDealership.cpp(1593,24): warning C4102: 'SearchEmployeeData': unreferenced label
+C:\Users\jkrbn\OneDrive\Desktop\Project\C++\Car-Dealership-Program\CarDealership\CarDealership.cpp(4005,14): warning C4102: 'OrderLogs': unreferenced label
+C:\Users\jkrbn\OneDrive\Desktop\Project\C++\Car-Dealership-Program\CarDealership\CarDealership.cpp(4900,16): warning C4102: 'SelectColor': unreferenced label
+C:\Users\jkrbn\OneDrive\Desktop\Project\C++\Car-Dealership-Program\CarDealership\CarDealership.cpp(725,6): warning C4101: 'carsData': unreferenced local variable
+C:\Users\jkrbn\OneDrive\Desktop\Project\C++\Car-Dealership-Program\CarDealership\CarDealership.cpp(5539,11): warning C4309: 'initializing': truncation of constant value
   CarDealership.vcxproj -> C:\Users\jkrbn\OneDrive\Desktop\Project\C++\Car-Dealership-Program\x64\Debug\CarDealership.exe

@@ -110,6 +110,8 @@ void forgot();
 void AboutUs();
 void searchHouse();
 void deleteHouse();
+void load();
+void gotoxy();
 
 
 struct house
@@ -277,6 +279,11 @@ int main()
 
 
 
+
+	system("cls");
+	system("color 0A");
+	load();
+	std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 
 
@@ -1004,7 +1011,7 @@ ooooo     ooo   .oooooo.     .oooooo.
 			*/
 
 			// Hides password
-			while (i < 6) 
+			while (i < 6)
 			{
 				password[i] = _getch();
 				c = password[i];
@@ -1076,6 +1083,15 @@ ooooo     ooo   .oooooo.     .oooooo.
 
 			input.close();
 			
+
+
+			system("color 0A");
+			load();
+			std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+
+
+
 			if (adminlogin == 1)
 			{
 				system("cls");
@@ -1235,6 +1251,18 @@ ooooo     ooo   .oooooo.     .oooooo.
 				// Employee Data
 				EmployeeData:
 				if (adminchoice == 1) {
+					
+
+
+
+
+					system("cls");
+					system("color 0A");
+					load();
+					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+
+
 					system("color a");
 					system("cls");
 
@@ -1546,7 +1574,7 @@ ooooo     ooo   .oooooo.     .oooooo.
 							SetConsoleTextAttribute(h, 9);
 							std::cout << std::endl;
 							SetConsoleTextAttribute(h, 13);
-							std::cout << "----------------------------------------------------------------------";
+							std::cout << "|--------------------------------------------------------------------|";
 							SetConsoleTextAttribute(h, 9);
 							std::cout << std::endl;
 						}
@@ -1920,7 +1948,7 @@ ooooo     ooo   .oooooo.     .oooooo.
 							SetConsoleTextAttribute(h, 13);
 							std::cout << "\t\t\t\t|" << std::endl;
 							SetConsoleTextAttribute(h, 13);
-							std::cout << "----------------------------------------------------------------------";
+							std::cout << "|--------------------------------------------------------------------|";
 							std::cout << std::endl;
 
 						}
@@ -2196,7 +2224,7 @@ ooooo     ooo   .oooooo.     .oooooo.
 							SetConsoleTextAttribute(h, 13);
 							std::cout << "\t\t\t\t|" << std::endl;
 							SetConsoleTextAttribute(h, 13);
-							std::cout << "----------------------------------------------------------------------";
+							std::cout << "|--------------------------------------------------------------------|";
 							std::cout << std::endl;
 
 						}
@@ -2825,7 +2853,7 @@ ooooo     ooo   .oooooo.     .oooooo.
 							SetConsoleTextAttribute(h, 13);
 							std::cout << "\t\t\t|";
 							SetConsoleTextAttribute(h, 13);
-							std::cout << "----------------------------------------------------------------------";
+							std::cout << "|--------------------------------------------------------------------|";
 							std::cout << std::endl;
 
 						}
@@ -3321,7 +3349,7 @@ ooooo     ooo   .oooooo.     .oooooo.
 							SetConsoleTextAttribute(h, 13);
 							std::cout << "\t\t\t\t\t\t|";
 							SetConsoleTextAttribute(h, 13);
-							std::cout << "----------------------------------------------------------------------";
+							std::cout << "|--------------------------------------------------------------------|";
 							std::cout << std::endl;
 
 						}
@@ -3528,7 +3556,7 @@ ooooo     ooo   .oooooo.     .oooooo.
 							SetConsoleTextAttribute(h, 13);
 							std::cout << "\t\t\t\t\t\t|";
 							SetConsoleTextAttribute(h, 13);
-							std::cout << "----------------------------------------------------------------------";
+							std::cout << "|--------------------------------------------------------------------|";
 							std::cout << std::endl;
 
 						}
@@ -3791,7 +3819,7 @@ ooooo     ooo   .oooooo.     .oooooo.
 							SetConsoleTextAttribute(h, 13);
 							std::cout << "\t\t\t\t\t\t|";
 							SetConsoleTextAttribute(h, 13);
-							std::cout << "----------------------------------------------------------------------";
+							std::cout << "|--------------------------------------------------------------------|";
 							std::cout << std::endl;
 
 						}
@@ -4120,7 +4148,7 @@ ooooo     ooo   .oooooo.     .oooooo.
 						std::cout << "\t|";
 						std::cout << std::endl;
 						SetConsoleTextAttribute(h, 13);
-						std::cout << "----------------------------------------------------------------------";
+						std::cout << "|--------------------------------------------------------------------|";
 						std::cout << std::endl;
 					}
 
@@ -4646,7 +4674,7 @@ ooooo     ooo   .oooooo.     .oooooo.
 						std::cout << "\t|";
 						std::cout << std::endl;
 						SetConsoleTextAttribute(h, 13);
-						std::cout << "----------------------------------------------------------------------";
+						std::cout << "|--------------------------------------------------------------------|";
 						std::cout << std::endl;
 					}
 
@@ -4728,6 +4756,12 @@ ooooo     ooo   .oooooo.     .oooooo.
 
 		// Guest
 		else if (choice == 3) {
+
+			system("cls");
+			system("color 0A");
+			load();
+			std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+		
 			// go directly no need for logic
 			system("color a");
 			system("cls");
@@ -5490,4 +5524,25 @@ void test() {
 	system("pause");
 	system("cls");
 
+}
+
+
+void gotoxy(int x, int y)
+{
+	COORD d;
+	d.X = x;
+	d.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), d);
+}
+void load()
+{
+	char a = 219;
+	gotoxy(30, 12);
+	std::cout << "[Loading]" << std::endl;
+	gotoxy(25, 14);
+	for (int r = 1; r <= 20; r++)
+	{
+		for (int q = 0; q <= 100000000; q++);
+		std::cout << a;
+	}
 }
