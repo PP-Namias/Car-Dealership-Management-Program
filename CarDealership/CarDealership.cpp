@@ -111,7 +111,7 @@ void AboutUs();
 void searchHouse();
 void deleteHouse();
 void load();
-void gotoxy();
+void gotoxy(int x, int y);
 
 
 struct house
@@ -136,72 +136,8 @@ struct house_search
 	std::string type[3] = { "Low Density", "Medium Density", "High Density" };
 };
 
-// Title screen call-out once
+// Title screen call-out once [Flagging]
 bool flag = false;
-
-
-/*
-
-GR_Yaris
-Vios_GR
-Camry
-Prius
-Yaris
-Vios
-Wigo
-Veloz
-Fortuner
-Raize
-RAV4
-Rush
-Avanza
-Innova
-Hiace
-Hilux
-Alphard
-
-
-
-
-
-		Camry
-		Corolla_Altis
-		Vios
-		Wigo
-		Yaris
-		Corolla_Cross
-		FJ_Cruiser
-		Fortuner
-		Land_Cruiser
-		Accord
-		Accord_Hybrid
-		Civic
-		Clarity
-		CR_V
-		HR_V
-		Insight
-		Odyssey
-
-2740000,
-2402000,
-2402000,
-2436000,
-1114000,
-985000,
-705000,
-1250000,
-2519000,
-1051000,
-2500000,
-1176000,
-1059000,
-1764000,
-1166000,
-1919000,
-4160000,
-
-*/
-
 
 int main()
 {
@@ -212,7 +148,6 @@ int main()
 	std::string toyota_car_color[15];
 	int number_of_color = 0;
 
-	// test txt to array
 	std::ifstream Cars_Color("Text Files/Cars_Color.txt");
 	if (Cars_Color.is_open())
 	{
@@ -235,7 +170,6 @@ int main()
 	std::string toyota_car_names[17];
 	int number_of_name = 0;
 
-	// test txt to array
 	std::ifstream Cars_Name("Text Files/Cars_Name.txt");
 	if (Cars_Name.is_open())
 	{
@@ -259,7 +193,6 @@ int main()
 	int toyota_car_prices[17];
 	int number_of_price = 0;
 
-	// test txt to array
 	std::ifstream Cars_Price("Text Files/Cars_Price.txt");
 	if (Cars_Price.is_open())
 	{
@@ -277,121 +210,6 @@ int main()
 	toyota_car_prices[number_of_price];
 
 
-
-
-
-	system("cls");
-	system("color 0A");
-	load();
-	std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
-
-
-
-	/*
-	* 
-
-
-std::cout << "   _.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._   ";
-std::cout << std::endl;
-std::cout << " ,'_.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._`. ";
-std::cout << std::endl;
-std::cout << "( (                                                                ) )";
-std::cout << std::endl;
-std::cout << " ) )                                                              ( (";
-std::cout << std::endl;
-std::cout << "( (                                                                ) )";
-std::cout << std::endl;
-std::cout << " ) )                                                              ( (";
-std::cout << std::endl;
-std::cout << "( (                                                                ) )";
-std::cout << std::endl;
-std::cout << " ) )                                                              ( (";
-std::cout << std::endl;
-std::cout << "( (                                                                ) )";
-std::cout << std::endl;
-std::cout << " ) )                                                              ( (";
-std::cout << std::endl;
-std::cout << "( (_.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._) )";
-std::cout << std::endl;
-std::cout << " `._.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.' ";
-std::cout << std::endl;
-
-
-
-system("pause");
-
-
-
-ooooo     ooo   .oooooo.     .oooooo.   
-`888'     `8'  d8P'  `Y8b   d8P'  `Y8b  
- 888       8  888          888          
- 888       8  888          888          
- 888       8  888          888          
- `88.    .8'  `88b    ooo  `88b    ooo  
-   `YbodP'     `Y8bood8P'   `Y8bood8P'  
-										
-										
-										
-
-
-	int toyota_car_prices[] = {
-		2740000,
-		2402000,
-		2402000,
-		2436000,
-		1114000,
-		985000,
-		705000,
-		1250000,
-		2519000,
-		1051000,
-		2500000,
-		1176000,
-		1059000,
-		1764000,
-		1166000,
-		1919000,
-		4160000
-	};
-
-	std::string toyota_car_names[] = {
-
-		"GR_Yaris",
-		"Vios_GR",
-		"Camry",
-		"Prius",
-		"Yaris",
-		"Vios",
-		"Wigo",
-		"Veloz",
-		"Fortuner",
-		"Raize",
-		"RAV4",
-		"Rush",
-		"Avanza",
-		"Innova",
-		"Hiace",
-		"Hilux",
-		"Alphard"
-	};
-
-	std::string toyota_car_color[] = {
-	"White",
-	"Black",
-	"Gray",
-	"Silver",
-	"Red",
-	"Blue",
-	"Brown",
-	"Green",
-	"Beige",
-	"Orange",
-	"Gold",
-	"Yellow",
-	"Purple"
-	};
-	*/
-
 	// Text color settings
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 	// SetConsoleTextAttribute(h, 1);
@@ -408,6 +226,20 @@ ooooo     ooo   .oooooo.     .oooooo.
 	fontex.dwFontSize.X = 36;
 	fontex.dwFontSize.Y = 36;
 	SetCurrentConsoleFontEx(hOut, NULL, &fontex);
+
+	// Loading screen
+	system("cls");
+	system("color 0A");
+	char a = 219;
+	gotoxy(30, 10);
+	std::cout << "[Loading]" << std::endl;
+	gotoxy(25, 12);
+	for (int r = 1; r <= 20; r++)
+	{
+		for (int q = 0; q <= 100000000; q++);
+		std::cout << a;
+	}
+	std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 
 
