@@ -810,58 +810,34 @@ int main()
 
 			int i = 0;
 			
-			//std::string pss;
-			char c = ' ';
-			char password[9];
+		
+			std::string passHider;
+			char c;
 
-
-			/*
 			do {
 				c = _getch();
 				switch (c) {
-				case 0:
-					_getch();
+				case 0://special keys. like: arrows, f1-12 etc.
+					_getch();//just ignore also the next character.
 					break;
-				case 13:
+				case 13://enter
 					std::cout << std::endl;
 					break;
-				case 8:
-					if (pss.length() > 0) {
-						pss.erase(pss.end() - 1);
-						std::cout << c << ' ' << c;
+				case 8://backspace
+					if (passHider.length() > 0) {
+						passHider.erase(passHider.end() - 1); //remove last character from string
+						std::cout << c << ' ' << c;//go back, write space over the character and back again.
 					}
 					break;
-				default:
-					pass += c;
-					std::cout << '*';
+				default://regular ascii
+					passHider += c;//add to string
+					std::cout << '*';//print `*`
 					break;
 				}
+			} while (c != 13);
 
-			} while (c != 6);
 
-
-			*/
-
-			// Hides password
-			while (i < 6)
-			{
-				password[i] = _getch();
-				c = password[i];
-				
-				if (c == 6) {
-					break;
-				}
-
-				else {
-					std::cout << "*";
-				}
-				
-				i++;
-			}
-			password[i] = '\0';
-			i = 0;
-
-			pass = password;
+			pass = passHider;
 			
 			std::cin.ignore();
 
@@ -917,17 +893,27 @@ int main()
 			
 
 
-			system("color 0A");
-			load();
-			std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
-
-
-
 
 			if (adminlogin == 1)
 			{
 				system("cls");
-				
+
+				// Loading screen
+				system("cls");
+				system("color 0A");
+				char a = 219;
+				gotoxy(29, 10);
+				std::cout << "[Logging in]" << std::endl;
+				gotoxy(25, 12);
+				for (int r = 1; r <= 20; r++)
+				{
+					for (int q = 0; q <= 10000000; q++);
+					std::cout << a;
+				}
+				std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+
+
 				// Login
 			AdminMenu:
 				system("color a");
@@ -1086,12 +1072,20 @@ int main()
 					
 
 
-
-
+					// Loading screen
 					system("cls");
 					system("color 0A");
-					load();
+					char a = 219;
+					gotoxy(30, 10);
+					std::cout << "[Loading]" << std::endl;
+					gotoxy(25, 12);
+					for (int r = 1; r <= 20; r++)
+					{
+						for (int q = 0; q <= 10000000; q++);
+						std::cout << a;
+					}
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
 
 
 
@@ -1223,6 +1217,24 @@ int main()
 					// Add Employee Data
 					if (employeeData == 1) {
 
+						AddEmployeeData:
+
+						// Loading screen
+						system("cls");
+						system("color 0A");
+						char a = 219;
+						gotoxy(30, 10);
+						std::cout << "[Loading]" << std::endl;
+						gotoxy(25, 12);
+						for (int r = 1; r <= 20; r++)
+						{
+							for (int q = 0; q <= 10000000; q++);
+							std::cout << a;
+						}
+						std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+
+
 						system("cls");
 
 						std::cout << std::endl;
@@ -1285,10 +1297,23 @@ int main()
 
 
 
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "\n   Press ESC button to go back" << std::endl;
 
 						std::string adduser, addpass, ru, rp;
+						SetConsoleTextAttribute(h, 1);
 						std::cout << "\n   Enter the Username: ";
 						SetConsoleTextAttribute(h, 13);
+
+						// ESC button back
+						int esc;
+						esc = _getch();
+						if (esc == 27) {
+							system("cls");
+							goto EmployeeData;
+						}
+
+
 						std::cin >> adduser;
 						SetConsoleTextAttribute(h, 1);
 						std::cout << "\n   Enter the Password: ";
@@ -1309,6 +1334,23 @@ int main()
 					DisplayEmployee: 
 						system("cls");
 
+						// Loading screen
+						system("cls");
+						system("color 0A");
+						char a = 219;
+						gotoxy(30, 10);
+						std::cout << "[Loading]" << std::endl;
+						gotoxy(25, 12);
+						for (int r = 1; r <= 20; r++)
+						{
+							for (int q = 0; q <= 10000000; q++);
+							std::cout << a;
+						}
+						std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+
+
+						system("cls");
 						std::cout << std::endl;
 						SetConsoleTextAttribute(h, 9);
 						std::cout << "   _.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._   ";
@@ -1423,6 +1465,23 @@ int main()
 					// Search Employee Data
 					else if (employeeData == 3) {
 					SearchEmployeeData:
+						
+
+						// Loading screen
+						system("cls");
+						system("color 0A");
+						char a = 219;
+						gotoxy(30, 10);
+						std::cout << "[Loading]" << std::endl;
+						gotoxy(25, 12);
+						for (int r = 1; r <= 20; r++)
+						{
+							for (int q = 0; q <= 10000000; q++);
+							std::cout << a;
+						}
+						std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+						system("color a");
 						system("color a");
 						system("cls");
 
@@ -1563,6 +1622,7 @@ int main()
 								std::cout << "   Your password is |[\"" << sp <<"\"]|";
 								std::cout << std::endl;
 								std::cout << std::endl;
+								std::cout << "   ";
 
 								system("pause");
 								Sleep(2000);
@@ -1576,9 +1636,10 @@ int main()
 								std::cout << std::endl;
 								std::cout << std::endl;
 								std::cout << "   Please kindly contact your system administrator for more details";
-								std::cin.get();
-								std::cin.get();
-								
+								std::cout << std::endl;
+								std::cout << std::endl;
+								std::cout << "   ";
+
 								system("pause");
 								Sleep(2000);
 								goto EmployeeData;
@@ -1620,7 +1681,7 @@ int main()
 								std::cout << "   Your username is |[\"" << su2 << "\"]|";
 								std::cout << std::endl;
 								std::cout << std::endl;
-
+								std::cout << "   ";
 								system("pause");
 								Sleep(2000);
 								goto EmployeeData;
@@ -1634,7 +1695,9 @@ int main()
 								std::cout << std::endl;
 								std::cout << std::endl;
 								std::cout << "   Please kindly contact your system administrator for more details";
-							
+								std::cout << std::endl;
+								std::cout << std::endl;
+								std::cout << "   ";
 								system("pause");
 								Sleep(2000);
 								goto EmployeeData;
@@ -1652,8 +1715,8 @@ int main()
 							std::cout << std::endl;
 							std::cout << "   Sorry, You entered wrong choice. Kindly try again";
 							std::cout << std::endl;
+							std::cout << std::endl;
 							std::cout << "   ";
-
 							system("pause");
 							Sleep(2000);
 							goto EmployeeData;
@@ -1664,6 +1727,25 @@ int main()
 					// Edit Employee Data
 					else if (employeeData == 4) {
 					EditEmployeeData:
+
+
+
+
+					// Loading screen
+					system("cls");
+					system("color 0A");
+					char a = 219;
+					gotoxy(30, 10);
+					std::cout << "[Loading]" << std::endl;
+					gotoxy(25, 12);
+					for (int r = 1; r <= 20; r++)
+					{
+						for (int q = 0; q <= 10000000; q++);
+						std::cout << a;
+					}
+					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+
 
 						system("color a");
 						system("cls");
@@ -1941,6 +2023,24 @@ int main()
 					// Delete Employee Data
 					else if (employeeData == 5) {
 					DeleteEmployee:
+
+				
+
+						// Loading screen
+						system("cls");
+						system("color 0A");
+						char a = 219;
+						gotoxy(30, 10);
+						std::cout << "[Loading]" << std::endl;
+						gotoxy(25, 12);
+						for (int r = 1; r <= 20; r++)
+						{
+							for (int q = 0; q <= 10000000; q++);
+							std::cout << a;
+						}
+						std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+
 						system("color a");
 						system("cls");
 
@@ -2206,8 +2306,26 @@ int main()
 				// Cars Data
 				else if (adminchoice == 2) {
 				CarData:
+				
+					// Loading screen
+					system("cls");
+					system("color 0A");
+					char a = 219;
+					gotoxy(30, 10);
+					std::cout << "[Loading]" << std::endl;
+					gotoxy(25, 12);
+					for (int r = 1; r <= 20; r++)
+					{
+						for (int q = 0; q <= 10000000; q++);
+						std::cout << a;
+					}
+					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+					
 					system("color a");
 					system("cls");
+
+
+
 
 
 					std::cout << std::endl;
@@ -2377,6 +2495,22 @@ int main()
 					
 					// View Cars Name & Price
 					if (CarChoice == 1) {
+
+
+						// Loading screen
+						system("cls");
+						system("color 0A");
+						char a = 219;
+						gotoxy(30, 10);
+						std::cout << "[Loading]" << std::endl;
+						gotoxy(25, 12);
+						for (int r = 1; r <= 20; r++)
+						{
+							for (int q = 0; q <= 10000000; q++);
+							std::cout << a;
+						}
+						std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
 						system("color a");
 						system("cls");
 
@@ -2453,6 +2587,22 @@ int main()
 
 					// Add Cars Name & Price
 					else if (CarChoice == 2) {
+
+
+						// Loading screen
+						system("cls");
+						system("color 0A");
+						char a = 219;
+						gotoxy(30, 10);
+						std::cout << "[Loading]" << std::endl;
+						gotoxy(25, 12);
+						for (int r = 1; r <= 20; r++)
+						{
+							for (int q = 0; q <= 10000000; q++);
+							std::cout << a;
+						}
+						std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
 						system("cls");
 
 						std::cout << std::endl;
@@ -2554,6 +2704,23 @@ int main()
 					// Delete Cars Name & Price
 					else if (CarChoice == 4) {
 					DeleteCarsNamePrice:
+
+
+						// Loading screen
+						system("cls");
+						system("color 0A");
+						char a = 219;
+						gotoxy(30, 10);
+						std::cout << "[Loading]" << std::endl;
+						gotoxy(25, 12);
+						for (int r = 1; r <= 20; r++)
+						{
+							for (int q = 0; q <= 10000000; q++);
+							std::cout << a;
+						}
+						std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+
 						system("color a");
 						system("cls");
 
@@ -2703,6 +2870,7 @@ int main()
 
 						}
 						*/
+
 						SetConsoleTextAttribute(h, 10);
 						std::cout << "   Press ESC button to go back" << std::endl;
 						std::cout << std::endl;
@@ -3075,6 +3243,23 @@ int main()
 					// View Cars Color
 					else if (CarChoice == 5)
 					{
+
+
+						// Loading screen
+						system("cls");
+						system("color 0A");
+						char a = 219;
+						gotoxy(30, 10);
+						std::cout << "[Loading]" << std::endl;
+						gotoxy(25, 12);
+						for (int r = 1; r <= 20; r++)
+						{
+							for (int q = 0; q <= 10000000; q++);
+							std::cout << a;
+						}
+						std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+
 						system("color a");
 						system("cls");
 
@@ -3200,6 +3385,21 @@ int main()
 						system("cls");
 
 
+						// Loading screen
+						system("cls");
+						system("color 0A");
+						char a = 219;
+						gotoxy(30, 10);
+						std::cout << "[Loading]" << std::endl;
+						gotoxy(25, 12);
+						for (int r = 1; r <= 20; r++)
+						{
+							for (int q = 0; q <= 10000000; q++);
+							std::cout << a;
+						}
+						std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+
 
 						std::cout << std::endl;
 						SetConsoleTextAttribute(h, 9);
@@ -3284,6 +3484,22 @@ int main()
 					else if (CarChoice == 7) {
 					system("color a");
 						system("cls");
+
+
+						// Loading screen
+						system("cls");
+						system("color 0A");
+						char a = 219;
+						gotoxy(30, 10);
+						std::cout << "[Loading]" << std::endl;
+						gotoxy(25, 12);
+						for (int r = 1; r <= 20; r++)
+						{
+							for (int q = 0; q <= 10000000; q++);
+							std::cout << a;
+						}
+						std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
 
 
 						std::cout << std::endl;
@@ -3546,6 +3762,22 @@ int main()
 					DeleteCarsColor:
 						system("color a");
 						system("cls");
+
+
+
+						// Loading screen
+						system("cls");
+						system("color 0A");
+						char a = 219;
+						gotoxy(30, 10);
+						std::cout << "[Loading]" << std::endl;
+						gotoxy(25, 12);
+						for (int r = 1; r <= 20; r++)
+						{
+							for (int q = 0; q <= 10000000; q++);
+							std::cout << a;
+						}
+						std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 
 
@@ -3835,6 +4067,23 @@ int main()
 				// Order Logs
 				else if (adminchoice == 3) {
 				OrderLogs:
+				
+
+
+					// Loading screen
+					system("cls");
+					system("color 0A");
+					char a = 219;
+					gotoxy(30, 10);
+					std::cout << "[Loading]" << std::endl;
+					gotoxy(25, 12);
+					for (int r = 1; r <= 20; r++)
+					{
+						for (int q = 0; q <= 10000000; q++);
+						std::cout << a;
+					}
+					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+					
 					system("color a");
 					system("cls");
 
@@ -3999,13 +4248,47 @@ int main()
 
 				// Order Cars
 				else if (adminchoice == 4) {
-				system("color a");
-				system("cls");
+					system("color a");
+					system("cls");
+
+
+					// Loading screen
+					system("cls");
+					system("color 0A");
+					char a = 219;
+					gotoxy(30, 10);
+					std::cout << "[Loading]" << std::endl;
+					gotoxy(25, 12);
+					for (int r = 1; r <= 20; r++)
+					{
+						for (int q = 0; q <= 10000000; q++);
+						std::cout << a;
+					}
+					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+
 					goto OrderCars;
 				}
 
 				// About Us
 				else if (adminchoice == 5) {
+				
+
+					// Loading screen
+					system("cls");
+					system("color 0A");
+					char a = 219;
+					gotoxy(30, 10);
+					std::cout << "[Loading]" << std::endl;
+					gotoxy(25, 12);
+					for (int r = 1; r <= 20; r++)
+					{
+						for (int q = 0; q <= 10000000; q++);
+						std::cout << a;
+					}
+					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+	
 					system("color a");
 					AboutUs();
 					std::cout << "\n\n   Press ENTER to go back ";
@@ -4041,11 +4324,27 @@ int main()
 			}
 		}
 		
-		// Employee ((not done yet)) some what  working)
+		// Employee 
 		else if (choice == 2) {
 		Employeelogin:
+		
+			// Loading screen
+			system("cls");
+			system("color 0A");
+			char a = 219;
+			gotoxy(30, 10);
+			std::cout << "[Loading]" << std::endl;
+			gotoxy(25, 12);
+			for (int r = 1; r <= 20; r++)
+			{
+				for (int q = 0; q <= 10000000; q++);
+				std::cout << a;
+			}
+			std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
 			system("color a");
 			system("cls");
+
 
 			int Employeelogin = 0;
 			std::string user, pass, u, p;
@@ -4142,30 +4441,39 @@ int main()
 			std::cout << "   Password: ";
 			SetConsoleTextAttribute(h, 13);
 
+
+
+
 			int i = 0;
-			char c = ' ';
-			char password[9];
 
-			// Hides password
-			while (i < 4)
-			{
-				password[i] = _getch();
-				c = password[i];
 
-				if (c == 4) {
+			std::string passHider;
+			char c;
+
+			do {
+				c = _getch();
+				switch (c) {
+				case 0:
+					_getch();
+					break;
+				case 13:
+					std::cout << std::endl;
+					break;
+				case 8:
+					if (passHider.length() > 0) {
+						passHider.erase(passHider.end() - 1); 
+						std::cout << c << ' ' << c;
+					}
+					break;
+				default:
+					passHider += c;
+					std::cout << '*';
 					break;
 				}
+			} while (c != 13);
 
-				else {
-					std::cout << "*";
-				}
 
-				i++;
-			}
-			password[i] = '\0';
-			i = 0;
-
-			pass = password;
+			pass = passHider;
 
 			std::cin.ignore();
 
@@ -4222,9 +4530,29 @@ int main()
 
 			if (Employeelogin == 1)
 			{
+
+				// Loading screen
+				system("cls");
+				system("color 0A");
+				char a = 219;
+				gotoxy(29, 10);
+				std::cout << "[Logging in]" << std::endl;
+				gotoxy(25, 12);
+				for (int r = 1; r <= 20; r++)
+				{
+					for (int q = 0; q <= 10000000; q++);
+					std::cout << a;
+				}
+				std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+
+
+
 			EmployeeMenu:
 				system("color a");
 				system("cls");
+
+
 
 				// Login
 				std::cout << std::endl;
@@ -4361,6 +4689,22 @@ int main()
 
 				// Order Logs
 				if (employeechoice == 1) {
+				
+
+					// Loading screen
+					system("cls");
+					system("color 0A");
+					char a = 219;
+					gotoxy(30, 10);
+					std::cout << "[Loading]" << std::endl;
+					gotoxy(25, 12);
+					for (int r = 1; r <= 20; r++)
+					{
+						for (int q = 0; q <= 10000000; q++);
+						std::cout << a;
+					}
+					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
 					system("color a");
 					system("cls");
 
@@ -4526,11 +4870,46 @@ int main()
 				else if (employeechoice == 2) {
 					system("cls");
 					system("color a");
+
+
+
+					// Loading screen
+					system("cls");
+					system("color 0A");
+					char a = 219;
+					gotoxy(30, 10);
+					std::cout << "[Loading]" << std::endl;
+					gotoxy(25, 12);
+					for (int r = 1; r <= 20; r++)
+					{
+						for (int q = 0; q <= 10000000; q++);
+						std::cout << a;
+					}
+					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+
 					goto OrderCars;
 				}
 
 				// About Us
 				else if (employeechoice == 3) {
+
+
+					// Loading screen
+					system("cls");
+					system("color 0A");
+					char a = 219;
+					gotoxy(30, 10);
+					std::cout << "[Loading]" << std::endl;
+					gotoxy(25, 12);
+					for (int r = 1; r <= 20; r++)
+					{
+						for (int q = 0; q <= 10000000; q++);
+						std::cout << a;
+					}
+					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+
 					system("color a");
 					AboutUs();
 					std::cout << "\n\n   Press ENTER to go back ";
@@ -4544,9 +4923,6 @@ int main()
 				else if (employeechoice == 4) {
 					system("cls");
 					system("color a");
-					std::cout << std::endl;
-					std::cout << "   ";
-					system("pause");
 					goto LoginForm;
 				}
 
@@ -4591,9 +4967,23 @@ int main()
 
 			system("cls");
 			system("color 0A");
-			load();
+
+
+			// Loading screen
+			system("cls");
+			system("color 0A");
+			char a = 219;
+			gotoxy(30, 10);
+			std::cout << "[Loading]" << std::endl;
+			gotoxy(25, 12);
+			for (int r = 1; r <= 20; r++)
+			{
+				for (int q = 0; q <= 10000000; q++);
+				std::cout << a;
+			}
 			std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
-		
+
+
 			// go directly no need for logic
 			system("color a");
 			system("cls");
@@ -4602,6 +4992,23 @@ int main()
 
 		// About Us
 		else if (choice == 4) {
+
+
+			// Loading screen
+			system("cls");
+			system("color 0A");
+			char a = 219;
+			gotoxy(30, 10);
+			std::cout << "[Loading]" << std::endl;
+			gotoxy(25, 12);
+			for (int r = 1; r <= 20; r++)
+			{
+				for (int q = 0; q <= 10000000; q++);
+				std::cout << a;
+			}
+			std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+
 			system("color a");
 			AboutUs();
 			std::cout << "\n\n   Press ENTER to go back ";
