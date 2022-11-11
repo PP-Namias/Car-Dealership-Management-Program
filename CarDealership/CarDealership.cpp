@@ -3,14 +3,16 @@
  *
  *          Title: Car Dealership
  * Course/Section: CS1A North
- *           Date: October 15, 2022
+ *           Date: November 13, 2022
  *      Professor: Alban Ryan Rei
  *
  *  Info:
- *			In order to be chosen, this program will be offered for 
- *			the midterm program with two other programs. 
- *				
- *
+ *			 This project [Car Dealership Management Program], 
+ *			 which is a topic of the Fundamentals of Programming course, 
+ *			 involves creating a car dealership management entirely in C++.
+ *			 We are pleased to announce the release of a convenient console application
+ *			 for performing management system tasks like adding new car(s) to a data set,
+ *			 modifying and deleting car(s) from a data set, exporting order logs, etc.
  *  Notes:
  *			Midterm program for presentation 
  */
@@ -110,7 +112,6 @@ void forgot();
 void AboutUs();
 void searchHouse();
 void deleteHouse();
-void load();
 void gotoxy(int x, int y);
 
 
@@ -793,15 +794,43 @@ int main()
 			std::cout << "\n   Username: ";
 			SetConsoleTextAttribute(h, 13);
 			
-			// ESC button back
-			int esc;
-			esc = _getch();
-			if (esc == 27) {
-				system("cls");
-				goto LoginForm;
-			}
 
-			std::cin >> user;
+			std::string userHider;
+			char c_user;
+
+			do {
+				c_user = _getch();
+				switch (c_user) {
+				case 0:
+					_getch();
+					break;
+				case 13:
+					std::cout << std::endl;
+					break;
+				case 27:
+					system("cls");
+					goto LoginForm;
+				case 8:
+					if (userHider.length() > 0) {
+						userHider.erase(userHider.end() - 1);
+						std::cout << c_user << ' ' << c_user;
+					}
+					break;
+				default:
+					userHider += c_user;
+					std::cout << c_user;
+					break;
+				}
+			} while (c_user != 13);
+
+
+			user = userHider;
+
+
+
+
+
+			//std::cin >> user;
 			SetConsoleTextAttribute(h, 1);
 
 			std::cout << "   Password: ";
@@ -812,34 +841,36 @@ int main()
 			
 		
 			std::string passHider;
-			char c;
+			char c_pass;
 
 			do {
-				c = _getch();
-				switch (c) {
-				case 0://special keys. like: arrows, f1-12 etc.
-					_getch();//just ignore also the next character.
+				c_pass = _getch();
+				switch (c_pass) {
+				case 0:
+					_getch();
 					break;
-				case 13://enter
+				case 13:
 					std::cout << std::endl;
 					break;
-				case 8://backspace
+				case 27:
+					system("cls");
+					goto LoginForm;
+				case 8:
 					if (passHider.length() > 0) {
-						passHider.erase(passHider.end() - 1); //remove last character from string
-						std::cout << c << ' ' << c;//go back, write space over the character and back again.
+						passHider.erase(passHider.end() - 1); 
+						std::cout << c_pass << ' ' << c_pass;
 					}
 					break;
-				default://regular ascii
-					passHider += c;//add to string
-					std::cout << '*';//print `*`
+				default:
+					passHider += c_pass;
+					std::cout << '*';
 					break;
 				}
-			} while (c != 13);
+			} while (c_pass != 13);
 
 
 			pass = passHider;
 			
-			std::cin.ignore();
 
 			// Loading XD
 			std::cout << "\n\n   Verifying your login details please wait";
@@ -1314,7 +1345,41 @@ int main()
 						}
 
 
-						std::cin >> adduser;
+						std::string userHider;
+						char c_user;
+
+						do {
+							c_user = _getch();
+							switch (c_user) {
+							case 0: 
+								_getch();
+								break;
+							case 13: 
+								std::cout << std::endl;
+								break;
+							case 27:
+								system("cls");
+								goto EmployeeData;
+							case 8:
+								if (userHider.length() > 0) {
+									userHider.erase(userHider.end() - 1);
+									std::cout << c_user << ' ' << c_user;
+								}
+								break;
+							default:
+								userHider += c_user;
+								std::cout << c_user;
+								break;
+							}
+						} while (c_user != 15);
+
+
+						adduser = userHider;
+
+
+
+
+						// std::cin >> adduser;
 						SetConsoleTextAttribute(h, 1);
 						std::cout << "\n   Enter the Password: ";
 						SetConsoleTextAttribute(h, 13);
@@ -4274,6 +4339,7 @@ int main()
 				else if (adminchoice == 5) {
 				
 
+
 					// Loading screen
 					system("cls");
 					system("color 0A");
@@ -4289,10 +4355,17 @@ int main()
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 	
-					system("color a");
+					system("cls");
+					system("color 0A");
 					AboutUs();
-					std::cout << "\n\n   Press ENTER to go back ";
-					std::cin.get();
+					std::cout << "   ";
+					system("pause");
+
+					goto AdminMenu;
+
+
+
+
 
 				}
 
@@ -4895,6 +4968,8 @@ int main()
 				else if (employeechoice == 3) {
 
 
+
+
 					// Loading screen
 					system("cls");
 					system("color 0A");
@@ -4910,12 +4985,16 @@ int main()
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 
-					system("color a");
+					system("cls");
+					system("color 0A");
 					AboutUs();
-					std::cout << "\n\n   Press ENTER to go back ";
-					std::cin.get();
+					std::cout << "   ";
+					system("pause");
 
 					goto EmployeeMenu;
+
+
+
 
 				}
 
@@ -4994,6 +5073,8 @@ int main()
 		else if (choice == 4) {
 
 
+
+
 			// Loading screen
 			system("cls");
 			system("color 0A");
@@ -5009,13 +5090,19 @@ int main()
 			std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 
-			system("color a");
+			system("cls");
+			system("color 0A");
 			AboutUs();
-			std::cout << "\n\n   Press ENTER to go back ";
-			std::cin.get();
+			std::cout << "   ";
+			system("pause");
 
-			Sleep(3000);
 			goto LoginForm;
+
+
+
+
+
+
 		}
 
 		// Exit
@@ -5347,42 +5434,6 @@ int main()
 
 
 
-void login()
-{
-	int login;
-	std::string user, pass, u, p;
-	system("cls");
-	std::cout << "Please enter the following details" << std::endl;
-	std::cout << "Username: ";
-	std::cin >> user;
-	std::cout << "Password: ";
-	std::cin >> pass;
-
-	std::ifstream input("Text Files/database.txt");
-	while (input >> u >> p)
-	{
-		if (u == user && p == pass)
-
-		{
-			login = 1;
-			system("cls");
-		}
-	}
-	input.close();
-	if (login == 1)
-	{
-		std::cout << "\nHello " << user << "\nLOGIN SUCESS\nWe're glad that you're here.\nThanks for logging in\n";
-		std::cin.get();
-		std::cin.get();
-		main();
-	}
-	else
-	{
-		std::cout << "\nLOGIN ERROR\nPlease check your username and password\n";
-		main();
-	}
-}
-
 void registr()
 {
 
@@ -5401,6 +5452,15 @@ void registr()
 
 
 }
+
+
+
+
+
+
+
+
+
 
 void forgot()
 {
@@ -5517,6 +5577,10 @@ void forgot()
 
 
 
+
+
+
+
 void searchHouse()
 {
 	char ch[100];
@@ -5581,6 +5645,12 @@ void searchHouse()
 	myfile.close();
 	hse.clear();
 }
+
+
+
+
+
+
 
 void deleteHouse()
 {
@@ -5657,29 +5727,29 @@ void deleteHouse()
 	
 }
 
-void AboutUs() {
 
-}
+
 
 
 
 
 /*
+
 void login()
 {
 	//Student laccount;
-	string username, pass;
+	std::string username, pass;
 	bool exist;
 	int choice;
 
-	cout << "Welcome to CSD Login portal, please input your username and password!\n";
-	cout << "Name: ";
-	cin >> laccount.username;
+	std::cout << "Welcome to CSD Login portal, please input your username and password!\n";
+	std::cout << "Name: ";
+	std::cin >> std::laccount.username;
 
-	cout << "Password: ";
-	cin >> laccount.password;
+	std::cout << "Password: ";
+	std::cin >> std::laccount.password;
 
-	ifstream input(laccount.username + ".txt");
+	std::ifstream input(laccount.username + ".txt");
 
 	while (input >> username >> pass)
 	{
@@ -5692,22 +5762,22 @@ void login()
 	if (exist == true)
 	{
 		system("cls");
-		cout << "Welcome! " << laccount.username << "\n";
-		ifstream show;
+		std::cout << "Welcome! " << laccount.username << "\n";
+		std::ifstream show;
 		show.open(laccount.username + "details.txt");
 		if (show)
 		{
 			system("cls");
 			// Attaches the username to the name1 para matawag siya globally
-			name1 = laccount.username;
-			cout << "Directing you to your dashboard\n";
+			std::name1 = laccount.username;
+			std::cout << "Directing you to your dashboard\n";
 			dashboard();
 		}
 
 		else
 		{
 			system("cls");
-			cout << "Create your own dashboard\n";
+			std::cout << "Create your own dashboard\n";
 			c_dashboard();
 		}
 		input.close();
@@ -5716,17 +5786,21 @@ void login()
 	if (exist == false)
 	{
 		system("cls");
-		cout << "Account not found.....Please try again\n";
-		cout << "Type in 0 to retry: ";
-		cin >> choice;
+		std::cout << "Account not found.....Please try again\n";
+		std::cout << "Type in 0 to retry: ";
+		std::cin >> choice;
 		if (choice == 0)
 		{
 			main();
 		}
 	}
 }
-
 */
+
+
+
+
+
 
 
 void test() {
@@ -5766,6 +5840,61 @@ void test() {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+void login()
+{
+	int login;
+	std::string user, pass, u, p;
+	system("cls");
+	std::cout << "Please enter the following details" << std::endl;
+	std::cout << "Username: ";
+	std::cin >> user;
+	std::cout << "Password: ";
+	std::cin >> pass;
+
+	std::ifstream input("Text Files/database.txt");
+	while (input >> u >> p)
+	{
+		if (u == user && p == pass)
+
+		{
+			login = 1;
+			system("cls");
+		}
+	}
+	input.close();
+	if (login == 1)
+	{
+		std::cout << "\nHello " << user << "\nLOGIN SUCESS\nWe're glad that you're here.\nThanks for logging in\n";
+		std::cin.get();
+		std::cin.get();
+		main();
+	}
+	else
+	{
+		std::cout << "\nLOGIN ERROR\nPlease check your username and password\n";
+		main();
+	}
+}
+
+
+
+
+
+
+
+
 void gotoxy(int x, int y)
 {
 	COORD d;
@@ -5773,15 +5902,31 @@ void gotoxy(int x, int y)
 	d.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), d);
 }
-void load()
-{
-	char a = 219;
-	gotoxy(30, 12);
-	std::cout << "[Loading]" << std::endl;
-	gotoxy(25, 14);
-	for (int r = 1; r <= 20; r++)
-	{
-		for (int q = 0; q <= 100000000; q++);
-		std::cout << a;
-	}
+
+
+
+void AboutUs() {
+
+	system("cls");
+	system("color 0A");
+
+	std::cout << std::endl;
+	std::cout << std::endl;
+	std::cout << "   Programmer: Namias, Jhon Keneth Ryan B." << std::endl;
+	
+	std::cout << std::endl;
+	std::cout << "   Course/Section: CS1A North" << std::endl;
+	std::cout << "   Date: November 13, 2022" << std::endl;
+	std::cout << "   Professor: Alban Ryan Rei" << std::endl;
+
+	std::cout << std::endl;
+	std::cout << "   Info:" << std::endl;
+	std::cout << "     This project [Car Dealership Management Program], " << std::endl;
+	std::cout << "     which is a topic of the Fundamentals of Programming course, " << std::endl;
+	std::cout << "     involves creating a car dealership management entirely in C++. " << std::endl;
+	std::cout << "     We are pleased to announce the release of a convenient console application " << std::endl;		std::cout << "     	for performing management system tasks like adding new car(s) to a data set, " << std::endl;
+	std::cout << "     modifying and deleting car(s) from a data set, exporting order logs, etc." << std::endl;
+	std::cout << "     involves creating a car dealership management entirely in C++." << std::endl;
+
+
 }
