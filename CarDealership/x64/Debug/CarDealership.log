@@ -1,34 +1,34 @@
 ﻿  CarDealership.cpp
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(234,11): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(935,14): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(1109,15): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(1256,16): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(1405,16): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(1537,16): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(1801,16): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(2132,16): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(2440,15): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(2630,16): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(2722,16): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(2884,16): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(3423,16): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(3563,16): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(3661,16): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(3986,16): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4324,15): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4506,15): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4529,15): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4590,13): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4793,14): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4953,15): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(5135,15): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(5159,15): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(5237,13): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(5264,13): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(1251,22): warning C4102: 'AddEmployeeData': unreferenced label
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(1399,21): warning C4102: 'DisplayEmployee': unreferenced label
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(1531,24): warning C4102: 'SearchEmployeeData': unreferenced label
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4317,14): warning C4102: 'OrderLogs': unreferenced label
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(5409,16): warning C4102: 'SelectColor': unreferenced label
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(558,6): warning C4101: 'carsData': unreferenced local variable
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(236,11): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(937,14): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(1111,15): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(1258,16): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(1399,16): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(1531,16): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(1796,16): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(2127,16): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(2435,15): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(2625,16): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(2717,16): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(2879,16): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(3418,16): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(3558,16): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(3656,16): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(3981,16): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4319,15): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4501,15): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4524,15): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4585,13): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4788,14): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4948,15): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(5130,15): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(5154,15): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(5232,13): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(5259,13): warning C4309: 'initializing': truncation of constant value
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(1253,22): warning C4102: 'AddEmployeeData': unreferenced label
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(1393,21): warning C4102: 'DisplayEmployee': unreferenced label
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(1525,24): warning C4102: 'SearchEmployeeData': unreferenced label
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4312,14): warning C4102: 'OrderLogs': unreferenced label
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(5404,16): warning C4102: 'SelectColor': unreferenced label
+C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(560,6): warning C4101: 'carsData': unreferenced local variable
   CarDealership.vcxproj -> C:\Users\jkrbn\Downloads\Car-Dealership-Program\x64\Debug\CarDealership.exe

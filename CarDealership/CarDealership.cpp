@@ -36,6 +36,8 @@
 #include <locale>
 #include <fcntl.h>
 #include <io.h>
+#include <limits>
+#include <ios>
 
 class NamiasClass {
 public:
@@ -593,7 +595,7 @@ int main()
 				  << "        _______\/////////__\////////////_____\///______________\///__\n";
 
 												 
-					*/                                                              
+*/                                                              
 																				   
 																				   
 																				   
@@ -1336,14 +1338,6 @@ int main()
 						std::cout << "\n   Enter the Username: ";
 						SetConsoleTextAttribute(h, 13);
 
-						// ESC button back
-						int esc;
-						esc = _getch();
-						if (esc == 27) {
-							system("cls");
-							goto EmployeeData;
-						}
-
 
 						std::string userHider;
 						char c_user;
@@ -1371,12 +1365,12 @@ int main()
 								std::cout << c_user;
 								break;
 							}
-						} while (c_user != 15);
+						} while (c_user != 12);
 
 
 						adduser = userHider;
 
-
+						std::cin.get();
 
 
 						// std::cin >> adduser;
@@ -1690,6 +1684,7 @@ int main()
 
 								system("pause");
 								Sleep(2000);
+								// std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 								goto EmployeeData;
 							}
 
