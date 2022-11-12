@@ -93,11 +93,25 @@ The user must first log in; if they do not already have an account, they can uti
 Once in the Main, all users may proceed to order Toyota cars.
 However, only those with admin level access may view the order logs and edit a car's data. Administrators must answer for their conduct. 
 
+## Login Information
+
+### Admin
+
+|      Username      |      Password     |
+| -----------------  | ----------------- |  
+|       Namias       |       Namias      |
+
+### Employee
+
+|      Username      |      Password     |
+| ------------------ | ----------------- |  
+|        Miku        |        Miku       |
+
 ## How to Run
 
 ### Requirements
+- Download and Install Microsft Visual Studio 2019 or higher version.
 - Download and Install MinGW driver
-- Then, to compile, double click the "CarDealership.exe"
 
 ### Setup
 1. Clone the repository or Download and Extract the source code zip file.

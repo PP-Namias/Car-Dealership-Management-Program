@@ -1339,6 +1339,15 @@ int main()
 						SetConsoleTextAttribute(h, 13);
 
 
+
+
+
+
+
+
+
+						/*
+
 						std::string userHider;
 						char c_user;
 
@@ -1372,12 +1381,109 @@ int main()
 
 						std::cin.get();
 
+						*/
 
-						// std::cin >> adduser;
+
+
+
+
+
+
+
+
+
+						std::string userHider;
+						char c_user;
+
+						do {
+							c_user = _getch();
+							switch (c_user) {
+							case 0:
+								_getch();
+								break;
+							case 13:
+								std::cout << std::endl;
+								break;
+							case 27:
+								system("cls");
+								goto EmployeeData;
+							case 8:
+								if (userHider.length() > 0) {
+									userHider.erase(userHider.end() - 1);
+									std::cout << c_user << ' ' << c_user;
+								}
+								break;
+							default:
+								userHider += c_user;
+								std::cout << c_user;
+								break;
+							}
+						} while (c_user != 13);
+
+
+						adduser = userHider;
+
+
+
+
+
+
+
+
+
+
+						//  std::cin >> adduser;
 						SetConsoleTextAttribute(h, 1);
 						std::cout << "\n   Enter the Password: ";
 						SetConsoleTextAttribute(h, 13);
-						std::cin >> addpass;
+
+
+
+
+
+						std::string passHider;
+						char c_pass;
+
+						do {
+							c_pass = _getch();
+							switch (c_pass) {
+							case 0:
+								_getch();
+								break;
+							case 13:
+								std::cout << std::endl;
+								break;
+							case 27:
+								system("cls");
+								goto EmployeeData;
+							case 8:
+								if (passHider.length() > 0) {
+									passHider.erase(passHider.end() - 1);
+									std::cout << c_pass << ' ' << c_pass;
+								}
+								break;
+							default:
+								passHider += c_pass;
+								std::cout << '*';
+								break;
+							}
+						} while (c_pass != 13);
+
+
+						addpass = passHider;
+
+
+
+
+
+
+
+
+
+
+
+
+						//  std::cin >> addpass;
 
 						std::ofstream reg("Text Files/Employee.txt", std::ios::app);
 						reg << adduser << '\t' << addpass << std::endl;
@@ -1641,9 +1747,57 @@ int main()
 						std::cout << std::endl;
 						std::cout << std::endl;
 
+
+
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "   Press ESC button to go back" << std::endl;
+						std::cout << std::endl;
+
 						SetConsoleTextAttribute(h, 1);
 						std::cout << "   Enter your choice: ";
 						SetConsoleTextAttribute(h, 13);
+
+
+
+						std::string userHider;
+						char c_user;
+
+						do {
+							c_user = _getch();
+							switch (c_user) {
+							case 0:
+								_getch();
+								break;
+							case 13:
+								std::cout << std::endl;
+								break;
+							case 27:
+								system("cls");
+								goto LoginForm;
+							case 8:
+								if (userHider.length() > 0) {
+									userHider.erase(userHider.end() - 1);
+									std::cout << c_user << ' ' << c_user;
+								}
+								break;
+							default:
+								userHider += c_user;
+								std::cout << c_user;
+								break;
+							}
+						} while (c_user != 13);
+
+
+						ch = std::stoi(userHider);
+
+
+
+
+
+
+
+
+
 						std::cin >> ch;
 
 						switch (ch)
@@ -1683,7 +1837,6 @@ int main()
 								std::cout << "   ";
 
 								system("pause");
-								Sleep(2000);
 								// std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 								goto EmployeeData;
 							}
@@ -1700,7 +1853,6 @@ int main()
 								std::cout << "   ";
 
 								system("pause");
-								Sleep(2000);
 								goto EmployeeData;
 							}
 
@@ -1742,7 +1894,6 @@ int main()
 								std::cout << std::endl;
 								std::cout << "   ";
 								system("pause");
-								Sleep(2000);
 								goto EmployeeData;
 							
 							}
@@ -1758,7 +1909,6 @@ int main()
 								std::cout << std::endl;
 								std::cout << "   ";
 								system("pause");
-								Sleep(2000);
 								goto EmployeeData;
 							}
 
@@ -1776,8 +1926,10 @@ int main()
 							std::cout << std::endl;
 							std::cout << std::endl;
 							std::cout << "   ";
+							std::cin.clear();
+							std::cin.ignore(22, '\n');
+
 							system("pause");
-							Sleep(2000);
 							goto EmployeeData;
 						}
 
