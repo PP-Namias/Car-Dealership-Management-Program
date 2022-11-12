@@ -1520,9 +1520,8 @@ int main()
 
 						std::cout << std::endl;
 						std::cout << "\n   All Employees Data Displayed!";
-						std::cout << "\n   Press Enter to Continue!";
-						std::cin.get();
-						Sleep(2000);
+						std::cout << "\n   ";
+						system("pause");
 						goto EmployeeData;
 
 					}
@@ -1796,19 +1795,19 @@ int main()
 
 
 
-					// Loading screen
-					system("cls");
-					system("color 0A");
-					char a = 219;
-					gotoxy(30, 10);
-					std::cout << "[Loading]" << std::endl;
-					gotoxy(25, 12);
-					for (int r = 1; r <= 20; r++)
-					{
-						for (int q = 0; q <= 10000000; q++);
-						std::cout << a;
-					}
-					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+						// Loading screen
+						system("cls");
+						system("color 0A");
+						char a = 219;
+						gotoxy(30, 10);
+						std::cout << "[Loading]" << std::endl;
+						gotoxy(25, 12);
+						for (int r = 1; r <= 20; r++)
+						{
+							for (int q = 0; q <= 10000000; q++);
+							std::cout << a;
+						}
+						std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 
 
@@ -1942,6 +1941,10 @@ int main()
 					
 
 
+
+
+
+
 					
 						// deletion per line
 
@@ -1957,16 +1960,48 @@ int main()
 						std::cout << "   Line: ";
 
 
-						// ESC button back
-						int esc;
-						esc = _getch();
-						if (esc == 27) {
-							system("cls");
-							goto EmployeeData;
-						}
 
 
-						std::cin >> line_number;
+
+
+
+						std::string userHider;
+						char c_user;
+
+						do {
+							c_user = _getch();
+							switch (c_user) {
+							case 0:
+								_getch();
+								break;
+							case 13:
+								std::cout << std::endl;
+								break;
+							case 27:
+								system("cls");
+								goto EmployeeData;
+							case 8:
+								if (userHider.length() > 0) {
+									userHider.erase(userHider.end() - 1);
+									std::cout << c_user << ' ' << c_user;
+								}
+								break;
+							default:
+								userHider += c_user;
+								std::cout << c_user;
+								break;
+							}
+						} while (c_user != 13);
+
+
+						line_number = std::stoi(userHider);
+
+
+
+
+
+
+						// std::cin >> line_number;
 
 						// fstream object will be used to read all of the existing lines in the file
 						std::fstream read_file;
@@ -2227,8 +2262,8 @@ int main()
 						}
 						
 						SetConsoleTextAttribute(h, 10);
-						std::cout << "   Press ESC button to go back" << std::endl;
 						std::cout << std::endl;
+						std::cout << "   Press ESC button to go back" << std::endl;
 						std::cout << std::endl;
 						std::cout << "   Type the number of line to delete";
 						std::cout << std::endl;
@@ -2251,16 +2286,43 @@ int main()
 						std::cout << "   Line: ";
 
 
-						// ESC button back
-						int esc;
-						esc = _getch();
-						if (esc == 27) {
-							system("cls");
-							goto EmployeeData;
-						}
+
+						std::string userHider;
+						char c_user;
+
+						do {
+							c_user = _getch();
+							switch (c_user) {
+							case 0:
+								_getch();
+								break;
+							case 13:
+								std::cout << std::endl;
+								break;
+							case 27:
+								system("cls");
+								goto EmployeeData;
+							case 8:
+								if (userHider.length() > 0) {
+									userHider.erase(userHider.end() - 1);
+									std::cout << c_user << ' ' << c_user;
+								}
+								break;
+							default:
+								userHider += c_user;
+								std::cout << c_user;
+								break;
+							}
+						} while (c_user != 13);
 
 
-						std::cin >> line_number;
+						line_number = std::stoi(userHider);
+
+
+
+
+
+						// std::cin >> line_number;
 
 						// fstream object will be used to read all of the existing lines in the file
 						std::fstream read_file;
@@ -2730,12 +2792,57 @@ int main()
 
 
 
+						std::cout << "   Press ESC button to go back";
+						std::cout << std::endl;
+
 
 
 						std::string addname, addprice;
 						std::cout << "\n   Enter the Car Name: ";
 						SetConsoleTextAttribute(h, 13);
-						std::cin >> addname;
+
+
+
+
+
+
+
+						std::string userHider;
+						char c_user;
+
+						do {
+							c_user = _getch();
+							switch (c_user) {
+							case 0:
+								_getch();
+								break;
+							case 13:
+								std::cout << std::endl;
+								break;
+							case 27:
+								system("cls");
+								goto CarData;
+							case 8:
+								if (userHider.length() > 0) {
+									userHider.erase(userHider.end() - 1);
+									std::cout << c_user << ' ' << c_user;
+								}
+								break;
+							default:
+								userHider += c_user;
+								std::cout << c_user;
+								break;
+							}
+						} while (c_user != 15);
+
+
+						addname = std::stoi(userHider);
+
+
+
+
+
+						// std::cin >> addname;
 						SetConsoleTextAttribute(h, 1);
 						
 						std::cout << "\n   Enter the Car Price: ";
@@ -3547,10 +3654,7 @@ int main()
 
 					// Edit Cars Color
 					else if (CarChoice == 7) {
-					system("color a");
-						system("cls");
-
-
+						
 						// Loading screen
 						system("cls");
 						system("color 0A");
@@ -3564,6 +3668,18 @@ int main()
 							std::cout << a;
 						}
 						std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
+
+
+
+						system("color a");
+						system("cls");
+
+
+
+
+
+
 
 
 
@@ -3675,8 +3791,8 @@ int main()
 						}
 
 						SetConsoleTextAttribute(h, 10);
-						std::cout << "   Press ESC button to go back" << std::endl;
 						std::cout << std::endl;
+						std::cout << "   Press ESC button to go back" << std::endl;
 						std::cout << std::endl;
 						std::cout << "   Type the number of line to edit";
 						std::cout << std::endl;
@@ -3699,16 +3815,53 @@ int main()
 						std::cout << "   Line: ";
 
 
-						// ESC button back
-						int esc;
-						esc = _getch();
-						if (esc == 27) {
-							system("cls");
-							goto CarData;
-						}
 
 
-						std::cin >> line_number;
+
+
+
+
+
+						std::string lineHider;
+						char c_line;
+
+						do {
+							c_line = _getch();
+							switch (c_line) {
+							case 0:
+								_getch();
+								break;
+							case 13:
+								std::cout << std::endl;
+								break;
+							case 27:
+								system("cls");
+								goto CarData;
+							case 8:
+								if (lineHider.length() > 0) {
+									lineHider.erase(lineHider.end() - 1);
+									std::cout << c_line << ' ' << c_line;
+								}
+								break;
+							default:
+								lineHider += c_line;
+								std::cout << c_line;
+								break;
+							}
+						} while (c_line != 15);
+
+
+						line_number = std::stoi(lineHider);
+
+
+
+
+
+
+
+
+
+						// std::cin >> line_number;
 
 
 						std::cout << std::endl;
@@ -3825,10 +3978,7 @@ int main()
 					// Delete Cars Color
 					else if (CarChoice == 8) {
 					DeleteCarsColor:
-						system("color a");
-						system("cls");
-
-
+						
 
 						// Loading screen
 						system("cls");
@@ -3844,6 +3994,9 @@ int main()
 						}
 						std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
+
+						system("color a");
+						system("cls");
 
 
 						std::cout << std::endl;
@@ -3978,16 +4131,46 @@ int main()
 						std::cout << "   Line: ";
 
 
-						// ESC button back
-						int esc;
-						esc = _getch();
-						if (esc == 27) {
-							system("cls");
-							goto CarData;
-						}
 
 
-						std::cin >> line_number;
+
+
+
+						std::string lineHider;
+						char c_line;
+
+						do {
+							c_line = _getch();
+							switch (c_line) {
+							case 0:
+								_getch();
+								break;
+							case 13:
+								std::cout << std::endl;
+								break;
+							case 27:
+								system("cls");
+								goto CarData;
+							case 8:
+								if (lineHider.length() > 0) {
+									lineHider.erase(lineHider.end() - 1);
+									std::cout << c_line << ' ' << c_line;
+								}
+								break;
+							default:
+								lineHider += c_line;
+								std::cout << c_line;
+								break;
+							}
+						} while (c_line != 15);
+
+
+						line_number = std::stoi(lineHider);
+
+
+
+
+						// std::cin >> line_number;
 
 						// fstream object will be used to read all of the existing lines in the file
 						std::fstream read_file;
