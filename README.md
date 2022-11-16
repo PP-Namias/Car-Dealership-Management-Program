@@ -125,7 +125,7 @@ However, only those with admin level access may view the order logs and edit a c
 
 <p> ​</p>
 
-![Car-Dealership-Program Demo](images/demo.gif)
+![Car-Dealership-Management-Program Demo](images/demo.gif)
 
 > Note: Some issues were not yet fixed thus I will be updating this in several upcoming weeks/months. And I hope that this project will be used for educational purposes and that the system itself maintains its copyrights as proposed.
 
