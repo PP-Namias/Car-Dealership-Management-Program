@@ -116,7 +116,7 @@ However, only those with admin level access may view the order logs and edit a c
 ### Setup
 1. Clone the repository or Download and Extract the source code zip file.
 2. Open the extracted file and open "CarDealership.exe" 
-3. Thats it. 
+3. That's it. 
 
 ## Limitation 
 - No GUI interface
@@ -145,38 +145,56 @@ Enjoy :)
 
 <table>
   <tr>
-    <th>2. Login Menu</th>
-    <th>3. Admin Login page</th>
-    <th>4. Employee Login page</th>
+    <th>2. Login Page</th>
   </tr>
   <tr>
-    <td><img src="images/CDM Login Menu.png"></td>
-    <td><img src="images/CDM Admin Login page.png"></td>
+    <td><img src="images/CDM Login page.png"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>3. Admin Login</th>
+    <th>4. Employee Login</th>
+  </tr><tr>
+     <td><img src="images/CDM Admin Login page.png"></td>
     <td><img src="images/CDM Employee Login page.png"></td>
   </tr>
 </table>
 
+
 <table>
   <tr>
-    <th colspan="6" align="center">5. Employee Data</th>
+    <th>5. Admin Menu</th>
+    <th>6. Employee Menu</th>
   </tr>
   <tr>
-    <td><img src="images/CDM Employee Data.png" ></td>
-    <td><img src="images/CDM Add Employee Data.png" ></td>
-  </tr>
-  <tr>
-    <td><img src="images/CDM View Employee Data.png" ></td>
-    <td><img src="images/CDM Search Employee Data.png" ></td>
-  </tr>
-  <tr>
-    <td><img src="images/CDM Edit Employee Data.png" ></td>
-    <td><img src="images/CDM Delete Employee Data.png" ></td>
+    <td><img src="images/CDM Admin Menu.png"></td>
+    <td><img src="images/CDM Employee Menu.png"></td>
   </tr>
 </table>
 
 <table>
   <tr>
-    <th colspan="1" align="center">6. Cars Data</th>
+    <th colspan="6" align="center">7. Employee Data</th>
+  </tr>
+  <tr>
+    <td><img src="images/CDM Employee Data.png"></td>
+    <td><img src="images/CDM Add Employee Data.png"></td>
+  </tr>
+  <tr>
+    <td><img src="images/CDM View Employee Data.png"></td>
+    <td><img src="images/CDM Search Employee Data.png"></td>
+  </tr>
+  <tr>
+    <td><img src="images/CDM Edit Employee Data.png"></td>
+    <td><img src="images/CDM Delete Employee Data.png"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>8. Cars Data</th>
   </tr>
   <tr>
     <td><img src="images/CDM Cars Data.png" ></td>
@@ -185,7 +203,7 @@ Enjoy :)
 
 <table>
   <tr>
-    <th colspan="1" align="center">7. Order Logs</th>
+    <th>9. Order Logs</th>
   </tr>
   <tr>
     <td><img src="images/CDM Order Logs.png" ></td>
@@ -194,21 +212,34 @@ Enjoy :)
 
 <table>
   <tr>
-    <th>8. Order Cars</th>
-    <th>9. Order Car Color</th>
-    <th>10. Cashier and Receipt</th>
+    <th>10. Order Cars</th>
   </tr>
   <tr>
     <td><img src="images/CDM Order Cars.png"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>11. Order Car Color</th>
+  </tr>
+  <tr>
     <td><img src="images/CDM Order Car Color.png"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>12. Cashier and Receipt</th>
+  </tr>
+  <tr>
     <td><img src="images/CDM Cashier and Receipt.png"></td>
   </tr>
 </table>
 
-
 <table >
   <tr>
-    <th>11. About Us</th>
+    <th>13. About Us</th>
   </tr>
   <tr>
     <td><img src="images/CDM About Us.png"></td>
@@ -217,7 +248,7 @@ Enjoy :)
 
 <table >
   <tr>
-    <th>12. Loading Screen</th>
+    <th>14. Loading Screen</th>
   </tr>
   <tr>
     <td><img src="images/CDM Loading Screen.png"></td>
