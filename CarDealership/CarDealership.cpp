@@ -117,27 +117,6 @@ void deleteHouse();
 void gotoxy(int x, int y);
 
 
-struct house
-{
-	int reg_num;
-	char name[100];
-	std::string type[3] = { "Low Density", "Medium Density", "High Density" };
-	double cost;
-};
-
-struct Employee
-{
-	char Username[100];
-	char Password[100];
-};
-
-struct house_search
-{
-	char reg_num[100];
-	char name[100];
-	char cost[100];
-	std::string type[3] = { "Low Density", "Medium Density", "High Density" };
-};
 
 // Title screen call-out once [Flagging]
 bool flag = false;
@@ -558,44 +537,6 @@ int main()
 	// sub choices
 	int employeeData;
 	int carsData;
-
-
-
-
-	/*
-			std::cout << "		  CCCCCCCCCCCCC     DDDDDDDDDDDDD             MMMMMMMM               MMMMMMMM\n"
-					  << "	   CCC::::::::::::C     D::::::::::::DDD          M:::::::M             M:::::::M\n"
-					  << "   CC:::::::::::::::C     D:::::::::::::::DD        M::::::::M           M::::::::M\n"
-					  << "  C:::::CCCCCCCC::::C     DDD:::::DDDDD:::::D       M:::::::::M         M:::::::::M\n"
-					  << " C:::::C       CCCCCC       D:::::D    D:::::D      M::::::::::M       M::::::::::M\n"
-					  << "C:::::C                     D:::::D     D:::::D     M:::::::::::M     M:::::::::::M\n"
-					  << "C:::::C                     D:::::D     D:::::D     M:::::::M::::M   M::::M:::::::M\n"
-					  << "C:::::C                     D:::::D     D:::::D     M::::::M M::::M M::::M M::::::M\n"
-					  << "C:::::C                     D:::::D     D:::::D     M::::::M  M::::M::::M  M::::::M\n"
-					  << "C:::::C                     D:::::D     D:::::D     M::::::M   M:::::::M   M::::::M\n"
-					  << "C:::::C                     D:::::D     D:::::D     M::::::M    M:::::M    M::::::M\n"
-					  << " C:::::C       CCCCCC       D:::::D    D:::::D      M::::::M     MMMMM     M::::::M\n"
-					  << "  C:::::CCCCCCCC::::C     DDD:::::DDDDD:::::D       M::::::M               M::::::M\n"
-					  << "   CC:::::::::::::::C     D:::::::::::::::DD        M::::::M               M::::::M\n"
-					  << "	   CCC::::::::::::C     D::::::::::::DDD          M::::::M               M::::::M\n"
-					  << "		  CCCCCCCCCCCCC     DDDDDDDDDDDDD             MMMMMMMM               MMMMMMMM";
-
-
-
-
-
-			std::cout << "________/\\\\\\\\\__/\\\\\\\\\\\\_____/\\\\____________/\\\\_\n"
-					  << " _____/\\\////////__\/\\\////////\\\__\/\\\\\\________/\\\\\\_\n"
-					  << "  ___/\\\/___________\/\\\______\//\\\_\/\\\//\\\____/\\\//\\\_\n"
-					  << "   __/\\\_____________\/\\\_______\/\\\_\/\\\\///\\\/\\\/_\/\\\_\n"
-					  << "    _\/\\\_____________\/\\\_______\/\\\_\/\\\__\///\\\/___\/\\\_\n"
-					  << "     _\//\\\____________\/\\\_______\/\\\_\/\\\____\///_____\/\\\_\n"
-					  << "      __\///\\\__________\/\\\_______/\\\__\/\\\_____________\/\\\_\n"
-					  << "       ____\////\\\\\\\\\_\/\\\\\\\\\\\\/___\/\\\_____________\/\\\_\n"
-					  << "        _______\/////////__\////////////_____\///______________\///__\n";
-
-
-	*/
 
 
 
@@ -1340,48 +1281,6 @@ LoginForm:
 
 
 
-
-
-
-
-
-
-					/*
-
-					std::string userHider;
-					char c_user;
-
-					do {
-						c_user = _getch();
-						switch (c_user) {
-						case 0:
-							_getch();
-							break;
-						case 13:
-							std::cout << std::endl;
-							break;
-						case 27:
-							system("cls");
-							goto EmployeeData;
-						case 8:
-							if (userHider.length() > 0) {
-								userHider.erase(userHider.end() - 1);
-								std::cout << c_user << ' ' << c_user;
-							}
-							break;
-						default:
-							userHider += c_user;
-							std::cout << c_user;
-							break;
-						}
-					} while (c_user != 12);
-
-
-					adduser = userHider;
-
-					std::cin.get();
-
-					*/
 
 
 
@@ -3192,20 +3091,6 @@ LoginForm:
 						std::cout << std::endl;
 
 					}
-
-					/*
-					while (Cars_Price >> CPrice) {
-
-						std::cout << "|\t";
-						SetConsoleTextAttribute(h, 11);
-						std::cout << CPrice;
-						std::cout << std::endl;
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "----------------------------------------------------------------------";
-						std::cout << std::endl;
-
-					}
-					*/
 
 					SetConsoleTextAttribute(h, 10);
 					std::cout << "   Press ESC button to go back" << std::endl;
@@ -5508,34 +5393,6 @@ LoginForm:
 
 
 
-
-	/*
-	switch (choice)
-	{
-	case 1:
-		login();
-
-		break;
-	case 2:
-		registr();
-		break;
-	case 3:
-		forgot();
-		break;
-	case 4:
-
-		std::cout << "Thanks for using this program\nThis program is created by @Thestral9\n\n";
-		break;
-	default:
-		system("cls");
-		std::cout << "Wrong Choice Intered\n" << std::endl;
-		main();
-	}
-
-
-	*/
-
-
 OrderCars:
 	system("color 01");
 	system("cls");
@@ -5555,21 +5412,55 @@ OrderCars:
 
 	std::cout << "\n  Input Number According to the type of Car: ";
 
-	// ESC button back
-	int esc;
-	esc = _getch();
-	if (esc == 27) {
-		system("cls");
-		goto LoginForm;
-	}
 
-	std::cin >> Cars;
+	// std::cin >> Cars;
+
+
+
+
+	std::string CarsHider;
+	char c_cars;
+
+	do {
+		c_cars = _getch();
+		switch (c_cars) {
+		case 0:
+			_getch();
+			break;
+		case 13:
+			std::cout << std::endl;
+			break;
+		case 27:
+			system("cls");
+			goto LoginForm;
+		case 8:
+			if (CarsHider.length() > 0) {
+				CarsHider.erase(CarsHider.end() - 1);
+				std::cout << c_cars << ' ' << c_cars;
+			}
+			break;
+		default:
+			CarsHider += c_cars;
+			std::cout << c_cars;
+			break;
+		}
+	} while (c_cars != 13);
+
+
+	Cars = stoi(CarsHider);
+
+
+
+
+
 
 	if (Cars < 1 || Cars > sizeof(toyota_car_names) / sizeof(toyota_car_names[0])) {
 		system("cls");
 		system("color 4f");
 		std::cout << "\n  Invalid input please try ordering again.\n";
-		std::cin.ignore();
+		std::cin.clear();
+		std::cin.ignore(22, '\n');
+
 		Sleep(2000);
 		goto OrderCars;
 	}
@@ -5669,7 +5560,7 @@ OrderCars:
 				else if (Change == 0) {
 					std::cout << "\n  You paid the exact amount of money needed.\n\n";
 
-					Sleep(2000);
+					Sleep(500);
 
 				}
 
@@ -5677,15 +5568,20 @@ OrderCars:
 					system("cls");
 					system("color 4f");
 					std::cout << "\n  You don't have enough money.";
+					std::cin.clear();
+					std::cin.ignore(22, '\n'); 
+					
 					Sleep(2000);
-					goto Cashier;
+					goto OrderCars;
 				}
 
 				else {
 					system("cls");
 					system("color 4f");
 					std::cout << "\n  Invalid input please try ordering again.\n";
-					std::cin.ignore();
+					std::cin.clear();
+					std::cin.ignore(22, '\n');
+
 					Sleep(2000);
 					goto OrderCars;
 				}
@@ -5788,9 +5684,11 @@ OrderCars:
 		system("cls");
 		system("color 4f");
 		std::cout << "\n  Invalid input please try ordering again.";
-		std::cin.ignore();
+		std::cin.clear();
+		std::cin.ignore(22, '\n');
+
 		Sleep(2000);
-		goto LoginForm;
+		goto OrderCars;
 	}
 
 
@@ -5800,466 +5698,6 @@ OrderCars:
 
 
 
-
-
-
-
-
-
-
-void registr()
-{
-
-	std::string reguser, regpass, ru, rp;
-	system("cls");
-	std::cout << "\n   Enter the Username: ";
-	std::cin >> reguser;
-	std::cout << "\n   Enter the Password: ";
-	std::cin >> regpass;
-
-	std::ofstream reg("Text Files/Employee.txt", std::ios::app);
-	reg << reguser << ' ' << regpass << std::endl;
-	system("cls");
-	std::cout << "\n   Registration Sucessful\n";
-	main();
-
-
-}
-
-
-
-
-
-
-
-
-
-
-void forgot()
-{
-	int ch;
-	system("cls");
-	std::cout << std::endl;
-	std::cout << "   [1] Search your Password by Username" << std::endl;
-	std::cout << "   [2] Search your Username by Password" << std::endl;
-	std::cout << "   [3] Back" << std::endl;
-	std::cout << std::endl;
-
-	std::cout << "Enter your choice :";
-	std::cin >> ch;
-
-	switch (ch)
-	{
-	case 1:
-	{
-
-		int login = 0;
-		std::string searchuser, su, sp;
-		std::cout << "\nEnter your remembered Username :";
-		std::cin >> searchuser;
-
-		std::ifstream searchu("Text Files/Employee.txt");
-
-		while (searchu >> su >> sp)
-		{
-			if (su == searchuser)
-			{
-				login = 1;
-			}
-		}
-		searchu.close();
-
-		if (login == 1)
-		{
-			std::cout << "\n\nHurray, account found\n";
-			std::cout << "\nYour password is " << sp;
-			std::cin.get();
-			std::cin.get();
-			system("cls");
-			main();
-		}
-
-		else
-		{
-			std::cout << "\nSorry, Your userID is not found in our database\n";
-			std::cout << "\nPlease kindly contact your system administrator for more details \n";
-			std::cin.get();
-			std::cin.get();
-			main();
-		}
-
-		break;
-
-	}
-	case 2:
-	{
-		int login = 0;
-		std::string searchpass, su2, sp2;
-		std::cout << "\nEnter the remembered password :";
-		std::cin >> searchpass;
-
-		std::ifstream searchp("Text Files/Employee.txt");
-		while (searchp >> su2 >> sp2)
-		{
-			if (sp2 == searchpass)
-			{
-				login = 1;
-			}
-		}
-		searchp.close();
-		if (login == 1)
-		{
-			std::cout << "\nYour password is found in the database \n";
-			std::cout << "\nYour Id is : " << su2;
-			std::cin.get();
-			std::cin.get();
-			system("cls");
-			main();
-		}
-		else
-		{
-			std::cout << "Sorry, We cannot found your password in our database \n";
-			std::cout << "\nkindly contact your administrator for more information\n";
-			std::cin.get();
-			std::cin.get();
-			main();
-		}
-
-		break;
-	}
-
-	case 3:
-	{
-		std::cout << "Sorry, You entered wrong choice. Kindly try again" << std::endl;
-		Sleep(2000);
-		main();
-	}
-	default:
-		std::cout << "Sorry, You entered wrong choice. Kindly try again" << std::endl;
-		Sleep(2000);
-		main();
-	}
-
-
-
-
-
-
-}
-
-
-
-
-
-
-
-
-void searchHouse()
-{
-	char ch[100];
-	int choise;
-	int result = 0;
-	int i = 0;
-	std::vector<house_search> hse(10);
-
-	std::cout << "\t\t\t*******SEARCH MENU**********" << std::endl;
-	std::cout << "\t\t\t (1) To search by Registration Number " << std::endl;
-	std::cout << "\t\t\t (2) To Search by House Name " << std::endl;
-	std::cout << "\t\t\t*************************" << std::endl;
-	std::cout << "Enter your choice : ";
-	std::cin >> choise;
-	if (choise == 1) {
-		std::cout << "Enter House Reg_Num : ";
-		std::cin >> ch;
-	}
-	else if (choise == 2) {
-		std::cout << "Enter House Name : ";
-		std::cin >> ch;
-	}
-
-
-	std::fstream myfile;
-	myfile.open("C:/Users/jkrbn/OneDrive/Desktop/Project/C++/test/house_storage.txt", std::ios::in);
-	while (!myfile.eof())
-	{
-		myfile.getline(hse[i].reg_num, 150, ' ');
-		myfile.getline(hse[i].name, 150, ' ');
-		myfile.getline(hse[i].cost, 150, '\n');
-
-		if (choise == 1)
-		{
-			if (strcmp(ch, hse[i].reg_num) == 0)
-			{
-				//cout<<"Found record is "<<endl;
-				std::cout << "--------------------------------------------" << std::endl;
-				std::cout << hse[i].reg_num << "\t " << hse[i].name << "\t " << hse[i].cost << std::endl;
-				std::cout << "--------------------------------------------" << std::endl;
-				result = 1;
-			}
-
-		}
-		else if (choise == 2)
-		{
-			if (strcmp(ch, hse[i].name) == 0)
-			{
-				std::cout << "--------------------------------------------" << std::endl;
-				std::cout << hse[i].reg_num << "\t " << hse[i].name << "\t " << hse[i].cost << std::endl;
-				std::cout << "--------------------------------------------" << std::endl;
-				result = 1;
-			}
-
-		}
-
-	}
-	if (result == 0)
-	{
-		std::cout << "***No Record Found!***" << std::endl;
-	}
-	myfile.close();
-	hse.clear();
-}
-
-
-
-
-
-
-
-void deleteHouse()
-{
-	int way;
-	int i = 0;
-	char name[20];
-	char id[5];
-	char ee[1];
-	int flag = 0;
-
-	std::cout << "\t\t\t****************************" << std::endl;
-	std::cout << "\t\t\t (1) To DELETE by Reg_Num" << std::endl;
-	std::cout << "\t\t\t (2) tO delete by Name" << std::endl;
-	std::cout << "\t\t\t****************************" << std::endl;
-	std::cout << "Enter your choice : ";
-	std::cin >> way;
-	if (way == 1) {
-		std::cout << "Enter House Reg_Num To DELETE : ";
-		std::cin >> id;
-	}
-	else
-		if (way == 2) {
-			std::cout << "Enter House Name To DELETE : ";
-			std::cin >> name;
-		}
-
-	std::vector<house_search> hse(10);
-	std::fstream myfile;
-	std::fstream search_file;
-	myfile.open("C:/Users/jkrbn/OneDrive/Desktop/Project/C++/test/house_storage.txt", std::ios::in);//read
-	search_file.open("C:/Users/jkrbn/OneDrive/Desktop/Project/C++/test/house_storage.txt", std::ios::out);//write
-
-	while (!myfile.eof()) {
-		myfile.getline(hse[i].reg_num, 150, ' ');
-		myfile.getline(hse[i].name, 150, ' ');
-		myfile.getline(hse[i].cost, 150, '\n');
-
-		if (way == 1)
-		{
-			if (strcmp(id, hse[i].reg_num) != 0 && strcmp(ee, hse[i].reg_num) != 0)
-			{
-				search_file << hse[i].reg_num << " " << hse[i].name << " " << hse[i].cost << "\n";
-				flag = 1;
-
-			}
-
-		}
-		else if (way == 2)
-		{
-
-			if (strcmp(name, hse[i].name) != 0 && strcmp(ee, hse[i].name) != 0)
-			{
-				search_file << hse[i].reg_num << " " << hse[i].name << " " << hse[i].cost << "\n";
-				flag = 1;
-
-			}
-
-		}
-
-
-	}
-	myfile.close();
-	search_file.close();
-	remove("C:/Users/jkrbn/OneDrive/Desktop/Project/C++/test/house_storage.txt");
-	rename("C:/Users/jkrbn/OneDrive/Desktop/Project/C++/test/fake_storage.txt", "C:/Users/jkrbn/OneDrive/Desktop/Project/C++/test/house_storage.txt");
-	hse.clear();
-	if (flag == 0)
-	{
-		std::cout << "Nothing to Delete was found" << std::endl;
-	}
-
-
-
-
-}
-
-
-
-
-
-
-
-/*
-
-void login()
-{
-	//Student laccount;
-	std::string username, pass;
-	bool exist;
-	int choice;
-
-	std::cout << "Welcome to CSD Login portal, please input your username and password!\n";
-	std::cout << "Name: ";
-	std::cin >> std::laccount.username;
-
-	std::cout << "Password: ";
-	std::cin >> std::laccount.password;
-
-	std::ifstream input(laccount.username + ".txt");
-
-	while (input >> username >> pass)
-	{
-		if (username == laccount.username && pass == laccount.password)
-		{
-			exist = true;
-		}
-	}
-
-	if (exist == true)
-	{
-		system("cls");
-		std::cout << "Welcome! " << laccount.username << "\n";
-		std::ifstream show;
-		show.open(laccount.username + "details.txt");
-		if (show)
-		{
-			system("cls");
-			// Attaches the username to the name1 para matawag siya globally
-			std::name1 = laccount.username;
-			std::cout << "Directing you to your dashboard\n";
-			dashboard();
-		}
-
-		else
-		{
-			system("cls");
-			std::cout << "Create your own dashboard\n";
-			c_dashboard();
-		}
-		input.close();
-	}
-
-	if (exist == false)
-	{
-		system("cls");
-		std::cout << "Account not found.....Please try again\n";
-		std::cout << "Type in 0 to retry: ";
-		std::cin >> choice;
-		if (choice == 0)
-		{
-			main();
-		}
-	}
-}
-*/
-
-
-
-
-
-
-
-void test() {
-
-	int k_num;
-
-	std::cout << "Enter a chapter: ";
-	std::cin >> k_num;
-
-	std::fstream fil_k;
-	fil_k.open("Resources/Fili/Buod/fil_k" + std::to_string(k_num) + ".txt", std::ios::in);
-
-	if (fil_k.is_open())
-	{
-		std::cout << "              [ Kabanata " << k_num << " ]" << std::endl;
-		std::cout << "__________________________________________" << std::endl;
-
-		std::string line;
-		while (std::getline(fil_k, line))
-		{
-			std::cout << line << std::endl;
-		}
-		fil_k.close();
-	}
-
-	else
-	{
-		system("cls");
-		std::cout << "Chapter does not exist." << std::endl;
-		system("pause");
-		//k_noli();
-	}
-	std::cout << "__________________________________________" << std::endl;
-	system("pause");
-	system("cls");
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void login()
-{
-	int login;
-	std::string user, pass, u, p;
-	system("cls");
-	std::cout << "Please enter the following details" << std::endl;
-	std::cout << "Username: ";
-	std::cin >> user;
-	std::cout << "Password: ";
-	std::cin >> pass;
-
-	std::ifstream input("Text Files/database.txt");
-	while (input >> u >> p)
-	{
-		if (u == user && p == pass)
-
-		{
-			login = 1;
-			system("cls");
-		}
-	}
-	input.close();
-	if (login == 1)
-	{
-		std::cout << "\nHello " << user << "\nLOGIN SUCESS\nWe're glad that you're here.\nThanks for logging in\n";
-		std::cin.get();
-		std::cin.get();
-		main();
-	}
-	else
-	{
-		std::cout << "\nLOGIN ERROR\nPlease check your username and password\n";
-		main();
-	}
-}
 
 
 
@@ -6283,23 +5721,46 @@ void AboutUs() {
 	system("cls");
 	system("color 0A");
 
+	// Text color settings
+	HANDLE aboutUsColor = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	
+	SetConsoleTextAttribute(aboutUsColor, 9);
 	std::cout << std::endl;
 	std::cout << std::endl;
-	std::cout << "   Programmer: Namias, Jhon Keneth Ryan B." << std::endl;
+	std::cout << "   Programmer: ";
+	SetConsoleTextAttribute(aboutUsColor, 11);
+	std::cout << "Jhon Keneth Ryan B. Namias" << std::endl;
 
 	std::cout << std::endl;
-	std::cout << "   Course/Section: CS1A North" << std::endl;
-	std::cout << "   Date: November 13, 2022" << std::endl;
-	std::cout << "   Professor: Alban Ryan Rei" << std::endl;
+	SetConsoleTextAttribute(aboutUsColor, 9);
+	std::cout << "   Course/Section: ";
+	SetConsoleTextAttribute(aboutUsColor, 11);
+	std::cout << "CS1A North" << std::endl;
+	SetConsoleTextAttribute(aboutUsColor, 9);
+	std::cout << "   Date: ";
+	SetConsoleTextAttribute(aboutUsColor, 11);
+	std::cout << "November 19, 2022" << std::endl;
+	SetConsoleTextAttribute(aboutUsColor, 9);
+	std::cout << "   Professor: ";
+	SetConsoleTextAttribute(aboutUsColor, 11);
+	std::cout << "Alban Ryan Rei" << std::endl;
 
 	std::cout << std::endl;
+	SetConsoleTextAttribute(aboutUsColor, 9);
 	std::cout << "   Info:" << std::endl;
-	std::cout << "     This project [Car Dealership Management Program], " << std::endl;
-	std::cout << "     which is a topic of the Fundamentals of Programming course, " << std::endl;
-	std::cout << "     involves creating a car dealership management entirely in C++. " << std::endl;
-	std::cout << "     We are pleased to announce the release of a convenient console application " << std::endl;		std::cout << "     	for performing management system tasks like adding new car(s) to a data set, " << std::endl;
-	std::cout << "     modifying and deleting car(s) from a data set, exporting order logs, etc." << std::endl;
+	SetConsoleTextAttribute(aboutUsColor, 15);
+	std::cout << "         This project [Car Dealership Management Program], " << std::endl;
+	std::cout << "     which is a topic of the (Fundamentals of Programming) course, " << std::endl;
 	std::cout << "     involves creating a car dealership management entirely in C++." << std::endl;
+	std::cout << "     We are pleased to announce the release of a convenient console" << std::endl;	
+	std::cout << "     application for performing management system tasks like adding" << std::endl;
+	std::cout << "     new car(s) to a data set, modifying and deleting car(s) from a" << std::endl;
+	std::cout << "     data set, exporting order logs, etc." << std::endl;
+	std::cout << "     Involves creating a car dealership management entirely in C++." << std::endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
 
+	SetConsoleTextAttribute(aboutUsColor, 10);
 
 }
