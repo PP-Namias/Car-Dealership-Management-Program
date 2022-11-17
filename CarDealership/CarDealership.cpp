@@ -2382,7 +2382,110 @@ LoginForm:
 					line_number = std::stoi(userHider);
 
 
+					/*
+					
+					std::cin >> line_number;
 
+					// fstream object will be used to read all of the existing lines in the file
+					std::fstream read_file;
+
+					// Open the file with the provided filename
+					read_file.open("Text Files/Cars_Color.txt");
+
+					// If file failed to open, exit with an error message and error exit status
+					if (read_file.fail())
+					{
+						system("color 4f");
+						std::cout << std::endl;
+						std::cout << "   Error opening file." << std::endl;
+
+						Sleep(3000);
+						goto DeleteCarsColor;
+						// returning 1 instead of 0 is a signal to the shell that something went
+						// wrong in the execution of the program
+					}
+
+					// Create a vector to store all the file lines, and a string line to store
+					// each line that we read
+					std::vector<std::string> lines;
+					std::string line;
+
+					// Read each line of the file and store it as the next element of the vector,
+					// the loop will stop when there are no more lines to read
+					while (getline(read_file, line))
+						lines.push_back(line);
+
+					// Close our access to the file since we are done reading with it
+					read_file.close();
+
+					// The vector will now contain an element for each line in the file, so the
+					 // size of the vector is the number of lines in the file.  Check to make
+					 // sure the line number requested does not exceed the number of lines in
+					 // the file, if it does, exit with an error message and status.
+					if (line_number > lines.size())
+					{
+						std::cout << std::endl;
+						std::cout << "   Line " << line_number;
+						std::cout << " not in file." << std::endl;
+
+						// Inform user how many lines ARE in the file as part of the error message
+						std::cout << "   File has " << lines.size();
+						std::cout << " lines." << std::endl;
+
+						Sleep(3000);
+						goto DeleteCarsColor;
+					}
+
+					// Create ofstream object for writing to the file
+					std::ofstream write_file;
+
+					// Open the file with the provided filename
+					write_file.open("Text Files/Cars_Color.txt");
+
+					// If the file failed to open, exit with an error message and exit status
+					if (write_file.fail())
+					{
+						system("color 4f");
+
+						std::cout << std::endl;
+						std::cout << "   Error opening file." << std::endl;
+
+
+						Sleep(3000);
+						goto DeleteCarsColor;
+					}
+
+					// Write all of the lines stored in the vector back to the file, EXCEPT the
+					// line that we want to delete.
+
+					// Line number 1 will be stored at vector index 0, line number 2 will be
+					// stored at vector index 1, and so on because vectors are zero-indexed, so
+					// decrement line_number to help us identify when we've reached the
+					// associated line in the file.
+					line_number--;
+
+					// Loop through the vector elements to write each line back to the file
+					// EXCEPT the line we want to delete.
+					for (int i = 0; i < lines.size(); i++)
+						if (i != line_number)
+							write_file << lines[i] << std::endl;
+
+					// Close our access to the file since we are done working with it
+					write_file.close();
+
+					std::cout << std::endl;
+					std::cout << "   Line " << line_number + 1 << " has been deleted";
+					std::cout << std::endl;
+					std::cout << "   ";
+
+					system("pause");
+					goto CarData;
+
+
+
+					
+					
+					*/
 
 
 					// std::cin >> line_number;
@@ -2765,6 +2868,85 @@ LoginForm:
 
 
 
+
+					std::ifstream Cars_Name("Text Files/Cars_Name.txt");
+					std::ifstream Cars_Price("Text Files/Cars_Price.txt");
+
+					std::string CName;
+					int CPrice;
+
+					SetConsoleTextAttribute(h, 13);
+					std::cout << "\n======================================================================" << std::endl;
+					SetConsoleTextAttribute(h, 13);
+					std::cout << "|      ";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "Line";
+					SetConsoleTextAttribute(h, 13);
+					std::cout << "\t |      ";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "Name";
+					SetConsoleTextAttribute(h, 13);
+					std::cout << "\t  |\t";
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "Price";
+					SetConsoleTextAttribute(h, 13);
+					std::cout << "\t\t\t\t|";
+					SetConsoleTextAttribute(h, 13);
+					std::cout << "\n======================================================================" << std::endl;
+					SetConsoleTextAttribute(h, 1);
+
+					int i = 0;
+					while ((Cars_Name >> CName) && (Cars_Price >> CPrice)) {
+						i++;
+
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "|";
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "      [";
+						SetConsoleTextAttribute(h, 15);
+						std::cout << i;
+						SetConsoleTextAttribute(h, 10);
+						std::cout << "]\t";
+						SetConsoleTextAttribute(h, 13);
+						std::cout << " |     ";
+						SetConsoleTextAttribute(h, 9);
+						std::cout << CName;
+						std::cout << "\t";
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "  |\t";
+						SetConsoleTextAttribute(h, 11);
+
+
+						struct group_facet : public std::numpunct<char> {
+						protected:
+							std::string do_grouping() const { return "\003"; }
+						};
+
+						std::cout.imbue(std::locale(std::cout.getloc(), new group_facet));
+
+						std::cout << std::fixed << CPrice;
+
+
+
+						// std::cout << CPrice;
+						SetConsoleTextAttribute(h, 9);
+						std::cout << " pesos";
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "\t\t\t|";
+						SetConsoleTextAttribute(h, 13);
+						std::cout << "|--------------------------------------------------------------------|";
+						std::cout << std::endl;
+
+					}
+
+					SetConsoleTextAttribute(h, 10);
+					std::cout << std::endl;
+					std::cout << "   ";
+					system("pause");
+					goto CarData;
+
+					/*
+
 					NamiasClass NamiasObject;
 					NamiasObject.display_menu("\n  Toyota", toyota_car_names, toyota_car_prices, sizeof(toyota_car_names) / sizeof(toyota_car_names[0]));
 
@@ -2772,6 +2954,8 @@ LoginForm:
 					std::cout << "   ";
 					system("pause");
 					goto CarData;
+					*/
+
 
 				}
 
@@ -4328,11 +4512,13 @@ LoginForm:
 				}
 
 				else {
-					std::cout << std::endl
-						<< "   Wrong Input! Please try again"
-						<< std::endl;
-
+					system("cls");
+					system("color 4f");
+					std::cout << "\n   Wrong input entered!" << std::endl;
+					std::cin.clear();
+					std::cin.ignore(22, '\n');
 					Sleep(2000);
+
 					goto AdminMenu;
 
 
@@ -4612,8 +4798,11 @@ LoginForm:
 			else {
 				system("cls");
 				system("color 4f");
-				std::cout << "\n   Wrong input entered!\n" << std::endl;
+				std::cout << "\n   Wrong input entered!" << std::endl;
+				std::cin.clear();
+				std::cin.ignore(22, '\n');
 				Sleep(2000);
+
 				goto AdminMenu;
 			}
 
@@ -4624,7 +4813,12 @@ LoginForm:
 		{
 			system("cls");
 			system("color 4f");
-			std::cout << "\n   Wrong input entered!\n" << std::endl;
+			std::cout << "\n   Wrong input entered!" << std::endl;
+			std::cin.clear();
+			std::cin.ignore(22, '\n');
+			Sleep(2000);
+
+			
 			goto AdminLogin;
 		}
 	}
@@ -5267,9 +5461,12 @@ LoginForm:
 			else {
 				system("cls");
 				system("color 4f");
-				std::cout << "\n   Wrong input entered!\n" << std::endl;
+				std::cout << "\n   Wrong input entered!" << std::endl;
+				std::cin.clear();
+				std::cin.ignore(22, '\n');
 				Sleep(2000);
-				std::cin.ignore();
+
+				
 				goto LoginForm;
 			}
 
@@ -5377,8 +5574,12 @@ LoginForm:
 	else {
 		system("cls");
 		system("color 4f");
-		std::cout << "\n   Wrong input entered!\n" << std::endl;
-		Sleep(3000);
+		std::cout << "\n   Wrong input entered!" << std::endl;
+		std::cin.clear();
+		std::cin.ignore(22, '\n');
+		Sleep(2000);
+
+		
 		goto LoginForm;
 	}
 
