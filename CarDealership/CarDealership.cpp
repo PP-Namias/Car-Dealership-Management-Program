@@ -123,6 +123,51 @@ bool flag = false;
 
 int main()
 {
+	system("color a");
+
+	std::cout << "+-------------------------------------------------+" << std::endl;
+	std::cout << "|           ___ ___ ___ ___ ___ ___ _____         |" << std::endl;
+	std::cout << "|          | _ \\ __/ __| __|_ _| _ \\_   _|        |" << std::endl;
+	std::cout << "|          |   / _| (__| _| | ||  _/ | |          |" << std::endl;
+	std::cout << "|          |_|_\\___\\___|___|___|_|   |_|          |" << std::endl;
+	std::cout << "|                                                 |" << std::endl;
+	std::cout << "| Store: Car Dealership Management (CDM)          |" << std::endl;
+	std::cout << "| Store Number: #1           Manager: PP_Namias   |" << std::endl;
+	std::cout << "| Address: 936 Llano rd. Caloocan City            |" << std::endl;
+	std::cout << "|                                                 |" << std::endl;
+	std::cout << "| Nov/17/2022 17:08:36                            |" << std::endl;
+	std::cout << "|                                                 |" << std::endl;
+	std::cout << "| =============================================== |" << std::endl;
+	std::cout << "|     Menu	  Price      Quant.  Total Price  |" << std::endl;
+	std::cout << "| =============================================== |" << std::endl;
+	std::cout << "| [Black] Rush	1,176,000      1      1,176,000   |" << std::endl;
+	std::cout << "|                                                 |" << std::endl;
+	std::cout << "|                                                 |" << std::endl;
+	std::cout << "| ----------------------------------------------- |" << std::endl;
+	std::cout << "| Total Price                         1,176,000   |" << std::endl;
+	std::cout << "|                                                 |" << std::endl;
+	std::cout << "| Cash                                1,176,000   |" << std::endl;
+	std::cout << "| Change                              1,176,000   |" << std::endl;
+	std::cout << "|                                                 |" << std::endl;
+	std::cout << "+-------------------------------------------------+" << std::endl;
+
+
+
+
+	return 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	system("TITLE Car Dealership Management Program By: @PP-Namias");
 	//goto OrderLogs;
@@ -232,7 +277,7 @@ int main()
 
 		// Title design XD
 		std::cout << std::endl;
-		std::cout << "     .----------------.   .----------------.   .----------------. \n";
+		std::cout << "     .----------------.   .----------------.   .----------------. " << std::endl;
 
 		std::cout << "    | ";
 		SetConsoleTextAttribute(h, 7);
@@ -246,7 +291,7 @@ int main()
 		SetConsoleTextAttribute(h, 7);
 		std::cout << ".--------------.";
 		SetConsoleTextAttribute(h, 10);
-		std::cout << " |\n";
+		std::cout << " |" << std::endl;
 
 		std::cout << "    | ";
 		SetConsoleTextAttribute(h, 7);
@@ -272,7 +317,7 @@ int main()
 		SetConsoleTextAttribute(h, 7);
 		std::cout << " |";
 		SetConsoleTextAttribute(h, 10);
-		std::cout << " | \n";
+		std::cout << " | " << std::endl;
 
 		std::cout << "    | ";
 		SetConsoleTextAttribute(h, 7);
@@ -298,7 +343,7 @@ int main()
 		SetConsoleTextAttribute(h, 7);
 		std::cout << "|";
 		SetConsoleTextAttribute(h, 10);
-		std::cout << " |\n";
+		std::cout << " |" << std::endl;
 
 		SetConsoleTextAttribute(h, 10);
 		std::cout << "    | ";
@@ -325,7 +370,7 @@ int main()
 		SetConsoleTextAttribute(h, 7);
 		std::cout << "|";
 		SetConsoleTextAttribute(h, 10);
-		std::cout << " |\n";
+		std::cout << " |" << std::endl;
 
 		std::cout << "    | ";
 		SetConsoleTextAttribute(h, 7);
@@ -351,7 +396,7 @@ int main()
 		SetConsoleTextAttribute(h, 7);
 		std::cout << "|";
 		SetConsoleTextAttribute(h, 10);
-		std::cout << " |\n";
+		std::cout << " |" << std::endl;
 
 		std::cout << "    | ";
 		SetConsoleTextAttribute(h, 7);
@@ -377,7 +422,7 @@ int main()
 		SetConsoleTextAttribute(h, 7);
 		std::cout << "|";
 		SetConsoleTextAttribute(h, 10);
-		std::cout << " |\n";
+		std::cout << " |" << std::endl;
 
 		std::cout << "    | ";
 		SetConsoleTextAttribute(h, 7);
@@ -403,7 +448,7 @@ int main()
 		SetConsoleTextAttribute(h, 7);
 		std::cout << "|";
 		SetConsoleTextAttribute(h, 10);
-		std::cout << " |\n";
+		std::cout << " |" << std::endl;
 
 		std::cout << "    | ";
 		SetConsoleTextAttribute(h, 7);
@@ -417,7 +462,7 @@ int main()
 		SetConsoleTextAttribute(h, 7);
 		std::cout << "|              |";
 		SetConsoleTextAttribute(h, 10);
-		std::cout << " |\n";
+		std::cout << " |" << std::endl;
 
 		std::cout << "    | ";
 		SetConsoleTextAttribute(h, 7);
@@ -431,9 +476,9 @@ int main()
 		SetConsoleTextAttribute(h, 7);
 		std::cout << "'--------------'";
 		SetConsoleTextAttribute(h, 10);
-		std::cout << " |\n";
+		std::cout << " |" << std::endl;
 
-		std::cout << "     '----------------'   '----------------'   '----------------' \n";
+		std::cout << "     '----------------'   '----------------'   '----------------' " << std::endl;
 
 		std::cout << "                  ";
 		SetConsoleTextAttribute(h, 1);
@@ -443,7 +488,7 @@ int main()
 		SetConsoleTextAttribute(h, 13);
 		std::cout << "Management ";
 		SetConsoleTextAttribute(h, 11);
-		std::cout << "Program               \n";
+		std::cout << "Program               " << std::endl;
 
 		std::cout << std::endl;
 
@@ -458,7 +503,7 @@ int main()
 		SetConsoleTextAttribute(h, 5);
 		std::cout << " ___      ";
 		SetConsoleTextAttribute(h, 6);
-		std::cout << "  ____\n";
+		std::cout << "  ____" << std::endl;
 
 
 
@@ -474,7 +519,7 @@ int main()
 		SetConsoleTextAttribute(h, 5);
 		std::cout << "/ / _ \\  ";
 		SetConsoleTextAttribute(h, 6);
-		std::cout << "    / / /\n";
+		std::cout << "    / / /" << std::endl;
 
 
 
@@ -489,7 +534,7 @@ int main()
 		SetConsoleTextAttribute(h, 5);
 		std::cout << "/ ___/     ";
 		SetConsoleTextAttribute(h, 6);
-		std::cout << "/_  _/\n";
+		std::cout << "/_  _/" << std::endl;
 
 		SetConsoleTextAttribute(h, 1);
 		std::cout << "           \\___/ ";
@@ -502,7 +547,7 @@ int main()
 		SetConsoleTextAttribute(h, 5);
 		std::cout << "/_/      ";
 		SetConsoleTextAttribute(h, 6);
-		std::cout << "    /_/  \n";
+		std::cout << "    /_/  " << std::endl;
 		SetConsoleTextAttribute(h, 10);
 
 		std::cout << std::endl;
@@ -614,7 +659,7 @@ LoginForm:
 	SetConsoleTextAttribute(h, 10);
 	std::cout << "] ";
 	SetConsoleTextAttribute(h, 1);
-	std::cout << "Admin\n";
+	std::cout << "Admin" << std::endl;
 
 
 	SetConsoleTextAttribute(h, 10);
@@ -624,7 +669,7 @@ LoginForm:
 	SetConsoleTextAttribute(h, 10);
 	std::cout << "] ";
 	SetConsoleTextAttribute(h, 1);
-	std::cout << "Employee\n";
+	std::cout << "Employee" << std::endl;
 
 
 	SetConsoleTextAttribute(h, 10);
@@ -634,7 +679,7 @@ LoginForm:
 	SetConsoleTextAttribute(h, 10);
 	std::cout << "] ";
 	SetConsoleTextAttribute(h, 1);
-	std::cout << "Guest\n\n";
+	std::cout << "Guest\n" << std::endl;
 
 	SetConsoleTextAttribute(h, 10);
 	std::cout << "    [";
@@ -643,7 +688,7 @@ LoginForm:
 	SetConsoleTextAttribute(h, 10);
 	std::cout << "] ";
 	SetConsoleTextAttribute(h, 2);
-	std::cout << "About Us\n\n";
+	std::cout << "About Us\n" << std::endl;
 
 	SetConsoleTextAttribute(h, 10);
 	std::cout << "    [";
@@ -652,7 +697,7 @@ LoginForm:
 	SetConsoleTextAttribute(h, 10);
 	std::cout << "] ";
 	SetConsoleTextAttribute(h, 4);
-	std::cout << "Exit\n\n";
+	std::cout << "Exit\n" << std::endl;
 
 	SetConsoleTextAttribute(h, 1);
 	std::cout << "   Please insert your choice: ";
@@ -856,7 +901,7 @@ LoginForm:
 				system("cls");
 				system("color 4f");
 				std::cout << "\n\n   Wrong Username or Password!"
-					<< "\n   Try to login again\n\n";
+					<< "\n   Try to login again\n" << std::endl;
 				Sleep(2000);
 				goto AdminLogin;
 			}
@@ -978,7 +1023,7 @@ LoginForm:
 			SetConsoleTextAttribute(h, 10);
 			std::cout << "] ";
 			SetConsoleTextAttribute(h, 1);
-			std::cout << "Employee Data\n";
+			std::cout << "Employee Data" << std::endl;
 
 			SetConsoleTextAttribute(h, 10);
 			std::cout << "    [";
@@ -987,7 +1032,7 @@ LoginForm:
 			SetConsoleTextAttribute(h, 10);
 			std::cout << "] ";
 			SetConsoleTextAttribute(h, 1);
-			std::cout << "Cars Data\n";
+			std::cout << "Cars Data" << std::endl;
 
 			SetConsoleTextAttribute(h, 10);
 			std::cout << "    [";
@@ -996,7 +1041,7 @@ LoginForm:
 			SetConsoleTextAttribute(h, 10);
 			std::cout << "] ";
 			SetConsoleTextAttribute(h, 1);
-			std::cout << "Order Logs\n";
+			std::cout << "Order Logs" << std::endl;
 
 			SetConsoleTextAttribute(h, 10);
 			std::cout << "    [";
@@ -1005,7 +1050,7 @@ LoginForm:
 			SetConsoleTextAttribute(h, 10);
 			std::cout << "] ";
 			SetConsoleTextAttribute(h, 1);
-			std::cout << "Order Cars\n";
+			std::cout << "Order Cars" << std::endl;
 
 
 
@@ -1018,7 +1063,7 @@ LoginForm:
 			SetConsoleTextAttribute(h, 1);
 
 			SetConsoleTextAttribute(h, 2);
-			std::cout << "About Us\n\n";
+			std::cout << "About Us\n" << std::endl;
 
 
 			SetConsoleTextAttribute(h, 10);
@@ -1030,7 +1075,7 @@ LoginForm:
 			SetConsoleTextAttribute(h, 1);
 
 			SetConsoleTextAttribute(h, 4);
-			std::cout << "Back\n\n";
+			std::cout << "Back\n" << std::endl;
 			SetConsoleTextAttribute(h, 1);
 
 			std::cout << "   Please insert your choice: ";
@@ -1132,7 +1177,7 @@ LoginForm:
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "] ";
 				SetConsoleTextAttribute(h, 1);
-				std::cout << "Add Employee Data\n";
+				std::cout << "Add Employee Data" << std::endl;
 
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "    [";
@@ -1141,7 +1186,7 @@ LoginForm:
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "] ";
 				SetConsoleTextAttribute(h, 1);
-				std::cout << "View Employee Data\n";
+				std::cout << "View Employee Data" << std::endl;
 
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "    [";
@@ -1150,7 +1195,7 @@ LoginForm:
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "] ";
 				SetConsoleTextAttribute(h, 1);
-				std::cout << "Search Employee Data\n";
+				std::cout << "Search Employee Data" << std::endl;
 
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "    [";
@@ -1159,7 +1204,7 @@ LoginForm:
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "] ";
 				SetConsoleTextAttribute(h, 1);
-				std::cout << "Edit Employee Data\n";
+				std::cout << "Edit Employee Data" << std::endl;
 
 
 				SetConsoleTextAttribute(h, 10);
@@ -1169,7 +1214,7 @@ LoginForm:
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "] ";
 				SetConsoleTextAttribute(h, 4);
-				std::cout << "Delete Employee Data\n\n";
+				std::cout << "Delete Employee Data\n" << std::endl;
 
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "    [";
@@ -1178,7 +1223,7 @@ LoginForm:
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "] ";
 				SetConsoleTextAttribute(h, 4);
-				std::cout << "Back\n\n";
+				std::cout << "Back\n" << std::endl;
 
 				SetConsoleTextAttribute(h, 1);
 				std::cout << "   Please insert your choice: ";
@@ -1386,7 +1431,7 @@ LoginForm:
 
 					std::ofstream reg("Text Files/Employee.txt", std::ios::app);
 					reg << adduser << '\t' << addpass << std::endl;
-					std::cout << "\n   Employee Data Added!\n";
+					std::cout << "\n   Employee Data Added!" << std::endl;
 					std::cout << "\n   ";
 					system("pause");
 					goto EmployeeData;
@@ -3099,11 +3144,11 @@ LoginForm:
 
 					std::ofstream Cars_Name("Text Files/Cars_Name.txt", std::ios::app);
 					Cars_Name << std::endl << addname;
-					std::cout << "\n   Car Name Added!\n";
+					std::cout << "\n   Car Name Added!" << std::endl;
 
 					std::ofstream Cars_Price("Text Files/Cars_Price.txt", std::ios::app);
 					Cars_Price << std::endl << addprice;
-					std::cout << "\n   Car Name & Price Added!\n";
+					std::cout << "\n   Car Name & Price Added!" << std::endl;
 
 					std::cout << std::endl;
 					std::cout << "   ";
@@ -3875,7 +3920,7 @@ LoginForm:
 
 					std::ofstream reg("Text Files/Cars_Color.txt", std::ios::app);
 					reg << std::endl << addcolor;
-					std::cout << "\n   Car Color Added!\n";
+					std::cout << "\n   Car Color Added!" << std::endl;
 
 					std::cout << std::endl;
 					std::cout << "   ";
@@ -5044,7 +5089,7 @@ LoginForm:
 				system("cls");
 				system("color 4f");
 				std::cout << "\n\n   Wrong Username or Password!"
-					<< "\n   Try to login again\n\n";
+					<< "\n   Try to login again\n" << std::endl;
 				Sleep(2000);
 				goto Employeelogin;
 			}
@@ -5169,7 +5214,7 @@ LoginForm:
 			SetConsoleTextAttribute(h, 10);
 			std::cout << "] ";
 			SetConsoleTextAttribute(h, 1);
-			std::cout << "Order Logs\n";
+			std::cout << "Order Logs" << std::endl;
 
 
 			SetConsoleTextAttribute(h, 10);
@@ -5179,7 +5224,7 @@ LoginForm:
 			SetConsoleTextAttribute(h, 10);
 			std::cout << "] ";
 			SetConsoleTextAttribute(h, 1);
-			std::cout << "Order Cars\n";
+			std::cout << "Order Cars" << std::endl;
 
 
 			SetConsoleTextAttribute(h, 10);
@@ -5189,7 +5234,7 @@ LoginForm:
 			SetConsoleTextAttribute(h, 10);
 			std::cout << "] ";
 			SetConsoleTextAttribute(h, 2);
-			std::cout << "About Us\n";
+			std::cout << "About Us" << std::endl;
 
 			std::cout << std::endl;
 			SetConsoleTextAttribute(h, 10);
@@ -5199,7 +5244,7 @@ LoginForm:
 			SetConsoleTextAttribute(h, 10);
 			std::cout << "] ";
 			SetConsoleTextAttribute(h, 4);
-			std::cout << "Back\n";
+			std::cout << "Back" << std::endl;
 			std::cout << std::endl;
 			SetConsoleTextAttribute(h, 1);
 
@@ -5479,7 +5524,7 @@ LoginForm:
 			system("cls");
 			system("color 4f");
 			std::cout << "\n   LOGIN ERROR!!!"
-				<< "\n   Please check your Username and Password\n";
+				<< "\n   Please check your Username and Password" << std::endl;
 			Sleep(3000);
 			std::cin.ignore();
 			goto LoginForm;
@@ -5565,7 +5610,7 @@ LoginForm:
 		system("cls");
 		system("color 01");
 		std::cout << "\n   Thanks for using this program\n"
-			<< "\n   This program is created by @PP-Namias\n\n";
+			<< "\n   This program is created by @PP-Namias\n" << std::endl;
 		Sleep(3000);
 		return 0;
 	}
@@ -5658,7 +5703,7 @@ OrderCars:
 	if (Cars < 1 || Cars > sizeof(toyota_car_names) / sizeof(toyota_car_names[0])) {
 		system("cls");
 		system("color 4f");
-		std::cout << "\n  Invalid input please try ordering again.\n";
+		std::cout << "\n  Invalid input please try ordering again." << std::endl;
 		std::cin.clear();
 		std::cin.ignore(22, '\n');
 
@@ -5672,7 +5717,7 @@ OrderCars:
 			<< toyota_car_names[Cars - 1]
 			<< " for "
 			<< toyota_car_prices[Cars - 1]
-			<< " pesos\n";
+			<< " pesos" << std::endl;
 
 		std::cout << "\n  To be confirmed type Y Yes, Type N if No: ";
 		std::cin >> order_confirmation;
@@ -5752,14 +5797,14 @@ OrderCars:
 				Change = Payment - Value;
 
 				if (Change >= 1) {
-					std::cout << "\n  Change: " << Change << "\n\n";
+					std::cout << "\n  Change: " << Change << "\n" << std::endl;
 
 					Sleep(500);
 
 				}
 
 				else if (Change == 0) {
-					std::cout << "\n  You paid the exact amount of money needed.\n\n";
+					std::cout << "\n  You paid the exact amount of money needed.\n" << std::endl;
 
 					Sleep(500);
 
@@ -5779,7 +5824,7 @@ OrderCars:
 				else {
 					system("cls");
 					system("color 4f");
-					std::cout << "\n  Invalid input please try ordering again.\n";
+					std::cout << "\n  Invalid input please try ordering again." << std::endl;
 					std::cin.clear();
 					std::cin.ignore(22, '\n');
 
@@ -5790,7 +5835,7 @@ OrderCars:
 				// Receipt
 				std::cout << std::endl;
 				SetConsoleTextAttribute(h, 7);
-				std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n";
+				std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << std::endl;
 				std::cout << std::endl;
 				SetConsoleTextAttribute(h, 1);
 				std::cout << "                        Thank for your purchase                       \n"
@@ -5801,9 +5846,131 @@ OrderCars:
 					<< "                        Website: Toyota.com.ph                        \n"
 					<< std::endl;
 				SetConsoleTextAttribute(h, 7);
-				std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n";
+				std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << std::endl;
 				SetConsoleTextAttribute(h, 1);
 				std::cout << std::endl;
+
+
+				/*
+				
+				
+
+					 ____  ____  ___  __  ____  ____  ____ 
+					(  _ \(  __)/ __)(  )(  __)(  _ \(_  _)
+					 )   / ) _)( (__  )(  ) _)  ) __/  )(  
+					(__\_)(____)\___)(__)(____)(__)   (__) 
+
+
+
+
+					.----. .----..---. .-..----..----.  .---.
+					| {}  }| {_ /  ___}| || {_  | {}  }{_   _}
+					| .-. \| {__\     }| || {__ | .--'   | |
+					`-' `-'`----'`---' `-'`----'`-'      `-'
+
+
+
+
+					 _____ _____ _____ _____ _____ _____ _____
+					| __  |   __|     |     |   __|  _  |_   _|
+					|    -|   __|   --|-   -|   __|   __| | |
+					|__|__|_____|_____|_____|_____|__|    |_|
+
+
+
+
+					 std::cout <<" ___ ___ ___ ___ ___ ___ _____ " << std::endl;
+					 std::cout <<"| _ \ __/ __| __|_ _| _ \_   _|" << std::endl;
+					 std::cout <<"|   / _| (__| _| | ||  _/ | |  " << std::endl;
+					 std::cout <<"|_|_\___\___|___|___|_|   |_|  " << std::endl;
+
+
+
+
+
+					   ___  ____________________  ______
+					  / _ \/ __/ ___/  _/ __/ _ \/_  __/
+					 / , _/ _// /___/ // _// ___/ / /
+					/_/|_/___/\___/___/___/_/    /_/
+
+
+
+
+					 _     __    __   ___    __    _    ___
+					|_)   |_    /      |    |_    |_)    |
+					| \   |__   \__   _|_   |__   |      |
+
+
+
+					 ___   ____  __    _   ____  ___  _____
+					| |_) | |_  / /`  | | | |_  | |_)  | |
+					|_| \ |_|__ \_\_, |_| |_|__ |_|    |_|
+
+
+*/
+				
+
+				std::cout << "+-------------------------------------------------+" << std::endl;
+				std::cout << "|    ___ ___ ___ ___ ___ ___ _____				 " << std::endl;
+				std::cout << "|   | _ \\ __/ __| __|_ _| _ \\_   _|				 " << std::endl;
+				std::cout << "|   |   / _| (__| _| | ||  _/ | |					 " << std::endl;
+				std::cout << "|   |_|_\\___\\___|___|___|_|   |_|				 " << std::endl;
+				std::cout << "|													|" << std::endl;
+				std::cout << "|               RECIEPT							|" << std::endl;
+				std::cout << "|													|" << std::endl;
+				std::cout << "| Store: Car Dealership Management (CDM) #1		|" << std::endl;
+				std::cout << "| Store number: #1     Manager: PP_Namias			|" << std::endl;
+				std::cout << "| Address: 936 Llano rd. Caloocan City			|" << std::endl;
+				std::cout << "|													|" << std::endl;
+				std::cout << "| Nov/17/2022	17:08:36							|" << std::endl;
+				std::cout << "|													|" << std::endl;
+				std::cout << "| =============================================== |" << std::endl;
+				std::cout << "| 	Menu		Price	   Quant.	Total Price	|" << std::endl;
+				std::cout << "| ===============================================	|" << std::endl;
+				std::cout << "| [Black] Rush  1,176,000		 1       1,176,000	|" << std::endl;
+				std::cout << "|													|" << std::endl;
+				std::cout << "|													|" << std::endl;
+				std::cout << "|	-----------------------------------------------	|" << std::endl;
+				std::cout << "|	Total Price							 1,176,000	|" << std::endl;
+				std::cout << "|                                                 |" << std::endl;
+				std::cout << "|                                                 |" << std::endl;
+				std::cout << "|                                                 |" << std::endl;
+				std::cout << "|                                                 |" << std::endl;
+				std::cout << "|                                                 |" << std::endl;
+				std::cout << "|                                                 |" << std::endl;
+				std::cout << "|                                                 |" << std::endl;
+				std::cout << "|                                                 |" << std::endl;
+				std::cout << "|													|" << std::endl;
+				std::cout << "|													|" << std::endl;
+				std::cout << "|													|" << std::endl;
+				std::cout << "|													|" << std::endl;
+				std::cout << "|													|" << std::endl;
+				std::cout << "|  Rosarita Refried 40.5 OZ   1.79 F  |" << std::endl;
+				std::cout << "|  Rosarita Refried 40.5 OZ   1.79 F  |" << std::endl;
+				std::cout << "|  Durkey Party Taco Season   1.79 F  |" << std::endl;
+				std::cout << "|                                     |" << std::endl;
+				std::cout << "|  Subtotal                  12.04    |" << std::endl;
+				std::cout << "|                                     |" << std::endl;
+				std::cout << "|  TOTAL                     12.04    |" << std::endl;
+				std::cout << "|  Cash                      15.04    |" << std::endl;
+				std::cout << "|  Change Due                 3.00    |" << std::endl;
+				std::cout << "|                                     |" << std::endl;
+				std::cout << "|  Item Count:  5                     |" << std::endl;
+				std::cout << "|                                     |" << std::endl;
+				std::cout << "|             THANK YOU!         :F_P:|" << std::endl;
+				std::cout << "+-------------------------------------+" << std::endl;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 				// Order Logs [INPUT]
@@ -5840,7 +6007,7 @@ OrderCars:
 				else {
 					system("cls");
 					system("color 4f");
-					std::cout << "\n  Invalid input! Type only Y or N\n";
+					std::cout << "\n  Invalid input! Type only Y or N" << std::endl;
 
 					std::cout << "\n   Press Enter to Continue!";
 					std::cin.get();
@@ -5854,7 +6021,7 @@ OrderCars:
 			else {
 				system("cls");
 				system("color 4f");
-				std::cout << "\n  Invalid input please try again.\n";
+				std::cout << "\n  Invalid input please try again." << std::endl;
 				Sleep(2000);
 				goto OrderCars;
 			}
@@ -5862,7 +6029,7 @@ OrderCars:
 
 		}
 		else if (order_confirmation == 'n' || order_confirmation == 'N') {
-			std::cout << "\n  You Canceled the order.\n";
+			std::cout << "\n  You Canceled the order." << std::endl;
 			Sleep(2000);
 
 			goto OrderCars;
@@ -5871,7 +6038,7 @@ OrderCars:
 		else {
 			system("cls");
 			system("color 4f");
-			std::cout << "\n  Invalid input! Type only Y or N\n";
+			std::cout << "\n  Invalid input! Type only Y or N" << std::endl;
 			Sleep(2000);
 
 			goto OrderCars;
