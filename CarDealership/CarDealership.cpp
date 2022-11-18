@@ -232,170 +232,6 @@ int main()
 
 
 
-	std::cout << "|\t|\t|\t|\t|\t|\t|\t|\t|\t|";
-
-	system("color a");
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\n\t+----------------------------------------------------+" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << "           ___ ___ ___ ___ ___ ___ _____            ";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "|" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << "          | _ \\ __/ __| __|_ _| _ \\_   _|           ";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "|" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << "          |   / _| (__| _| | ||  _/ | |             ";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "|" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << "          |_|_\\___\\___|___|___|_|   |_|             ";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "|" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|                                                    |" << std::endl;
-	std::cout << "\t|";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << " Store: ";
-	SetConsoleTextAttribute(h, 11);
-	std::cout << "Car Dealership Management (CDM)             ";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "|" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << " Store Number: ";
-	SetConsoleTextAttribute(h, 11);
-	std::cout << "#1              ";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << "Manager: ";
-	SetConsoleTextAttribute(h, 11);
-	std::cout << "PP_Namias   ";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "|" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << " Address: ";
-	SetConsoleTextAttribute(h, 11);
-	std::cout << "936 Llano rd. Caloocan City               ";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "|" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|                                                    |" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << " Nov/17/2022 17:08:36                               ";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "|" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|                                                    |" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << " ================================================== ";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "|" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "     Menu	   Price      Quant.  Total Price    ";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "|" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << " ================================================== ";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "|" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|";
-	SetConsoleTextAttribute(h, 15);
-	std::cout << " [";
-	SetConsoleTextAttribute(h, 11);
-	std::cout << "Black";
-	SetConsoleTextAttribute(h, 15);
-	std::cout << "] ";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << "Rush";
-	SetConsoleTextAttribute(h, 11);
-	std::cout << "	 1,176,000";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << "      1      ";
-	SetConsoleTextAttribute(h, 11);
-	std::cout << "1,176,000";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "     |" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << " -------------------------------------------------- ";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "|" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << " Total Price                          ";
-	SetConsoleTextAttribute(h, 11);
-	std::cout << "1,176,000";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "     |" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|                                                    |" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << " Cash                                 ";
-	SetConsoleTextAttribute(h, 11);
-	std::cout << "1,176,000";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "     |" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|";
-	SetConsoleTextAttribute(h, 9);
-	std::cout << " Change                               ";
-	SetConsoleTextAttribute(h, 11);
-	std::cout << "1,176,000";
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "     |" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t|                                                    |" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-	std::cout << "\t+----------------------------------------------------+" << std::endl;
-	SetConsoleTextAttribute(h, 7);
-
-
-
-
-	return 0;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -4948,6 +4784,88 @@ LoginForm:
 				std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 
+				system("color a");
+				system("cls");
+
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "   _.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._   ";
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " ,'";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "_.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "`. ";
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "( ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "(                                                                )";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " )";
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " )";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << " )                ";
+				SetConsoleTextAttribute(h, 10);
+				std::cout << "Car Dealership Management (CDM)";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "               ( ";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "(";
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "( ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "(                           ";
+				SetConsoleTextAttribute(h, 15);
+				std::cout << "          ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "                           )";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " )";
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " )";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << " )                        Admin Order Cars                      ( ";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "(";
+				std::cout << std::endl;
+
+				std::cout << "( ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "(                             [";
+				SetConsoleTextAttribute(h, 15);
+				std::cout << user;
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "]                           )";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " )";
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " )";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << " )                                                              ( ";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "(";
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "( ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "(_.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._)";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " )";
+				std::cout << std::endl;
+				std::cout << " `._.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.' ";
+				std::cout << std::endl;
+				std::cout << std::endl;
+
+
+
+
 				goto OrderCars;
 			}
 
@@ -5611,6 +5529,92 @@ LoginForm:
 				std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 
+				system("cls");
+				system("color a");
+
+
+
+
+				// Login
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "   _.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._   ";
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " ,'";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "_.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "`. ";
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "( ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "(                                                                )";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " )";
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " )";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << " )                ";
+				SetConsoleTextAttribute(h, 10);
+				std::cout << "Car Dealership Management (CDM)";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "               ( ";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "(";
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "( ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "(                           ";
+				SetConsoleTextAttribute(h, 15);
+				std::cout << "          ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "                           )";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " )";
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " )";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << " )                      Employee Order Cars                     ( ";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "(";
+				std::cout << std::endl;
+
+				std::cout << "( ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "(                             [";
+				SetConsoleTextAttribute(h, 15);
+				std::cout << user;
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "]                             )";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " )";
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " )";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << " )                                                              ( ";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "(";
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "( ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "(_.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._)";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " )";
+				std::cout << std::endl;
+				std::cout << " `._.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.' ";
+				std::cout << std::endl;
+				std::cout << std::endl;
+
+
+
+
 				goto OrderCars;
 			}
 
@@ -5719,6 +5723,87 @@ LoginForm:
 		// go directly no need for logic
 		system("color a");
 		system("cls");
+
+
+		std::cout << std::endl;
+		SetConsoleTextAttribute(h, 9);
+		std::cout << "   _.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._   ";
+		std::cout << std::endl;
+		SetConsoleTextAttribute(h, 9);
+		std::cout << " ,'";
+		SetConsoleTextAttribute(h, 11);
+		std::cout << "_.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._";
+		SetConsoleTextAttribute(h, 9);
+		std::cout << "`. ";
+		std::cout << std::endl;
+		SetConsoleTextAttribute(h, 9);
+		std::cout << "( ";
+		SetConsoleTextAttribute(h, 11);
+		std::cout << "(                                                                )";
+		SetConsoleTextAttribute(h, 9);
+		std::cout << " )";
+		std::cout << std::endl;
+		SetConsoleTextAttribute(h, 9);
+		std::cout << " )";
+		SetConsoleTextAttribute(h, 11);
+		std::cout << " )                ";
+		SetConsoleTextAttribute(h, 10);
+		std::cout << "Car Dealership Management (CDM)";
+		SetConsoleTextAttribute(h, 11);
+		std::cout << "               ( ";
+		SetConsoleTextAttribute(h, 9);
+		std::cout << "(";
+		std::cout << std::endl;
+		SetConsoleTextAttribute(h, 9);
+		std::cout << "( ";
+		SetConsoleTextAttribute(h, 11);
+		std::cout << "(                           ";
+		SetConsoleTextAttribute(h, 15);
+		std::cout << "          ";
+		SetConsoleTextAttribute(h, 11);
+		std::cout << "                           )";
+		SetConsoleTextAttribute(h, 9);
+		std::cout << " )";
+		std::cout << std::endl;
+		SetConsoleTextAttribute(h, 9);
+		std::cout << " )";
+		SetConsoleTextAttribute(h, 11);
+		std::cout << " )                        Guest Order Cars                      ( ";
+		SetConsoleTextAttribute(h, 9);
+		std::cout << "(";
+		std::cout << std::endl;
+
+		std::cout << "( ";
+		SetConsoleTextAttribute(h, 11);
+		std::cout << "(                              [";
+		SetConsoleTextAttribute(h, 15);
+		std::cout << "Guest";
+		SetConsoleTextAttribute(h, 11);
+		std::cout << "]                           )";
+		SetConsoleTextAttribute(h, 9);
+		std::cout << " )";
+		std::cout << std::endl;
+		SetConsoleTextAttribute(h, 9);
+		std::cout << " )";
+		SetConsoleTextAttribute(h, 11);
+		std::cout << " )                                                              ( ";
+		SetConsoleTextAttribute(h, 9);
+		std::cout << "(";
+		std::cout << std::endl;
+		SetConsoleTextAttribute(h, 9);
+		std::cout << "( ";
+		SetConsoleTextAttribute(h, 11);
+		std::cout << "(_.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._)";
+		SetConsoleTextAttribute(h, 9);
+		std::cout << " )";
+		std::cout << std::endl;
+		std::cout << " `._.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.' ";
+		std::cout << std::endl;
+		std::cout << std::endl;
+
+
+
+
 		goto OrderCars;
 	}
 
@@ -5793,13 +5878,6 @@ LoginForm:
 
 
 OrderCars:
-	system("color 01");
-	system("cls");
-
-	std::cout << std::endl;
-	std::cout << "  Welcome to Toyota Car Dealership\n"
-		<< "  Here's the list of Cars: \n ";
-
 
 
 	SetConsoleTextAttribute(h, 10);
@@ -6063,62 +6141,6 @@ OrderCars:
 */
 				
 
-				std::cout << "+-------------------------------------------------+" << std::endl;
-				std::cout << "|    ___ ___ ___ ___ ___ ___ _____				 " << std::endl;
-				std::cout << "|   | _ \\ __/ __| __|_ _| _ \\_   _|				 " << std::endl;
-				std::cout << "|   |   / _| (__| _| | ||  _/ | |					 " << std::endl;
-				std::cout << "|   |_|_\\___\\___|___|___|_|   |_|				 " << std::endl;
-				std::cout << "|													|" << std::endl;
-				std::cout << "|               RECIEPT							|" << std::endl;
-				std::cout << "|													|" << std::endl;
-				std::cout << "| Store: Car Dealership Management (CDM) #1		|" << std::endl;
-				std::cout << "| Store number: #1     Manager: PP_Namias			|" << std::endl;
-				std::cout << "| Address: 936 Llano rd. Caloocan City			|" << std::endl;
-				std::cout << "|													|" << std::endl;
-				std::cout << "| Nov/17/2022	17:08:36							|" << std::endl;
-				std::cout << "|													|" << std::endl;
-				std::cout << "| =============================================== |" << std::endl;
-				std::cout << "| 	Menu		Price	   Quant.	Total Price	|" << std::endl;
-				std::cout << "| ===============================================	|" << std::endl;
-				std::cout << "| [Black] Rush  1,176,000		 1       1,176,000	|" << std::endl;
-				std::cout << "|													|" << std::endl;
-				std::cout << "|													|" << std::endl;
-				std::cout << "|	-----------------------------------------------	|" << std::endl;
-				std::cout << "|	Total Price							 1,176,000	|" << std::endl;
-				std::cout << "|                                                 |" << std::endl;
-				std::cout << "|                                                 |" << std::endl;
-				std::cout << "|                                                 |" << std::endl;
-				std::cout << "|                                                 |" << std::endl;
-				std::cout << "|                                                 |" << std::endl;
-				std::cout << "|                                                 |" << std::endl;
-				std::cout << "|                                                 |" << std::endl;
-				std::cout << "|                                                 |" << std::endl;
-				std::cout << "|													|" << std::endl;
-				std::cout << "|													|" << std::endl;
-				std::cout << "|													|" << std::endl;
-				std::cout << "|													|" << std::endl;
-				std::cout << "|													|" << std::endl;
-				std::cout << "|  Rosarita Refried 40.5 OZ   1.79 F  |" << std::endl;
-				std::cout << "|  Rosarita Refried 40.5 OZ   1.79 F  |" << std::endl;
-				std::cout << "|  Durkey Party Taco Season   1.79 F  |" << std::endl;
-				std::cout << "|                                     |" << std::endl;
-				std::cout << "|  Subtotal                  12.04    |" << std::endl;
-				std::cout << "|                                     |" << std::endl;
-				std::cout << "|  TOTAL                     12.04    |" << std::endl;
-				std::cout << "|  Cash                      15.04    |" << std::endl;
-				std::cout << "|  Change Due                 3.00    |" << std::endl;
-				std::cout << "|                                     |" << std::endl;
-				std::cout << "|  Item Count:  5                     |" << std::endl;
-				std::cout << "|                                     |" << std::endl;
-				std::cout << "|             THANK YOU!         :F_P:|" << std::endl;
-				std::cout << "+-------------------------------------+" << std::endl;
-
-
-
-
-
-
-
 
 
 
@@ -6137,6 +6159,161 @@ OrderCars:
 				std::ofstream Order_Logs("Text Files/Order_Logs.txt", std::ios::app);
 				Order_Logs << std::endl << str << "\t" << toyota_car_names[Cars - 1] << '\t' << toyota_car_color[Color - 1] << '\t' << toyota_car_prices[Cars - 1];
 				Order_Logs.close();
+
+
+				system("color a");
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\n\t+----------------------------------------------------+" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "            ___ ___ ___ ___ ___ ___ _____           ";
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "|" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "           | _ \\ __/ __| __|_ _| _ \\_   _|          ";
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "|" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "           |   / _| (__| _| | ||  _/ | |            ";
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "|" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "           |_|_\\___\\___|___|___|_|   |_|            ";
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "|" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|                                                    |" << std::endl;
+				std::cout << "\t|";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " Store: ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "Car Dealership Management (CDM)             ";
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "|" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " Store Number: ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "#1              ";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "Manager: ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "PP_Namias   ";
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "|" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " Address: ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << "936 Llano rd. Caloocan City               ";
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "|" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|                                                    |" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t| ";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << str;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "                             |" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|                                                    |" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " ================================================== ";
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "|" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|";
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "     Menu	   Price      Quant.  Total Price    ";
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "|" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " ================================================== ";
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "|" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|";
+				SetConsoleTextAttribute(h, 15);
+				std::cout << " [";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << toyota_car_color[Color - 1];
+				SetConsoleTextAttribute(h, 15);
+				std::cout << "] ";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << toyota_car_names[Cars - 1];
+				std::cout << "\t ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << toyota_car_prices[Cars - 1];
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "\t1      ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << toyota_car_prices[Cars - 1];
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "     |" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " -------------------------------------------------- ";
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "|" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " Total Price                          ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << toyota_car_prices[Cars - 1];
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "     |" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|                                                    |" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " Cash                                 ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << Payment;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "     |" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " Change                               ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << Change;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t     |" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t|                                                    |" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+				std::cout << "\t+----------------------------------------------------+" << std::endl;
+				SetConsoleTextAttribute(h, 7);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 				// Order again?
 				std::cout << "\n  Do you want to order again? Type Y if yes and type N if no: ";
