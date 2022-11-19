@@ -203,12 +203,33 @@ int main()
 	toyota_car_prices[number_of_price];
 
 
+
+
+
+
+
+
+
+
+
+
 	// Text color settings
 	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 	// SetConsoleTextAttribute(h, 1);
 
+
+
+
+
 	// system defaults
 	system("mode 70,100");
+
+
+
+
+
+
+
 
 	// Font and Command Promt size
 	static CONSOLE_FONT_INFOEX  fontex;
@@ -219,19 +240,6 @@ int main()
 	fontex.dwFontSize.X = 36;
 	fontex.dwFontSize.Y = 36;
 	SetCurrentConsoleFontEx(hOut, NULL, &fontex);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
