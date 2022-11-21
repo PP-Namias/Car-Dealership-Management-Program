@@ -4555,7 +4555,6 @@ OrderCars:
 
 
 			// Select Color
-		SelectColor:
 			std::cout << std::endl
 				<< "   What Color of "
 				<< toyota_car_names[Cars - 1]
@@ -4653,6 +4652,9 @@ OrderCars:
 					goto OrderCars;
 				}
 
+				Sleep(500);
+
+				/*
 				// Receipt
 				std::cout << std::endl;
 				SetConsoleTextAttribute(h, 7);
@@ -4670,72 +4672,9 @@ OrderCars:
 				std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << std::endl;
 				SetConsoleTextAttribute(h, 1);
 				std::cout << std::endl;
+				*/
 
-
-				/*
-				
-				
-
-					 ____  ____  ___  __  ____  ____  ____ 
-					(  _ \(  __)/ __)(  )(  __)(  _ \(_  _)
-					 )   / ) _)( (__  )(  ) _)  ) __/  )(  
-					(__\_)(____)\___)(__)(____)(__)   (__) 
-
-
-
-
-					.----. .----..---. .-..----..----.  .---.
-					| {}  }| {_ /  ___}| || {_  | {}  }{_   _}
-					| .-. \| {__\     }| || {__ | .--'   | |
-					`-' `-'`----'`---' `-'`----'`-'      `-'
-
-
-
-
-					 _____ _____ _____ _____ _____ _____ _____
-					| __  |   __|     |     |   __|  _  |_   _|
-					|    -|   __|   --|-   -|   __|   __| | |
-					|__|__|_____|_____|_____|_____|__|    |_|
-
-
-
-
-					 std::cout <<" ___ ___ ___ ___ ___ ___ _____ " << std::endl;
-					 std::cout <<"| _ \ __/ __| __|_ _| _ \_   _|" << std::endl;
-					 std::cout <<"|   / _| (__| _| | ||  _/ | |  " << std::endl;
-					 std::cout <<"|_|_\___\___|___|___|_|   |_|  " << std::endl;
-
-
-
-
-
-					   ___  ____________________  ______
-					  / _ \/ __/ ___/  _/ __/ _ \/_  __/
-					 / , _/ _// /___/ // _// ___/ / /
-					/_/|_/___/\___/___/___/_/    /_/
-
-
-
-
-					 _     __    __   ___    __    _    ___
-					|_)   |_    /      |    |_    |_)    |
-					| \   |__   \__   _|_   |__   |      |
-
-
-
-					 ___   ____  __    _   ____  ___  _____
-					| |_) | |_  / /`  | | | |_  | |_)  | |
-					|_| \ |_|__ \_\_, |_| |_|__ |_|    |_|
-
-
-*/
-				
-
-
-
-
-
-
+				system("cls");
 
 
 				// Order Logs [INPUT]
@@ -4924,6 +4863,7 @@ OrderCars:
 					goto OrderCars;
 
 				}
+
 				else {
 					system("cls");
 					system("color 4f");
@@ -4946,8 +4886,8 @@ OrderCars:
 				goto OrderCars;
 			}
 
-
 		}
+
 		else if (order_confirmation == 'n' || order_confirmation == 'N') {
 			std::cout << "\n  You Canceled the order." << std::endl;
 			Sleep(2000);
@@ -4964,8 +4904,6 @@ OrderCars:
 			goto OrderCars;
 		}
 
-
-
 	}
 
 	else {
@@ -4978,8 +4916,6 @@ OrderCars:
 		Sleep(2000);
 		goto OrderCars;
 	}
-
-
 }
 
 
@@ -5009,9 +4945,6 @@ void titleText(std::string TitleText) {
 
 	// Text color settings
 	HANDLE titleTextColor = GetStdHandle(STD_OUTPUT_HANDLE);
-
-
-	// titleText("Liam");
 
 	std::cout << std::endl;
 	SetConsoleTextAttribute(titleTextColor, 9);
@@ -5070,22 +5003,16 @@ void titleText(std::string TitleText) {
 	std::cout << " `._.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.' ";
 	std::cout << std::endl;
 	std::cout << std::endl;
-
-
-	
-	
-	
 }
 
 
 
 void userTitleText(std::string UserTitleText, std::string UserTitle, std::string UserTitleSeparatorLeft, std::string UserTitleSeparatorRight) {
-	
-	// Text color settings
-	HANDLE userTitleTextColor = GetStdHandle(STD_OUTPUT_HANDLE);
-
 	system("color a");
 	system("cls");
+
+	// Text color settings
+	HANDLE userTitleTextColor = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	std::cout << std::endl;
 	SetConsoleTextAttribute(userTitleTextColor, 9);
@@ -5136,18 +5063,14 @@ void userTitleText(std::string UserTitleText, std::string UserTitle, std::string
 	SetConsoleTextAttribute(userTitleTextColor, 9);
 	std::cout << "(";
 	std::cout << std::endl;
-
 	std::cout << "( ";
 	SetConsoleTextAttribute(userTitleTextColor, 11);
 	std::cout << "(";
-
 	std::cout << UserTitleSeparatorLeft;
-
 	SetConsoleTextAttribute(userTitleTextColor, 15);
 	std::cout << UserTitle;
 	SetConsoleTextAttribute(userTitleTextColor, 11);
 	std::cout << UserTitleSeparatorRight;
-
 	std::cout << ")";
 	SetConsoleTextAttribute(userTitleTextColor, 9);
 	std::cout << " )";
@@ -5169,9 +5092,4 @@ void userTitleText(std::string UserTitleText, std::string UserTitle, std::string
 	std::cout << " `._.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.' ";
 	std::cout << std::endl;
 	std::cout << std::endl;
-
-
-
-
-
 }

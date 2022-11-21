@@ -25,5 +25,4 @@ C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(
 C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4231,14): warning C4309: 'initializing': truncation of constant value
 C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4306,12): warning C4309: 'initializing': truncation of constant value
 C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4411,12): warning C4309: 'initializing': truncation of constant value
-C:\Users\jkrbn\Downloads\Car-Dealership-Program\CarDealership\CarDealership.cpp(4558,14): warning C4102: 'SelectColor': unreferenced label
   CarDealership.vcxproj -> C:\Users\jkrbn\Downloads\Car-Dealership-Program\x64\Debug\CarDealership.exe
