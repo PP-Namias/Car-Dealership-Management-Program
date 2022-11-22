@@ -84,8 +84,8 @@ Planned (✘) and currently working (✓) - but not necessarily fully completed 
 ## Programming Paradigms & Principles Used
 
 * Object-Oriented Programming
-* Procedural Programming
 * Code Reusability
+* Procedural Programming
 * File Handling
 
 ## How to Use
