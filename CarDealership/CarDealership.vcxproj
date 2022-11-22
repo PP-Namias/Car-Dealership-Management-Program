@@ -133,14 +133,13 @@
     <ClCompile Include="CarDealership.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Images\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="CarDealership.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Images\icon.ico" />
-    <Image Include="Images\icon.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

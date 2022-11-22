@@ -451,7 +451,80 @@ bool flag = false;
 
 int main()
 {
+
+	/*
+	std::string userHider = "0";
+
+	// Some code
+	std::cout << "Before try \n";
+	try {
+		std::cout << "Inside try \n";
+		if (userHider == "1" || userHider == "2" || userHider == "3")
+		{
+			std::cout << "Wrong input please try again\n";
+		}
+	}
+	catch (std::string userHider) {
+		std::cout << "Exception Caught \n";
+	}
+
+	std::cout << "After catch (Will be executed) \n";
+
 	
+
+
+
+	const auto data = {
+	   "45",
+	   "+45",
+	   " -45",
+	   "3.14159",
+	   "31337 with words",
+	   "words and 2",
+	   "12345678901",
+	};
+
+	for (const std::string s : data)
+	{
+		std::size_t pos{};
+		try
+		{
+			std::cout << "std::stoi('" << s << "'): ";
+			const int i{ std::stoi(s, &pos) };
+			std::cout << i << "; pos: " << pos << '\n';
+		}
+		catch (std::invalid_argument const& ex)
+		{
+			std::cout << "std::invalid_argument::what(): " << ex.what() << '\n';
+		}
+		catch (std::out_of_range const& ex)
+		{
+			std::cout << "std::out_of_range::what(): " << ex.what() << '\n';
+			const long long ll{ std::stoll(s, &pos) };
+			std::cout << "std::stoll('" << s << "'): " << ll << "; pos: " << pos << '\n';
+		}
+	}
+
+	std::cout << "\nCalling with different radixes:\n";
+	for (const auto& [s, base] : { std::pair<const char*, int>
+		{"11",  2}, {"22",  3}, {"33",  4}, {"77",  8},
+		{"99", 10}, {"FF", 16}, {"jJ", 20}, {"Zz", 36}, })
+	{
+		const int i{ std::stoi(s, nullptr, base) };
+		std::cout << "std::stoi('" << s << "', " << base << "): " << i << '\n';
+	}
+
+	return 0;
+
+
+	*/
+
+
+
+
+
+
+
 
 	system("TITLE Car Dealership Management Program By: @PP-Namias");
 	//goto OrderLogs;
@@ -1103,7 +1176,7 @@ LoginForm:
 
 					//  std::cin >> adduser;
 					SetConsoleTextAttribute(h, 1);
-					std::cout << "\n   Enter the Password: ";
+					std::cout << "   Enter the Password: ";
 					SetConsoleTextAttribute(h, 13);
 
 
@@ -1362,7 +1435,7 @@ LoginForm:
 
 
 
-					std::cin >> ch;
+					// std::cin >> ch;
 
 					switch (ch)
 					{
@@ -1642,6 +1715,22 @@ LoginForm:
 							break;
 						}
 					} while (c_user != 13);
+					
+					
+					/*
+					 
+					
+					for (i = 1; i >= 3; i++) {
+
+						if (userHider == i) {
+
+						}
+					}
+
+
+					*/
+
+				
 
 
 					line_number = std::stoi(userHider);
@@ -1748,7 +1837,7 @@ LoginForm:
 					SetConsoleTextAttribute(h, 13);
 					std::cin >> adduser;
 					SetConsoleTextAttribute(h, 1);
-					std::cout << "\n   Enter the Password: ";
+					std::cout << "   Enter the Password: ";
 					SetConsoleTextAttribute(h, 13);
 					std::cin >> addpass;
 
@@ -3430,7 +3519,7 @@ LoginForm:
 
 
 
-					std::string lineHider;
+					std::string DeleteColorHider;
 					char c_line;
 
 					do {
@@ -3446,20 +3535,20 @@ LoginForm:
 							system("cls");
 							goto CarData;
 						case 8:
-							if (lineHider.length() > 0) {
-								lineHider.erase(lineHider.end() - 1);
+							if (DeleteColorHider.length() > 0) {
+								DeleteColorHider.erase(DeleteColorHider.end() - 1);
 								std::cout << c_line << ' ' << c_line;
 							}
 							break;
 						default:
-							lineHider += c_line;
+							DeleteColorHider += c_line;
 							std::cout << c_line;
 							break;
 						}
 					} while (c_line != 15);
 
 
-					line_number = std::stoi(lineHider);
+					line_number = std::stoi(DeleteColorHider);
 
 
 
