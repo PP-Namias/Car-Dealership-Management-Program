@@ -439,10 +439,95 @@ public:
 
 
 
+class HeaderClass {
+public:
+	// Text color settings
+	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+	// SetConsoleTextAttribute(h, 1);
+
+
+	void titleText(std::string TitleText) {
+		system("color a");
+		system("cls");
+
+		// Text color settings
+		HANDLE titleTextColor = GetStdHandle(STD_OUTPUT_HANDLE);
+
+
+		// titleText("Liam");
+
+		std::cout << std::endl;
+		SetConsoleTextAttribute(titleTextColor, 9);
+		std::cout << "   _.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._   ";
+		std::cout << std::endl;
+		SetConsoleTextAttribute(titleTextColor, 9);
+		std::cout << " ,'";
+		SetConsoleTextAttribute(titleTextColor, 11);
+		std::cout << "_.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._";
+		SetConsoleTextAttribute(titleTextColor, 9);
+		std::cout << "`. ";
+		std::cout << std::endl;
+		SetConsoleTextAttribute(titleTextColor, 9);
+		std::cout << "( ";
+		SetConsoleTextAttribute(titleTextColor, 11);
+		std::cout << "(                                                                )";
+		SetConsoleTextAttribute(titleTextColor, 9);
+		std::cout << " )";
+		std::cout << std::endl;
+		SetConsoleTextAttribute(titleTextColor, 9);
+		std::cout << " )";
+		SetConsoleTextAttribute(titleTextColor, 11);
+		std::cout << " )";
+		SetConsoleTextAttribute(titleTextColor, 10);
+		std::cout << "                Car Dealership Management (CDM)               ";
+		SetConsoleTextAttribute(titleTextColor, 11);
+		std::cout << "( ";
+		SetConsoleTextAttribute(titleTextColor, 9);
+		std::cout << "(";
+		std::cout << std::endl;
+		SetConsoleTextAttribute(titleTextColor, 9);
+		std::cout << "( ";
+		SetConsoleTextAttribute(titleTextColor, 11);
+		std::cout << "(";
+		SetConsoleTextAttribute(titleTextColor, 15);
+		std::cout << TitleText;
+		SetConsoleTextAttribute(titleTextColor, 11);
+		std::cout << ")";
+		SetConsoleTextAttribute(titleTextColor, 9);
+		std::cout << " )";
+		std::cout << std::endl;
+		SetConsoleTextAttribute(titleTextColor, 9);
+		std::cout << " )";
+		SetConsoleTextAttribute(titleTextColor, 11);
+		std::cout << " )                                                              ( ";
+		SetConsoleTextAttribute(titleTextColor, 9);
+		std::cout << "(";
+		std::cout << std::endl;
+		SetConsoleTextAttribute(titleTextColor, 9);
+		std::cout << "( ";
+		SetConsoleTextAttribute(titleTextColor, 11);
+		std::cout << "(_.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._)";
+		SetConsoleTextAttribute(titleTextColor, 9);
+		std::cout << " )";
+		std::cout << std::endl;
+		std::cout << " `._.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.' ";
+		std::cout << std::endl;
+		std::cout << std::endl;
+
+
+
+
+
+	}
+
+
+};
+
+
+
 
 // Identifiers
 void gotoxy(int x, int y);
-void titleText(std::string TitleText);
 void userTitleText(std::string UserTitleText, std::string UserTitle, std::string UserTitleSeparatorLeft, std::string UserTitleSeparatorRight);
 
 
@@ -677,7 +762,8 @@ int main()
 		Value,
 		Change,
 		Cars,
-		Color;
+		Color,
+		AccessLevel = 0;
 
 
 
@@ -699,7 +785,10 @@ int main()
 
 	// Login Form
 LoginForm:
-	titleText("                    Welcome to the Login Menu                   ");
+	
+
+	HeaderClass TitleText;
+	TitleText.titleText("                    Welcome to the Login Menu                   ");
 
 	SetConsoleTextAttribute(h, 10);
 	std::cout << "    [";
@@ -762,8 +851,11 @@ LoginForm:
 		int adminlogin = 0;
 		std::string user, pass, u, p;
 
-		titleText("                           Admin Login                          ");
+		
 
+
+		HeaderClass AdminLogin;
+		AdminLogin.titleText("                           Admin Login                          ");
 
 
 		SetConsoleTextAttribute(h, 10);
@@ -1024,7 +1116,13 @@ LoginForm:
 
 
 
-				titleText("                          Employee Data                         ");
+				
+
+
+
+				HeaderClass EmployeeData;
+				EmployeeData.titleText("                          Employee Data                         ");
+
 
 				SetConsoleTextAttribute(h, 10);
 				std::cout << "    [";
@@ -1110,7 +1208,12 @@ LoginForm:
 
 
 
-					titleText("                         Add Employee Data                      ");
+					HeaderClass AddEmployeeData;
+					AddEmployeeData.titleText("                         Add Employee Data                      ");
+
+
+
+					
 
 
 
@@ -1257,7 +1360,18 @@ LoginForm:
 
 
 
-					titleText("                        View Employee Data                      ");
+
+					HeaderClass ViewEmployeeData;
+					ViewEmployeeData.titleText("                        View Employee Data                      ");
+
+
+
+
+
+
+
+
+					
 
 
 
@@ -1344,7 +1458,11 @@ LoginForm:
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 
-					titleText("                      Search Employee Data                      ");
+
+					HeaderClass SearchEmployeeData;
+					SearchEmployeeData.titleText("                      Search Employee Data                      ");
+
+					
 
 
 
@@ -1592,7 +1710,14 @@ LoginForm:
 
 
 
-					titleText("                        Edit Employee Data                      ");
+
+
+					HeaderClass EditEmployeeData;
+					EditEmployeeData.titleText("                        Edit Employee Data                      ");
+
+
+
+					
 
 
 
@@ -1878,7 +2003,20 @@ LoginForm:
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 
-					titleText("                       Delete Employee Data                     ");
+
+
+
+
+					HeaderClass EditEmployeeData;
+					EditEmployeeData.titleText("                        Edit Employee Data                      ");
+
+
+
+
+
+
+
+					
 
 
 
@@ -2236,7 +2374,19 @@ LoginForm:
 
 
 
-				titleText("                            Cars Data                           ");
+
+
+
+				HeaderClass CarsData;
+				CarsData.titleText("                            Cars Data                           ");
+
+
+
+
+
+
+
+				
 
 
 
@@ -2364,7 +2514,11 @@ LoginForm:
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 
-					titleText("                      View Cars Name & Price                    ");
+					
+
+
+					HeaderClass ViewCarsNamePrice;
+					ViewCarsNamePrice.titleText("                      View Cars Name & Price                    ");
 
 
 
@@ -2478,7 +2632,13 @@ LoginForm:
 
 
 
-					titleText("                      Add Cars Name & Price                     ");
+					HeaderClass AddCarsNamePrice;
+					AddCarsNamePrice.titleText("                      Add Cars Name & Price                     ");
+
+
+
+
+					
 
 					
 
@@ -2561,7 +2721,19 @@ LoginForm:
 				else if (CarChoice == 3) {
 
 
-					titleText("                      Edit Car Name & Price                     ");
+
+
+					HeaderClass EditCarNamePrice;
+					EditCarNamePrice.titleText("                      Edit Car Name & Price                     ");
+
+
+
+
+
+
+
+
+					
 
 					return 0;
 
@@ -2590,7 +2762,20 @@ LoginForm:
 
 
 
-					titleText("                     Delete Car Name & Price                    ");
+
+
+
+
+					HeaderClass DeleteCarNamePrice;
+					DeleteCarNamePrice.titleText("                     Delete Car Name & Price                    ");
+
+
+
+
+
+
+
+					
 
 
 
@@ -3057,7 +3242,17 @@ LoginForm:
 
 
 
-					titleText("                         View Cars Color                        ");
+
+					HeaderClass ViewCarsColor;
+					ViewCarsColor.titleText("                         View Cars Color                        ");
+
+
+
+
+
+
+
+					
 
 
 
@@ -3137,7 +3332,21 @@ LoginForm:
 
 
 
-					titleText("                          Add Car Colors                        ");
+
+
+
+					HeaderClass AddCarColors;
+					AddCarColors.titleText("                          Add Car Colors                        ");
+
+
+
+
+
+
+
+
+
+					
 
 
 
@@ -3179,7 +3388,16 @@ LoginForm:
 
 
 
-					titleText("                          Edit Car Color                        ");
+
+
+
+					HeaderClass EditCarColor;
+					EditCarColor.titleText("                          Edit Car Color                        ");
+
+
+
+
+					
 
 
 
@@ -3438,7 +3656,23 @@ LoginForm:
 
 
 
-					titleText("                         Delete Car Color                       ");
+
+
+
+
+					HeaderClass DeleteCarColor;
+					DeleteCarColor.titleText("                         Delete Car Color                       ");
+
+
+
+
+
+
+
+
+
+
+					
 
 
 
@@ -3714,7 +3948,20 @@ LoginForm:
 				std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 
-				titleText("                           Order Logs                           ");
+
+
+
+				HeaderClass OrderLogs;
+				OrderLogs.titleText("                           Order Logs                           ");
+
+
+
+
+
+
+
+
+				
 
 
 
@@ -3835,12 +4082,12 @@ LoginForm:
 
 
 
-				userTitleText("                        Admin Order Cars                      ", user, "                             [", "]                           ");
 
+				AccessLevel = 1;
 
+				goto OrderCars;		
+				
 
-
-				goto OrderCars;
 			}
 
 			// About Us
@@ -3940,7 +4187,22 @@ LoginForm:
 
 
 
-		titleText("                          Employee Login                        ");
+
+
+
+
+		HeaderClass EmployeeLogin;
+		EmployeeLogin.titleText("                          Employee Login                        ");
+
+
+
+
+
+
+
+
+
+		
 
 
 
@@ -4087,22 +4349,6 @@ LoginForm:
 		if (Employeelogin == 1)
 		{
 
-			// Loading screen
-			system("cls");
-			system("color 0A");
-			char a = 219;
-			gotoxy(29, 10);
-			std::cout << "[Logging in]" << std::endl;
-			gotoxy(25, 12);
-			for (int r = 1; r <= 20; r++)
-			{
-				for (int q = 0; q <= 10000000; q++);
-				std::cout << a;
-			}
-			std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
-
-
-
 
 		EmployeeMenu:
 
@@ -4184,7 +4430,22 @@ LoginForm:
 
 
 
-				titleText("                           Order Logs                           ");
+
+
+				HeaderClass OrderLogs;
+				OrderLogs.titleText("                           Order Logs                           ");
+
+
+
+
+
+
+
+
+
+
+
+				
 
 
 
@@ -4302,13 +4563,11 @@ LoginForm:
 				std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 
-				userTitleText("                      Employee Order Cars                     ", user, "                             [", "]                             ");
-
-
-
+				AccessLevel = 2;
 
 
 				goto OrderCars;
+
 			}
 
 			// About Us
@@ -4403,92 +4662,11 @@ LoginForm:
 		}
 		std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-		// go directly no need for logic
-		system("color a");
-		system("cls");
-
-
-		std::cout << std::endl;
-		SetConsoleTextAttribute(h, 9);
-		std::cout << "   _.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._   ";
-		std::cout << std::endl;
-		SetConsoleTextAttribute(h, 9);
-		std::cout << " ,'";
-		SetConsoleTextAttribute(h, 11);
-		std::cout << "_.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._";
-		SetConsoleTextAttribute(h, 9);
-		std::cout << "`. ";
-		std::cout << std::endl;
-		SetConsoleTextAttribute(h, 9);
-		std::cout << "( ";
-		SetConsoleTextAttribute(h, 11);
-		std::cout << "(                                                                )";
-		SetConsoleTextAttribute(h, 9);
-		std::cout << " )";
-		std::cout << std::endl;
-		SetConsoleTextAttribute(h, 9);
-		std::cout << " )";
-		SetConsoleTextAttribute(h, 11);
-		std::cout << " )                ";
-		SetConsoleTextAttribute(h, 10);
-		std::cout << "Car Dealership Management (CDM)";
-		SetConsoleTextAttribute(h, 11);
-		std::cout << "               ( ";
-		SetConsoleTextAttribute(h, 9);
-		std::cout << "(";
-		std::cout << std::endl;
-		SetConsoleTextAttribute(h, 9);
-		std::cout << "( ";
-		SetConsoleTextAttribute(h, 11);
-		std::cout << "(                           ";
-		SetConsoleTextAttribute(h, 15);
-		std::cout << "          ";
-		SetConsoleTextAttribute(h, 11);
-		std::cout << "                           )";
-		SetConsoleTextAttribute(h, 9);
-		std::cout << " )";
-		std::cout << std::endl;
-		SetConsoleTextAttribute(h, 9);
-		std::cout << " )";
-		SetConsoleTextAttribute(h, 11);
-		std::cout << " )                        Guest Order Cars                      ( ";
-		SetConsoleTextAttribute(h, 9);
-		std::cout << "(";
-		std::cout << std::endl;
-
-		std::cout << "( ";
-		SetConsoleTextAttribute(h, 11);
-		std::cout << "(                              [";
-		SetConsoleTextAttribute(h, 15);
-		std::cout << "Guest";
-		SetConsoleTextAttribute(h, 11);
-		std::cout << "]                           )";
-		SetConsoleTextAttribute(h, 9);
-		std::cout << " )";
-		std::cout << std::endl;
-		SetConsoleTextAttribute(h, 9);
-		std::cout << " )";
-		SetConsoleTextAttribute(h, 11);
-		std::cout << " )                                                              ( ";
-		SetConsoleTextAttribute(h, 9);
-		std::cout << "(";
-		std::cout << std::endl;
-		SetConsoleTextAttribute(h, 9);
-		std::cout << "( ";
-		SetConsoleTextAttribute(h, 11);
-		std::cout << "(_.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._)";
-		SetConsoleTextAttribute(h, 9);
-		std::cout << " )";
-		std::cout << std::endl;
-		std::cout << " `._.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.' ";
-		std::cout << std::endl;
-		std::cout << std::endl;
-
-
+		AccessLevel = 3;
 
 
 		goto OrderCars;
+
 	}
 
 	// About Us
@@ -4559,6 +4737,20 @@ LoginForm:
 
 OrderCars:
 
+	system("color 0A");
+
+	if (AccessLevel == 1) {
+		userTitleText("                        Admin Order Cars                      ", "Namias", "                             [", "]                           ");
+	}
+	else if (AccessLevel == 2) {
+		userTitleText("                      Employee Order Cars                     ", "Miku", "                             [", "]                             ");
+	}
+	else if (AccessLevel == 3) {
+		userTitleText("                       Guest Order Cars                       ", "Guest", "                             [", "]                            ");
+	}
+	else {
+		userTitleText("                      Unknown Order Cars                      ", "Unknown", "                            [", "]                           ");
+	}
 
 	SetConsoleTextAttribute(h, 10);
 	std::cout << "\n  Press ESC button to go back" << std::endl;
@@ -4644,6 +4836,7 @@ OrderCars:
 
 
 			// Select Color
+		SelectColor:
 			std::cout << std::endl
 				<< "   What Color of "
 				<< toyota_car_names[Cars - 1]
@@ -4741,9 +4934,6 @@ OrderCars:
 					goto OrderCars;
 				}
 
-				Sleep(500);
-
-				/*
 				// Receipt
 				std::cout << std::endl;
 				SetConsoleTextAttribute(h, 7);
@@ -4761,9 +4951,72 @@ OrderCars:
 				std::cout << "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+" << std::endl;
 				SetConsoleTextAttribute(h, 1);
 				std::cout << std::endl;
-				*/
 
-				system("cls");
+
+				/*
+				
+				
+
+					 ____  ____  ___  __  ____  ____  ____ 
+					(  _ \(  __)/ __)(  )(  __)(  _ \(_  _)
+					 )   / ) _)( (__  )(  ) _)  ) __/  )(  
+					(__\_)(____)\___)(__)(____)(__)   (__) 
+
+
+
+
+					.----. .----..---. .-..----..----.  .---.
+					| {}  }| {_ /  ___}| || {_  | {}  }{_   _}
+					| .-. \| {__\     }| || {__ | .--'   | |
+					`-' `-'`----'`---' `-'`----'`-'      `-'
+
+
+
+
+					 _____ _____ _____ _____ _____ _____ _____
+					| __  |   __|     |     |   __|  _  |_   _|
+					|    -|   __|   --|-   -|   __|   __| | |
+					|__|__|_____|_____|_____|_____|__|    |_|
+
+
+
+
+					 std::cout <<" ___ ___ ___ ___ ___ ___ _____ " << std::endl;
+					 std::cout <<"| _ \ __/ __| __|_ _| _ \_   _|" << std::endl;
+					 std::cout <<"|   / _| (__| _| | ||  _/ | |  " << std::endl;
+					 std::cout <<"|_|_\___\___|___|___|_|   |_|  " << std::endl;
+
+
+
+
+
+					   ___  ____________________  ______
+					  / _ \/ __/ ___/  _/ __/ _ \/_  __/
+					 / , _/ _// /___/ // _// ___/ / /
+					/_/|_/___/\___/___/___/_/    /_/
+
+
+
+
+					 _     __    __   ___    __    _    ___
+					|_)   |_    /      |    |_    |_)    |
+					| \   |__   \__   _|_   |__   |      |
+
+
+
+					 ___   ____  __    _   ____  ___  _____
+					| |_) | |_  / /`  | | | |_  | |_)  | |
+					|_| \ |_|__ \_\_, |_| |_|__ |_|    |_|
+
+
+*/
+				
+
+
+
+
+
+
 
 
 				// Order Logs [INPUT]
@@ -4952,7 +5205,6 @@ OrderCars:
 					goto OrderCars;
 
 				}
-
 				else {
 					system("cls");
 					system("color 4f");
@@ -4975,8 +5227,8 @@ OrderCars:
 				goto OrderCars;
 			}
 
-		}
 
+		}
 		else if (order_confirmation == 'n' || order_confirmation == 'N') {
 			std::cout << "\n  You Canceled the order." << std::endl;
 			Sleep(2000);
@@ -4993,6 +5245,8 @@ OrderCars:
 			goto OrderCars;
 		}
 
+
+
 	}
 
 	else {
@@ -5005,6 +5259,8 @@ OrderCars:
 		Sleep(2000);
 		goto OrderCars;
 	}
+
+
 }
 
 
@@ -5028,80 +5284,13 @@ void gotoxy(int x, int y)
 }
 
 
-void titleText(std::string TitleText) {
-	system("color a");
-	system("cls");
-
-	// Text color settings
-	HANDLE titleTextColor = GetStdHandle(STD_OUTPUT_HANDLE);
-
-	std::cout << std::endl;
-	SetConsoleTextAttribute(titleTextColor, 9);
-	std::cout << "   _.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._   ";
-	std::cout << std::endl;
-	SetConsoleTextAttribute(titleTextColor, 9);
-	std::cout << " ,'";
-	SetConsoleTextAttribute(titleTextColor, 11);
-	std::cout << "_.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._";
-	SetConsoleTextAttribute(titleTextColor, 9);
-	std::cout << "`. ";
-	std::cout << std::endl;
-	SetConsoleTextAttribute(titleTextColor, 9);
-	std::cout << "( ";
-	SetConsoleTextAttribute(titleTextColor, 11);
-	std::cout << "(                                                                )";
-	SetConsoleTextAttribute(titleTextColor, 9);
-	std::cout << " )";
-	std::cout << std::endl;
-	SetConsoleTextAttribute(titleTextColor, 9);
-	std::cout << " )";
-	SetConsoleTextAttribute(titleTextColor, 11);
-	std::cout << " )";
-	SetConsoleTextAttribute(titleTextColor, 10);
-	std::cout << "                Car Dealership Management (CDM)               ";
-	SetConsoleTextAttribute(titleTextColor, 11);
-	std::cout << "( ";
-	SetConsoleTextAttribute(titleTextColor, 9);
-	std::cout << "(";
-	std::cout << std::endl;
-	SetConsoleTextAttribute(titleTextColor, 9);
-	std::cout << "( ";
-	SetConsoleTextAttribute(titleTextColor, 11);
-	std::cout << "(";
-	SetConsoleTextAttribute(titleTextColor, 15);
-	std::cout << TitleText;
-	SetConsoleTextAttribute(titleTextColor, 11);
-	std::cout << ")";
-	SetConsoleTextAttribute(titleTextColor, 9);
-	std::cout << " )";
-	std::cout << std::endl;
-	SetConsoleTextAttribute(titleTextColor, 9);
-	std::cout << " )";
-	SetConsoleTextAttribute(titleTextColor, 11);
-	std::cout << " )                                                              ( ";
-	SetConsoleTextAttribute(titleTextColor, 9);
-	std::cout << "(";
-	std::cout << std::endl;
-	SetConsoleTextAttribute(titleTextColor, 9);
-	std::cout << "( ";
-	SetConsoleTextAttribute(titleTextColor, 11);
-	std::cout << "(_.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._)";
-	SetConsoleTextAttribute(titleTextColor, 9);
-	std::cout << " )";
-	std::cout << std::endl;
-	std::cout << " `._.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.' ";
-	std::cout << std::endl;
-	std::cout << std::endl;
-}
-
-
-
 void userTitleText(std::string UserTitleText, std::string UserTitle, std::string UserTitleSeparatorLeft, std::string UserTitleSeparatorRight) {
-	system("color a");
-	system("cls");
-
+	
 	// Text color settings
 	HANDLE userTitleTextColor = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	system("color a");
+	system("cls");
 
 	std::cout << std::endl;
 	SetConsoleTextAttribute(userTitleTextColor, 9);
@@ -5152,14 +5341,18 @@ void userTitleText(std::string UserTitleText, std::string UserTitle, std::string
 	SetConsoleTextAttribute(userTitleTextColor, 9);
 	std::cout << "(";
 	std::cout << std::endl;
+
 	std::cout << "( ";
 	SetConsoleTextAttribute(userTitleTextColor, 11);
 	std::cout << "(";
+
 	std::cout << UserTitleSeparatorLeft;
+
 	SetConsoleTextAttribute(userTitleTextColor, 15);
 	std::cout << UserTitle;
 	SetConsoleTextAttribute(userTitleTextColor, 11);
 	std::cout << UserTitleSeparatorRight;
+
 	std::cout << ")";
 	SetConsoleTextAttribute(userTitleTextColor, 9);
 	std::cout << " )";
@@ -5181,4 +5374,9 @@ void userTitleText(std::string UserTitleText, std::string UserTitle, std::string
 	std::cout << " `._.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.' ";
 	std::cout << std::endl;
 	std::cout << std::endl;
+
+
+
+
+
 }
