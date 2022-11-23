@@ -441,20 +441,13 @@ public:
 
 class HeaderClass {
 public:
-	// Text color settings
-	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-	// SetConsoleTextAttribute(h, 1);
-
-
+	
 	void titleText(std::string TitleText) {
-		system("color a");
-		system("cls");
-
 		// Text color settings
 		HANDLE titleTextColor = GetStdHandle(STD_OUTPUT_HANDLE);
-
-
-		// titleText("Liam");
+		
+		system("color a");
+		system("cls");
 
 		std::cout << std::endl;
 		SetConsoleTextAttribute(titleTextColor, 9);
@@ -513,14 +506,50 @@ public:
 		std::cout << " `._.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.' ";
 		std::cout << std::endl;
 		std::cout << std::endl;
-
-
-
-
-
 	}
 
 
+	void choiceBlue(std::string choiceNumber, std::string choice) {
+		// Text color settings
+		HANDLE ChoiceBlue = GetStdHandle(STD_OUTPUT_HANDLE);
+
+		SetConsoleTextAttribute(ChoiceBlue, 10);
+		std::cout << "    [";
+		SetConsoleTextAttribute(ChoiceBlue, 15);
+		std::cout << choiceNumber;
+		SetConsoleTextAttribute(ChoiceBlue, 10);
+		std::cout << "] ";
+		SetConsoleTextAttribute(ChoiceBlue, 1);
+		std::cout << choice << std::endl;
+	}
+
+	void choiceGreen(std::string choiceNumber, std::string choice) {
+		// Text color settings
+		HANDLE ChoiceGreen = GetStdHandle(STD_OUTPUT_HANDLE);
+
+		SetConsoleTextAttribute(ChoiceGreen, 10);
+		std::cout << "    [";
+		SetConsoleTextAttribute(ChoiceGreen, 15);
+		std::cout << choiceNumber;
+		SetConsoleTextAttribute(ChoiceGreen, 10);
+		std::cout << "] ";
+		SetConsoleTextAttribute(ChoiceGreen, 2);
+		std::cout << choice << std::endl;
+	}
+
+	void choiceRed(std::string choiceNumber, std::string choice) {
+		// Text color settings
+		HANDLE ChoiceRed = GetStdHandle(STD_OUTPUT_HANDLE);
+
+		SetConsoleTextAttribute(ChoiceRed, 10);
+		std::cout << "    [";
+		SetConsoleTextAttribute(ChoiceRed, 4);
+		std::cout << choiceNumber;
+		SetConsoleTextAttribute(ChoiceRed, 10);
+		std::cout << "] ";
+		SetConsoleTextAttribute(ChoiceRed, 4);
+		std::cout << choice << std::endl;
+	}
 };
 
 
@@ -607,6 +636,9 @@ int main()
 
 
 
+	HeaderClass ChoiceBlue;
+	HeaderClass ChoiceGreen;
+	HeaderClass ChoiceRed;
 
 
 
@@ -767,9 +799,6 @@ int main()
 
 
 
-	// system defaults
-	system("mode 70, 100");
-
 	// main choices
 	int choice;
 	int adminchoice;
@@ -790,52 +819,13 @@ LoginForm:
 	HeaderClass TitleText;
 	TitleText.titleText("                    Welcome to the Login Menu                   ");
 
-	SetConsoleTextAttribute(h, 10);
-	std::cout << "    [";
-	SetConsoleTextAttribute(h, 15);
-	std::cout << "1";
-	SetConsoleTextAttribute(h, 10);
-	std::cout << "] ";
-	SetConsoleTextAttribute(h, 1);
-	std::cout << "Admin" << std::endl;
+	ChoiceBlue.choiceBlue("1", "Admin");
+	ChoiceBlue.choiceBlue("2", "Employee");
+	ChoiceBlue.choiceBlue("3", "Guest\n");
 
+	ChoiceGreen.choiceGreen("4", "About Us\n");
 
-	SetConsoleTextAttribute(h, 10);
-	std::cout << "    [";
-	SetConsoleTextAttribute(h, 15);
-	std::cout << "2";
-	SetConsoleTextAttribute(h, 10);
-	std::cout << "] ";
-	SetConsoleTextAttribute(h, 1);
-	std::cout << "Employee" << std::endl;
-
-
-	SetConsoleTextAttribute(h, 10);
-	std::cout << "    [";
-	SetConsoleTextAttribute(h, 15);
-	std::cout << "3";
-	SetConsoleTextAttribute(h, 10);
-	std::cout << "] ";
-	SetConsoleTextAttribute(h, 1);
-	std::cout << "Guest\n" << std::endl;
-
-	SetConsoleTextAttribute(h, 10);
-	std::cout << "    [";
-	SetConsoleTextAttribute(h, 15);
-	std::cout << "4";
-	SetConsoleTextAttribute(h, 10);
-	std::cout << "] ";
-	SetConsoleTextAttribute(h, 2);
-	std::cout << "About Us\n" << std::endl;
-
-	SetConsoleTextAttribute(h, 10);
-	std::cout << "    [";
-	SetConsoleTextAttribute(h, 4);
-	std::cout << "5";
-	SetConsoleTextAttribute(h, 10);
-	std::cout << "] ";
-	SetConsoleTextAttribute(h, 4);
-	std::cout << "Exit\n" << std::endl;
+	ChoiceRed.choiceRed("5", "Exit\n");
 
 	SetConsoleTextAttribute(h, 1);
 	std::cout << "   Please insert your choice: ";
@@ -1024,69 +1014,16 @@ LoginForm:
 			userTitleText("                           Admin Menu                         ", user, "                             [" , "]                           " );
 
 
+			ChoiceBlue.choiceBlue("1", "Employee Data");
+			ChoiceBlue.choiceBlue("2", "Cars Data");
+			ChoiceBlue.choiceBlue("3", "Order Logs");
+			ChoiceBlue.choiceBlue("4", "Order Cars\n");
+			
+			ChoiceGreen.choiceGreen("5", "About Us\n");
 
-			SetConsoleTextAttribute(h, 10);
-			std::cout << "    [";
-			SetConsoleTextAttribute(h, 15);
-			std::cout << "1";
-			SetConsoleTextAttribute(h, 10);
-			std::cout << "] ";
+			ChoiceRed.choiceRed("6", "Back\n");
+
 			SetConsoleTextAttribute(h, 1);
-			std::cout << "Employee Data" << std::endl;
-
-			SetConsoleTextAttribute(h, 10);
-			std::cout << "    [";
-			SetConsoleTextAttribute(h, 15);
-			std::cout << "2";
-			SetConsoleTextAttribute(h, 10);
-			std::cout << "] ";
-			SetConsoleTextAttribute(h, 1);
-			std::cout << "Cars Data" << std::endl;
-
-			SetConsoleTextAttribute(h, 10);
-			std::cout << "    [";
-			SetConsoleTextAttribute(h, 15);
-			std::cout << "3";
-			SetConsoleTextAttribute(h, 10);
-			std::cout << "] ";
-			SetConsoleTextAttribute(h, 1);
-			std::cout << "Order Logs" << std::endl;
-
-			SetConsoleTextAttribute(h, 10);
-			std::cout << "    [";
-			SetConsoleTextAttribute(h, 15);
-			std::cout << "4";
-			SetConsoleTextAttribute(h, 10);
-			std::cout << "] ";
-			SetConsoleTextAttribute(h, 1);
-			std::cout << "Order Cars" << std::endl;
-
-
-
-			SetConsoleTextAttribute(h, 10);
-			std::cout << "    [";
-			SetConsoleTextAttribute(h, 15);
-			std::cout << "5";
-			SetConsoleTextAttribute(h, 10);
-			std::cout << "] ";
-			SetConsoleTextAttribute(h, 1);
-
-			SetConsoleTextAttribute(h, 2);
-			std::cout << "About Us\n" << std::endl;
-
-
-			SetConsoleTextAttribute(h, 10);
-			std::cout << "    [";
-			SetConsoleTextAttribute(h, 4);
-			std::cout << "6";
-			SetConsoleTextAttribute(h, 10);
-			std::cout << "] ";
-			SetConsoleTextAttribute(h, 1);
-
-			SetConsoleTextAttribute(h, 4);
-			std::cout << "Back\n" << std::endl;
-			SetConsoleTextAttribute(h, 1);
-
 			std::cout << "   Please insert your choice: ";
 
 			SetConsoleTextAttribute(h, 13);
