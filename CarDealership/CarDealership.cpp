@@ -138,7 +138,7 @@ public:
 		std::cout << "   Info:" << std::endl;
 		SetConsoleTextAttribute(aboutUsColor, 15);
 		std::cout << "              This project [Car Dealership Management Program], " << std::endl;
-		std::cout << "     which is a topic of the (Fundamentals of Programming) course, " << std::endl;
+		std::cout << "     which is a topic of the [Fundamentals of Programming] course, " << std::endl;
 		std::cout << "     involves creating a car dealership management entirely in C++." << std::endl;
 		std::cout << "     We are pleased to announce the release of a convenient console" << std::endl;
 		std::cout << "     application for performing management system tasks like adding" << std::endl;
@@ -800,6 +800,94 @@ public:
 
 
 	}
+
+	void orderLogs() {
+		// Text color settings
+		HANDLE OrderLogsColor = GetStdHandle(STD_OUTPUT_HANDLE);
+
+		std::ifstream Order_Logs("Text Files/Order_Logs.txt");
+
+		std::string date;
+		std::string time;
+		std::string car_name;
+		std::string car_color;
+		int car_price;
+		std::string car_payment;
+		std::string car_change;
+
+		SetConsoleTextAttribute(OrderLogsColor, 13);
+		std::cout << "\n======================================================================" << std::endl;
+		SetConsoleTextAttribute(OrderLogsColor, 13);
+		std::cout << "|    ";
+		SetConsoleTextAttribute(OrderLogsColor, 10);
+		std::cout << "Date";
+		SetConsoleTextAttribute(OrderLogsColor, 13);
+		std::cout << "     |\t";
+		SetConsoleTextAttribute(OrderLogsColor, 10);
+		std::cout << "  Time";
+		SetConsoleTextAttribute(OrderLogsColor, 13);
+		std::cout << "   |   ";
+		SetConsoleTextAttribute(OrderLogsColor, 10);
+		std::cout << "Car Name";
+		SetConsoleTextAttribute(OrderLogsColor, 13);
+		std::cout << "   | ";
+		SetConsoleTextAttribute(OrderLogsColor, 10);
+		std::cout << "Car Color";
+		SetConsoleTextAttribute(OrderLogsColor, 13);
+		std::cout << " |\t";
+		SetConsoleTextAttribute(OrderLogsColor, 10);
+		std::cout << "Car Price";
+		SetConsoleTextAttribute(OrderLogsColor, 13);
+		std::cout << "\t|";
+		std::cout << "\n======================================================================" << std::endl;
+		SetConsoleTextAttribute(OrderLogsColor, 1);
+
+
+		while (Order_Logs >> date >> time >> car_name >> car_color >> car_price) {
+			SetConsoleTextAttribute(OrderLogsColor, 13);
+			std::cout << "| ";
+			SetConsoleTextAttribute(OrderLogsColor, 9);
+			std::cout << date;
+			SetConsoleTextAttribute(OrderLogsColor, 13);
+			std::cout << " |\t";
+			SetConsoleTextAttribute(OrderLogsColor, 11);
+			std::cout << time;
+			SetConsoleTextAttribute(OrderLogsColor, 13);
+			std::cout << " |   ";
+			SetConsoleTextAttribute(OrderLogsColor, 9);
+			std::cout << car_name;
+			SetConsoleTextAttribute(OrderLogsColor, 13);
+			std::cout << "\t| ";
+			SetConsoleTextAttribute(OrderLogsColor, 11);
+			std::cout << car_color;
+			SetConsoleTextAttribute(OrderLogsColor, 13);
+			std::cout << "\t    | \t";
+			SetConsoleTextAttribute(OrderLogsColor, 9);
+
+
+
+
+			struct group_facet : public std::numpunct<char> {
+			protected:
+				std::string do_grouping() const { return "\003"; }
+			};
+
+			std::cout.imbue(std::locale(std::cout.getloc(), new group_facet));
+
+			std::cout << std::fixed << car_price;
+
+
+
+			// std::cout << car_price;
+			SetConsoleTextAttribute(OrderLogsColor, 13);
+			std::cout << "\t|";
+			std::cout << std::endl;
+			SetConsoleTextAttribute(OrderLogsColor, 13);
+			std::cout << "|--------------------------------------------------------------------|";
+			std::cout << std::endl;
+		}
+
+	}
 };
 
 // Identifiers
@@ -891,10 +979,11 @@ int main()
 
 
 	BackEnd Reciept;
+	BackEnd OrderLogs;
 
 
 	system("TITLE Car Dealership Management Program By: @PP-Namias");
-	//goto OrderLogs;
+
 	// Text file to array dynamically XD [Color]
 	std::string toyota_car_color[15];
 	int number_of_color = 0;
@@ -3994,93 +4083,10 @@ LoginForm:
 
 
 				
+				OrderLogs.orderLogs();
 
 
 
-
-
-
-				std::ifstream Order_Logs("Text Files/Order_Logs.txt");
-
-				std::string date;
-				std::string time;
-				std::string car_name;
-				std::string car_color;
-				int car_price;
-				std::string car_payment;
-				std::string car_change;
-
-				SetConsoleTextAttribute(h, 13);
-				std::cout << "\n======================================================================" << std::endl;
-				SetConsoleTextAttribute(h, 13);
-				std::cout << "|    ";
-				SetConsoleTextAttribute(h, 10);
-				std::cout << "Date";
-				SetConsoleTextAttribute(h, 13);
-				std::cout << "     |\t";
-				SetConsoleTextAttribute(h, 10);
-				std::cout << "  Time";
-				SetConsoleTextAttribute(h, 13);
-				std::cout << "   |   ";
-				SetConsoleTextAttribute(h, 10);
-				std::cout << "Car Name";
-				SetConsoleTextAttribute(h, 13);
-				std::cout << "   | ";
-				SetConsoleTextAttribute(h, 10);
-				std::cout << "Car Color";
-				SetConsoleTextAttribute(h, 13);
-				std::cout << " |\t";
-				SetConsoleTextAttribute(h, 10);
-				std::cout << "Car Price";
-				SetConsoleTextAttribute(h, 13);
-				std::cout << "\t|";
-				std::cout << "\n======================================================================" << std::endl;
-				SetConsoleTextAttribute(h, 1);
-
-
-				while (Order_Logs >> date >> time >> car_name >> car_color >> car_price) {
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "| ";
-					SetConsoleTextAttribute(h, 9);
-					std::cout << date;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << " |\t";
-					SetConsoleTextAttribute(h, 11);
-					std::cout << time;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << " |   ";
-					SetConsoleTextAttribute(h, 9);
-					std::cout << car_name;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t| ";
-					SetConsoleTextAttribute(h, 11);
-					std::cout << car_color;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t    | \t";
-					SetConsoleTextAttribute(h, 9);
-
-
-
-
-					struct group_facet : public std::numpunct<char> {
-					protected:
-						std::string do_grouping() const { return "\003"; }
-					};
-
-					std::cout.imbue(std::locale(std::cout.getloc(), new group_facet));
-
-					std::cout << std::fixed << car_price;
-
-
-
-					// std::cout << car_price;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t|";
-					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "|--------------------------------------------------------------------|";
-					std::cout << std::endl;
-				}
 
 				SetConsoleTextAttribute(h, 1);
 				std::cout << std::endl;
@@ -4443,87 +4449,10 @@ LoginForm:
 
 
 
-				std::ifstream Order_Logs("Text Files/Order_Logs.txt");
-
-				std::string date;
-				std::string time;
-				std::string car_name;
-				std::string car_color;
-				int car_price;
-				std::string car_payment;
-				std::string car_change;
-
-				SetConsoleTextAttribute(h, 13);
-				std::cout << "\n======================================================================" << std::endl;
-				SetConsoleTextAttribute(h, 13);
-				std::cout << "|    ";
-				SetConsoleTextAttribute(h, 10);
-				std::cout << "Date";
-				SetConsoleTextAttribute(h, 13);
-				std::cout << "     |\t";
-				SetConsoleTextAttribute(h, 10);
-				std::cout << "  Time";
-				SetConsoleTextAttribute(h, 13);
-				std::cout << "   |   ";
-				SetConsoleTextAttribute(h, 10);
-				std::cout << "Car Name";
-				SetConsoleTextAttribute(h, 13);
-				std::cout << "   | ";
-				SetConsoleTextAttribute(h, 10);
-				std::cout << "Car Color";
-				SetConsoleTextAttribute(h, 13);
-				std::cout << " |\t";
-				SetConsoleTextAttribute(h, 10);
-				std::cout << "Car Price";
-				SetConsoleTextAttribute(h, 13);
-				std::cout << "\t|";
-				std::cout << "\n======================================================================" << std::endl;
-				SetConsoleTextAttribute(h, 1);
-
-
-				while (Order_Logs >> date >> time >> car_name >> car_color >> car_price) {
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "| ";
-					SetConsoleTextAttribute(h, 9);
-					std::cout << date;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << " |\t";
-					SetConsoleTextAttribute(h, 11);
-					std::cout << time;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << " |   ";
-					SetConsoleTextAttribute(h, 9);
-					std::cout << car_name;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t| ";
-					SetConsoleTextAttribute(h, 11);
-					std::cout << car_color;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t    | \t";
-					SetConsoleTextAttribute(h, 9);
+				OrderLogs.orderLogs();
 
 
 
-
-					struct group_facet : public std::numpunct<char> {
-					protected:
-						std::string do_grouping() const { return "\003"; }
-					};
-
-					std::cout.imbue(std::locale(std::cout.getloc(), new group_facet));
-
-					std::cout << std::fixed << car_price;
-
-
-
-					// std::cout << car_price;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t|";
-					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "|--------------------------------------------------------------------|";
-					std::cout << std::endl;
-				}
 
 				SetConsoleTextAttribute(h, 1);
 				std::cout << std::endl;
