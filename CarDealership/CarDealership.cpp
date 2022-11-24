@@ -437,8 +437,6 @@ public:
 	}
 };
 
-
-
 class HeaderClass {
 public:
 	
@@ -510,7 +508,6 @@ public:
 
 
 	void userTitleText(std::string UserTitleText, std::string UserTitle, std::string UserTitleSeparatorLeft, std::string UserTitleSeparatorRight) {
-
 		// Text color settings
 		HANDLE userTitleTextColor = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -597,9 +594,6 @@ public:
 		std::cout << std::endl;
 	}
 
-
-
-
 	void choiceBlue(std::string choiceNumber, std::string choice) {
 		// Text color settings
 		HANDLE ChoiceBlue = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -642,11 +636,7 @@ public:
 		std::cout << choice << std::endl;
 	}
 
-
-
 };
-
-
 
 class BackEnd {
 public:
@@ -4069,24 +4059,9 @@ LoginForm:
 				}
 				std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
-
-
 				TitleText.titleText("                           Order Logs                           ");
 
-
-
-
-
-
-
-
-				
 				OrderLogs.orderLogs();
-
-
-
 
 				SetConsoleTextAttribute(h, 1);
 				std::cout << std::endl;
@@ -4097,13 +4072,10 @@ LoginForm:
 				system("cls");
 				goto AdminMenu;
 
-
-
 			}
 
 			// Order Cars
 			else if (adminchoice == 4) {
-
 				// Loading screen
 				system("cls");
 				system("color 0F");
@@ -4118,14 +4090,10 @@ LoginForm:
 				}
 				std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
-
 				AccessLevel = 1;
 
 				goto OrderCars;		
-				
-
+			
 			}
 
 			// About Us
@@ -4145,18 +4113,12 @@ LoginForm:
 				}
 				std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
 				NamiasClass AboutUs;
 				AboutUs.AboutUs();
 				std::cout << "   ";
 				system("pause");
 
 				goto AdminMenu;
-
-
-
-
-
 			}
 
 			// Back
@@ -4189,7 +4151,6 @@ LoginForm:
 			std::cin.clear();
 			std::cin.ignore(22, '\n');
 			Sleep(2000);
-
 			
 			goto AdminLogin;
 		}
@@ -4216,35 +4177,10 @@ LoginForm:
 		system("color a");
 		system("cls");
 
-
 		int Employeelogin = 0;
 		std::string user, pass, u, p;
 
-
-
-
-
-
-
-
-
-
 		TitleText.titleText("                          Employee Login                        ");
-
-
-
-
-
-
-
-
-
-		
-
-
-
-
-
 
 		SetConsoleTextAttribute(h, 10);
 		std::cout << "\n   Press ESC button to go back" << std::endl;
@@ -4286,19 +4222,12 @@ LoginForm:
 
 		user = userHider;
 
-
-
-		// std::cin >> user;
 		SetConsoleTextAttribute(h, 1);
 
 		std::cout << "   Password: ";
 		SetConsoleTextAttribute(h, 13);
 
-
-
-
 		int i = 0;
-
 
 		std::string passHider;
 		char c;
@@ -4385,13 +4314,9 @@ LoginForm:
 
 		if (Employeelogin == 1)
 		{
-
-
 		EmployeeMenu:
 
 			UserTitleText.userTitleText("                         Employee Menu                        ", user, "                             [", "]                             ");
-
-
 
 			ChoiceBlue.choiceBlue("1", "Order Logs");
 			ChoiceBlue.choiceBlue("2", "Order Cars\n");
@@ -4400,10 +4325,7 @@ LoginForm:
 
 			ChoiceRed.choiceRed("4", "Back\n");
 
-
-
 			std::cout << "   Please insert your choice: ";
-
 			SetConsoleTextAttribute(h, 13);
 			std::cin >> employeechoice;
 			std::cout << std::endl;
@@ -4411,8 +4333,6 @@ LoginForm:
 
 			// Order Logs
 			if (employeechoice == 1) {
-
-
 				// Loading screen
 				system("cls");
 				system("color 09");
@@ -4427,32 +4347,9 @@ LoginForm:
 				}
 				std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
-
-
 				TitleText.titleText("                           Order Logs                           ");
 
-
-
-
-
-
-
-
-
-
-
-				
-
-
-
-
-
 				OrderLogs.orderLogs();
-
-
-
 
 				SetConsoleTextAttribute(h, 1);
 				std::cout << std::endl;
@@ -4463,12 +4360,10 @@ LoginForm:
 				system("cls");
 
 				goto EmployeeMenu;
-
 			}
 
 			// Order Cars
 			else if (employeechoice == 2) {
-
 				// Loading screen
 				system("cls");
 				system("color 09");
@@ -4483,17 +4378,13 @@ LoginForm:
 				}
 				std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
 				AccessLevel = 2;
 
-
 				goto OrderCars;
-
 			}
 
 			// About Us
 			else if (employeechoice == 3) {
-
 				// Loading screen
 				system("cls");
 				system("color 09");
@@ -4514,10 +4405,6 @@ LoginForm:
 				system("pause");
 
 				goto EmployeeMenu;
-
-
-
-
 			}
 
 			// Back
@@ -4536,11 +4423,8 @@ LoginForm:
 				std::cin.ignore(22, '\n');
 				Sleep(2000);
 
-				
 				goto LoginForm;
 			}
-
-
 		}
 
 		// Wrong login
@@ -4555,16 +4439,6 @@ LoginForm:
 			goto LoginForm;
 		}
 	}
-
-
-
-
-
-
-
-
-
-
 
 	// Guest
 	else if (choice == 3) {
