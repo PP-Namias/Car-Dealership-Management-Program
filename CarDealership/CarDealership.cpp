@@ -1059,7 +1059,7 @@ int main()
 
 
 	// system defaults
-	system("mode 70,100");
+	system("mode 70, 150");
 
 
 
@@ -1154,9 +1154,9 @@ LoginForm:
 
 	ChoiceRed.choiceRed("5", "Exit\n");
 
-	SetConsoleTextAttribute(h, 1);
+	SetConsoleTextAttribute(h, 9);
 	std::cout << "   Please insert your choice: ";
-	SetConsoleTextAttribute(h, 13);
+	SetConsoleTextAttribute(h, 11);
 	std::cin >> choice;
 	std::cin.ignore();
 
@@ -1193,8 +1193,9 @@ LoginForm:
 		SetConsoleTextAttribute(h, 1);
 		std::cout << "\n   Please enter the following details" << std::endl;
 
+		SetConsoleTextAttribute(h, 9);
 		std::cout << "\n   Username: ";
-		SetConsoleTextAttribute(h, 13);
+		SetConsoleTextAttribute(h, 11);
 
 
 		std::string userHider;
@@ -1233,10 +1234,9 @@ LoginForm:
 
 
 		//std::cin >> user;
-		SetConsoleTextAttribute(h, 1);
-
+		SetConsoleTextAttribute(h, 9);
 		std::cout << "   Password: ";
-		SetConsoleTextAttribute(h, 13);
+		SetConsoleTextAttribute(h, 11);
 
 
 		int i = 0;
@@ -1362,10 +1362,10 @@ LoginForm:
 
 			ChoiceRed.choiceRed("6", "Back\n");
 
-			SetConsoleTextAttribute(h, 1);
+			SetConsoleTextAttribute(h, 9);
 			std::cout << "   Please insert your choice: ";
 
-			SetConsoleTextAttribute(h, 13);
+			SetConsoleTextAttribute(h, 11);
 			std::cin >> adminchoice;
 			std::cout << std::endl;
 			std::cin.ignore();
@@ -1410,10 +1410,10 @@ LoginForm:
 				
 				ChoiceRed.choiceRed("6", "Back\n");
 
-				SetConsoleTextAttribute(h, 1);
+				SetConsoleTextAttribute(h, 9);
 				std::cout << "   Please insert your choice: ";
 
-				SetConsoleTextAttribute(h, 13);
+				SetConsoleTextAttribute(h, 11);
 				std::cin >> employeeData;
 				std::cout << std::endl;
 				std::cin.ignore();
@@ -1451,9 +1451,10 @@ LoginForm:
 					std::cout << "\n   Press ESC button to go back" << std::endl;
 
 					std::string adduser, addpass, ru, rp;
-					SetConsoleTextAttribute(h, 1);
+					SetConsoleTextAttribute(h, 9);
 					std::cout << "\n   Enter the Username: ";
-					SetConsoleTextAttribute(h, 13);
+					SetConsoleTextAttribute(h, 11);
+
 
 
 
@@ -1508,9 +1509,9 @@ LoginForm:
 
 
 					//  std::cin >> adduser;
-					SetConsoleTextAttribute(h, 1);
+					SetConsoleTextAttribute(h, 9);
 					std::cout << "   Enter the Password: ";
-					SetConsoleTextAttribute(h, 13);
+					SetConsoleTextAttribute(h, 11);
 
 
 
@@ -1736,9 +1737,9 @@ LoginForm:
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
 
-					SetConsoleTextAttribute(h, 1);
+					SetConsoleTextAttribute(h, 9);
 					std::cout << "   Enter your choice: ";
-					SetConsoleTextAttribute(h, 13);
+					SetConsoleTextAttribute(h, 11);
 
 
 
@@ -2184,13 +2185,13 @@ LoginForm:
 
 					std::cout << std::endl;
 					std::string adduser, addpass, ru, rp;
-					SetConsoleTextAttribute(h, 1);
+					SetConsoleTextAttribute(h, 9);
 					std::cout << "\n   Enter the Username: ";
-					SetConsoleTextAttribute(h, 13);
+					SetConsoleTextAttribute(h, 11);
 					std::cin >> adduser;
-					SetConsoleTextAttribute(h, 1);
+					SetConsoleTextAttribute(h, 9);
 					std::cout << "   Enter the Password: ";
-					SetConsoleTextAttribute(h, 13);
+					SetConsoleTextAttribute(h, 11);
 					std::cin >> addpass;
 
 					std::ofstream reg("Text Files/Employee.txt", std::ios::app);
@@ -2234,7 +2235,7 @@ LoginForm:
 
 
 
-					TitleText.titleText("                        Edit Employee Data                      ");
+					TitleText.titleText("                       Delete Employee Data                     ");
 
 
 
@@ -2621,10 +2622,10 @@ LoginForm:
 				ChoiceRed.choiceRed("9", "Back\n");
 
 
-				SetConsoleTextAttribute(h, 1);
+				SetConsoleTextAttribute(h, 9);
 				std::cout << "   Please enter your input: ";
 
-				SetConsoleTextAttribute(h, 13);
+				SetConsoleTextAttribute(h, 11);
 				std::cin >> CarChoice;
 
 
@@ -2781,8 +2782,9 @@ LoginForm:
 
 
 					std::string addname, addprice;
+					SetConsoleTextAttribute(h, 9);
 					std::cout << "\n   Enter the Car Name: ";
-					SetConsoleTextAttribute(h, 13);
+					SetConsoleTextAttribute(h, 11);
 
 
 
@@ -2826,10 +2828,9 @@ LoginForm:
 
 
 					// std::cin >> addname;
-					SetConsoleTextAttribute(h, 1);
-
+					SetConsoleTextAttribute(h, 9);
 					std::cout << "\n   Enter the Car Price: ";
-					SetConsoleTextAttribute(h, 13);
+					SetConsoleTextAttribute(h, 11);
 					std::cin >> addprice;
 					SetConsoleTextAttribute(h, 1);
 
@@ -2855,7 +2856,7 @@ LoginForm:
 
 
 
-				TitleText.titleText("                      Edit Car Name & Price                     ");
+					TitleText.titleText("                      Edit Car Name & Price                     ");
 
 
 
@@ -2984,6 +2985,7 @@ LoginForm:
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
 					std::cout << std::endl;
+					SetConsoleTextAttribute(h, 9);
 					std::cout << "   Type the number of line to delete";
 					std::cout << std::endl;
 
@@ -3476,12 +3478,23 @@ LoginForm:
 
 					
 
-
-
-
+					SetConsoleTextAttribute(h, 10);
+					std::cout << "   Press ESC button to go back" << std::endl;
+					
 					std::string addcolor;
+					SetConsoleTextAttribute(h, 9);
 					std::cout << "\n   Enter the Color: ";
-					SetConsoleTextAttribute(h, 13);
+					SetConsoleTextAttribute(h, 11);
+
+					// ESC button back
+					int esc;
+					esc = _getch();
+					if (esc == 27) {
+						system("cls");
+						goto CarData;
+					}
+					
+					
 					std::cin >> addcolor;
 					SetConsoleTextAttribute(h, 1);
 
@@ -3582,8 +3595,8 @@ LoginForm:
 					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
+					SetConsoleTextAttribute(h, 9);
 					std::cout << "   Type the number of line to edit";
-					std::cout << std::endl;
 
 
 
@@ -3599,6 +3612,7 @@ LoginForm:
 					// Prompt the user to enter the line number to delete in the file, store it 
 					// into line_number
 
+					SetConsoleTextAttribute(h, 11);
 					std::cout << std::endl;
 					std::cout << "   Line: ";
 
@@ -3653,10 +3667,12 @@ LoginForm:
 
 
 					std::cout << std::endl;
+					SetConsoleTextAttribute(h, 1);
 					std::cout << "   Type the color";
 					std::cout << std::endl;
+					SetConsoleTextAttribute(h, 9);
 					std::cout << "   Enter the Color: ";
-					SetConsoleTextAttribute(h, 13);
+					SetConsoleTextAttribute(h, 11);
 					std::cin >> strColor;
 					SetConsoleTextAttribute(h, 1);
 
@@ -3850,11 +3866,11 @@ LoginForm:
 					}
 
 					SetConsoleTextAttribute(h, 10);
+					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
-					std::cout << std::endl;
+					SetConsoleTextAttribute(h, 9);
 					std::cout << "   Type the number of line to delete";
-					std::cout << std::endl;
 
 
 
@@ -3870,6 +3886,7 @@ LoginForm:
 					// Prompt the user to enter the line number to delete in the file, store it 
 					// into line_number
 
+					SetConsoleTextAttribute(h, 11);
 					std::cout << std::endl;
 					std::cout << "   Line: ";
 
@@ -4202,8 +4219,9 @@ LoginForm:
 		SetConsoleTextAttribute(h, 1);
 		std::cout << "\n   Please enter the following details" << std::endl;
 
+		SetConsoleTextAttribute(h, 9);
 		std::cout << "\n   Username: ";
-		SetConsoleTextAttribute(h, 13);
+		SetConsoleTextAttribute(h, 11);
 
 		std::string userHider;
 		char c_user;
@@ -4236,10 +4254,10 @@ LoginForm:
 
 		user = userHider;
 
-		SetConsoleTextAttribute(h, 1);
 
+		SetConsoleTextAttribute(h, 9);
 		std::cout << "   Password: ";
-		SetConsoleTextAttribute(h, 13);
+		SetConsoleTextAttribute(h, 11);
 
 		int i = 0;
 
@@ -4339,8 +4357,9 @@ LoginForm:
 
 			ChoiceRed.choiceRed("4", "Back\n");
 
+			SetConsoleTextAttribute(h, 9);
 			std::cout << "   Please insert your choice: ";
-			SetConsoleTextAttribute(h, 13);
+			SetConsoleTextAttribute(h, 11);
 			std::cin >> employeechoice;
 			std::cout << std::endl;
 			std::cin.ignore();
@@ -4514,9 +4533,13 @@ LoginForm:
 	else if (choice == 5) {
 		system("cls");
 		system("color 01");
-		std::cout << "\n   Thanks for using this program\n"
-			<< "\n   This program is created by @PP-Namias\n" << std::endl;
-		Sleep(3000);
+		SetConsoleTextAttribute(h, 9);
+		std::cout << "\n   Thanks for using this program\n";
+		std::cout << "\n   This program is created by ";
+		SetConsoleTextAttribute(h, 11);
+		std::cout << "@PP-Namias\n" << std::endl;
+		SetConsoleTextAttribute(h, 10);
+		Sleep(10000);
 		return 0;
 	}
 
@@ -4655,7 +4678,7 @@ OrderCars:
 
 			// Select Color
 		SelectColor:
-			SetConsoleTextAttribute(h, 11);
+			SetConsoleTextAttribute(h, 9);
 			std::cout << std::endl;
 			std::cout << "   What Color of ";
 			SetConsoleTextAttribute(h, 9);
