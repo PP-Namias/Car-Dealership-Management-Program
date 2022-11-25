@@ -75,8 +75,8 @@ Planned (✘) and currently working (✓) - but not necessarily fully completed 
 >
 - ✓ About Us
 
-<p> ​</p>
 
+## Flowchart
 <p align="center">
 <img src="images/Features.png" alt="Features flowchart">
 </p>
