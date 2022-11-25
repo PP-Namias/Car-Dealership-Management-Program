@@ -52,7 +52,7 @@ public:
 		const std::string names[],
 		const int prices[],
 		const size_t numCars) {
-		SetConsoleTextAttribute(h, 13);
+		SetConsoleTextAttribute(h, 11);
 		std::cout << manufacturer << " Cars:" << std::endl;
 
 		for (size_t i = 0; i < numCars; i++) {
@@ -4655,12 +4655,14 @@ OrderCars:
 
 			// Select Color
 		SelectColor:
+			SetConsoleTextAttribute(h, 11);
+			std::cout << std::endl;
+			std::cout << "   What Color of ";
 			SetConsoleTextAttribute(h, 9);
-			std::cout << std::endl
-				<< "   What Color of "
-				<< toyota_car_names[Cars - 1]
-				<< " do you want?"
-				<< std::endl;
+			std::cout << toyota_car_names[Cars - 1];
+			SetConsoleTextAttribute(h, 11);
+			std::cout << " do you want?";
+			std::cout << std::endl;
 
 			// Callout all Color [Fomated]
 			NamiasClass NamiasObject2;
