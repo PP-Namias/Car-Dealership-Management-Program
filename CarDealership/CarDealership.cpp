@@ -99,7 +99,7 @@ public:
 			std::cout << a + 1;
 			SetConsoleTextAttribute(h, 10);
 			std::cout << "] ";
-			SetConsoleTextAttribute(h, 9);
+			SetConsoleTextAttribute(h, 11);
 			std::cout << color_index[a];
 			SetConsoleTextAttribute(h, 10);
 			std::cout << std::endl;
@@ -1164,7 +1164,21 @@ LoginForm:
 	// Admin
 	if (choice == 1) {
 	AdminLogin:
-	
+
+		// Loading screen
+		system("cls");
+		system("color 0F");
+		char a = 219;
+		gotoxy(30, 10);
+		std::cout << "[Loading]" << std::endl;
+		gotoxy(25, 12);
+		for (int r = 1; r <= 20; r++)
+		{
+			for (int q = 0; q <= 10000000; q++);
+			std::cout << a;
+		}
+		std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+
 		int adminlogin = 0;
 		std::string user, pass, u, p;
 
@@ -4554,7 +4568,10 @@ OrderCars:
 	NamiasClass NamiasObject;
 	NamiasObject.display_menu("\n  Toyota", toyota_car_names, toyota_car_prices, sizeof(toyota_car_names) / sizeof(toyota_car_names[0]));
 
+	SetConsoleTextAttribute(h, 9);
 	std::cout << "\n  Input Number According to the type of Car: ";
+	
+	SetConsoleTextAttribute(h, 11);
 
 
 	// std::cin >> Cars;
@@ -4591,6 +4608,7 @@ OrderCars:
 	} while (c_cars != 13);
 
 
+
 	Cars = stoi(CarsHider);
 
 
@@ -4611,13 +4629,18 @@ OrderCars:
 
 	else if (Cars >= 1 || Cars <= sizeof(toyota_car_names) / sizeof(toyota_car_names[0])) {
 		// Order confirmation
-		std::cout << "  You selected "
+		SetConsoleTextAttribute(h, 9);
+		std::cout << "\n  You selected "
 			<< toyota_car_names[Cars - 1]
 			<< " for "
 			<< toyota_car_prices[Cars - 1]
-			<< " pesos" << std::endl;
+			<< " pesos" 
+			<< std::endl;
 
-		std::cout << "\n  To be confirmed type Y Yes, Type N if No: ";
+		SetConsoleTextAttribute(h, 9);
+		std::cout << "  To be confirmed type Y Yes, Type N if No: ";
+		
+		SetConsoleTextAttribute(h, 11);
 		std::cin >> order_confirmation;
 
 		if (order_confirmation == 'y' || order_confirmation == 'Y') {
@@ -4632,6 +4655,7 @@ OrderCars:
 
 			// Select Color
 		SelectColor:
+			SetConsoleTextAttribute(h, 9);
 			std::cout << std::endl
 				<< "   What Color of "
 				<< toyota_car_names[Cars - 1]
@@ -4642,15 +4666,17 @@ OrderCars:
 			NamiasClass NamiasObject2;
 			NamiasObject2.display_color(toyota_car_color, sizeof(toyota_car_color) / sizeof(toyota_car_color[0]));
 
+			SetConsoleTextAttribute(h, 9);
 			std::cout << "\n  Please select the Number of Color: ";
 
+			SetConsoleTextAttribute(h, 11);
 			std::cin >> Color;
 
 			// Verification
 			if (Color < 1 || Color > sizeof(toyota_car_color) / sizeof(toyota_car_color[0])) {
 				system("cls");
 				system("color 4f");
-				std::cout << "  Please try again if you entered the incorrect information.";
+				std::cout << "\n  Please try again if you entered the incorrect information.";
 				Sleep(2000);
 				goto OrderCars;
 			}
@@ -4670,25 +4696,42 @@ OrderCars:
 				system("color 0E");
 
 				// Your order summary
-				std::cout << std::endl
-					<< "  You selected {"
-					<< toyota_car_color[Color - 1]
-					<< "} "
-					<< toyota_car_names[Cars - 1]
-					<< " for "
-					<< toyota_car_prices[Cars - 1]
-					<< " pesos"
-					<< std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "  You selected ";
+				SetConsoleTextAttribute(h, 15);
+				std::cout << "[";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << toyota_car_color[Color - 1];
+				SetConsoleTextAttribute(h, 15);
+				std::cout << "] ";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << toyota_car_names[Cars - 1];
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " for ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << toyota_car_prices[Cars - 1];
+				SetConsoleTextAttribute(h, 9);
+				std::cout << " pesos";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << std::endl;;
 
 				// Total of the order
-				std::cout << std::endl
-					<< "  Total Amount: "
-					<< Value
-					<< std::endl;
+				SetConsoleTextAttribute(h, 11);
+				std::cout << std::endl;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << "  Total Amount: ";
+				SetConsoleTextAttribute(h, 11);
+				std::cout << Value;
+				SetConsoleTextAttribute(h, 9);
+				std::cout << std::endl;
 
-				std::cout << std::endl
-					<< "  Enter The Amount of Payment: ";
+				SetConsoleTextAttribute(h, 9);
+				std::cout << std::endl;
+				std::cout << "  Enter The Amount of Payment: ";
 
+				SetConsoleTextAttribute(h, 11);
 				std::cin >> Payment;
 
 				Change = Payment - Value;
@@ -4746,6 +4789,7 @@ OrderCars:
 				Reciept.Reciept(str, toyota_car_names[Cars - 1], toyota_car_color[Color - 1], toyota_car_prices[Cars - 1], Payment, Change);
 
 				// Order again?
+				SetConsoleTextAttribute(h, 9);
 				std::cout << "\n  Do you want to order again? Type Y if yes and type N if no: ";
 				std::cin >> order_more;
 
