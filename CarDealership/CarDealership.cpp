@@ -10,12 +10,12 @@
  *			 This project [Car Dealership Management Program],
  *			 which is a topic of the (Fundamentals of Programming) course,
  *			 involves creating a car dealership management entirely in C++.
- *			 We are pleased to announce the release of a convenient console 
- *			 application for performing management system tasks like adding 
+ *			 We are pleased to announce the release of a convenient console
+ *			 application for performing management system tasks like adding
  *			 new car(s) to a data set, modifying and deleting car(s) from a
  *			 data set, exporting order logs, etc.
  *			 Involves creating a car dealership management entirely in C++.
- * 
+ *
  *  Notes:
  *			Midterm program for presentation
  */
@@ -439,11 +439,11 @@ public:
 
 class HeaderClass {
 public:
-	
+
 	void titleText(std::string TitleText) {
 		// Text color settings
 		HANDLE titleTextColor = GetStdHandle(STD_OUTPUT_HANDLE);
-		
+
 		system("color a");
 		system("cls");
 
@@ -878,6 +878,84 @@ public:
 		}
 
 	}
+
+
+
+	void viewCarNamePrice() {
+		// Text color settings
+		HANDLE ViewCarData = GetStdHandle(STD_OUTPUT_HANDLE);
+
+		std::ifstream Cars_Name("Text Files/Cars_Name.txt");
+		std::ifstream Cars_Price("Text Files/Cars_Price.txt");
+
+		std::string CName;
+		int CPrice;
+
+		SetConsoleTextAttribute(ViewCarData, 13);
+		std::cout << "\n======================================================================" << std::endl;
+		SetConsoleTextAttribute(ViewCarData, 13);
+		std::cout << "|      ";
+		SetConsoleTextAttribute(ViewCarData, 10);
+		std::cout << "Line";
+		SetConsoleTextAttribute(ViewCarData, 13);
+		std::cout << "\t |      ";
+		SetConsoleTextAttribute(ViewCarData, 10);
+		std::cout << "Name";
+		SetConsoleTextAttribute(ViewCarData, 13);
+		std::cout << "\t  |\t";
+		SetConsoleTextAttribute(ViewCarData, 10);
+		std::cout << "Price";
+		SetConsoleTextAttribute(ViewCarData, 13);
+		std::cout << "\t\t\t\t|";
+		SetConsoleTextAttribute(ViewCarData, 13);
+		std::cout << "\n======================================================================" << std::endl;
+		SetConsoleTextAttribute(ViewCarData, 1);
+
+		int i = 0;
+		while ((Cars_Name >> CName) && (Cars_Price >> CPrice)) {
+			i++;
+
+			SetConsoleTextAttribute(ViewCarData, 13);
+			std::cout << "|";
+			SetConsoleTextAttribute(ViewCarData, 10);
+			std::cout << "      [";
+			SetConsoleTextAttribute(ViewCarData, 15);
+			std::cout << i;
+			SetConsoleTextAttribute(ViewCarData, 10);
+			std::cout << "]\t";
+			SetConsoleTextAttribute(ViewCarData, 13);
+			std::cout << " |     ";
+			SetConsoleTextAttribute(ViewCarData, 9);
+			std::cout << CName;
+			std::cout << "\t";
+			SetConsoleTextAttribute(ViewCarData, 13);
+			std::cout << "  |\t";
+			SetConsoleTextAttribute(ViewCarData, 11);
+
+
+			struct group_facet : public std::numpunct<char> {
+			protected:
+				std::string do_grouping() const { return "\003"; }
+			};
+
+			std::cout.imbue(std::locale(std::cout.getloc(), new group_facet));
+
+			std::cout << std::fixed << CPrice;
+
+
+
+			// std::cout << CPrice;
+			SetConsoleTextAttribute(ViewCarData, 9);
+			std::cout << " pesos";
+			SetConsoleTextAttribute(ViewCarData, 13);
+			std::cout << "\t\t\t|";
+			SetConsoleTextAttribute(ViewCarData, 13);
+			std::cout << "|--------------------------------------------------------------------|";
+			std::cout << std::endl;
+
+		}
+
+	}
 };
 
 // Identifiers
@@ -908,7 +986,7 @@ int main()
 
 	std::cout << "After catch (Will be executed) \n";
 
-	
+
 
 
 
@@ -970,6 +1048,7 @@ int main()
 
 	BackEnd Reciept;
 	BackEnd OrderLogs;
+	BackEnd ViewCarData;
 
 
 	system("TITLE Car Dealership Management Program By: @PP-Namias");
@@ -1108,8 +1187,8 @@ int main()
 	if (flag == false) {
 		NamiasClass TitleScreen;
 		TitleScreen.TitleScreen();
-		
-		
+
+
 
 	}
 
@@ -1143,7 +1222,7 @@ int main()
 
 	// Login Form
 LoginForm:
-	
+
 	TitleText.titleText("                    Welcome to the Login Menu                   ");
 
 	ChoiceBlue.choiceBlue("1", "Admin");
@@ -1182,7 +1261,7 @@ LoginForm:
 		int adminlogin = 0;
 		std::string user, pass, u, p;
 
-		
+
 
 		TitleText.titleText("                           Admin Login                          ");
 
@@ -1350,14 +1429,14 @@ LoginForm:
 			// Login
 		AdminMenu:
 
-			UserTitleText.userTitleText("                           Admin Menu                         ", user, "                             [" , "]                           " );
+			UserTitleText.userTitleText("                           Admin Menu                         ", user, "                             [", "]                           ");
 
 
 			ChoiceBlue.choiceBlue("1", "Employee Data");
 			ChoiceBlue.choiceBlue("2", "Cars Data");
 			ChoiceBlue.choiceBlue("3", "Order Logs");
 			ChoiceBlue.choiceBlue("4", "Order Cars\n");
-			
+
 			ChoiceGreen.choiceGreen("5", "About Us\n");
 
 			ChoiceRed.choiceRed("6", "Back\n");
@@ -1392,7 +1471,7 @@ LoginForm:
 
 
 
-				
+
 
 
 
@@ -1407,7 +1486,7 @@ LoginForm:
 				ChoiceBlue.choiceBlue("3", "Search Employee Data");
 				ChoiceBlue.choiceBlue("4", "Edit Employee Data");
 				ChoiceRed.choiceRed("5", "Delete Employee Data\n");
-				
+
 				ChoiceRed.choiceRed("6", "Back\n");
 
 				SetConsoleTextAttribute(h, 9);
@@ -1443,7 +1522,7 @@ LoginForm:
 
 
 
-					
+
 
 
 
@@ -1601,7 +1680,7 @@ LoginForm:
 
 
 
-					
+
 
 
 
@@ -1691,7 +1770,7 @@ LoginForm:
 
 					TitleText.titleText("                      Search Employee Data                      ");
 
-					
+
 
 
 
@@ -1945,7 +2024,7 @@ LoginForm:
 
 
 
-					
+
 
 
 
@@ -2068,11 +2147,11 @@ LoginForm:
 							break;
 						}
 					} while (c_user != 13);
-					
-					
+
+
 					/*
-					 
-					
+
+
 					for (i = 1; i >= 3; i++) {
 
 						if (userHider == i) {
@@ -2083,7 +2162,7 @@ LoginForm:
 
 					*/
 
-				
+
 
 
 					line_number = std::stoi(userHider);
@@ -2243,7 +2322,7 @@ LoginForm:
 
 
 
-					
+
 
 
 
@@ -2365,7 +2444,7 @@ LoginForm:
 
 
 					/*
-					
+
 					std::cin >> line_number;
 
 					// fstream object will be used to read all of the existing lines in the file
@@ -2465,8 +2544,8 @@ LoginForm:
 
 
 
-					
-					
+
+
 					*/
 
 
@@ -2596,7 +2675,7 @@ LoginForm:
 				}
 				std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-				
+
 
 
 
@@ -2649,82 +2728,14 @@ LoginForm:
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 
-					
+
 
 
 					TitleText.titleText("                      View Cars Name & Price                    ");
 
 
+					ViewCarData.viewCarNamePrice();
 
-					std::ifstream Cars_Name("Text Files/Cars_Name.txt");
-					std::ifstream Cars_Price("Text Files/Cars_Price.txt");
-
-					std::string CName;
-					int CPrice;
-
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\n======================================================================" << std::endl;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "|      ";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Line";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t |      ";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Name";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t  |\t";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Price";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t\t\t\t|";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\n======================================================================" << std::endl;
-					SetConsoleTextAttribute(h, 1);
-
-					int i = 0;
-					while ((Cars_Name >> CName) && (Cars_Price >> CPrice)) {
-						i++;
-
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|";
-						SetConsoleTextAttribute(h, 10);
-						std::cout << "      [";
-						SetConsoleTextAttribute(h, 15);
-						std::cout << i;
-						SetConsoleTextAttribute(h, 10);
-						std::cout << "]\t";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << " |     ";
-						SetConsoleTextAttribute(h, 9);
-						std::cout << CName;
-						std::cout << "\t";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "  |\t";
-						SetConsoleTextAttribute(h, 11);
-
-
-						struct group_facet : public std::numpunct<char> {
-						protected:
-							std::string do_grouping() const { return "\003"; }
-						};
-
-						std::cout.imbue(std::locale(std::cout.getloc(), new group_facet));
-
-						std::cout << std::fixed << CPrice;
-
-
-
-						// std::cout << CPrice;
-						SetConsoleTextAttribute(h, 9);
-						std::cout << " pesos";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "\t\t\t|";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|--------------------------------------------------------------------|";
-						std::cout << std::endl;
-
-					}
 
 					SetConsoleTextAttribute(h, 10);
 					std::cout << std::endl;
@@ -2771,9 +2782,9 @@ LoginForm:
 
 
 
-					
 
-					
+
+
 
 
 					std::cout << "   Press ESC button to go back";
@@ -2865,7 +2876,7 @@ LoginForm:
 
 
 
-					
+
 
 					return 0;
 
@@ -2906,7 +2917,7 @@ LoginForm:
 
 
 
-					
+
 
 
 
@@ -3383,7 +3394,7 @@ LoginForm:
 
 
 
-					
+
 
 
 
@@ -3476,11 +3487,11 @@ LoginForm:
 
 
 
-					
+
 
 					SetConsoleTextAttribute(h, 10);
 					std::cout << "   Press ESC button to go back" << std::endl;
-					
+
 					std::string addcolor;
 					SetConsoleTextAttribute(h, 9);
 					std::cout << "\n   Enter the Color: ";
@@ -3493,8 +3504,8 @@ LoginForm:
 						system("cls");
 						goto CarData;
 					}
-					
-					
+
+
 					std::cin >> addcolor;
 					SetConsoleTextAttribute(h, 1);
 
@@ -3537,7 +3548,7 @@ LoginForm:
 
 
 
-					
+
 
 
 
@@ -3814,7 +3825,7 @@ LoginForm:
 
 
 
-					
+
 
 
 
@@ -4123,8 +4134,8 @@ LoginForm:
 
 				AccessLevel = 1;
 
-				goto OrderCars;		
-			
+				goto OrderCars;
+
 			}
 
 			// About Us
@@ -4182,7 +4193,7 @@ LoginForm:
 			std::cin.clear();
 			std::cin.ignore(22, '\n');
 			Sleep(2000);
-			
+
 			goto AdminLogin;
 		}
 	}
@@ -4552,7 +4563,7 @@ LoginForm:
 		std::cin.ignore(22, '\n');
 		Sleep(2000);
 
-		
+
 		goto LoginForm;
 	}
 
@@ -4593,7 +4604,7 @@ OrderCars:
 
 	SetConsoleTextAttribute(h, 9);
 	std::cout << "\n  Input Number According to the type of Car: ";
-	
+
 	SetConsoleTextAttribute(h, 11);
 
 
@@ -4657,12 +4668,12 @@ OrderCars:
 			<< toyota_car_names[Cars - 1]
 			<< " for "
 			<< toyota_car_prices[Cars - 1]
-			<< " pesos" 
+			<< " pesos"
 			<< std::endl;
 
 		SetConsoleTextAttribute(h, 9);
 		std::cout << "  To be confirmed type Y Yes, Type N if No: ";
-		
+
 		SetConsoleTextAttribute(h, 11);
 		std::cin >> order_confirmation;
 
@@ -4780,8 +4791,8 @@ OrderCars:
 					system("color 4f");
 					std::cout << "\n  You don't have enough money.";
 					std::cin.clear();
-					std::cin.ignore(22, '\n'); 
-					
+					std::cin.ignore(22, '\n');
+
 					Sleep(2000);
 					goto OrderCars;
 				}
