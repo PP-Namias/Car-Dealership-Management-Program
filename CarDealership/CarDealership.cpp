@@ -943,8 +943,6 @@ public:
 			std::cout << std::fixed << CPrice;
 
 
-
-			// std::cout << CPrice;
 			SetConsoleTextAttribute(ViewCarData, 9);
 			std::cout << " pesos";
 			SetConsoleTextAttribute(ViewCarData, 13);
@@ -952,9 +950,58 @@ public:
 			SetConsoleTextAttribute(ViewCarData, 13);
 			std::cout << "|--------------------------------------------------------------------|";
 			std::cout << std::endl;
-
 		}
+	}
 
+	void viewCarColor() {
+		// Text color settings
+		HANDLE ViewCarData = GetStdHandle(STD_OUTPUT_HANDLE);
+
+		std::ifstream CarColorFile("Text Files/Cars_Color.txt");
+
+		std::string Color;
+
+		std::cout << std::endl;
+		SetConsoleTextAttribute(ViewCarData, 13);
+		std::cout << "======================================================================" << std::endl;
+		SetConsoleTextAttribute(ViewCarData, 13);
+		std::cout << "|\t";
+		SetConsoleTextAttribute(ViewCarData, 10);
+		std::cout << "Line";
+		SetConsoleTextAttribute(ViewCarData, 13);
+		std::cout << "\t|    ";
+		SetConsoleTextAttribute(ViewCarData, 10);
+		std::cout << "Color";
+		SetConsoleTextAttribute(ViewCarData, 13);
+		std::cout << "\t\t\t\t\t\t|";
+		SetConsoleTextAttribute(ViewCarData, 13);
+		std::cout << std::endl;
+		std::cout << "======================================================================" << std::endl;
+		SetConsoleTextAttribute(ViewCarData, 1);
+
+		int j = 0;
+		while (CarColorFile >> Color) {
+
+			j++;
+
+			SetConsoleTextAttribute(ViewCarData, 13);
+			std::cout << "|";
+			SetConsoleTextAttribute(ViewCarData, 10);
+			std::cout << "\t[";
+			SetConsoleTextAttribute(ViewCarData, 15);
+			std::cout << j;
+			SetConsoleTextAttribute(ViewCarData, 10);
+			std::cout << "]\t";
+			SetConsoleTextAttribute(ViewCarData, 13);
+			std::cout << "|    ";
+			SetConsoleTextAttribute(ViewCarData, 9);
+			std::cout << Color;
+			SetConsoleTextAttribute(ViewCarData, 13);
+			std::cout << "\t\t\t\t\t\t|";
+			SetConsoleTextAttribute(ViewCarData, 13);
+			std::cout << "|--------------------------------------------------------------------|";
+			std::cout << std::endl;
+		}
 	}
 };
 
@@ -2873,6 +2920,9 @@ LoginForm:
 
 
 
+					ViewCarData.viewCarNamePrice();
+
+
 
 
 
@@ -2918,79 +2968,7 @@ LoginForm:
 
 
 
-
-
-
-
-					std::ifstream Cars_Name("Text Files/Cars_Name.txt");
-					std::ifstream Cars_Price("Text Files/Cars_Price.txt");
-
-					std::string CName;
-					int CPrice;
-
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\n======================================================================" << std::endl;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "|      ";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Line";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t |      ";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Name";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t  |\t";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Price";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t\t\t\t|";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\n======================================================================" << std::endl;
-					SetConsoleTextAttribute(h, 1);
-
-					int i = 0;
-					while ((Cars_Name >> CName) && (Cars_Price >> CPrice)) {
-						i++;
-
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|";
-						SetConsoleTextAttribute(h, 10);
-						std::cout << "      [";
-						SetConsoleTextAttribute(h, 15);
-						std::cout << i;
-						SetConsoleTextAttribute(h, 10);
-						std::cout << "]\t";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << " |     ";
-						SetConsoleTextAttribute(h, 9);
-						std::cout << CName;
-						std::cout << "\t";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "  |\t";
-						SetConsoleTextAttribute(h, 11);
-
-
-						struct group_facet : public std::numpunct<char> {
-						protected:
-							std::string do_grouping() const { return "\003"; }
-						};
-
-						std::cout.imbue(std::locale(std::cout.getloc(), new group_facet));
-
-						std::cout << std::fixed << CPrice;
-
-
-
-						// std::cout << CPrice;
-						SetConsoleTextAttribute(h, 9);
-						std::cout << " pesos";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "\t\t\t|";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|--------------------------------------------------------------------|";
-						std::cout << std::endl;
-
-					}
+					ViewCarData.viewCarNamePrice();
 
 					SetConsoleTextAttribute(h, 10);
 					std::cout << "   Press ESC button to go back" << std::endl;
@@ -3392,59 +3370,13 @@ LoginForm:
 
 
 
+					ViewCarData.viewCarColor();
 
 
 
 
 
-
-					std::ifstream CarColorFile("Text Files/Cars_Color.txt");
-
-					std::string Color;
-
-					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "======================================================================" << std::endl;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "|\t";
 					SetConsoleTextAttribute(h, 10);
-					std::cout << "Line";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t|    ";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Color";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t\t\t\t\t\t|";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << std::endl;
-					std::cout << "======================================================================" << std::endl;
-					SetConsoleTextAttribute(h, 1);
-
-					int j = 0;
-					while (CarColorFile >> Color) {
-
-						j++;
-
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|";
-						SetConsoleTextAttribute(h, 10);
-						std::cout << "\t[";
-						SetConsoleTextAttribute(h, 15);
-						std::cout << j;
-						SetConsoleTextAttribute(h, 10);
-						std::cout << "]\t";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|    ";
-						SetConsoleTextAttribute(h, 9);
-						std::cout << Color;
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "\t\t\t\t\t\t|";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|--------------------------------------------------------------------|";
-						std::cout << std::endl;
-
-					}
-
 					std::cout << std::endl;
 					std::cout << "   ";
 					system("pause");
@@ -3553,54 +3485,8 @@ LoginForm:
 
 
 
+					ViewCarData.viewCarColor();
 
-
-
-					std::ifstream CarColorFile("Text Files/Cars_Color.txt");
-
-					std::string Color;
-
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\n======================================================================" << std::endl;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "|\t";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Line";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t|    ";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Color";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t\t\t\t\t\t|";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\n======================================================================" << std::endl;
-
-					SetConsoleTextAttribute(h, 1);
-
-					int j = 0;
-					while (CarColorFile >> Color) {
-
-						j++;
-
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|";
-						SetConsoleTextAttribute(h, 10);
-						std::cout << "\t[";
-						SetConsoleTextAttribute(h, 15);
-						std::cout << j;
-						SetConsoleTextAttribute(h, 10);
-						std::cout << "]\t";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|    ";
-						SetConsoleTextAttribute(h, 9);
-						std::cout << Color;
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "\t\t\t\t\t\t|";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|--------------------------------------------------------------------|";
-						std::cout << std::endl;
-
-					}
 
 					SetConsoleTextAttribute(h, 10);
 					std::cout << std::endl;
@@ -3828,53 +3714,8 @@ LoginForm:
 
 
 
+					ViewCarData.viewCarColor();
 
-
-					std::ifstream CarColorFile("Text Files/Cars_Color.txt");
-
-					std::string Color;
-
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\n======================================================================" << std::endl;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "|\t";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Line";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t|    ";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Color";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t\t\t\t\t\t|";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\n======================================================================" << std::endl;
-
-					SetConsoleTextAttribute(h, 1);
-
-					int j = 0;
-					while (CarColorFile >> Color) {
-
-						j++;
-
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|";
-						SetConsoleTextAttribute(h, 10);
-						std::cout << "\t[";
-						SetConsoleTextAttribute(h, 15);
-						std::cout << j;
-						SetConsoleTextAttribute(h, 10);
-						std::cout << "]\t";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|    ";
-						SetConsoleTextAttribute(h, 9);
-						std::cout << Color;
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "\t\t\t\t\t\t|";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|--------------------------------------------------------------------|";
-						std::cout << std::endl;
-
-					}
 
 					SetConsoleTextAttribute(h, 10);
 					std::cout << std::endl;
@@ -4550,7 +4391,7 @@ LoginForm:
 		SetConsoleTextAttribute(h, 11);
 		std::cout << "@PP-Namias\n" << std::endl;
 		SetConsoleTextAttribute(h, 10);
-		Sleep(10000);
+		Sleep(5000);
 		return 0;
 	}
 
@@ -4775,14 +4616,14 @@ OrderCars:
 				if (Change >= 1) {
 					std::cout << "\n  Change: " << Change << "\n" << std::endl;
 
-					Sleep(500);
+					Sleep(1000);
 
 				}
 
 				else if (Change == 0) {
 					std::cout << "\n  You paid the exact amount of money needed.\n" << std::endl;
 
-					Sleep(500);
+					Sleep(1000);
 
 				}
 
@@ -4827,6 +4668,7 @@ OrderCars:
 				// Order again?
 				SetConsoleTextAttribute(h, 9);
 				std::cout << "\n  Do you want to order again? Type Y if yes and type N if no: ";
+				SetConsoleTextAttribute(h, 11);
 				std::cin >> order_more;
 
 				if (order_more == 'n' || order_more == 'N') {
