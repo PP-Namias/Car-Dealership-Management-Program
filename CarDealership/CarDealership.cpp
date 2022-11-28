@@ -880,7 +880,67 @@ public:
 	}
 
 
+	void viewEmployeeData() {
+		// Text color settings
+		HANDLE ViewEmployeeData = GetStdHandle(STD_OUTPUT_HANDLE);
 
+		std::ifstream EmployeeFile("Text Files/Employee.txt");
+
+		std::string name;
+		std::string pass;
+
+		SetConsoleTextAttribute(ViewEmployeeData, 13);
+		std::cout << "\n======================================================================" << std::endl;
+		SetConsoleTextAttribute(ViewEmployeeData, 13);
+		std::cout << "|\t";
+		SetConsoleTextAttribute(ViewEmployeeData, 10);
+		std::cout << "Line";
+		SetConsoleTextAttribute(ViewEmployeeData, 13);
+		std::cout << "\t|    ";
+		SetConsoleTextAttribute(ViewEmployeeData, 10);
+		std::cout << "Username";
+		SetConsoleTextAttribute(ViewEmployeeData, 13);
+		std::cout << "\t |    ";
+		SetConsoleTextAttribute(ViewEmployeeData, 10);
+		std::cout << "Password";
+		SetConsoleTextAttribute(ViewEmployeeData, 13);
+		std::cout << "\t\t\t\t|";
+		SetConsoleTextAttribute(ViewEmployeeData, 13);
+		std::cout << "\n======================================================================" << std::endl;
+
+		SetConsoleTextAttribute(ViewEmployeeData, 1);
+
+		int j = 0;
+		while (EmployeeFile >> name >> pass) {
+
+			j++;
+
+			SetConsoleTextAttribute(ViewEmployeeData, 13);
+			std::cout << "|\t";
+			SetConsoleTextAttribute(ViewEmployeeData, 10);
+			std::cout << "[";
+			SetConsoleTextAttribute(ViewEmployeeData, 15);
+			std::cout << j;
+			SetConsoleTextAttribute(ViewEmployeeData, 10);
+			std::cout << "]\t";
+			SetConsoleTextAttribute(ViewEmployeeData, 13);
+			std::cout << "|    ";
+			SetConsoleTextAttribute(ViewEmployeeData, 9);
+			std::cout << name;
+			SetConsoleTextAttribute(ViewEmployeeData, 13);
+			std::cout << "\t |    ";
+			SetConsoleTextAttribute(ViewEmployeeData, 11);
+			std::cout << pass;
+			SetConsoleTextAttribute(ViewEmployeeData, 13);
+			std::cout << "\t\t\t\t|" << std::endl;
+			SetConsoleTextAttribute(ViewEmployeeData, 13);
+			std::cout << "|--------------------------------------------------------------------|";
+			std::cout << std::endl;
+
+		}
+
+
+	}
 	void viewCarNamePrice() {
 		// Text color settings
 		HANDLE ViewCarData = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -1096,7 +1156,7 @@ int main()
 	BackEnd Reciept;
 	BackEnd OrderLogs;
 	BackEnd ViewCarData;
-
+	BackEnd ViewEmployeeData;
 
 	system("TITLE Car Dealership Management Program By: @PP-Namias");
 
@@ -1724,67 +1784,9 @@ LoginForm:
 
 
 
+					ViewEmployeeData.viewEmployeeData();
 
 
-
-
-
-
-
-					std::ifstream EmployeeFile("Text Files/Employee.txt");
-
-					std::string name;
-					std::string pass;
-
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\n======================================================================" << std::endl;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "|\t";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Line";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t|    ";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Username";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t |    ";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Password";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t\t\t\t|";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\n======================================================================" << std::endl;
-
-					SetConsoleTextAttribute(h, 1);
-
-					int j = 0;
-					while (EmployeeFile >> name >> pass) {
-
-						j++;
-
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|\t";
-						SetConsoleTextAttribute(h, 10);
-						std::cout << "[";
-						SetConsoleTextAttribute(h, 15);
-						std::cout << j;
-						SetConsoleTextAttribute(h, 10);
-						std::cout << "]\t";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|    ";
-						SetConsoleTextAttribute(h, 9);
-						std::cout << name;
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "\t |    ";
-						SetConsoleTextAttribute(h, 11);
-						std::cout << pass;
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "\t\t\t\t|" << std::endl;
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|--------------------------------------------------------------------|";
-						std::cout << std::endl;
-
-					}
 
 
 					std::cout << std::endl;
@@ -2076,62 +2078,7 @@ LoginForm:
 
 
 
-
-
-					std::ifstream EmployeeFile("Text Files/Employee.txt");
-
-					std::string name;
-					std::string pass;
-
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\n======================================================================" << std::endl;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "|\t";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Line";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t|    ";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Username";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t |    ";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Password";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t\t\t\t|";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\n======================================================================" << std::endl;
-
-					SetConsoleTextAttribute(h, 1);
-
-					int j = 0;
-					while (EmployeeFile >> name >> pass) {
-
-						j++;
-
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|\t";
-						SetConsoleTextAttribute(h, 10);
-						std::cout << "[";
-						SetConsoleTextAttribute(h, 15);
-						std::cout << j;
-						SetConsoleTextAttribute(h, 10);
-						std::cout << "]\t";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|    ";
-						SetConsoleTextAttribute(h, 9);
-						std::cout << name;
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "\t |    ";
-						SetConsoleTextAttribute(h, 11);
-						std::cout << pass;
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "\t\t\t\t|" << std::endl;
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|--------------------------------------------------------------------|";
-						std::cout << std::endl;
-
-					}
+					ViewEmployeeData.viewEmployeeData();
 
 					SetConsoleTextAttribute(h, 10);
 					std::cout << "   Press ESC button to go back" << std::endl;
@@ -2375,62 +2322,7 @@ LoginForm:
 
 
 
-
-
-					std::ifstream EmployeeFile("Text Files/Employee.txt");
-
-					std::string name;
-					std::string pass;
-
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\n======================================================================" << std::endl;
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "|\t";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Line";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t|    ";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Username";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t |    ";
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "Password";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\t\t\t\t|";
-					SetConsoleTextAttribute(h, 13);
-					std::cout << "\n======================================================================" << std::endl;
-
-					SetConsoleTextAttribute(h, 1);
-
-					int j = 0;
-					while (EmployeeFile >> name >> pass) {
-
-						j++;
-
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|\t";
-						SetConsoleTextAttribute(h, 10);
-						std::cout << "[";
-						SetConsoleTextAttribute(h, 15);
-						std::cout << j;
-						SetConsoleTextAttribute(h, 10);
-						std::cout << "]\t";
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|    ";
-						SetConsoleTextAttribute(h, 9);
-						std::cout << name;
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "\t |    ";
-						SetConsoleTextAttribute(h, 11);
-						std::cout << pass;
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "\t\t\t\t|" << std::endl;
-						SetConsoleTextAttribute(h, 13);
-						std::cout << "|--------------------------------------------------------------------|";
-						std::cout << std::endl;
-
-					}
+					ViewEmployeeData.viewEmployeeData();
 
 					SetConsoleTextAttribute(h, 10);
 					std::cout << std::endl;
