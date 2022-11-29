@@ -2742,12 +2742,12 @@ LoginForm:
 
 
 
-					std::string userHider;
-					char c_user;
+					std::string userHider_addname;
+					char c_user_addname;
 
 					do {
-						c_user = _getch();
-						switch (c_user) {
+						c_user_addname = _getch();
+						switch (c_user_addname) {
 						case 0:
 							_getch();
 							break;
@@ -2758,20 +2758,20 @@ LoginForm:
 							system("cls");
 							goto CarData;
 						case 8:
-							if (userHider.length() > 0) {
-								userHider.erase(userHider.end() - 1);
-								std::cout << c_user << ' ' << c_user;
+							if (userHider_addname.length() > 0) {
+								userHider_addname.erase(userHider_addname.end() - 1);
+								std::cout << c_user_addname << ' ' << c_user_addname;
 							}
 							break;
 						default:
-							userHider += c_user;
-							std::cout << c_user;
+							userHider_addname += c_user_addname;
+							std::cout << c_user_addname;
 							break;
 						}
-					} while (c_user != 15);
+					} while (c_user_addname != 15);
 
 
-					addname = std::stoi(userHider);
+					addname = std::stoi(userHider_addname);
 
 
 
@@ -2781,7 +2781,44 @@ LoginForm:
 					SetConsoleTextAttribute(h, 9);
 					std::cout << "\n   Enter the Car Price: ";
 					SetConsoleTextAttribute(h, 11);
-					std::cin >> addprice;
+					
+
+
+					std::string userHider_addprice;
+					char c_user_addprice;
+
+					do {
+						c_user_addprice = _getch();
+						switch (c_user_addprice) {
+						case 0:
+							_getch();
+							break;
+						case 13:
+							std::cout << std::endl;
+							break;
+						case 27:
+							system("cls");
+							goto CarData;
+						case 8:
+							if (userHider_addprice.length() > 0) {
+								userHider_addprice.erase(userHider_addprice.end() - 1);
+								std::cout << c_user_addprice << ' ' << c_user_addprice;
+							}
+							break;
+						default:
+							userHider_addprice += c_user_addprice;
+							std::cout << c_user_addprice;
+							break;
+						}
+					} while (c_user_addprice != 15);
+
+
+					addprice = std::stoi(userHider_addprice);
+
+
+
+
+					// std::cin >> addprice;
 					SetConsoleTextAttribute(h, 1);
 
 					std::ofstream Cars_Name("Text Files/Cars_Name.txt", std::ios::app);
@@ -2820,7 +2857,395 @@ LoginForm:
 
 
 
-					return 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					SetConsoleTextAttribute(h, 10);
+					std::cout << std::endl;
+					std::cout << "   Press ESC button to go back" << std::endl;
+					std::cout << std::endl;
+					std::cout << "   Type the number of line to delete";
+					std::cout << std::endl;
+
+
+
+
+
+					// deletion per line
+
+					// variables for storing the filename of the file and the line number to 
+					// delete in the file  
+					int line_number;
+
+
+					// Prompt the user to enter the line number to delete in the file, store it 
+					// into line_number
+
+					std::cout << std::endl;
+					std::cout << "   Line: ";
+
+
+
+					std::string userHider;
+					char c_user;
+
+					do {
+						c_user = _getch();
+						switch (c_user) {
+						case 0:
+							_getch();
+							break;
+						case 13:
+							std::cout << std::endl;
+							break;
+						case 27:
+							system("cls");
+							goto CarData;
+						case 8:
+							if (userHider.length() > 0) {
+								userHider.erase(userHider.end() - 1);
+								std::cout << c_user << ' ' << c_user;
+							}
+							break;
+						default:
+							userHider += c_user;
+							std::cout << c_user;
+							break;
+						}
+					} while (c_user != 13);
+
+
+					line_number = std::stoi(userHider);
+
+
+
+					// std::cin >> line_number;
+
+					// fstream object will be used to read all of the existing lines in the file
+					std::fstream read_file;
+
+					// Open the file with the provided filename
+					read_file.open("Text Files/Cars_Name.txt");
+
+					// If file failed to open, exit with an error message and error exit status
+					if (read_file.fail())
+					{
+						system("color 4f");
+						std::cout << std::endl;
+						std::cout << "   Error opening file." << std::endl;
+
+						Sleep(3000);
+						goto DeleteCarsNamePrice;
+						// returning 1 instead of 0 is a signal to the shell that something went 
+						// wrong in the execution of the program    
+					}
+
+					// Create a vector to store all the file lines, and a string line to store 
+					// each line that we read
+					std::vector<std::string> lines;
+					std::string line;
+
+					// Read each line of the file and store it as the next element of the vector,
+					// the loop will stop when there are no more lines to read
+					while (getline(read_file, line))
+						lines.push_back(line);
+
+					// Close our access to the file since we are done reading with it  
+					read_file.close();
+
+					// The vector will now contain an element for each line in the file, so the 
+					 // size of the vector is the number of lines in the file.  Check to make 
+					 // sure the line number requested does not exceed the number of lines in 
+					 // the file, if it does, exit with an error message and status.
+					if (line_number > lines.size())
+					{
+						std::cout << std::endl;
+						std::cout << "   Line " << line_number;
+						std::cout << " not in file." << std::endl;
+
+						// Inform user how many lines ARE in the file as part of the error message
+						std::cout << "   File has " << lines.size();
+						std::cout << " lines." << std::endl;
+
+						Sleep(3000);
+						goto DeleteCarsNamePrice;
+					}
+
+					// Create ofstream object for writing to the file
+					std::ofstream write_file;
+
+					// Open the file with the provided filename
+					write_file.open("Text Files/Cars_Name.txt");
+
+					// If the file failed to open, exit with an error message and exit status
+					if (write_file.fail())
+					{
+						system("color 4f");
+
+						std::cout << std::endl;
+						std::cout << "   Error opening file." << std::endl;
+
+
+						Sleep(3000);
+						goto DeleteCarsNamePrice;
+					}
+
+					// Write all of the lines stored in the vector back to the file, EXCEPT the
+					// line that we want to delete.
+
+					// Line number 1 will be stored at vector index 0, line number 2 will be 
+					// stored at vector index 1, and so on because vectors are zero-indexed, so 
+					// decrement line_number to help us identify when we've reached the 
+					// associated line in the file.
+					line_number--;
+
+					// Loop through the vector elements to write each line back to the file 
+					// EXCEPT the line we want to delete.
+					for (int i = 0; i < lines.size(); i++)
+						if (i != line_number)
+							write_file << lines[i] << std::endl;
+
+					// Close our access to the file since we are done working with it
+					write_file.close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					// Deleting car prices
+					line_number++;
+
+
+					// std::cin >> line_number;
+
+					// fstream object will be used to read all of the existing lines in the file
+					std::fstream read_file_Cars_Price;
+
+					// Open the file with the provided filename
+					read_file_Cars_Price.open("Text Files/Cars_Price.txt");
+
+					// If file failed to open, exit with an error message and error exit status
+					if (read_file_Cars_Price.fail())
+					{
+						system("color 4f");
+						std::cout << std::endl;
+						std::cout << "   Error opening file." << std::endl;
+
+						Sleep(3000);
+						goto DeleteCarsNamePrice;
+						// returning 1 instead of 0 is a signal to the shell that something went 
+						// wrong in the execution of the program    
+					}
+
+					// Create a vector to store all the file lines, and a string line to store 
+					// each line that we read
+					std::vector<std::string> lines_Cars_Price;
+					std::string line_Cars_Price;
+
+					// Read each line of the file and store it as the next element of the vector,
+					// the loop will stop when there are no more lines to read
+					while (getline(read_file_Cars_Price, line_Cars_Price))
+						lines_Cars_Price.push_back(line_Cars_Price);
+
+					// Close our access to the file since we are done reading with it  
+					read_file_Cars_Price.close();
+
+					// The vector will now contain an element for each line in the file, so the 
+					 // size of the vector is the number of lines in the file.  Check to make 
+					 // sure the line number requested does not exceed the number of lines in 
+					 // the file, if it does, exit with an error message and status.
+					if (line_number > lines_Cars_Price.size())
+					{
+						std::cout << std::endl;
+						std::cout << "   Line " << line_number;
+						std::cout << " not in file." << std::endl;
+
+						// Inform user how many lines ARE in the file as part of the error message
+						std::cout << "   File has " << lines_Cars_Price.size();
+						std::cout << " lines." << std::endl;
+
+						Sleep(3000);
+						goto DeleteCarsNamePrice;
+					}
+
+					// Create ofstream object for writing to the file
+					std::ofstream write_file_Cars_Price;
+
+					// Open the file with the provided filename
+					write_file_Cars_Price.open("Text Files/Cars_Price.txt");
+
+					// If the file failed to open, exit with an error message and exit status
+					if (write_file_Cars_Price.fail())
+					{
+						system("color 4f");
+
+						std::cout << std::endl;
+						std::cout << "   Error opening file." << std::endl;
+
+
+						Sleep(3000);
+						goto DeleteCarsNamePrice;
+					}
+
+					// Write all of the lines stored in the vector back to the file, EXCEPT the
+					// line that we want to delete.
+
+					// Line number 1 will be stored at vector index 0, line number 2 will be 
+					// stored at vector index 1, and so on because vectors are zero-indexed, so 
+					// decrement line_number to help us identify when we've reached the 
+					// associated line in the file.
+					line_number--;
+
+					// Loop through the vector elements to write each line back to the file 
+					// EXCEPT the line we want to delete.
+					for (int i = 0; i < lines_Cars_Price.size(); i++)
+						if (i != line_number)
+							write_file_Cars_Price << lines_Cars_Price[i] << std::endl;
+
+					// Close our access to the file since we are done working with it
+					write_file_Cars_Price.close();
+
+
+
+
+
+
+
+
+
+					std::string addname, addprice;
+					SetConsoleTextAttribute(h, 9);
+					std::cout << "\n   Enter the Car Name: ";
+					SetConsoleTextAttribute(h, 11);
+
+
+
+
+
+
+
+					std::string userHider_addname;
+					char c_user_addname;
+
+					do {
+						c_user_addname = _getch();
+						switch (c_user_addname) {
+						case 0:
+							_getch();
+							break;
+						case 13:
+							std::cout << std::endl;
+							break;
+						case 27:
+							system("cls");
+							goto CarData;
+						case 8:
+							if (userHider_addname.length() > 0) {
+								userHider_addname.erase(userHider_addname.end() - 1);
+								std::cout << c_user_addname << ' ' << c_user_addname;
+							}
+							break;
+						default:
+							userHider_addname += c_user_addname;
+							std::cout << c_user_addname;
+							break;
+						}
+					} while (c_user_addname != 15);
+
+
+					addname = std::stoi(userHider_addname);
+
+
+
+
+
+					// std::cin >> addname;
+					SetConsoleTextAttribute(h, 9);
+					std::cout << "\n   Enter the Car Price: ";
+					SetConsoleTextAttribute(h, 11);
+
+
+
+					std::string userHider_addprice;
+					char c_user_addprice;
+
+					do {
+						c_user_addprice = _getch();
+						switch (c_user_addprice) {
+						case 0:
+							_getch();
+							break;
+						case 13:
+							std::cout << std::endl;
+							break;
+						case 27:
+							system("cls");
+							goto CarData;
+						case 8:
+							if (userHider_addprice.length() > 0) {
+								userHider_addprice.erase(userHider_addprice.end() - 1);
+								std::cout << c_user_addprice << ' ' << c_user_addprice;
+							}
+							break;
+						default:
+							userHider_addprice += c_user_addprice;
+							std::cout << c_user_addprice;
+							break;
+						}
+					} while (c_user_addprice != 15);
+
+
+					addprice = std::stoi(userHider_addprice);
+
+
+
+
+					// std::cin >> addprice;
+					SetConsoleTextAttribute(h, 1);
+
+					std::ofstream Cars_Name("Text Files/Cars_Name.txt", std::ios::app);
+					Cars_Name << std::endl << addname;
+					std::cout << "\n   Car Name Edited!" << std::endl;
+
+					std::ofstream Cars_Price("Text Files/Cars_Price.txt", std::ios::app);
+					Cars_Price << std::endl << addprice;
+					std::cout << "\n   Car Name & Price Edited!" << std::endl;
+
+
+
+
+					SetConsoleTextAttribute(h, 10);
+					std::cout << std::endl;
+					std::cout << "   ";
+					system("pause");
+					goto CarData;
+
+
 
 				}
 
@@ -2855,149 +3280,39 @@ LoginForm:
 
 
 
-
-
-
-
-
 					ViewCarData.viewCarNamePrice();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 					SetConsoleTextAttribute(h, 10);
+					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
-					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 9);
 					std::cout << "   Type the number of line to delete";
 					std::cout << std::endl;
-
-
-
-					/*
-
-					// deletion per line
-
-					// variables for storing the filename of the file and the line number to
-					// delete in the file
-					int line_number;
-
-
-					// Prompt the user to enter the line number to delete in the file, store it
-					// into line_number
-
-					std::cout << std::endl;
-					std::cout << "   Line: ";
-
-
-					// ESC button back
-					int esc;
-					esc = _getch();
-					if (esc == 27) {
-						system("cls");
-						goto CarData;
-					}
-
-
-					std::cin >> line_number;
-
-					// fstream object will be used to read all of the existing lines in the file
-					std::fstream read_file;
-
-					// Open the file with the provided filename
-					read_file.open("Text Files/Cars_Color.txt");
-
-					// If file failed to open, exit with an error message and error exit status
-					if (read_file.fail())
-					{
-						system("color 4f");
-						std::cout << std::endl;
-						std::cout << "   Error opening file." << std::endl;
-
-						Sleep(3000);
-						goto DeleteCarsColor;
-						// returning 1 instead of 0 is a signal to the shell that something went
-						// wrong in the execution of the program
-					}
-
-					// Create a vector to store all the file lines, and a string line to store
-					// each line that we read
-					std::vector<std::string> lines;
-					std::string line;
-
-					// Read each line of the file and store it as the next element of the vector,
-					// the loop will stop when there are no more lines to read
-					while (getline(read_file, line))
-						lines.push_back(line);
-
-					// Close our access to the file since we are done reading with it
-					read_file.close();
-
-					// The vector will now contain an element for each line in the file, so the
-					 // size of the vector is the number of lines in the file.  Check to make
-					 // sure the line number requested does not exceed the number of lines in
-					 // the file, if it does, exit with an error message and status.
-					if (line_number > lines.size())
-					{
-						std::cout << std::endl;
-						std::cout << "   Line " << line_number;
-						std::cout << " not in file." << std::endl;
-
-						// Inform user how many lines ARE in the file as part of the error message
-						std::cout << "   File has " << lines.size();
-						std::cout << " lines." << std::endl;
-
-						Sleep(3000);
-						goto DeleteCarsColor;
-					}
-
-					// Create ofstream object for writing to the file
-					std::ofstream write_file;
-
-					// Open the file with the provided filename
-					write_file.open("Text Files/Cars_Color.txt");
-
-					// If the file failed to open, exit with an error message and exit status
-					if (write_file.fail())
-					{
-						system("color 4f");
-
-						std::cout << std::endl;
-						std::cout << "   Error opening file." << std::endl;
-
-
-						Sleep(3000);
-						goto DeleteCarsColor;
-					}
-
-					// Write all of the lines stored in the vector back to the file, EXCEPT the
-					// line that we want to delete.
-
-					// Line number 1 will be stored at vector index 0, line number 2 will be
-					// stored at vector index 1, and so on because vectors are zero-indexed, so
-					// decrement line_number to help us identify when we've reached the
-					// associated line in the file.
-					line_number--;
-
-					// Loop through the vector elements to write each line back to the file
-					// EXCEPT the line we want to delete.
-					for (int i = 0; i < lines.size(); i++)
-						if (i != line_number)
-							write_file << lines[i] << std::endl;
-
-					// Close our access to the file since we are done working with it
-					write_file.close();
-
-					std::cout << std::endl;
-					std::cout << "   Line " << line_number + 1 << " has been deleted";
-					std::cout << std::endl;
-					std::cout << "   ";
-
-					system("pause");
-					goto CarData;
-
-
-
-					*/
-
 
 
 
@@ -3013,28 +3328,54 @@ LoginForm:
 					// Prompt the user to enter the line number to delete in the file, store it 
 					// into line_number
 
+					std::cout << std::endl;
 					std::cout << "   Line: ";
 
 
-					// ESC button back
-					int esc;
-					esc = _getch();
-					if (esc == 27) {
-						system("cls");
-						goto CarData;
-					}
+
+					std::string userHider;
+					char c_user;
+
+					do {
+						c_user = _getch();
+						switch (c_user) {
+						case 0:
+							_getch();
+							break;
+						case 13:
+							std::cout << std::endl;
+							break;
+						case 27:
+							system("cls");
+							goto CarData;
+						case 8:
+							if (userHider.length() > 0) {
+								userHider.erase(userHider.end() - 1);
+								std::cout << c_user << ' ' << c_user;
+							}
+							break;
+						default:
+							userHider += c_user;
+							std::cout << c_user;
+							break;
+						}
+					} while (c_user != 13);
 
 
-					std::cin >> line_number;
+					line_number = std::stoi(userHider);
+
+
+
+					// std::cin >> line_number;
 
 					// fstream object will be used to read all of the existing lines in the file
-					std::fstream Cars_Name_file;
+					std::fstream read_file;
 
 					// Open the file with the provided filename
-					Cars_Name_file.open("Text Files/Cars_Name.txt");
+					read_file.open("Text Files/Cars_Name.txt");
 
 					// If file failed to open, exit with an error message and error exit status
-					if (Cars_Name_file.fail())
+					if (read_file.fail())
 					{
 						system("color 4f");
 						std::cout << std::endl;
@@ -3048,29 +3389,29 @@ LoginForm:
 
 					// Create a vector to store all the file lines, and a string line to store 
 					// each line that we read
-					std::vector<std::string> linesNames;
-					std::string lineNames;
+					std::vector<std::string> lines;
+					std::string line;
 
 					// Read each line of the file and store it as the next element of the vector,
 					// the loop will stop when there are no more lines to read
-					while (getline(Cars_Name_file, lineNames))
-						linesNames.push_back(lineNames);
+					while (getline(read_file, line))
+						lines.push_back(line);
 
 					// Close our access to the file since we are done reading with it  
-					Cars_Name_file.close();
+					read_file.close();
 
 					// The vector will now contain an element for each line in the file, so the 
 					 // size of the vector is the number of lines in the file.  Check to make 
 					 // sure the line number requested does not exceed the number of lines in 
 					 // the file, if it does, exit with an error message and status.
-					if (line_number > linesNames.size())
+					if (line_number > lines.size())
 					{
 						std::cout << std::endl;
 						std::cout << "   Line " << line_number;
 						std::cout << " not in file." << std::endl;
 
 						// Inform user how many lines ARE in the file as part of the error message
-						std::cout << "   File has " << linesNames.size();
+						std::cout << "   File has " << lines.size();
 						std::cout << " lines." << std::endl;
 
 						Sleep(3000);
@@ -3078,13 +3419,13 @@ LoginForm:
 					}
 
 					// Create ofstream object for writing to the file
-					std::ofstream write_name;
+					std::ofstream write_file;
 
 					// Open the file with the provided filename
-					write_name.open("Text Files/Cars_Name.txt");
+					write_file.open("Text Files/Cars_Name.txt");
 
 					// If the file failed to open, exit with an error message and exit status
-					if (write_name.fail())
+					if (write_file.fail())
 					{
 						system("color 4f");
 
@@ -3107,27 +3448,40 @@ LoginForm:
 
 					// Loop through the vector elements to write each line back to the file 
 					// EXCEPT the line we want to delete.
-					for (int i = 0; i < linesNames.size(); i++)
+					for (int i = 0; i < lines.size(); i++)
 						if (i != line_number)
-							write_name << lineNames[i] << std::endl;
+							write_file << lines[i] << std::endl;
 
 					// Close our access to the file since we are done working with it
-					write_name.close();
+					write_file.close();
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+					// Deleting car prices
+					line_number++;
+
+
+					// std::cin >> line_number;
 
 					// fstream object will be used to read all of the existing lines in the file
-					std::fstream Cars_Price_file;
+					std::fstream read_file_Cars_Price;
 
 					// Open the file with the provided filename
-					Cars_Price_file.open("Text Files/Cars_Price.txt");
+					read_file_Cars_Price.open("Text Files/Cars_Price.txt");
 
 					// If file failed to open, exit with an error message and error exit status
-					if (Cars_Price_file.fail())
+					if (read_file_Cars_Price.fail())
 					{
 						system("color 4f");
 						std::cout << std::endl;
@@ -3141,29 +3495,29 @@ LoginForm:
 
 					// Create a vector to store all the file lines, and a string line to store 
 					// each line that we read
-					std::vector<std::string> linesPrices;
-					std::string linePrices;
+					std::vector<std::string> lines_Cars_Price;
+					std::string line_Cars_Price;
 
 					// Read each line of the file and store it as the next element of the vector,
 					// the loop will stop when there are no more lines to read
-					while (getline(Cars_Price_file, linePrices))
-						linesPrices.push_back(linePrices);
+					while (getline(read_file_Cars_Price, line_Cars_Price))
+						lines_Cars_Price.push_back(line_Cars_Price);
 
 					// Close our access to the file since we are done reading with it  
-					Cars_Price_file.close();
+					read_file_Cars_Price.close();
 
 					// The vector will now contain an element for each line in the file, so the 
 					 // size of the vector is the number of lines in the file.  Check to make 
 					 // sure the line number requested does not exceed the number of lines in 
 					 // the file, if it does, exit with an error message and status.
-					if (line_number > linesPrices.size())
+					if (line_number > lines_Cars_Price.size())
 					{
 						std::cout << std::endl;
 						std::cout << "   Line " << line_number;
 						std::cout << " not in file." << std::endl;
 
 						// Inform user how many lines ARE in the file as part of the error message
-						std::cout << "   File has " << linesPrices.size();
+						std::cout << "   File has " << lines_Cars_Price.size();
 						std::cout << " lines." << std::endl;
 
 						Sleep(3000);
@@ -3171,13 +3525,13 @@ LoginForm:
 					}
 
 					// Create ofstream object for writing to the file
-					std::ofstream write_price;
+					std::ofstream write_file_Cars_Price;
 
 					// Open the file with the provided filename
-					write_price.open("Text Files/Cars_Price.txt");
+					write_file_Cars_Price.open("Text Files/Cars_Price.txt");
 
 					// If the file failed to open, exit with an error message and exit status
-					if (write_price.fail())
+					if (write_file_Cars_Price.fail())
 					{
 						system("color 4f");
 
@@ -3200,18 +3554,12 @@ LoginForm:
 
 					// Loop through the vector elements to write each line back to the file 
 					// EXCEPT the line we want to delete.
-					for (int i = 0; i < linesPrices.size(); i++)
+					for (int i = 0; i < lines_Cars_Price.size(); i++)
 						if (i != line_number)
-							write_price << linePrices[i] << std::endl;
+							write_file_Cars_Price << lines_Cars_Price[i] << std::endl;
 
 					// Close our access to the file since we are done working with it
-					write_price.close();
-
-
-
-
-
-
+					write_file_Cars_Price.close();
 
 					std::cout << std::endl;
 					std::cout << "   Line " << line_number + 1 << " has been deleted";
@@ -3223,9 +3571,14 @@ LoginForm:
 
 
 
-
+					SetConsoleTextAttribute(h, 10);
+					std::cout << std::endl;
+					std::cout << "   ";
 					system("pause");
-					goto AdminMenu;
+					goto CarData;
+
+
+
 
 
 
