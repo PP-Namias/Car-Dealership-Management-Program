@@ -1678,7 +1678,7 @@ LoginForm:
 						default:
 							userHider += c_user;
 							std::cout << c_user;
-							break;
+							break;	
 						}
 					} while (c_user != 13);
 
@@ -2742,6 +2742,8 @@ LoginForm:
 
 
 
+
+
 					std::string userHider_addname;
 					char c_user_addname;
 
@@ -2756,7 +2758,7 @@ LoginForm:
 							break;
 						case 27:
 							system("cls");
-							goto CarData;
+							goto EmployeeData;
 						case 8:
 							if (userHider_addname.length() > 0) {
 								userHider_addname.erase(userHider_addname.end() - 1);
@@ -2768,10 +2770,12 @@ LoginForm:
 							std::cout << c_user_addname;
 							break;
 						}
-					} while (c_user_addname != 15);
+					} while (c_user_addname != 13);
 
 
-					addname = std::stoi(userHider_addname);
+
+					addname = userHider_addname;
+
 
 
 
@@ -2779,7 +2783,7 @@ LoginForm:
 
 					// std::cin >> addname;
 					SetConsoleTextAttribute(h, 9);
-					std::cout << "\n   Enter the Car Price: ";
+					std::cout << "   Enter the Car Price: ";
 					SetConsoleTextAttribute(h, 11);
 					
 
@@ -2813,7 +2817,7 @@ LoginForm:
 					} while (c_user_addprice != 15);
 
 
-					addprice = std::stoi(userHider_addprice);
+					addprice = userHider_addprice;
 
 
 
@@ -2823,11 +2827,13 @@ LoginForm:
 
 					std::ofstream Cars_Name("Text Files/Cars_Name.txt", std::ios::app);
 					Cars_Name << std::endl << addname;
-					std::cout << "\n   Car Name Added!" << std::endl;
 
 					std::ofstream Cars_Price("Text Files/Cars_Price.txt", std::ios::app);
 					Cars_Price << std::endl << addprice;
 					std::cout << "\n   Car Name & Price Added!" << std::endl;
+
+
+
 
 					std::cout << std::endl;
 					std::cout << "   ";
@@ -2880,7 +2886,7 @@ LoginForm:
 					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
-					std::cout << "   Type the number of line to delete";
+					std::cout << "   Type the number of line to edit";
 					std::cout << std::endl;
 
 
@@ -3149,6 +3155,8 @@ LoginForm:
 
 
 
+
+
 					std::string userHider_addname;
 					char c_user_addname;
 
@@ -3163,7 +3171,7 @@ LoginForm:
 							break;
 						case 27:
 							system("cls");
-							goto CarData;
+							goto EmployeeData;
 						case 8:
 							if (userHider_addname.length() > 0) {
 								userHider_addname.erase(userHider_addname.end() - 1);
@@ -3175,10 +3183,12 @@ LoginForm:
 							std::cout << c_user_addname;
 							break;
 						}
-					} while (c_user_addname != 15);
+					} while (c_user_addname != 13);
 
 
-					addname = std::stoi(userHider_addname);
+
+					addname = userHider_addname;
+
 
 
 
@@ -3186,7 +3196,7 @@ LoginForm:
 
 					// std::cin >> addname;
 					SetConsoleTextAttribute(h, 9);
-					std::cout << "\n   Enter the Car Price: ";
+					std::cout << "   Enter the Car Price: ";
 					SetConsoleTextAttribute(h, 11);
 
 
@@ -3220,7 +3230,7 @@ LoginForm:
 					} while (c_user_addprice != 15);
 
 
-					addprice = std::stoi(userHider_addprice);
+					addprice = userHider_addprice;
 
 
 
@@ -3230,11 +3240,14 @@ LoginForm:
 
 					std::ofstream Cars_Name("Text Files/Cars_Name.txt", std::ios::app);
 					Cars_Name << std::endl << addname;
-					std::cout << "\n   Car Name Edited!" << std::endl;
 
 					std::ofstream Cars_Price("Text Files/Cars_Price.txt", std::ios::app);
 					Cars_Price << std::endl << addprice;
-					std::cout << "\n   Car Name & Price Edited!" << std::endl;
+					std::cout << "\n   Car Name & Price Added!" << std::endl;
+
+
+
+
 
 
 
