@@ -230,16 +230,25 @@ Enjoy :)
 
 <table>
   <tr>
-    <th>12. Cashier and Receipt</th>
+    <th>12. Cashier</th>
   </tr>
   <tr>
-    <td><img src="images/CDM Cashier and Receipt.png"></td>
+    <td><img src="images/CDM Cashier.png"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>13. Receipt</th>
+  </tr>
+  <tr>
+    <td><img src="images/CDM Receipt.png"></td>
   </tr>
 </table>
 
 <table >
   <tr>
-    <th>13. About Us</th>
+    <th>14. About Us</th>
   </tr>
   <tr>
     <td><img src="images/CDM About Us.png"></td>
@@ -248,7 +257,7 @@ Enjoy :)
 
 <table >
   <tr>
-    <th>14. Loading Screen</th>
+    <th>15. Loading Screen</th>
   </tr>
   <tr>
     <td><img src="images/CDM Loading Screen.png"></td>
