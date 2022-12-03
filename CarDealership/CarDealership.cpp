@@ -876,6 +876,7 @@ public:
 			std::cout << "|--------------------------------------------------------------------|";
 			std::cout << std::endl;
 		}
+		SetConsoleTextAttribute(OrderLogsColor, 9);
 
 	}
 
@@ -1788,7 +1789,7 @@ LoginForm:
 
 
 
-
+					SetConsoleTextAttribute(h, 9);
 					std::cout << std::endl;
 					std::cout << "\n   All Employees Data Displayed!";
 					std::cout << "\n   ";
@@ -1799,7 +1800,7 @@ LoginForm:
 
 				// Search Employee Data
 				else if (employeeData == 3) {
-
+				SearchEmployeeData:
 
 					// Loading screen
 					system("cls");
@@ -1862,11 +1863,11 @@ LoginForm:
 
 
 					SetConsoleTextAttribute(h, 10);
-					std::cout << "   Press ESC button to go back" << std::endl;
+					std::cout << "    Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
 
 					SetConsoleTextAttribute(h, 9);
-					std::cout << "   Enter your choice: ";
+					std::cout << "    Enter your choice: ";
 					SetConsoleTextAttribute(h, 11);
 
 
@@ -1950,7 +1951,7 @@ LoginForm:
 
 							system("pause");
 							// std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-							goto EmployeeData;
+							goto SearchEmployeeData;
 						}
 
 						else
@@ -1965,7 +1966,7 @@ LoginForm:
 							std::cout << "   ";
 
 							system("pause");
-							goto EmployeeData;
+							goto SearchEmployeeData;
 						}
 
 						break;
@@ -2006,7 +2007,7 @@ LoginForm:
 							std::cout << std::endl;
 							std::cout << "   ";
 							system("pause");
-							goto EmployeeData;
+							goto SearchEmployeeData;
 
 						}
 
@@ -2021,7 +2022,7 @@ LoginForm:
 							std::cout << std::endl;
 							std::cout << "   ";
 							system("pause");
-							goto EmployeeData;
+							goto SearchEmployeeData;
 						}
 
 						break;
@@ -2041,8 +2042,7 @@ LoginForm:
 						std::cin.clear();
 						std::cin.ignore(22, '\n');
 
-						system("pause");
-						goto EmployeeData;
+						goto SearchEmployeeData;
 					}
 
 				}
@@ -2080,12 +2080,12 @@ LoginForm:
 
 					ViewEmployeeData.viewEmployeeData();
 
-					SetConsoleTextAttribute(h, 10);
+					SetConsoleTextAttribute(h, 9);
+					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
-					std::cout << std::endl;
+					SetConsoleTextAttribute(h, 9);
 					std::cout << "   Type the number of line to edit";
-					std::cout << std::endl;
 
 
 
@@ -2108,6 +2108,7 @@ LoginForm:
 					std::cout << std::endl;
 					std::cout << "   Line: ";
 
+					SetConsoleTextAttribute(h, 11);
 
 
 
@@ -2256,7 +2257,6 @@ LoginForm:
 					write_file.close();
 
 
-					std::cout << std::endl;
 					std::string adduser, addpass, ru, rp;
 					SetConsoleTextAttribute(h, 9);
 					std::cout << "\n   Enter the Username: ";
@@ -2269,7 +2269,6 @@ LoginForm:
 
 					std::ofstream reg("Text Files/Employee.txt", std::ios::app);
 					reg << adduser << '\t' << addpass << std::endl;
-					std::cout << std::endl;
 					std::cout << std::endl;
 					SetConsoleTextAttribute(h, 1);
 					std::cout << "   Line " << line_number + 1 << " has been edited!";
@@ -2324,7 +2323,7 @@ LoginForm:
 
 					ViewEmployeeData.viewEmployeeData();
 
-					SetConsoleTextAttribute(h, 10);
+					SetConsoleTextAttribute(h, 9);
 					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
@@ -2882,10 +2881,11 @@ LoginForm:
 
 
 
-					SetConsoleTextAttribute(h, 10);
+					SetConsoleTextAttribute(h, 1);
 					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
+					SetConsoleTextAttribute(h, 10);
 					std::cout << "   Type the number of line to edit";
 					std::cout << std::endl;
 
@@ -3324,6 +3324,7 @@ LoginForm:
 					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
+					SetConsoleTextAttribute(h, 9);
 					std::cout << "   Type the number of line to delete";
 					std::cout << std::endl;
 
@@ -3343,6 +3344,7 @@ LoginForm:
 
 					std::cout << std::endl;
 					std::cout << "   Line: ";
+					SetConsoleTextAttribute(h, 11);
 
 
 
@@ -4204,7 +4206,7 @@ LoginForm:
 
 				OrderLogs.orderLogs();
 
-				SetConsoleTextAttribute(h, 1);
+				SetConsoleTextAttribute(h, 9);
 				std::cout << std::endl;
 				std::cout << "\n   All Order Logs Data!";
 				std::cout << std::endl;
@@ -4494,7 +4496,7 @@ LoginForm:
 
 				OrderLogs.orderLogs();
 
-				SetConsoleTextAttribute(h, 1);
+				SetConsoleTextAttribute(h, 9);
 				std::cout << std::endl;
 				std::cout << "\n   All Order Logs Data!";
 				std::cout << std::endl;
