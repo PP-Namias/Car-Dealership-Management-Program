@@ -52,7 +52,7 @@ public:
 		const std::string names[],
 		const int prices[],
 		const size_t numCars) {
-		SetConsoleTextAttribute(h, 11);
+		SetConsoleTextAttribute(h, 9);
 		std::cout << manufacturer << " Cars:" << std::endl;
 
 		for (size_t i = 0; i < numCars; i++) {
@@ -692,7 +692,7 @@ public:
 		SetConsoleTextAttribute(RecieptColor, 9);
 		std::cout << "Manager: ";
 		SetConsoleTextAttribute(RecieptColor, 11);
-		std::cout << "PP_Namias   ";
+		std::cout << "@PP_Namias  ";
 		SetConsoleTextAttribute(RecieptColor, 7);
 		std::cout << "|" << std::endl;
 		SetConsoleTextAttribute(RecieptColor, 7);
@@ -1679,7 +1679,7 @@ LoginForm:
 						default:
 							userHider += c_user;
 							std::cout << c_user;
-							break;	
+							break;
 						}
 					} while (c_user != 13);
 
@@ -2784,44 +2784,13 @@ LoginForm:
 					SetConsoleTextAttribute(h, 9);
 					std::cout << "   Enter the Car Price: ";
 					SetConsoleTextAttribute(h, 11);
-					
-
-
-					std::string userHider_addprice;
-					char c_user_addprice;
-
-					do {
-						c_user_addprice = _getch();
-						switch (c_user_addprice) {
-						case 0:
-							_getch();
-							break;
-						case 13:
-							std::cout << std::endl;
-							break;
-						case 27:
-							system("cls");
-							goto CarData;
-						case 8:
-							if (userHider_addprice.length() > 0) {
-								userHider_addprice.erase(userHider_addprice.end() - 1);
-								std::cout << c_user_addprice << ' ' << c_user_addprice;
-							}
-							break;
-						default:
-							userHider_addprice += c_user_addprice;
-							std::cout << c_user_addprice;
-							break;
-						}
-					} while (c_user_addprice != 15);
-
-
-					addprice = userHider_addprice;
 
 
 
 
-					// std::cin >> addprice;
+
+
+					std::cin >> addprice;
 					SetConsoleTextAttribute(h, 1);
 
 					std::ofstream Cars_Name("Text Files/Cars_Name.txt", std::ios::app);
@@ -2881,13 +2850,13 @@ LoginForm:
 
 
 
-					SetConsoleTextAttribute(h, 1);
+					SetConsoleTextAttribute(h, 10);
 					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
-					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 10);
+					SetConsoleTextAttribute(h, 9);
 					std::cout << "   Type the number of line to edit";
 					std::cout << std::endl;
+					SetConsoleTextAttribute(h, 11);
 
 
 
@@ -3300,33 +3269,12 @@ LoginForm:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 					SetConsoleTextAttribute(h, 10);
 					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
 					SetConsoleTextAttribute(h, 9);
 					std::cout << "   Type the number of line to delete";
-					std::cout << std::endl;
 
 
 
@@ -3636,7 +3584,7 @@ LoginForm:
 
 
 
-					SetConsoleTextAttribute(h, 10);
+					SetConsoleTextAttribute(h, 9);
 					std::cout << std::endl;
 					std::cout << "   ";
 					system("pause");
@@ -3698,7 +3646,45 @@ LoginForm:
 					}
 
 
-					std::cin >> addcolor;
+
+
+
+
+
+					std::string hideColor;
+					char c_Color;
+
+					do {
+						c_Color = _getch();
+						switch (c_Color) {
+						case 0:
+							_getch();
+							break;
+						case 13:
+							std::cout << std::endl;
+							break;
+						case 27:
+							system("cls");
+							goto CarData;
+						case 8:
+							if (hideColor.length() > 0) {
+								hideColor.erase(hideColor.end() - 1);
+								std::cout << c_Color << ' ' << c_Color;
+							}
+							break;
+						default:
+							hideColor += c_Color;
+							std::cout << c_Color;
+							break;
+						}
+					} while (c_Color != 13);
+
+
+					addcolor = hideColor;
+
+
+
+					// std::cin >> addcolor;
 					SetConsoleTextAttribute(h, 1);
 
 					std::ofstream reg("Text Files/Cars_Color.txt", std::ios::app);
@@ -3769,9 +3755,9 @@ LoginForm:
 					// Prompt the user to enter the line number to delete in the file, store it 
 					// into line_number
 
-					SetConsoleTextAttribute(h, 11);
 					std::cout << std::endl;
 					std::cout << "   Line: ";
+					SetConsoleTextAttribute(h, 11);
 
 
 
@@ -4765,12 +4751,15 @@ OrderCars:
 	else if (Cars >= 1 || Cars <= sizeof(toyota_car_names) / sizeof(toyota_car_names[0])) {
 		// Order confirmation
 		SetConsoleTextAttribute(h, 9);
-		std::cout << "\n  You selected "
-			<< toyota_car_names[Cars - 1]
-			<< " for "
-			<< toyota_car_prices[Cars - 1]
-			<< " pesos"
-			<< std::endl;
+		std::cout << "\n  You selected ";
+		SetConsoleTextAttribute(h, 11);
+		std::cout << toyota_car_names[Cars - 1];
+		SetConsoleTextAttribute(h, 9);
+		std::cout << " for ";
+		SetConsoleTextAttribute(h, 11);
+		std::cout << toyota_car_prices[Cars - 1];
+		std::cout << " pesos";
+		std::cout << std::endl;
 
 		SetConsoleTextAttribute(h, 9);
 		std::cout << "  To be confirmed type Y Yes, Type N if No: ";
@@ -4780,22 +4769,17 @@ OrderCars:
 
 		if (order_confirmation == 'y' || order_confirmation == 'Y') {
 
-			std::cout << "\n  You Ordered "
-				<< toyota_car_names[Cars - 1]
-				<< std::endl;
-
+			// Select Color
+		SelectColor:
 			system("cls");
 			system("color 0A");
 
-
-			// Select Color
-		SelectColor:
 			SetConsoleTextAttribute(h, 9);
 			std::cout << std::endl;
 			std::cout << "   What Color of ";
-			SetConsoleTextAttribute(h, 9);
-			std::cout << toyota_car_names[Cars - 1];
 			SetConsoleTextAttribute(h, 11);
+			std::cout << toyota_car_names[Cars - 1];
+			SetConsoleTextAttribute(h, 9);
 			std::cout << " do you want?";
 			std::cout << std::endl;
 
@@ -4804,7 +4788,7 @@ OrderCars:
 			NamiasObject2.display_color(toyota_car_color, sizeof(toyota_car_color) / sizeof(toyota_car_color[0]));
 
 			SetConsoleTextAttribute(h, 9);
-			std::cout << "\n  Please select the Number of Color: ";
+			std::cout << "\n  Please insert the number of Color: ";
 
 			SetConsoleTextAttribute(h, 11);
 			std::cin >> Color;
@@ -4815,15 +4799,10 @@ OrderCars:
 				system("color 4f");
 				std::cout << "\n  Please try again if you entered the incorrect information.";
 				Sleep(2000);
-				goto OrderCars;
+				goto SelectColor;
 			}
 
 			else if (Color >= 1 || Color <= sizeof(toyota_car_color) / sizeof(toyota_car_color[0])) {
-				std::cout << "  You pick color "
-					<< toyota_car_color[Color - 1]
-					<< std::endl;
-
-				Sleep(2000);
 
 				Value = toyota_car_prices[Cars - 1];
 
@@ -4833,7 +4812,6 @@ OrderCars:
 				system("color 0E");
 
 				// Your order summary
-				SetConsoleTextAttribute(h, 9);
 				std::cout << std::endl;
 				SetConsoleTextAttribute(h, 9);
 				std::cout << "  You selected ";
@@ -4843,25 +4821,22 @@ OrderCars:
 				std::cout << toyota_car_color[Color - 1];
 				SetConsoleTextAttribute(h, 15);
 				std::cout << "] ";
-				SetConsoleTextAttribute(h, 9);
+				SetConsoleTextAttribute(h, 11);
 				std::cout << toyota_car_names[Cars - 1];
 				SetConsoleTextAttribute(h, 9);
 				std::cout << " for ";
 				SetConsoleTextAttribute(h, 11);
 				std::cout << toyota_car_prices[Cars - 1];
-				SetConsoleTextAttribute(h, 9);
+				SetConsoleTextAttribute(h, 11);
 				std::cout << " pesos";
-				SetConsoleTextAttribute(h, 9);
 				std::cout << std::endl;;
 
 				// Total of the order
-				SetConsoleTextAttribute(h, 11);
 				std::cout << std::endl;
 				SetConsoleTextAttribute(h, 9);
 				std::cout << "  Total Amount: ";
 				SetConsoleTextAttribute(h, 11);
 				std::cout << Value;
-				SetConsoleTextAttribute(h, 9);
 				std::cout << std::endl;
 
 				SetConsoleTextAttribute(h, 9);
@@ -4982,6 +4957,9 @@ OrderCars:
 			system("cls");
 			system("color 4f");
 			std::cout << "\n  Invalid input! Type only Y or N" << std::endl;
+			std::cin.clear();
+			std::cin.ignore(22, '\n');
+			
 			Sleep(2000);
 
 			goto OrderCars;
