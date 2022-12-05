@@ -2080,7 +2080,7 @@ LoginForm:
 
 					ViewEmployeeData.viewEmployeeData();
 
-					SetConsoleTextAttribute(h, 9);
+					SetConsoleTextAttribute(h, 10);
 					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
@@ -2323,10 +2323,11 @@ LoginForm:
 
 					ViewEmployeeData.viewEmployeeData();
 
-					SetConsoleTextAttribute(h, 9);
+					SetConsoleTextAttribute(h, 10);
 					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
+					SetConsoleTextAttribute(h, 9);
 					std::cout << "   Type the number of line to delete";
 					std::cout << std::endl;
 
@@ -2344,8 +2345,8 @@ LoginForm:
 					// Prompt the user to enter the line number to delete in the file, store it 
 					// into line_number
 
-					std::cout << std::endl;
 					std::cout << "   Line: ";
+					SetConsoleTextAttribute(h, 11);
 
 
 
@@ -2675,7 +2676,7 @@ LoginForm:
 					ViewCarData.viewCarNamePrice();
 
 
-					SetConsoleTextAttribute(h, 10);
+					SetConsoleTextAttribute(h, 9);
 					std::cout << std::endl;
 					std::cout << "   ";
 					system("pause");
@@ -2725,6 +2726,7 @@ LoginForm:
 
 
 
+					SetConsoleTextAttribute(h, 10);
 					std::cout << "   Press ESC button to go back";
 					std::cout << std::endl;
 
@@ -2852,11 +2854,10 @@ LoginForm:
 
 					SetConsoleTextAttribute(h, 10);
 					std::cout << std::endl;
+					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					SetConsoleTextAttribute(h, 9);
 					std::cout << "   Type the number of line to edit";
-					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 11);
 
 
 
@@ -2874,6 +2875,7 @@ LoginForm:
 
 					std::cout << std::endl;
 					std::cout << "   Line: ";
+					SetConsoleTextAttribute(h, 11);
 
 
 
@@ -3724,13 +3726,6 @@ LoginForm:
 					TitleText.titleText("                          Edit Car Color                        ");
 
 
-
-
-
-
-
-
-
 					ViewCarData.viewCarColor();
 
 
@@ -3758,12 +3753,6 @@ LoginForm:
 					std::cout << std::endl;
 					std::cout << "   Line: ";
 					SetConsoleTextAttribute(h, 11);
-
-
-
-
-
-
 
 
 
@@ -3798,15 +3787,6 @@ LoginForm:
 
 					line_number = std::stoi(lineHider);
 
-
-
-
-
-
-
-
-
-					// std::cin >> line_number;
 
 
 					std::cout << std::endl;
@@ -3949,17 +3929,6 @@ LoginForm:
 					TitleText.titleText("                         Delete Car Color                       ");
 
 
-
-
-
-
-
-
-
-
-
-
-
 					ViewCarData.viewCarColor();
 
 
@@ -3984,10 +3953,9 @@ LoginForm:
 					// Prompt the user to enter the line number to delete in the file, store it 
 					// into line_number
 
-					SetConsoleTextAttribute(h, 11);
 					std::cout << std::endl;
 					std::cout << "   Line: ";
-
+					SetConsoleTextAttribute(h, 11);
 
 
 
@@ -4149,25 +4117,6 @@ LoginForm:
 
 
 				}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 			}
