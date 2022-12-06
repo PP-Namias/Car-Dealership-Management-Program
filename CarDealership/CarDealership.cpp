@@ -3639,15 +3639,7 @@ LoginForm:
 					std::cout << "\n   Enter the Color: ";
 					SetConsoleTextAttribute(h, 11);
 
-					// ESC button back
-					int esc;
-					esc = _getch();
-					if (esc == 27) {
-						system("cls");
-						goto CarData;
-					}
-
-
+					
 
 
 
@@ -3960,43 +3952,17 @@ LoginForm:
 
 
 
-
-
-					std::string DeleteColorHider;
-					char c_line;
-
-					do {
-						c_line = _getch();
-						switch (c_line) {
-						case 0:
-							_getch();
-							break;
-						case 13:
-							std::cout << std::endl;
-							break;
-						case 27:
-							system("cls");
-							goto CarData;
-						case 8:
-							if (DeleteColorHider.length() > 0) {
-								DeleteColorHider.erase(DeleteColorHider.end() - 1);
-								std::cout << c_line << ' ' << c_line;
-							}
-							break;
-						default:
-							DeleteColorHider += c_line;
-							std::cout << c_line;
-							break;
-						}
-					} while (c_line != 15);
-
-
-					line_number = std::stoi(DeleteColorHider);
+					// ESC button back
+					int esc;
+					esc = _getch();
+					if (esc == 27) {
+						system("cls");
+						goto CarData;
+					}
 
 
 
-
-					// std::cin >> line_number;
+					std::cin >> line_number;
 
 					// fstream object will be used to read all of the existing lines in the file
 					std::fstream read_file;
