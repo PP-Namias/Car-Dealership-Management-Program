@@ -3640,11 +3640,54 @@ LoginForm:
 					SetConsoleTextAttribute(h, 11);
 
 					
+					/*
+					
+
+					std::string userHider;
+					char c_user;
+
+					do {
+						c_user = _getch();
+						switch (c_user) {
+						case 0:
+							_getch();
+							break;
+						case 13:
+							std::cout << std::endl;
+							break;
+						case 27:
+							system("cls");
+							goto EmployeeData;
+						case 8:
+							if (userHider.length() > 0) {
+								userHider.erase(userHider.end() - 1);
+								std::cout << c_user << ' ' << c_user;
+							}
+							break;
+						default:
+							userHider += c_user;
+							std::cout << c_user;
+							break;
+						}
+					} while (c_user != 13);
+
+
+					addcolor = userHider;
 
 
 
+					std::ofstream addColor("Text Files/Cars_Color.txt", std::ios::app);
+					addColor << std::endl << addcolor;
+					std::cout << "\n   Car Color Added!" << std::endl;
+					std::cout << "\n   ";
+					system("pause");
+					goto CarData;
 
 
+					*/
+
+
+					
 					std::string hideColor;
 					char c_Color;
 
@@ -3676,7 +3719,7 @@ LoginForm:
 
 					addcolor = hideColor;
 
-
+					
 
 					// std::cin >> addcolor;
 					SetConsoleTextAttribute(h, 1);
@@ -3735,9 +3778,8 @@ LoginForm:
 
 					// variables for storing the filename of the file and the line number to 
 					// delete in the file  
-					std::string strColor;
 					int line_number;
-
+					std::string strColor;
 
 					// Prompt the user to enter the line number to delete in the file, store it 
 					// into line_number
@@ -3748,49 +3790,18 @@ LoginForm:
 
 
 
-					std::string lineHider;
-					char c_line;
 
-					do {
-						c_line = _getch();
-						switch (c_line) {
-						case 0:
-							_getch();
-							break;
-						case 13:
-							std::cout << std::endl;
-							break;
-						case 27:
-							system("cls");
-							goto CarData;
-						case 8:
-							if (lineHider.length() > 0) {
-								lineHider.erase(lineHider.end() - 1);
-								std::cout << c_line << ' ' << c_line;
-							}
-							break;
-						default:
-							lineHider += c_line;
-							std::cout << c_line;
-							break;
-						}
-					} while (c_line != 15);
-
-
-					line_number = std::stoi(lineHider);
+					// ESC button back
+					int esc;
+					esc = _getch();
+					if (esc == 27) {
+						system("cls");
+						goto CarData;
+					}
 
 
 
-					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 1);
-					std::cout << "   Type the color";
-					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 9);
-					std::cout << "   Enter the Color: ";
-					SetConsoleTextAttribute(h, 11);
-					std::cin >> strColor;
-					SetConsoleTextAttribute(h, 1);
-
+					std::cin >> line_number;
 
 					// fstream object will be used to read all of the existing lines in the file
 					std::fstream read_file;
@@ -3859,7 +3870,6 @@ LoginForm:
 
 						Sleep(3000);
 						goto DeleteCarsColor;
-
 					}
 
 					// Write all of the lines stored in the vector back to the file, EXCEPT the
@@ -3880,7 +3890,20 @@ LoginForm:
 					// Close our access to the file since we are done working with it
 					write_file.close();
 
+					std::cout << std::endl;
+					std::cout << "   Line " << line_number + 1 << " has been deleted";
+					std::cout << std::endl;
+					std::cout << "   ";
+
 					// Add color to text file
+
+					std::cout << std::endl;
+					SetConsoleTextAttribute(h, 9);
+					std::cout << "   Enter the Color: ";
+					SetConsoleTextAttribute(h, 11);
+					std::cin >> strColor;
+					SetConsoleTextAttribute(h, 1);
+
 					std::ofstream addcolor("Text Files/Cars_Color.txt", std::ios::app);
 					addcolor << std::endl << strColor;
 
