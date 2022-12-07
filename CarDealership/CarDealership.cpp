@@ -3724,8 +3724,8 @@ LoginForm:
 					// std::cin >> addcolor;
 					SetConsoleTextAttribute(h, 1);
 
-					std::ofstream reg("Text Files/Cars_Color.txt", std::ios::app);
-					reg << std::endl << addcolor;
+					std::ofstream Cars_Color("Text Files/Cars_Color.txt", std::ios::app);
+					Cars_Color << addcolor << std::endl;
 					std::cout << "\n   Car Color Added!" << std::endl;
 
 					std::cout << std::endl;
