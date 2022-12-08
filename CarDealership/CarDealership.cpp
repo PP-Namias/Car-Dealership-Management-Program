@@ -1328,6 +1328,8 @@ LoginForm:
 				break;
 			case 27:
 				system("cls");
+				std::cin.clear();
+				std::cin.ignore(22, '\n');
 				goto LoginForm;
 			case 8:
 				if (userHider.length() > 0) {
@@ -1372,6 +1374,8 @@ LoginForm:
 				break;
 			case 27:
 				system("cls");
+				std::cin.clear();
+				std::cin.ignore(22, '\n'); 
 				goto LoginForm;
 			case 8:
 				if (passHider.length() > 0) {
@@ -1487,10 +1491,8 @@ LoginForm:
 			std::cin.ignore();
 
 			// Employee Data
-		EmployeeData:
 			if (adminchoice == 1) {
-
-
+			EmployeeData:
 
 				// Loading screen
 				system("cls");
@@ -1506,17 +1508,7 @@ LoginForm:
 				}
 				std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
-
-
-
-
 				TitleText.titleText("                          Employee Data                         ");
-
-
-
-
 
 				ChoiceBlue.choiceBlue("1", "Add Employee Data");
 				ChoiceBlue.choiceBlue("2", "View Employee Data");
@@ -1598,6 +1590,8 @@ LoginForm:
 							break;
 						case 27:
 							system("cls");
+							std::cin.clear();
+							std::cin.ignore(22, '\n');
 							goto EmployeeData;
 						case 8:
 							if (userHider.length() > 0) {
@@ -1647,6 +1641,8 @@ LoginForm:
 							break;
 						case 27:
 							system("cls");
+							std::cin.clear();
+							std::cin.ignore(22, '\n');
 							goto EmployeeData;
 						case 8:
 							if (passHider.length() > 0) {
@@ -1789,58 +1785,11 @@ LoginForm:
 					std::cout << std::endl;
 					std::cout << std::endl;
 
-
-
-					SetConsoleTextAttribute(h, 10);
-					std::cout << "    Press ESC button to go back" << std::endl;
-					std::cout << std::endl;
-
 					SetConsoleTextAttribute(h, 9);
 					std::cout << "    Enter your choice: ";
 					SetConsoleTextAttribute(h, 11);
 
-
-
-					std::string userHider;
-					char c_user;
-
-					do {
-						c_user = _getch();
-						switch (c_user) {
-						case 0:
-							_getch();
-							break;
-						case 13:
-							std::cout << std::endl;
-							break;
-						case 27:
-							system("cls");
-							goto EmployeeData;
-						case 8:
-							if (userHider.length() > 0) {
-								userHider.erase(userHider.end() - 1);
-								std::cout << c_user << ' ' << c_user;
-							}
-							break;
-						default:
-							userHider += c_user;
-							std::cout << c_user;
-							break;
-						}
-					} while (c_user != 13);
-
-
-					ch = std::stoi(userHider);
-
-
-
-
-
-
-
-
-
-					// std::cin >> ch;
+					std::cin >> ch;
 
 					switch (ch)
 					{
@@ -1970,6 +1919,7 @@ LoginForm:
 						std::cout << "   ";
 						std::cin.clear();
 						std::cin.ignore(22, '\n');
+						Sleep(2000);
 
 						goto SearchEmployeeData;
 					}
@@ -2058,6 +2008,8 @@ LoginForm:
 							break;
 						case 27:
 							system("cls");
+							std::cin.clear();
+							std::cin.ignore(22, '\n');
 							goto EmployeeData;
 						case 8:
 							if (userHider.length() > 0) {
@@ -2293,6 +2245,8 @@ LoginForm:
 							break;
 						case 27:
 							system("cls");
+							std::cin.clear();
+							std::cin.ignore(22, '\n');
 							goto EmployeeData;
 						case 8:
 							if (userHider.length() > 0) {
@@ -2522,6 +2476,18 @@ LoginForm:
 					goto AdminMenu;
 
 				}
+				else {
+
+					system("cls");
+					system("color 4f");
+					std::cout << "\n   Wrong input entered!" << std::endl;
+					std::cin.clear();
+					std::cin.ignore(22, '\n');
+					Sleep(2000);
+
+					goto EmployeeData;
+
+				}
 
 			}
 
@@ -2688,6 +2654,8 @@ LoginForm:
 							break;
 						case 27:
 							system("cls");
+							std::cin.clear();
+							std::cin.ignore(22, '\n');
 							goto EmployeeData;
 						case 8:
 							if (userHider_addname.length() > 0) {
@@ -2822,6 +2790,8 @@ LoginForm:
 							break;
 						case 27:
 							system("cls");
+							std::cin.clear();
+							std::cin.ignore(22, '\n');
 							goto CarData;
 						case 8:
 							if (userHider.length() > 0) {
@@ -3071,6 +3041,8 @@ LoginForm:
 							break;
 						case 27:
 							system("cls");
+							std::cin.clear();
+							std::cin.ignore(22, '\n');
 							goto EmployeeData;
 						case 8:
 							if (userHider_addname.length() > 0) {
@@ -3115,6 +3087,8 @@ LoginForm:
 							break;
 						case 27:
 							system("cls");
+							std::cin.clear();
+							std::cin.ignore(22, '\n');
 							goto CarData;
 						case 8:
 							if (userHider_addprice.length() > 0) {
@@ -3244,6 +3218,8 @@ LoginForm:
 							break;
 						case 27:
 							system("cls");
+							std::cin.clear();
+							std::cin.ignore(22, '\n');
 							goto CarData;
 						case 8:
 							if (userHider.length() > 0) {
@@ -3634,6 +3610,8 @@ LoginForm:
 							break;
 						case 27:
 							system("cls");
+							std::cin.clear();
+							std::cin.ignore(22, '\n');
 							goto CarData;
 						case 8:
 							if (hideColor.length() > 0) {
@@ -4019,10 +3997,8 @@ LoginForm:
 
 				// Back
 				else if (CarChoice == 9) {
-
-					Sleep(500);
+					system("cls");
 					goto AdminMenu;
-
 				}
 
 				else {
@@ -4031,11 +4007,10 @@ LoginForm:
 					std::cout << "\n   Wrong input entered!" << std::endl;
 					std::cin.clear();
 					std::cin.ignore(22, '\n');
-					Sleep(2000);
-
-					goto AdminMenu;
-
-
+					std::cout << std::endl;
+					std::cout << "   ";
+					system("pause");
+					goto CarData;
 
 				}
 
@@ -4068,7 +4043,6 @@ LoginForm:
 				std::cout << std::endl;
 				std::cout << "   ";
 				system("pause");
-				system("cls");
 				goto AdminMenu;
 
 			}
@@ -4133,8 +4107,9 @@ LoginForm:
 				std::cout << "\n   Wrong input entered!" << std::endl;
 				std::cin.clear();
 				std::cin.ignore(22, '\n');
-				Sleep(2000);
-
+				std::cout << std::endl;
+				std::cout << "   ";
+				system("pause");
 				goto AdminMenu;
 			}
 
@@ -4148,8 +4123,9 @@ LoginForm:
 			std::cout << "\n   Wrong input entered!" << std::endl;
 			std::cin.clear();
 			std::cin.ignore(22, '\n');
-			Sleep(2000);
-
+			std::cout << std::endl;
+			std::cout << "   ";
+			system("pause");
 			goto AdminLogin;
 		}
 	}
@@ -4204,6 +4180,8 @@ LoginForm:
 				break;
 			case 27:
 				system("cls");
+				std::cin.clear();
+				std::cin.ignore(22, '\n');
 				goto LoginForm;
 			case 8:
 				if (userHider.length() > 0) {
@@ -4242,6 +4220,8 @@ LoginForm:
 				break;
 			case 27:
 				system("cls");
+				std::cin.clear();
+				std::cin.ignore(22, '\n');
 				goto LoginForm;
 			case 8:
 				if (passHider.length() > 0) {
@@ -4420,8 +4400,9 @@ LoginForm:
 				std::cout << "\n   Wrong input entered!" << std::endl;
 				std::cin.clear();
 				std::cin.ignore(22, '\n');
-				Sleep(2000);
-
+				std::cout << std::endl;
+				std::cout << "   ";
+				system("pause");
 				goto LoginForm;
 			}
 		}
@@ -4504,7 +4485,9 @@ LoginForm:
 		SetConsoleTextAttribute(h, 11);
 		std::cout << "@PP-Namias\n" << std::endl;
 		SetConsoleTextAttribute(h, 10);
-		Sleep(5000);
+		
+		std::cout << "   ";
+		system("pause");
 		return 0;
 	}
 
@@ -4546,11 +4529,11 @@ OrderCars:
 		UserTitleText.userTitleText("                       Guest Order Cars                       ", "Guest", "                             [", "]                            ");
 	}
 	else {
-		UserTitleText.userTitleText("                      Unknown Order Cars                      ", "Unknown", "                            [", "]                           ");
+		UserTitleText.userTitleText("                     \"Unknown Order Cars\"                     ", "Unknown", "                            [", "]                           ");
 	}
 
 	SetConsoleTextAttribute(h, 10);
-	std::cout << "\n  Press ESC button to go back" << std::endl;
+	std::cout << "\n  Press \'0\' to go back" << std::endl;
 
 	SetConsoleTextAttribute(h, 9);
 	// Callout car names/prices [formated]
@@ -4562,49 +4545,20 @@ OrderCars:
 	SetConsoleTextAttribute(h, 11);
 
 
-	// std::cin >> Cars;
+	std::cin >> Cars;
 
 
 
+	if (Cars == 0) {
+		std::cin.clear();
+		std::cin.ignore(22, '\n');
+		system("cls");
 
-	std::string CarsHider;
-	char c_cars;
+		goto LoginForm;
 
-	do {
-		c_cars = _getch();
-		switch (c_cars) {
-		case 0:
-			_getch();
-			break;
-		case 13:
-			std::cout << std::endl;
-			break;
-		case 27:
-			system("cls");
-			goto LoginForm;
-		case 8:
-			if (CarsHider.length() > 0) {
-				CarsHider.erase(CarsHider.end() - 1);
-				std::cout << c_cars << ' ' << c_cars;
-			}
-			break;
-		default:
-			CarsHider += c_cars;
-			std::cout << c_cars;
-			break;
-		}
-	} while (c_cars != 13);
+	}
 
-
-
-	Cars = stoi(CarsHider);
-
-
-
-
-
-
-	if (Cars < 1 || Cars > sizeof(toyota_car_names) / sizeof(toyota_car_names[0])) {
+	else if (Cars < 1 || Cars > sizeof(toyota_car_names) / sizeof(toyota_car_names[0])) {
 		system("cls");
 		system("color 4f");
 		std::cout << "\n  Invalid input please try ordering again." << std::endl;
@@ -4615,6 +4569,7 @@ OrderCars:
 		goto OrderCars;
 	}
 
+	
 	else if (Cars >= 1 || Cars <= sizeof(toyota_car_names) / sizeof(toyota_car_names[0])) {
 		// Order confirmation
 		SetConsoleTextAttribute(h, 9);
@@ -4664,8 +4619,9 @@ OrderCars:
 				system("cls");
 				system("color 4f");
 				std::cout << "\n  Please try again if you entered the incorrect information.";
-				Sleep(2000);
-				goto SelectColor;
+				std::cout << std::endl;
+				std::cout << "   ";
+				system("pause");				goto SelectColor;
 			}
 
 			else if (Color >= 1 || Color <= sizeof(toyota_car_color) / sizeof(toyota_car_color[0])) {
@@ -4717,15 +4673,17 @@ OrderCars:
 				if (Change >= 1) {
 					std::cout << "\n  Change: " << Change << "\n" << std::endl;
 
-					Sleep(1000);
-
+					std::cout << std::endl;
+					std::cout << "   ";
+					system("pause");
 				}
 
 				else if (Change == 0) {
 					std::cout << "\n  You paid the exact amount of money needed.\n" << std::endl;
 
-					Sleep(1000);
-
+					std::cout << std::endl;
+					std::cout << "   ";
+					system("pause");
 				}
 
 				else if (Change <= -1) {
@@ -4796,8 +4754,9 @@ OrderCars:
 					std::cout << "\n   Press Enter to Continue!";
 					std::cin.get();
 
-					Sleep(2000);
-					goto OrderCars;
+					std::cout << std::endl;
+					std::cout << "   ";
+					system("pause");					goto OrderCars;
 				}
 
 			}
@@ -4840,7 +4799,9 @@ OrderCars:
 		std::cin.clear();
 		std::cin.ignore(22, '\n');
 
-		Sleep(2000);
+		std::cout << "   ";
+		system("pause");
+
 		goto OrderCars;
 	}
 
