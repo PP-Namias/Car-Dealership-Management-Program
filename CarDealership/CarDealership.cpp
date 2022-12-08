@@ -42,70 +42,9 @@
 #include <limits>
 #include <ios>
 
-class NamiasClass {
+class DetailClass {
 public:
-	// Text color settings
-	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-	// SetConsoleTextAttribute(h, 1);
-
-	void display_menu(const std::string& manufacturer,
-		const std::string names[],
-		const int prices[],
-		const size_t numCars) {
-		SetConsoleTextAttribute(h, 9);
-		std::cout << manufacturer << " Cars:" << std::endl;
-
-		for (size_t i = 0; i < numCars; i++) {
-
-			SetConsoleTextAttribute(h, 10);
-			std::cout << "   [";
-			SetConsoleTextAttribute(h, 15);
-			std::cout << i + 1;
-			SetConsoleTextAttribute(h, 10);
-			std::cout << "]\t";
-			SetConsoleTextAttribute(h, 9);
-			std::cout << names[i];
-			SetConsoleTextAttribute(h, 11);
-			std::cout << "\tfor ";
-			SetConsoleTextAttribute(h, 9);
-
-
-			// structuring currency
-			struct group_facet : public std::numpunct<char> {
-			protected:
-				std::string do_grouping() const { return "\003"; }
-			};
-
-			std::cout.imbue(std::locale(std::cout.getloc(), new group_facet));
-
-			std::cout << std::fixed << prices[i];
-
-			SetConsoleTextAttribute(h, 11);
-			std::cout << " pesos";
-			SetConsoleTextAttribute(h, 11);
-			std::cout << std::endl;
-
-		}
-
-	}
-
-	void display_color(const std::string color_index[],
-		const size_t numColors) {
-
-		for (size_t a = 0; a < numColors; a++) {
-			SetConsoleTextAttribute(h, 10);
-			std::cout << "    [";
-			SetConsoleTextAttribute(h, 15);
-			std::cout << a + 1;
-			SetConsoleTextAttribute(h, 10);
-			std::cout << "] ";
-			SetConsoleTextAttribute(h, 11);
-			std::cout << color_index[a];
-			SetConsoleTextAttribute(h, 10);
-			std::cout << std::endl;
-		}
-	}
-
+	
 	void AboutUs() {
 		system("cls");
 		system("color 09");
@@ -151,283 +90,286 @@ public:
 	}
 
 	void TitleScreen() {
+		// Text color settings
+		HANDLE TitleScreenColor = GetStdHandle(STD_OUTPUT_HANDLE);
+		
 		system("color a");
 		system("cls");
-
+		
 		// Title design XD
 		std::cout << std::endl;
 		std::cout << "     .----------------.   .----------------.   .----------------. " << std::endl;
 
 		std::cout << "    | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << ".--------------. ";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << "| | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << ".--------------.";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " | | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << ".--------------.";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " |" << std::endl;
 
 		std::cout << "    | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|     ";
-		SetConsoleTextAttribute(h, 1);
+		SetConsoleTextAttribute(TitleScreenColor, 1);
 		std::cout << "______";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "   |";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " | | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|  ";
-		SetConsoleTextAttribute(h, 4);
+		SetConsoleTextAttribute(TitleScreenColor, 4);
 		std::cout << "________";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "    | ";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << "| |";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << " | ";
-		SetConsoleTextAttribute(h, 13);
+		SetConsoleTextAttribute(TitleScreenColor, 13);
 		std::cout << "____    ____";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << " |";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " | " << std::endl;
 
 		std::cout << "    | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
-		SetConsoleTextAttribute(h, 1);
+		SetConsoleTextAttribute(TitleScreenColor, 1);
 		std::cout << "   .' ___  |  ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "| ";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << "| |";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << " |";
-		SetConsoleTextAttribute(h, 4);
+		SetConsoleTextAttribute(TitleScreenColor, 4);
 		std::cout << " |_   ___ `.  ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "| ";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << "| |";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << " |";
-		SetConsoleTextAttribute(h, 13);
+		SetConsoleTextAttribute(TitleScreenColor, 13);
 		std::cout << "|_   \\  /   _|";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " |" << std::endl;
 
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << "    | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
-		SetConsoleTextAttribute(h, 1);
+		SetConsoleTextAttribute(TitleScreenColor, 1);
 		std::cout << "  / .'   \\_|  ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "| ";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << "| |";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << " |";
-		SetConsoleTextAttribute(h, 4);
+		SetConsoleTextAttribute(TitleScreenColor, 4);
 		std::cout << "   | |   `. \\ ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "| ";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << "| |";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << " |";
-		SetConsoleTextAttribute(h, 13);
+		SetConsoleTextAttribute(TitleScreenColor, 13);
 		std::cout << "  |   \\/   |  ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " |" << std::endl;
 
 		std::cout << "    | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
-		SetConsoleTextAttribute(h, 1);
+		SetConsoleTextAttribute(TitleScreenColor, 1);
 		std::cout << "  | |         ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "| ";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << "| |";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << " |";
-		SetConsoleTextAttribute(h, 4);
+		SetConsoleTextAttribute(TitleScreenColor, 4);
 		std::cout << "   | |    | | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "| ";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << "| |";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << " |";
-		SetConsoleTextAttribute(h, 13);
+		SetConsoleTextAttribute(TitleScreenColor, 13);
 		std::cout << "  | |\\  /| |  ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " |" << std::endl;
 
 		std::cout << "    | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
-		SetConsoleTextAttribute(h, 1);
+		SetConsoleTextAttribute(TitleScreenColor, 1);
 		std::cout << "  \\ `.___.'\\  ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " | | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
-		SetConsoleTextAttribute(h, 4);
+		SetConsoleTextAttribute(TitleScreenColor, 4);
 		std::cout << "  _| |___.' / ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " | | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
-		SetConsoleTextAttribute(h, 13);
+		SetConsoleTextAttribute(TitleScreenColor, 13);
 		std::cout << " _| |_\\/_| |_ ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " |" << std::endl;
 
 		std::cout << "    | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
-		SetConsoleTextAttribute(h, 1);
+		SetConsoleTextAttribute(TitleScreenColor, 1);
 		std::cout << "   `._____.'  ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "| ";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << "| |";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << " |";
-		SetConsoleTextAttribute(h, 4);
+		SetConsoleTextAttribute(TitleScreenColor, 4);
 		std::cout << " |________.'  ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "| ";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << "| |";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << " |";
-		SetConsoleTextAttribute(h, 13);
+		SetConsoleTextAttribute(TitleScreenColor, 13);
 		std::cout << "|_____||_____|";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " |" << std::endl;
 
 		std::cout << "    | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|              |";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " | | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|              |";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " | | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|              |";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " |" << std::endl;
 
 		std::cout << "    | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "'--------------'";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " | | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "'--------------'";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " | | ";
-		SetConsoleTextAttribute(h, 7);
+		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "'--------------'";
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 		std::cout << " |" << std::endl;
 
 		std::cout << "     '----------------'   '----------------'   '----------------' " << std::endl;
 
 		std::cout << "                  ";
-		SetConsoleTextAttribute(h, 1);
+		SetConsoleTextAttribute(TitleScreenColor, 1);
 		std::cout << "Car ";
-		SetConsoleTextAttribute(h, 4);
+		SetConsoleTextAttribute(TitleScreenColor, 4);
 		std::cout << "Dealership ";
-		SetConsoleTextAttribute(h, 13);
+		SetConsoleTextAttribute(TitleScreenColor, 13);
 		std::cout << "Management ";
-		SetConsoleTextAttribute(h, 11);
+		SetConsoleTextAttribute(TitleScreenColor, 11);
 		std::cout << "Program               " << std::endl;
 
 		std::cout << std::endl;
 
-		SetConsoleTextAttribute(h, 1);
+		SetConsoleTextAttribute(TitleScreenColor, 1);
 		std::cout << "             _____";
-		SetConsoleTextAttribute(h, 2);
+		SetConsoleTextAttribute(TitleScreenColor, 2);
 		std::cout << "  ___  ";
-		SetConsoleTextAttribute(h, 3);
+		SetConsoleTextAttribute(TitleScreenColor, 3);
 		std::cout << "  ____    ";
-		SetConsoleTextAttribute(h, 4);
+		SetConsoleTextAttribute(TitleScreenColor, 4);
 		std::cout << "__  __ ";
-		SetConsoleTextAttribute(h, 5);
+		SetConsoleTextAttribute(TitleScreenColor, 5);
 		std::cout << " ___      ";
-		SetConsoleTextAttribute(h, 6);
+		SetConsoleTextAttribute(TitleScreenColor, 6);
 		std::cout << "  ____" << std::endl;
 
 
 
 
-		SetConsoleTextAttribute(h, 1);
+		SetConsoleTextAttribute(TitleScreenColor, 1);
 		std::cout << "            / ___/";
-		SetConsoleTextAttribute(h, 2);
+		SetConsoleTextAttribute(TitleScreenColor, 2);
 		std::cout << " / _ \\";
-		SetConsoleTextAttribute(h, 3);
+		SetConsoleTextAttribute(TitleScreenColor, 3);
 		std::cout << "  / __ \\ ";
-		SetConsoleTextAttribute(h, 4);
+		SetConsoleTextAttribute(TitleScreenColor, 4);
 		std::cout << " / / / ";
-		SetConsoleTextAttribute(h, 5);
+		SetConsoleTextAttribute(TitleScreenColor, 5);
 		std::cout << "/ / _ \\  ";
-		SetConsoleTextAttribute(h, 6);
+		SetConsoleTextAttribute(TitleScreenColor, 6);
 		std::cout << "    / / /" << std::endl;
 
 
 
-		SetConsoleTextAttribute(h, 1);
+		SetConsoleTextAttribute(TitleScreenColor, 1);
 		std::cout << "           / (_ / ";
-		SetConsoleTextAttribute(h, 2);
+		SetConsoleTextAttribute(TitleScreenColor, 2);
 		std::cout << "/ , _/ ";
-		SetConsoleTextAttribute(h, 3);
+		SetConsoleTextAttribute(TitleScreenColor, 3);
 		std::cout << "/ /_/ / ";
-		SetConsoleTextAttribute(h, 4);
+		SetConsoleTextAttribute(TitleScreenColor, 4);
 		std::cout << "/ /_/ / ";
-		SetConsoleTextAttribute(h, 5);
+		SetConsoleTextAttribute(TitleScreenColor, 5);
 		std::cout << "/ ___/     ";
-		SetConsoleTextAttribute(h, 6);
+		SetConsoleTextAttribute(TitleScreenColor, 6);
 		std::cout << "/_  _/" << std::endl;
 
-		SetConsoleTextAttribute(h, 1);
+		SetConsoleTextAttribute(TitleScreenColor, 1);
 		std::cout << "           \\___/ ";
-		SetConsoleTextAttribute(h, 2);
+		SetConsoleTextAttribute(TitleScreenColor, 2);
 		std::cout << "/_/|_| ";
-		SetConsoleTextAttribute(h, 3);
+		SetConsoleTextAttribute(TitleScreenColor, 3);
 		std::cout << " \\____/  ";
-		SetConsoleTextAttribute(h, 4);
+		SetConsoleTextAttribute(TitleScreenColor, 4);
 		std::cout << "\\____/ ";
-		SetConsoleTextAttribute(h, 5);
+		SetConsoleTextAttribute(TitleScreenColor, 5);
 		std::cout << "/_/      ";
-		SetConsoleTextAttribute(h, 6);
+		SetConsoleTextAttribute(TitleScreenColor, 6);
 		std::cout << "    /_/  " << std::endl;
-		SetConsoleTextAttribute(h, 10);
+		SetConsoleTextAttribute(TitleScreenColor, 10);
 
 		std::cout << std::endl;
 		std::cout << std::endl;
@@ -640,6 +582,61 @@ public:
 
 class BackEnd {
 public:
+
+	void display_menu(const std::string& manufacturer,
+		const std::string names[],
+		const int prices[],
+		const size_t numCars) {
+		std::cout << manufacturer << " Cars:" << std::endl;
+
+		// Text color settings
+		HANDLE Display_Menu_Color = GetStdHandle(STD_OUTPUT_HANDLE);
+
+		for (size_t i = 0; i < numCars; i++) {
+			SetConsoleTextAttribute(Display_Menu_Color, 10);
+			std::cout << "   [";
+			SetConsoleTextAttribute(Display_Menu_Color, 15);
+			std::cout << i + 1;
+			SetConsoleTextAttribute(Display_Menu_Color, 10);
+			std::cout << "]\t";
+			SetConsoleTextAttribute(Display_Menu_Color, 9);
+			std::cout << names[i];
+			SetConsoleTextAttribute(Display_Menu_Color, 11);
+			std::cout << "\tfor ";
+			SetConsoleTextAttribute(Display_Menu_Color, 9);
+			// structuring currency
+			struct group_facet : public std::numpunct<char> {
+			protected:
+				std::string do_grouping() const { return "\003"; }
+			};
+			std::cout.imbue(std::locale(std::cout.getloc(), new group_facet));
+			std::cout << std::fixed << prices[i];
+			SetConsoleTextAttribute(Display_Menu_Color, 11);
+			std::cout << " pesos";
+			SetConsoleTextAttribute(Display_Menu_Color, 11);
+			std::cout << std::endl;
+		}
+	}
+
+	void display_color(const std::string color_index[],
+		const size_t numColors) {
+
+		// Text color settings
+		HANDLE Display_Color_Color = GetStdHandle(STD_OUTPUT_HANDLE);
+		
+		for (size_t a = 0; a < numColors; a++) {
+			SetConsoleTextAttribute(Display_Color_Color, 10);
+			std::cout << "    [";
+			SetConsoleTextAttribute(Display_Color_Color, 15);
+			std::cout << a + 1;
+			SetConsoleTextAttribute(Display_Color_Color, 10);
+			std::cout << "] ";
+			SetConsoleTextAttribute(Display_Color_Color, 11);
+			std::cout << color_index[a];
+			SetConsoleTextAttribute(Display_Color_Color, 10);
+			std::cout << std::endl;
+		}
+	}
 
 	void Reciept(std::string DateTime, std::string CarNames, std::string CarColors, int Price, int Payment, int Change) {
 		// Text color settings
@@ -1076,75 +1073,8 @@ bool flag = false;
 int main()
 {
 
-	/*
-	std::string userHider = "0";
-
-	// Some code
-	std::cout << "Before try \n";
-	try {
-		std::cout << "Inside try \n";
-		if (userHider == "1" || userHider == "2" || userHider == "3")
-		{
-			std::cout << "Wrong input please try again\n";
-		}
-	}
-	catch (std::string userHider) {
-		std::cout << "Exception Caught \n";
-	}
-
-	std::cout << "After catch (Will be executed) \n";
-
-
-
-
-
-	const auto data = {
-	   "45",
-	   "+45",
-	   " -45",
-	   "3.14159",
-	   "31337 with words",
-	   "words and 2",
-	   "12345678901",
-	};
-
-	for (const std::string s : data)
-	{
-		std::size_t pos{};
-		try
-		{
-			std::cout << "std::stoi('" << s << "'): ";
-			const int i{ std::stoi(s, &pos) };
-			std::cout << i << "; pos: " << pos << '\n';
-		}
-		catch (std::invalid_argument const& ex)
-		{
-			std::cout << "std::invalid_argument::what(): " << ex.what() << '\n';
-		}
-		catch (std::out_of_range const& ex)
-		{
-			std::cout << "std::out_of_range::what(): " << ex.what() << '\n';
-			const long long ll{ std::stoll(s, &pos) };
-			std::cout << "std::stoll('" << s << "'): " << ll << "; pos: " << pos << '\n';
-		}
-	}
-
-	std::cout << "\nCalling with different radixes:\n";
-	for (const auto& [s, base] : { std::pair<const char*, int>
-		{"11",  2}, {"22",  3}, {"33",  4}, {"77",  8},
-		{"99", 10}, {"FF", 16}, {"jJ", 20}, {"Zz", 36}, })
-	{
-		const int i{ std::stoi(s, nullptr, base) };
-		std::cout << "std::stoi('" << s << "', " << base << "): " << i << '\n';
-	}
-
-	return 0;
-
-
-	*/
-
-
-
+	DetailClass AboutUs;
+	DetailClass TitleScreen;
 
 	HeaderClass ChoiceBlue;
 	HeaderClass ChoiceGreen;
@@ -1153,7 +1083,8 @@ int main()
 	HeaderClass TitleText;
 	HeaderClass UserTitleText;
 
-
+	BackEnd Display_Menu;
+	BackEnd Display_Color;
 	BackEnd Reciept;
 	BackEnd OrderLogs;
 	BackEnd ViewCarData;
@@ -1293,9 +1224,7 @@ int main()
 
 
 	if (flag == false) {
-		NamiasClass TitleScreen;
 		TitleScreen.TitleScreen();
-
 
 
 	}
@@ -3210,13 +3139,16 @@ LoginForm:
 					SetConsoleTextAttribute(h, 1);
 
 					std::ofstream Cars_Name("Text Files/Cars_Name.txt", std::ios::app);
-					Cars_Name << std::endl << addname;
+					Cars_Name << addname << std::endl ;
+					Cars_Name.close();
 
+				
+					/*
 					std::ofstream Cars_Price("Text Files/Cars_Price.txt", std::ios::app);
-					Cars_Price << std::endl << addprice;
+					Cars_Price << addprice << std::endl ;
 					std::cout << "\n   Car Name & Price Added!" << std::endl;
-
-
+					Cars_Price.close();
+					*/
 
 
 
@@ -4180,7 +4112,6 @@ LoginForm:
 				}
 				std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-				NamiasClass AboutUs;
 				AboutUs.AboutUs();
 				std::cout << "   ";
 				system("pause");
@@ -4468,7 +4399,6 @@ LoginForm:
 				}
 				std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-				NamiasClass AboutUs;
 				AboutUs.AboutUs();
 				std::cout << "   ";
 				system("pause");
@@ -4551,7 +4481,6 @@ LoginForm:
 		std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 
-		NamiasClass AboutUs;
 		AboutUs.AboutUs();
 		std::cout << "   ";
 		system("pause");
@@ -4623,9 +4552,9 @@ OrderCars:
 	SetConsoleTextAttribute(h, 10);
 	std::cout << "\n  Press ESC button to go back" << std::endl;
 
+	SetConsoleTextAttribute(h, 9);
 	// Callout car names/prices [formated]
-	NamiasClass NamiasObject;
-	NamiasObject.display_menu("\n  Toyota", toyota_car_names, toyota_car_prices, sizeof(toyota_car_names) / sizeof(toyota_car_names[0]));
+	Display_Menu.display_menu("\n  Toyota", toyota_car_names, toyota_car_prices, sizeof(toyota_car_names) / sizeof(toyota_car_names[0]));
 
 	SetConsoleTextAttribute(h, 9);
 	std::cout << "\n  Input Number According to the type of Car: ";
@@ -4722,8 +4651,7 @@ OrderCars:
 			std::cout << std::endl;
 
 			// Callout all Color [Fomated]
-			NamiasClass NamiasObject2;
-			NamiasObject2.display_color(toyota_car_color, sizeof(toyota_car_color) / sizeof(toyota_car_color[0]));
+			Display_Color.display_color(toyota_car_color, sizeof(toyota_car_color) / sizeof(toyota_car_color[0]));
 
 			SetConsoleTextAttribute(h, 9);
 			std::cout << "\n  Please insert the number of Color: ";
