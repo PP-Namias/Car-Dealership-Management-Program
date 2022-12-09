@@ -2689,14 +2689,67 @@ LoginForm:
 
 
 
-					std::cin >> addprice;
+
+
+
+
+
+					std::string userHider_addprice;
+					char c_user_addprice;
+
+					do {
+						c_user_addprice = _getch();
+						switch (c_user_addprice) {
+						case 0:
+							_getch();
+							break;
+						case 13:
+							std::cout << std::endl;
+							break;
+						case 27:
+							system("cls");
+							std::cin.clear();
+							std::cin.ignore(22, '\n');
+							goto EmployeeData;
+						case 8:
+							if (userHider_addprice.length() > 0) {
+								userHider_addprice.erase(userHider_addprice.end() - 1);
+								std::cout << c_user_addprice << ' ' << c_user_addprice;
+							}
+							break;
+						default:
+							userHider_addprice += c_user_addprice;
+							std::cout << c_user_addprice;
+							break;
+						}
+					} while (c_user_addprice != 13);
+
+
+
+					addprice = userHider_addprice;
+
+
+
+
+
+
+
+
+					// std::cin >> addprice;
 					SetConsoleTextAttribute(h, 1);
 
+
+					/*
 					std::ofstream Cars_Name("Text Files/Cars_Name.txt", std::ios::app);
 					Cars_Name << std::endl << addname;
 
 					std::ofstream Cars_Price("Text Files/Cars_Price.txt", std::ios::app);
 					Cars_Price << std::endl << addprice;
+					*/
+					
+
+					std::cout << addname << std::endl;
+					std::cout << addprice << std::endl;
 					std::cout << "\n   Car Name & Price Added!" << std::endl;
 
 
