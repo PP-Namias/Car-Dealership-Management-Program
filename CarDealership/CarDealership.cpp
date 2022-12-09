@@ -448,7 +448,6 @@ public:
 		std::cout << std::endl;
 	}
 
-
 	void userTitleText(std::string UserTitleText, std::string UserTitle, std::string UserTitleSeparatorLeft, std::string UserTitleSeparatorRight) {
 		// Text color settings
 		HANDLE userTitleTextColor = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -583,10 +582,7 @@ public:
 class BackEnd {
 public:
 
-	void display_menu(const std::string& manufacturer,
-		const std::string names[],
-		const int prices[],
-		const size_t numCars) {
+	void display_menu(const std::string& manufacturer, const std::string names[], const int prices[], const size_t numCars) {
 		std::cout << manufacturer << " Cars:" << std::endl;
 
 		// Text color settings
@@ -618,8 +614,7 @@ public:
 		}
 	}
 
-	void display_color(const std::string color_index[],
-		const size_t numColors) {
+	void display_color(const std::string color_index[], const size_t numColors) {
 
 		// Text color settings
 		HANDLE Display_Color_Color = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -877,7 +872,6 @@ public:
 
 	}
 
-
 	void viewEmployeeData() {
 		// Text color settings
 		HANDLE ViewEmployeeData = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -939,6 +933,7 @@ public:
 
 
 	}
+	
 	void viewCarNamePrice() {
 		// Text color settings
 		HANDLE ViewCarData = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -1061,10 +1056,20 @@ public:
 			std::cout << std::endl;
 		}
 	}
-};
 
-// Identifiers
-void gotoxy(int x, int y);
+	void gotoxy(int x, int y)
+	{
+		COORD d;
+		d.X = x;
+		d.Y = y;
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), d);
+	}
+	
+	void fontTextColor(int Color) {
+		HANDLE FontColor = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(FontColor, Color);
+	}
+};
 
 
 // Title screen call-out once [Flagging]
@@ -1089,101 +1094,14 @@ int main()
 	BackEnd OrderLogs;
 	BackEnd ViewCarData;
 	BackEnd ViewEmployeeData;
+	BackEnd Coordinate;
+	BackEnd FontTextColor;
 
 	system("TITLE Car Dealership Management Program By: @PP-Namias");
-
-	// Text file to array dynamically XD [Color]
-	std::string toyota_car_color[15];
-	int number_of_color = 0;
-
-	std::ifstream Cars_Color("Text Files/Cars_Color.txt");
-	if (Cars_Color.is_open())
-	{
-		std::string line;
-		std::ifstream myCars_Color("Text Files/Cars_Color.txt");
-
-		while (std::getline(myCars_Color, line))
-			++number_of_color;
-
-		for (int i = 0; i < number_of_color; ++i)
-		{
-			Cars_Color >> toyota_car_color[i];
-		}
-	}
-	toyota_car_color[number_of_color];
-
-
-
-	// Text file to array dynamically XD [Name]
-	std::string toyota_car_names[17];
-	int number_of_name = 0;
-
-	std::ifstream Cars_Name("Text Files/Cars_Name.txt");
-	if (Cars_Name.is_open())
-	{
-		std::string line;
-		std::ifstream myCars_Name("Text Files/Cars_Name.txt");
-
-		while (std::getline(myCars_Name, line))
-			++number_of_name;
-
-		for (int i = 0; i < number_of_name; ++i)
-		{
-			Cars_Name >> toyota_car_names[i];
-		}
-	}
-	toyota_car_names[number_of_name];
-
-
-
-
-	// Text file to array dynamically XD [Price]
-	int toyota_car_prices[17];
-	int number_of_price = 0;
-
-	std::ifstream Cars_Price("Text Files/Cars_Price.txt");
-	if (Cars_Price.is_open())
-	{
-		std::string line;
-		std::ifstream myCars_Price("Text Files/Cars_Price.txt");
-
-		while (std::getline(myCars_Price, line))
-			++number_of_price;
-
-		for (int i = 0; i < number_of_price; ++i)
-		{
-			Cars_Price >> toyota_car_prices[i];
-		}
-	}
-	toyota_car_prices[number_of_price];
-
-
-
-
-
-
-
-
-
-
-
-
-	// Text color settings
-	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
-	// SetConsoleTextAttribute(h, 1);
-
-
-
 
 
 	// system defaults
 	system("mode 70, 150");
-
-
-
-
-
-
 
 
 	// Font and Command Promt size
@@ -1197,22 +1115,13 @@ int main()
 	SetCurrentConsoleFontEx(hOut, NULL, &fontex);
 
 
-
-
-
-
-
-
-
-
-
 	// Loading screen
 	system("cls");
 	system("color 0A");
 	char a = 219;
-	gotoxy(30, 10);
+	Coordinate.gotoxy(30, 10);
 	std::cout << "[Loading]" << std::endl;
-	gotoxy(25, 12);
+	Coordinate.gotoxy(25, 12);
 	for (int r = 1; r <= 20; r++)
 	{
 		for (int q = 0; q <= 100000000; q++);
@@ -1221,16 +1130,9 @@ int main()
 	std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
 
-
-
 	if (flag == false) {
 		TitleScreen.TitleScreen();
-
-
 	}
-
-
-
 
 	char order_more = 'n',
 		order_confirmation;
@@ -1242,8 +1144,6 @@ int main()
 		Color,
 		AccessLevel = 0;
 
-
-
 	// main choices
 	int choice;
 	int adminchoice;
@@ -1251,8 +1151,6 @@ int main()
 
 	// sub choices
 	int employeeData;
-
-
 
 	flag = true;
 
@@ -1270,9 +1168,9 @@ LoginForm:
 
 	ChoiceRed.choiceRed("5", "Exit\n");
 
-	SetConsoleTextAttribute(h, 9);
+	FontTextColor.fontTextColor(9);
 	std::cout << "   Please insert your choice: ";
-	SetConsoleTextAttribute(h, 11);
+	FontTextColor.fontTextColor(11);
 	std::cin >> choice;
 	std::cin.ignore();
 
@@ -1285,9 +1183,9 @@ LoginForm:
 		system("cls");
 		system("color 0F");
 		char a = 219;
-		gotoxy(30, 10);
+		Coordinate.gotoxy(30, 10);
 		std::cout << "[Loading]" << std::endl;
-		gotoxy(25, 12);
+		Coordinate.gotoxy(25, 12);
 		for (int r = 1; r <= 20; r++)
 		{
 			for (int q = 0; q <= 10000000; q++);
@@ -1303,15 +1201,15 @@ LoginForm:
 		TitleText.titleText("                           Admin Login                          ");
 
 
-		SetConsoleTextAttribute(h, 10);
+		FontTextColor.fontTextColor(10);
 		std::cout << "\n   Press ESC button to go back" << std::endl;
 
-		SetConsoleTextAttribute(h, 1);
+		FontTextColor.fontTextColor(1);
 		std::cout << "\n   Please enter the following details" << std::endl;
 
-		SetConsoleTextAttribute(h, 9);
+		FontTextColor.fontTextColor(9);
 		std::cout << "\n   Username: ";
-		SetConsoleTextAttribute(h, 11);
+		FontTextColor.fontTextColor(11);
 
 
 		std::string userHider;
@@ -1348,13 +1246,10 @@ LoginForm:
 		user = userHider;
 
 
-
-
-
 		//std::cin >> user;
-		SetConsoleTextAttribute(h, 9);
+		FontTextColor.fontTextColor(9);
 		std::cout << "   Password: ";
-		SetConsoleTextAttribute(h, 11);
+		FontTextColor.fontTextColor(11);
 
 
 		int i = 0;
@@ -1412,7 +1307,6 @@ LoginForm:
 				std::cout << "\n\n   Admin login successful!";
 				Sleep(2000);
 				system("cls");
-
 			}
 
 			else if (u != user)
@@ -1429,7 +1323,6 @@ LoginForm:
 				goto AdminLogin;
 			}
 
-
 			else {
 				adminlogin = 0;
 				system("cls");
@@ -1439,12 +1332,8 @@ LoginForm:
 				Sleep(2000);
 				goto AdminLogin;
 			}
-
 		}
-
 		input.close();
-
-
 
 
 		if (adminlogin == 1)
@@ -1455,16 +1344,15 @@ LoginForm:
 			system("cls");
 			system("color 0F");
 			char a = 219;
-			gotoxy(29, 10);
+			Coordinate.gotoxy(29, 10);
 			std::cout << "[Logging in]" << std::endl;
-			gotoxy(25, 12);
+			Coordinate.gotoxy(25, 12);
 			for (int r = 1; r <= 20; r++)
 			{
 				for (int q = 0; q <= 10000000; q++);
 				std::cout << a;
 			}
 			std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
-
 
 
 			// Login
@@ -1480,12 +1368,12 @@ LoginForm:
 
 			ChoiceGreen.choiceGreen("5", "About Us\n");
 
-			ChoiceRed.choiceRed("6", "Back\n");
+			ChoiceRed.choiceRed("6", "Logout\n");
 
-			SetConsoleTextAttribute(h, 9);
+			FontTextColor.fontTextColor(9);
 			std::cout << "   Please insert your choice: ";
 
-			SetConsoleTextAttribute(h, 11);
+			FontTextColor.fontTextColor(11);
 			std::cin >> adminchoice;
 			std::cout << std::endl;
 			std::cin.ignore();
@@ -1498,9 +1386,9 @@ LoginForm:
 				system("cls");
 				system("color 0F");
 				char a = 219;
-				gotoxy(30, 10);
+				Coordinate.gotoxy(30, 10);
 				std::cout << "[Loading]" << std::endl;
-				gotoxy(25, 12);
+				Coordinate.gotoxy(25, 12);
 				for (int r = 1; r <= 20; r++)
 				{
 					for (int q = 0; q <= 10000000; q++);
@@ -1518,10 +1406,10 @@ LoginForm:
 
 				ChoiceRed.choiceRed("6", "Back\n");
 
-				SetConsoleTextAttribute(h, 9);
+				FontTextColor.fontTextColor(9);
 				std::cout << "   Please insert your choice: ";
 
-				SetConsoleTextAttribute(h, 11);
+				FontTextColor.fontTextColor(11);
 				std::cin >> employeeData;
 				std::cout << std::endl;
 				std::cin.ignore();
@@ -1534,9 +1422,9 @@ LoginForm:
 					system("cls");
 					system("color 0F");
 					char a = 219;
-					gotoxy(30, 10);
+					Coordinate.gotoxy(30, 10);
 					std::cout << "[Loading]" << std::endl;
-					gotoxy(25, 12);
+					Coordinate.gotoxy(25, 12);
 					for (int r = 1; r <= 20; r++)
 					{
 						for (int q = 0; q <= 10000000; q++);
@@ -1544,37 +1432,15 @@ LoginForm:
 					}
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
-
 					TitleText.titleText("                         Add Employee Data                      ");
 
-
-
-
-
-
-
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << "\n   Press ESC button to go back" << std::endl;
 
 					std::string adduser, addpass, ru, rp;
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "\n   Enter the Username: ";
-					SetConsoleTextAttribute(h, 11);
-
-
-
-
-
-
-
-
-
-
-
-
-
+					FontTextColor.fontTextColor(11);
 
 					std::string userHider;
 					char c_user;
@@ -1609,23 +1475,10 @@ LoginForm:
 
 					adduser = userHider;
 
-
-
-
-
-
-
-
-
-
 					//  std::cin >> adduser;
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "   Enter the Password: ";
-					SetConsoleTextAttribute(h, 11);
-
-
-
-
+					FontTextColor.fontTextColor(11);
 
 					std::string passHider;
 					char c_pass;
@@ -1657,19 +1510,7 @@ LoginForm:
 						}
 					} while (c_pass != 13);
 
-
 					addpass = passHider;
-
-
-
-
-
-
-
-
-
-
-
 
 					//  std::cin >> addpass;
 
@@ -1679,7 +1520,6 @@ LoginForm:
 					std::cout << "\n   ";
 					system("pause");
 					goto EmployeeData;
-
 				}
 
 				// View Employee Data
@@ -1690,9 +1530,9 @@ LoginForm:
 					system("cls");
 					system("color 0F");
 					char a = 219;
-					gotoxy(30, 10);
+					Coordinate.gotoxy(30, 10);
 					std::cout << "[Loading]" << std::endl;
-					gotoxy(25, 12);
+					Coordinate.gotoxy(25, 12);
 					for (int r = 1; r <= 20; r++)
 					{
 						for (int q = 0; q <= 10000000; q++);
@@ -1700,27 +1540,16 @@ LoginForm:
 					}
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
-
-
 					TitleText.titleText("                        View Employee Data                      ");
-
-
-
-
 
 					ViewEmployeeData.viewEmployeeData();
 
-
-
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << std::endl;
 					std::cout << "\n   All Employees Data Displayed!";
 					std::cout << "\n   ";
 					system("pause");
 					goto EmployeeData;
-
 				}
 
 				// Search Employee Data
@@ -1731,9 +1560,9 @@ LoginForm:
 					system("cls");
 					system("color 0F");
 					char a = 219;
-					gotoxy(30, 10);
+					Coordinate.gotoxy(30, 10);
 					std::cout << "[Loading]" << std::endl;
-					gotoxy(25, 12);
+					Coordinate.gotoxy(25, 12);
 					for (int r = 1; r <= 20; r++)
 					{
 						for (int q = 0; q <= 10000000; q++);
@@ -1741,53 +1570,45 @@ LoginForm:
 					}
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
 					TitleText.titleText("                      Search Employee Data                      ");
-
-
-
-
-
-
 
 					int ch;
 
 					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << "    [";
-					SetConsoleTextAttribute(h, 15);
+					FontTextColor.fontTextColor(15);
 					std::cout << "1";
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << "] ";
-					SetConsoleTextAttribute(h, 1);
+					FontTextColor.fontTextColor(1);
 					std::cout << "Search your Password by Username";
 					std::cout << std::endl;
 
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << "    [";
-					SetConsoleTextAttribute(h, 15);
+					FontTextColor.fontTextColor(15);
 					std::cout << "2";
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << "] ";
-					SetConsoleTextAttribute(h, 1);
+					FontTextColor.fontTextColor(1);
 					std::cout << "Search your Username by Password";
 					std::cout << std::endl;
 
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << "    [";
-					SetConsoleTextAttribute(h, 4);
+					FontTextColor.fontTextColor(4);
 					std::cout << "3";
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << "] ";
-					SetConsoleTextAttribute(h, 4);
+					FontTextColor.fontTextColor(4);
 					std::cout << "Back";
 					std::cout << std::endl;
 					std::cout << std::endl;
 
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "    Enter your choice: ";
-					SetConsoleTextAttribute(h, 11);
+					FontTextColor.fontTextColor(11);
 
 					std::cin >> ch;
 
@@ -1795,7 +1616,6 @@ LoginForm:
 					{
 					case 1:
 					{
-
 						int login = 0;
 						std::string searchuser, su, sp;
 						std::cout << std::endl;
@@ -1934,9 +1754,9 @@ LoginForm:
 					system("cls");
 					system("color 0F");
 					char a = 219;
-					gotoxy(30, 10);
+					Coordinate.gotoxy(30, 10);
 					std::cout << "[Loading]" << std::endl;
-					gotoxy(25, 12);
+					Coordinate.gotoxy(25, 12);
 					for (int r = 1; r <= 20; r++)
 					{
 						for (int q = 0; q <= 10000000; q++);
@@ -1944,35 +1764,16 @@ LoginForm:
 					}
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
-
-
 					TitleText.titleText("                        Edit Employee Data                      ");
-
-
-
-
-
-
-
 
 					ViewEmployeeData.viewEmployeeData();
 
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "   Type the number of line to edit";
-
-
-
-
-
-
-
-
 
 					// deletion per line
 
@@ -1987,12 +1788,7 @@ LoginForm:
 					std::cout << std::endl;
 					std::cout << "   Line: ";
 
-					SetConsoleTextAttribute(h, 11);
-
-
-
-
-
+					FontTextColor.fontTextColor(11);
 
 					std::string userHider;
 					char c_user;
@@ -2007,7 +1803,6 @@ LoginForm:
 							std::cout << std::endl;
 							break;
 						case 27:
-							system("cls");
 							std::cin.clear();
 							std::cin.ignore(22, '\n');
 							goto EmployeeData;
@@ -2024,29 +1819,7 @@ LoginForm:
 						}
 					} while (c_user != 13);
 
-
-					/*
-
-
-					for (i = 1; i >= 3; i++) {
-
-						if (userHider == i) {
-
-						}
-					}
-
-
-					*/
-
-
-
-
 					line_number = std::stoi(userHider);
-
-
-
-
-
 
 					// std::cin >> line_number;
 
@@ -2139,30 +1912,25 @@ LoginForm:
 
 
 					std::string adduser, addpass, ru, rp;
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "\n   Enter the Username: ";
-					SetConsoleTextAttribute(h, 11);
+					FontTextColor.fontTextColor(11);
 					std::cin >> adduser;
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "   Enter the Password: ";
-					SetConsoleTextAttribute(h, 11);
+					FontTextColor.fontTextColor(11);
 					std::cin >> addpass;
 
 					std::ofstream reg("Text Files/Employee.txt", std::ios::app);
 					reg << adduser << '\t' << addpass << std::endl;
 					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 1);
+					FontTextColor.fontTextColor(1);
 					std::cout << "   Line " << line_number + 1 << " has been edited!";
 					std::cout << std::endl;
 					std::cout << "   ";
 					system("pause");
 
-
-
 					goto EmployeeData;
-
-
-
 				}
 
 				// Delete Employee Data
@@ -2173,9 +1941,9 @@ LoginForm:
 					system("cls");
 					system("color 0F");
 					char a = 219;
-					gotoxy(30, 10);
+					Coordinate.gotoxy(30, 10);
 					std::cout << "[Loading]" << std::endl;
-					gotoxy(25, 12);
+					Coordinate.gotoxy(25, 12);
 					for (int r = 1; r <= 20; r++)
 					{
 						for (int q = 0; q <= 10000000; q++);
@@ -2183,38 +1951,17 @@ LoginForm:
 					}
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
-
-
-
 					TitleText.titleText("                       Delete Employee Data                     ");
-
-
-
-
-
-
-
-
-
-
-
-
 
 					ViewEmployeeData.viewEmployeeData();
 
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "   Type the number of line to delete";
 					std::cout << std::endl;
-
-
-
-
 
 					// deletion per line
 
@@ -2227,9 +1974,7 @@ LoginForm:
 					// into line_number
 
 					std::cout << "   Line: ";
-					SetConsoleTextAttribute(h, 11);
-
-
+					FontTextColor.fontTextColor(11);
 
 					std::string userHider;
 					char c_user;
@@ -2263,113 +2008,6 @@ LoginForm:
 
 
 					line_number = std::stoi(userHider);
-
-
-					/*
-
-					std::cin >> line_number;
-
-					// fstream object will be used to read all of the existing lines in the file
-					std::fstream read_file;
-
-					// Open the file with the provided filename
-					read_file.open("Text Files/Cars_Color.txt");
-
-					// If file failed to open, exit with an error message and error exit status
-					if (read_file.fail())
-					{
-						system("color 4f");
-						std::cout << std::endl;
-						std::cout << "   Error opening file." << std::endl;
-
-						Sleep(3000);
-						goto DeleteCarsColor;
-						// returning 1 instead of 0 is a signal to the shell that something went
-						// wrong in the execution of the program
-					}
-
-					// Create a vector to store all the file lines, and a string line to store
-					// each line that we read
-					std::vector<std::string> lines;
-					std::string line;
-
-					// Read each line of the file and store it as the next element of the vector,
-					// the loop will stop when there are no more lines to read
-					while (getline(read_file, line))
-						lines.push_back(line);
-
-					// Close our access to the file since we are done reading with it
-					read_file.close();
-
-					// The vector will now contain an element for each line in the file, so the
-					 // size of the vector is the number of lines in the file.  Check to make
-					 // sure the line number requested does not exceed the number of lines in
-					 // the file, if it does, exit with an error message and status.
-					if (line_number > lines.size())
-					{
-						std::cout << std::endl;
-						std::cout << "   Line " << line_number;
-						std::cout << " not in file." << std::endl;
-
-						// Inform user how many lines ARE in the file as part of the error message
-						std::cout << "   File has " << lines.size();
-						std::cout << " lines." << std::endl;
-
-						Sleep(3000);
-						goto DeleteCarsColor;
-					}
-
-					// Create ofstream object for writing to the file
-					std::ofstream write_file;
-
-					// Open the file with the provided filename
-					write_file.open("Text Files/Cars_Color.txt");
-
-					// If the file failed to open, exit with an error message and exit status
-					if (write_file.fail())
-					{
-						system("color 4f");
-
-						std::cout << std::endl;
-						std::cout << "   Error opening file." << std::endl;
-
-
-						Sleep(3000);
-						goto DeleteCarsColor;
-					}
-
-					// Write all of the lines stored in the vector back to the file, EXCEPT the
-					// line that we want to delete.
-
-					// Line number 1 will be stored at vector index 0, line number 2 will be
-					// stored at vector index 1, and so on because vectors are zero-indexed, so
-					// decrement line_number to help us identify when we've reached the
-					// associated line in the file.
-					line_number--;
-
-					// Loop through the vector elements to write each line back to the file
-					// EXCEPT the line we want to delete.
-					for (int i = 0; i < lines.size(); i++)
-						if (i != line_number)
-							write_file << lines[i] << std::endl;
-
-					// Close our access to the file since we are done working with it
-					write_file.close();
-
-					std::cout << std::endl;
-					std::cout << "   Line " << line_number + 1 << " has been deleted";
-					std::cout << std::endl;
-					std::cout << "   ";
-
-					system("pause");
-					goto CarData;
-
-
-
-
-
-					*/
-
 
 					// std::cin >> line_number;
 
@@ -2466,18 +2104,15 @@ LoginForm:
 					Sleep(3000);
 					goto EmployeeData;
 
-
-
 				}
 
 				// Back
 				else if (employeeData == 6) {
 					system("cls");
 					goto AdminMenu;
-
 				}
-				else {
 
+				else {
 					system("cls");
 					system("color 4f");
 					std::cout << "\n   Wrong input entered!" << std::endl;
@@ -2486,9 +2121,7 @@ LoginForm:
 					Sleep(2000);
 
 					goto EmployeeData;
-
 				}
-
 			}
 
 			// Cars Data
@@ -2499,9 +2132,9 @@ LoginForm:
 				system("cls");
 				system("color 0F");
 				char a = 219;
-				gotoxy(30, 10);
+				Coordinate.gotoxy(30, 10);
 				std::cout << "[Loading]" << std::endl;
-				gotoxy(25, 12);
+				Coordinate.gotoxy(25, 12);
 				for (int r = 1; r <= 20; r++)
 				{
 					for (int q = 0; q <= 10000000; q++);
@@ -2509,16 +2142,7 @@ LoginForm:
 				}
 				std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
-
-
-
-
-
-
 				TitleText.titleText("                            Cars Data                           ");
-
 
 				int CarChoice;
 
@@ -2535,25 +2159,22 @@ LoginForm:
 				ChoiceRed.choiceRed("9", "Back\n");
 
 
-				SetConsoleTextAttribute(h, 9);
+				FontTextColor.fontTextColor(9);
 				std::cout << "   Please enter your input: ";
 
-				SetConsoleTextAttribute(h, 11);
+				FontTextColor.fontTextColor(11);
 				std::cin >> CarChoice;
-
-
 
 				// View Cars Name & Price
 				if (CarChoice == 1) {
-
 
 					// Loading screen
 					system("cls");
 					system("color 0F");
 					char a = 219;
-					gotoxy(30, 10);
+					Coordinate.gotoxy(30, 10);
 					std::cout << "[Loading]" << std::endl;
-					gotoxy(25, 12);
+					Coordinate.gotoxy(25, 12);
 					for (int r = 1; r <= 20; r++)
 					{
 						for (int q = 0; q <= 10000000; q++);
@@ -2561,47 +2182,27 @@ LoginForm:
 					}
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
-
-
 					TitleText.titleText("                      View Cars Name & Price                    ");
-
 
 					ViewCarData.viewCarNamePrice();
 
-
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << std::endl;
 					std::cout << "   ";
 					system("pause");
 					goto CarData;
-
-					/*
-
-					NamiasClass NamiasObject;
-					NamiasObject.display_menu("\n  Toyota", toyota_car_names, toyota_car_prices, sizeof(toyota_car_names) / sizeof(toyota_car_names[0]));
-
-					std::cout << std::endl;
-					std::cout << "   ";
-					system("pause");
-					goto CarData;
-					*/
-
-
 				}
 
 				// Add Cars Name & Price
 				else if (CarChoice == 2) {
 
-
 					// Loading screen
 					system("cls");
 					system("color 0F");
 					char a = 219;
-					gotoxy(30, 10);
+					Coordinate.gotoxy(30, 10);
 					std::cout << "[Loading]" << std::endl;
-					gotoxy(25, 12);
+					Coordinate.gotoxy(25, 12);
 					for (int r = 1; r <= 20; r++)
 					{
 						for (int q = 0; q <= 10000000; q++);
@@ -2609,36 +2210,16 @@ LoginForm:
 					}
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
 					TitleText.titleText("                      Add Cars Name & Price                     ");
 
-
-
-
-
-
-
-
-
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << "   Press ESC button to go back";
 					std::cout << std::endl;
 
-
-
 					std::string addname, addprice;
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "\n   Enter the Car Name: ";
-					SetConsoleTextAttribute(h, 11);
-
-
-
-
-
-
-
-
+					FontTextColor.fontTextColor(11);
 
 					std::string userHider_addname;
 					char c_user_addname;
@@ -2669,30 +2250,12 @@ LoginForm:
 							break;
 						}
 					} while (c_user_addname != 13);
-
-
-
 					addname = userHider_addname;
 
-
-
-
-
-
 					// std::cin >> addname;
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "   Enter the Car Price: ";
-					SetConsoleTextAttribute(h, 11);
-
-
-
-
-
-
-
-
-
-
+					FontTextColor.fontTextColor(11);
 
 					std::string userHider_addprice;
 					char c_user_addprice;
@@ -2723,95 +2286,40 @@ LoginForm:
 							break;
 						}
 					} while (c_user_addprice != 13);
-
-
-
 					addprice = userHider_addprice;
 
-
-
-
-
-
-
-
 					// std::cin >> addprice;
-					SetConsoleTextAttribute(h, 1);
+					FontTextColor.fontTextColor(1);
 
-
-					/*
 					std::ofstream Cars_Name("Text Files/Cars_Name.txt", std::ios::app);
 					Cars_Name << std::endl << addname;
+					Cars_Name.close();
 
 					std::ofstream Cars_Price("Text Files/Cars_Price.txt", std::ios::app);
 					Cars_Price << std::endl << addprice;
-					*/
-					
+					Cars_Price.close();
 
-					std::cout << addname << std::endl;
-					std::cout << addprice << std::endl;
 					std::cout << "\n   Car Name & Price Added!" << std::endl;
-
-
-
 
 					std::cout << std::endl;
 					std::cout << "   ";
 					system("pause");
 					goto CarData;
-
-
 				}
 
 				// Edit Cars Name & Price
 				else if (CarChoice == 3) {
 
-
-
-
 					TitleText.titleText("                      Edit Car Name & Price                     ");
-
-
-
-
 
 					ViewCarData.viewCarNamePrice();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << std::endl;
 					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "   Type the number of line to edit";
-
-
-
-
 
 					// deletion per line
 
@@ -2825,9 +2333,7 @@ LoginForm:
 
 					std::cout << std::endl;
 					std::cout << "   Line: ";
-					SetConsoleTextAttribute(h, 11);
-
-
+					FontTextColor.fontTextColor(11);
 
 					std::string userHider;
 					char c_user;
@@ -2861,8 +2367,6 @@ LoginForm:
 
 
 					line_number = std::stoi(userHider);
-
-
 
 					// std::cin >> line_number;
 
@@ -2953,22 +2457,8 @@ LoginForm:
 					// Close our access to the file since we are done working with it
 					write_file.close();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 					// Deleting car prices
 					line_number++;
-
 
 					// std::cin >> line_number;
 
@@ -3059,26 +2549,10 @@ LoginForm:
 					// Close our access to the file since we are done working with it
 					write_file_Cars_Price.close();
 
-
-
-
-
-
-
-
-
 					std::string addname, addprice;
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "\n   Enter the Car Name: ";
-					SetConsoleTextAttribute(h, 11);
-
-
-
-
-
-
-
-
+					FontTextColor.fontTextColor(11);
 
 					std::string userHider_addname;
 					char c_user_addname;
@@ -3109,22 +2583,12 @@ LoginForm:
 							break;
 						}
 					} while (c_user_addname != 13);
-
-
-
 					addname = userHider_addname;
 
-
-
-
-
-
 					// std::cin >> addname;
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "   Enter the Car Price: ";
-					SetConsoleTextAttribute(h, 11);
-
-
+					FontTextColor.fontTextColor(11);
 
 					std::string userHider_addprice;
 					char c_user_addprice;
@@ -3155,55 +2619,32 @@ LoginForm:
 							break;
 						}
 					} while (c_user_addprice != 15);
-
-
 					addprice = userHider_addprice;
 
-
-
-
 					// std::cin >> addprice;
-					SetConsoleTextAttribute(h, 1);
+					FontTextColor.fontTextColor(1);
 
 					std::ofstream Cars_Name("Text Files/Cars_Name.txt", std::ios::app);
 					Cars_Name << addname << std::endl ;
 					Cars_Name.close();
 
-				
-					/*
-					std::ofstream Cars_Price("Text Files/Cars_Price.txt", std::ios::app);
-					Cars_Price << addprice << std::endl ;
-					std::cout << "\n   Car Name & Price Added!" << std::endl;
-					Cars_Price.close();
-					*/
-
-
-
-
-
-
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << std::endl;
 					std::cout << "   ";
 					system("pause");
 					goto CarData;
-
-
-
 				}
 
 				// Delete Cars Name & Price
 				else if (CarChoice == 4) {
 				DeleteCarsNamePrice:
-
-
 					// Loading screen
 					system("cls");
 					system("color 0F");
 					char a = 219;
-					gotoxy(30, 10);
+					Coordinate.gotoxy(30, 10);
 					std::cout << "[Loading]" << std::endl;
-					gotoxy(25, 12);
+					Coordinate.gotoxy(25, 12);
 					for (int r = 1; r <= 20; r++)
 					{
 						for (int q = 0; q <= 10000000; q++);
@@ -3211,35 +2652,16 @@ LoginForm:
 					}
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
-
-
-
-
-
-
 					TitleText.titleText("                     Delete Car Name & Price                    ");
-
-
 
 					ViewCarData.viewCarNamePrice();
 
-
-
-
-
-
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "   Type the number of line to delete";
-
-
-
-
 
 					// deletion per line
 
@@ -3247,52 +2669,22 @@ LoginForm:
 					// delete in the file  
 					int line_number;
 
-
 					// Prompt the user to enter the line number to delete in the file, store it 
 					// into line_number
 
 					std::cout << std::endl;
 					std::cout << "   Line: ";
-					SetConsoleTextAttribute(h, 11);
+					FontTextColor.fontTextColor(11);
 
+					// ESC button back
+					int esc;
+					esc = _getch();
+					if (esc == 27) {
+						system("cls");
+						goto CarData;
+					}
 
-
-					std::string userHider;
-					char c_user;
-
-					do {
-						c_user = _getch();
-						switch (c_user) {
-						case 0:
-							_getch();
-							break;
-						case 13:
-							std::cout << std::endl;
-							break;
-						case 27:
-							system("cls");
-							std::cin.clear();
-							std::cin.ignore(22, '\n');
-							goto CarData;
-						case 8:
-							if (userHider.length() > 0) {
-								userHider.erase(userHider.end() - 1);
-								std::cout << c_user << ' ' << c_user;
-							}
-							break;
-						default:
-							userHider += c_user;
-							std::cout << c_user;
-							break;
-						}
-					} while (c_user != 13);
-
-
-					line_number = std::stoi(userHider);
-
-
-
-					// std::cin >> line_number;
+					std::cin >> line_number;
 
 					// fstream object will be used to read all of the existing lines in the file
 					std::fstream read_file;
@@ -3380,19 +2772,6 @@ LoginForm:
 
 					// Close our access to the file since we are done working with it
 					write_file.close();
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 					// Deleting car prices
 					line_number++;
@@ -3490,39 +2869,23 @@ LoginForm:
 					std::cout << std::endl;
 					std::cout << "   Line " << line_number + 1 << " has been deleted";
 
-
-
-
-
-
-
-
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << std::endl;
 					std::cout << "   ";
 					system("pause");
 					goto CarData;
-
-
-
-
-
-
-
 				}
 
 				// View Cars Color
 				else if (CarChoice == 5)
 				{
-
-
 					// Loading screen
 					system("cls");
 					system("color 0F");
 					char a = 219;
-					gotoxy(30, 10);
+					Coordinate.gotoxy(30, 10);
 					std::cout << "[Loading]" << std::endl;
-					gotoxy(25, 12);
+					Coordinate.gotoxy(25, 12);
 					for (int r = 1; r <= 20; r++)
 					{
 						for (int q = 0; q <= 10000000; q++);
@@ -3530,42 +2893,26 @@ LoginForm:
 					}
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
-
-
-
 					TitleText.titleText("                         View Cars Color                        ");
-
-
-
-
 
 					ViewCarData.viewCarColor();
 
-
-
-
-
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << std::endl;
 					std::cout << "   ";
 					system("pause");
 					goto CarData;
-
-
 				}
 
 				// Add Cars Color
 				else if (CarChoice == 6) {
-
 					// Loading screen
 					system("cls");
 					system("color 0F");
 					char a = 219;
-					gotoxy(30, 10);
+					Coordinate.gotoxy(30, 10);
 					std::cout << "[Loading]" << std::endl;
-					gotoxy(25, 12);
+					Coordinate.gotoxy(25, 12);
 					for (int r = 1; r <= 20; r++)
 					{
 						for (int q = 0; q <= 10000000; q++);
@@ -3573,82 +2920,16 @@ LoginForm:
 					}
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
-
-
-
-
-
 					TitleText.titleText("                          Add Car Colors                        ");
 
-
-
-
-
-
-
-
-
-
-
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << "   Press ESC button to go back" << std::endl;
 
 					std::string addcolor;
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "\n   Enter the Color: ";
-					SetConsoleTextAttribute(h, 11);
+					FontTextColor.fontTextColor(11);
 
-					
-					/*
-					
-
-					std::string userHider;
-					char c_user;
-
-					do {
-						c_user = _getch();
-						switch (c_user) {
-						case 0:
-							_getch();
-							break;
-						case 13:
-							std::cout << std::endl;
-							break;
-						case 27:
-							system("cls");
-							goto EmployeeData;
-						case 8:
-							if (userHider.length() > 0) {
-								userHider.erase(userHider.end() - 1);
-								std::cout << c_user << ' ' << c_user;
-							}
-							break;
-						default:
-							userHider += c_user;
-							std::cout << c_user;
-							break;
-						}
-					} while (c_user != 13);
-
-
-					addcolor = userHider;
-
-
-
-					std::ofstream addColor("Text Files/Cars_Color.txt", std::ios::app);
-					addColor << std::endl << addcolor;
-					std::cout << "\n   Car Color Added!" << std::endl;
-					std::cout << "\n   ";
-					system("pause");
-					goto CarData;
-
-
-					*/
-
-
-					
 					std::string hideColor;
 					char c_Color;
 
@@ -3678,14 +2959,10 @@ LoginForm:
 							break;
 						}
 					} while (c_Color != 13);
-
-
 					addcolor = hideColor;
 
-					
-
 					// std::cin >> addcolor;
-					SetConsoleTextAttribute(h, 1);
+					FontTextColor.fontTextColor(1);
 
 					std::ofstream Cars_Color("Text Files/Cars_Color.txt", std::ios::app);
 					Cars_Color << addcolor << std::endl;
@@ -3695,20 +2972,17 @@ LoginForm:
 					std::cout << "   ";
 					system("pause");
 					goto CarData;
-
-
 				}
 
 				// Edit Cars Color
 				else if (CarChoice == 7) {
-
 					// Loading screen
 					system("cls");
 					system("color 0F");
 					char a = 219;
-					gotoxy(30, 10);
+					Coordinate.gotoxy(30, 10);
 					std::cout << "[Loading]" << std::endl;
-					gotoxy(25, 12);
+					Coordinate.gotoxy(25, 12);
 					for (int r = 1; r <= 20; r++)
 					{
 						for (int q = 0; q <= 10000000; q++);
@@ -3716,26 +2990,16 @@ LoginForm:
 					}
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
-
-
-
 					TitleText.titleText("                          Edit Car Color                        ");
-
 
 					ViewCarData.viewCarColor();
 
-
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "   Type the number of line to edit";
-
-
-
 
 					// deletion per line
 
@@ -3749,10 +3013,7 @@ LoginForm:
 
 					std::cout << std::endl;
 					std::cout << "   Line: ";
-					SetConsoleTextAttribute(h, 11);
-
-
-
+					FontTextColor.fontTextColor(11);
 
 					// ESC button back
 					int esc;
@@ -3853,19 +3114,14 @@ LoginForm:
 					// Close our access to the file since we are done working with it
 					write_file.close();
 
-					std::cout << std::endl;
-					std::cout << "   Line " << line_number + 1 << " has been deleted";
-					std::cout << std::endl;
-					std::cout << "   ";
-
 					// Add color to text file
 
 					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "   Enter the Color: ";
-					SetConsoleTextAttribute(h, 11);
+					FontTextColor.fontTextColor(11);
 					std::cin >> strColor;
-					SetConsoleTextAttribute(h, 1);
+					FontTextColor.fontTextColor(1);
 
 					std::ofstream addcolor("Text Files/Cars_Color.txt", std::ios::app);
 					addcolor << std::endl << strColor;
@@ -3883,14 +3139,13 @@ LoginForm:
 				// Delete Cars Color
 				else if (CarChoice == 8) {
 				DeleteCarsColor:
-
 					// Loading screen
 					system("cls");
 					system("color 0F");
 					char a = 219;
-					gotoxy(30, 10);
+					Coordinate.gotoxy(30, 10);
 					std::cout << "[Loading]" << std::endl;
-					gotoxy(25, 12);
+					Coordinate.gotoxy(25, 12);
 					for (int r = 1; r <= 20; r++)
 					{
 						for (int q = 0; q <= 10000000; q++);
@@ -3898,28 +3153,16 @@ LoginForm:
 					}
 					std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
-
-
-
-
-
 					TitleText.titleText("                         Delete Car Color                       ");
-
 
 					ViewCarData.viewCarColor();
 
-
-					SetConsoleTextAttribute(h, 10);
+					FontTextColor.fontTextColor(10);
 					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					std::cout << std::endl;
-					SetConsoleTextAttribute(h, 9);
+					FontTextColor.fontTextColor(9);
 					std::cout << "   Type the number of line to delete";
-
-
-
-
 
 					// deletion per line
 
@@ -3933,7 +3176,7 @@ LoginForm:
 
 					std::cout << std::endl;
 					std::cout << "   Line: ";
-					SetConsoleTextAttribute(h, 11);
+					FontTextColor.fontTextColor(11);
 
 
 
@@ -4044,8 +3287,6 @@ LoginForm:
 
 					system("pause");
 					goto CarData;
-
-
 				}
 
 				// Back
@@ -4064,10 +3305,7 @@ LoginForm:
 					std::cout << "   ";
 					system("pause");
 					goto CarData;
-
 				}
-
-
 			}
 
 			// Order Logs
@@ -4076,9 +3314,9 @@ LoginForm:
 				system("cls");
 				system("color 0F");
 				char a = 219;
-				gotoxy(30, 10);
+				Coordinate.gotoxy(30, 10);
 				std::cout << "[Loading]" << std::endl;
-				gotoxy(25, 12);
+				Coordinate.gotoxy(25, 12);
 				for (int r = 1; r <= 20; r++)
 				{
 					for (int q = 0; q <= 10000000; q++);
@@ -4090,14 +3328,13 @@ LoginForm:
 
 				OrderLogs.orderLogs();
 
-				SetConsoleTextAttribute(h, 9);
+				FontTextColor.fontTextColor(9);
 				std::cout << std::endl;
 				std::cout << "\n   All Order Logs Data!";
 				std::cout << std::endl;
 				std::cout << "   ";
 				system("pause");
 				goto AdminMenu;
-
 			}
 
 			// Order Cars
@@ -4106,9 +3343,9 @@ LoginForm:
 				system("cls");
 				system("color 0F");
 				char a = 219;
-				gotoxy(30, 10);
+				Coordinate.gotoxy(30, 10);
 				std::cout << "[Loading]" << std::endl;
-				gotoxy(25, 12);
+				Coordinate.gotoxy(25, 12);
 				for (int r = 1; r <= 20; r++)
 				{
 					for (int q = 0; q <= 10000000; q++);
@@ -4119,19 +3356,17 @@ LoginForm:
 				AccessLevel = 1;
 
 				goto OrderCars;
-
 			}
 
 			// About Us
 			else if (adminchoice == 5) {
-
 				// Loading screen
 				system("cls");
 				system("color 09");
 				char a = 219;
-				gotoxy(30, 10);
+				Coordinate.gotoxy(30, 10);
 				std::cout << "[Loading]" << std::endl;
-				gotoxy(25, 12);
+				Coordinate.gotoxy(25, 12);
 				for (int r = 1; r <= 20; r++)
 				{
 					for (int q = 0; q <= 10000000; q++);
@@ -4146,7 +3381,7 @@ LoginForm:
 				goto AdminMenu;
 			}
 
-			// Back
+			// Logout
 			else if (adminchoice == 6) {
 				system("color a");
 				system("cls");
@@ -4191,9 +3426,9 @@ LoginForm:
 		system("cls");
 		system("color 09");
 		char a = 219;
-		gotoxy(30, 10);
+		Coordinate.gotoxy(30, 10);
 		std::cout << "[Loading]" << std::endl;
-		gotoxy(25, 12);
+		Coordinate.gotoxy(25, 12);
 		for (int r = 1; r <= 20; r++)
 		{
 			for (int q = 0; q <= 10000000; q++);
@@ -4209,15 +3444,15 @@ LoginForm:
 
 		TitleText.titleText("                          Employee Login                        ");
 
-		SetConsoleTextAttribute(h, 10);
+		FontTextColor.fontTextColor(10);
 		std::cout << "\n   Press ESC button to go back" << std::endl;
 
-		SetConsoleTextAttribute(h, 1);
+		FontTextColor.fontTextColor(1);
 		std::cout << "\n   Please enter the following details" << std::endl;
 
-		SetConsoleTextAttribute(h, 9);
+		FontTextColor.fontTextColor(9);
 		std::cout << "\n   Username: ";
-		SetConsoleTextAttribute(h, 11);
+		FontTextColor.fontTextColor(11);
 
 		std::string userHider;
 		char c_user;
@@ -4248,14 +3483,11 @@ LoginForm:
 				break;
 			}
 		} while (c_user != 13);
-
-
 		user = userHider;
 
-
-		SetConsoleTextAttribute(h, 9);
+		FontTextColor.fontTextColor(9);
 		std::cout << "   Password: ";
-		SetConsoleTextAttribute(h, 11);
+		FontTextColor.fontTextColor(11);
 
 		int i = 0;
 
@@ -4288,10 +3520,7 @@ LoginForm:
 				break;
 			}
 		} while (c != 13);
-
-
 		pass = passHider;
-
 
 		// Loading XD
 		std::cout << "\n\n   Verifying you login details please wait";
@@ -4300,19 +3529,16 @@ LoginForm:
 			std::cout << ".";
 			Sleep(500);
 		}
-
 		std::ifstream input("Text Files/Employee.txt");
 
 		while (input >> u >> p)
 		{
-
 			if (u == user && p == pass)
 			{
 				Employeelogin = 1;
 				std::cout << "\n\n   Employee login successful!";
 				Sleep(2000);
 				system("cls");
-
 			}
 
 			else if (u != user)
@@ -4339,15 +3565,12 @@ LoginForm:
 				Sleep(2000);
 				goto Employeelogin;
 			}
-
 		}
-
 		input.close();
 
 		if (Employeelogin == 1)
 		{
 		EmployeeMenu:
-
 			UserTitleText.userTitleText("                         Employee Menu                        ", user, "                             [", "]                             ");
 
 			ChoiceBlue.choiceBlue("1", "Order Logs");
@@ -4355,11 +3578,11 @@ LoginForm:
 
 			ChoiceGreen.choiceGreen("3", "About Us\n");
 
-			ChoiceRed.choiceRed("4", "Back\n");
+			ChoiceRed.choiceRed("4", "Logout\n");
 
-			SetConsoleTextAttribute(h, 9);
+			FontTextColor.fontTextColor(9);
 			std::cout << "   Please insert your choice: ";
-			SetConsoleTextAttribute(h, 11);
+			FontTextColor.fontTextColor(11);
 			std::cin >> employeechoice;
 			std::cout << std::endl;
 			std::cin.ignore();
@@ -4370,9 +3593,9 @@ LoginForm:
 				system("cls");
 				system("color 09");
 				char a = 219;
-				gotoxy(30, 10);
+				Coordinate.gotoxy(30, 10);
 				std::cout << "[Loading]" << std::endl;
-				gotoxy(25, 12);
+				Coordinate.gotoxy(25, 12);
 				for (int r = 1; r <= 20; r++)
 				{
 					for (int q = 0; q <= 10000000; q++);
@@ -4384,7 +3607,7 @@ LoginForm:
 
 				OrderLogs.orderLogs();
 
-				SetConsoleTextAttribute(h, 9);
+				FontTextColor.fontTextColor(9);
 				std::cout << std::endl;
 				std::cout << "\n   All Order Logs Data!";
 				std::cout << std::endl;
@@ -4401,9 +3624,9 @@ LoginForm:
 				system("cls");
 				system("color 09");
 				char a = 219;
-				gotoxy(30, 10);
+				Coordinate.gotoxy(30, 10);
 				std::cout << "[Loading]" << std::endl;
-				gotoxy(25, 12);
+				Coordinate.gotoxy(25, 12);
 				for (int r = 1; r <= 20; r++)
 				{
 					for (int q = 0; q <= 10000000; q++);
@@ -4422,9 +3645,9 @@ LoginForm:
 				system("cls");
 				system("color 09");
 				char a = 219;
-				gotoxy(30, 10);
+				Coordinate.gotoxy(30, 10);
 				std::cout << "[Loading]" << std::endl;
-				gotoxy(25, 12);
+				Coordinate.gotoxy(25, 12);
 				for (int r = 1; r <= 20; r++)
 				{
 					for (int q = 0; q <= 10000000; q++);
@@ -4439,7 +3662,7 @@ LoginForm:
 				goto EmployeeMenu;
 			}
 
-			// Back
+			// Logout
 			else if (employeechoice == 4) {
 				system("cls");
 				system("color a");
@@ -4475,14 +3698,13 @@ LoginForm:
 
 	// Guest
 	else if (choice == 3) {
-
 		// Loading screen
 		system("cls");
 		system("color 0A");
 		char a = 219;
-		gotoxy(30, 10);
+		Coordinate.gotoxy(30, 10);
 		std::cout << "[Loading]" << std::endl;
-		gotoxy(25, 12);
+		Coordinate.gotoxy(25, 12);
 		for (int r = 1; r <= 20; r++)
 		{
 			for (int q = 0; q <= 10000000; q++);
@@ -4492,21 +3714,18 @@ LoginForm:
 
 		AccessLevel = 3;
 
-
 		goto OrderCars;
-
 	}
 
 	// About Us
 	else if (choice == 4) {
-
 		// Loading screen
 		system("cls");
 		system("color 09");
 		char a = 219;
-		gotoxy(30, 10);
+		Coordinate.gotoxy(30, 10);
 		std::cout << "[Loading]" << std::endl;
-		gotoxy(25, 12);
+		Coordinate.gotoxy(25, 12);
 		for (int r = 1; r <= 20; r++)
 		{
 			for (int q = 0; q <= 10000000; q++);
@@ -4514,30 +3733,23 @@ LoginForm:
 		}
 		std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
 		AboutUs.AboutUs();
 		std::cout << "   ";
 		system("pause");
 
 		goto LoginForm;
-
-
-
-
-
-
 	}
 
 	// Exit
 	else if (choice == 5) {
 		system("cls");
 		system("color 01");
-		SetConsoleTextAttribute(h, 9);
+		FontTextColor.fontTextColor(9);
 		std::cout << "\n   Thanks for using this program\n";
 		std::cout << "\n   This program is created by ";
-		SetConsoleTextAttribute(h, 11);
+		FontTextColor.fontTextColor(11);
 		std::cout << "@PP-Namias\n" << std::endl;
-		SetConsoleTextAttribute(h, 10);
+		FontTextColor.fontTextColor(10);
 		
 		std::cout << "   ";
 		system("pause");
@@ -4553,22 +3765,71 @@ LoginForm:
 		std::cin.ignore(22, '\n');
 		Sleep(2000);
 
-
 		goto LoginForm;
 	}
 
-
-
-
-
-
-
-
-
-
-
-
 OrderCars:
+	// Text file to array dynamically XD [Color]
+	std::string toyota_car_color[15];
+	int number_of_color = 0;
+
+	std::ifstream Cars_Color("Text Files/Cars_Color.txt");
+	if (Cars_Color.is_open())
+	{
+		std::string line;
+		std::ifstream myCars_Color("Text Files/Cars_Color.txt");
+
+		while (std::getline(myCars_Color, line))
+			++number_of_color;
+
+		for (int i = 0; i < number_of_color; ++i)
+		{
+			Cars_Color >> toyota_car_color[i];
+		}
+	}
+	toyota_car_color[number_of_color];
+
+	
+	// Text file to array dynamically XD [Name]
+	std::string toyota_car_names[17];
+	int number_of_name = 0;
+
+	std::ifstream Cars_Name("Text Files/Cars_Name.txt");
+	if (Cars_Name.is_open())
+	{
+		std::string line;
+		std::ifstream myCars_Name("Text Files/Cars_Name.txt");
+
+		while (std::getline(myCars_Name, line))
+			++number_of_name;
+
+		for (int i = 0; i < number_of_name; ++i)
+		{
+			Cars_Name >> toyota_car_names[i];
+		}
+	}
+	toyota_car_names[number_of_name];
+
+
+	// Text file to array dynamically XD [Price]
+	int toyota_car_prices[17];
+	int number_of_price = 0;
+
+	std::ifstream Cars_Price("Text Files/Cars_Price.txt");
+	if (Cars_Price.is_open())
+	{
+		std::string line;
+		std::ifstream myCars_Price("Text Files/Cars_Price.txt");
+
+		while (std::getline(myCars_Price, line))
+			++number_of_price;
+
+		for (int i = 0; i < number_of_price; ++i)
+		{
+			Cars_Price >> toyota_car_prices[i];
+		}
+	}
+	toyota_car_prices[number_of_price];
 
 	system("color 0A");
 
@@ -4585,22 +3846,19 @@ OrderCars:
 		UserTitleText.userTitleText("                     \"Unknown Order Cars\"                     ", "Unknown", "                            [", "]                           ");
 	}
 
-	SetConsoleTextAttribute(h, 10);
+	FontTextColor.fontTextColor(10);
 	std::cout << "\n  Press \'0\' to go back" << std::endl;
 
-	SetConsoleTextAttribute(h, 9);
+	FontTextColor.fontTextColor(9);
 	// Callout car names/prices [formated]
 	Display_Menu.display_menu("\n  Toyota", toyota_car_names, toyota_car_prices, sizeof(toyota_car_names) / sizeof(toyota_car_names[0]));
 
-	SetConsoleTextAttribute(h, 9);
+	FontTextColor.fontTextColor(9);
 	std::cout << "\n  Input Number According to the type of Car: ";
 
-	SetConsoleTextAttribute(h, 11);
-
+	FontTextColor.fontTextColor(11);
 
 	std::cin >> Cars;
-
-
 
 	if (Cars == 0) {
 		std::cin.clear();
@@ -4625,21 +3883,21 @@ OrderCars:
 	
 	else if (Cars >= 1 || Cars <= sizeof(toyota_car_names) / sizeof(toyota_car_names[0])) {
 		// Order confirmation
-		SetConsoleTextAttribute(h, 9);
+		FontTextColor.fontTextColor(9);
 		std::cout << "\n  You selected ";
-		SetConsoleTextAttribute(h, 11);
+		FontTextColor.fontTextColor(11);
 		std::cout << toyota_car_names[Cars - 1];
-		SetConsoleTextAttribute(h, 9);
+		FontTextColor.fontTextColor(9);
 		std::cout << " for ";
-		SetConsoleTextAttribute(h, 11);
+		FontTextColor.fontTextColor(11);
 		std::cout << toyota_car_prices[Cars - 1];
 		std::cout << " pesos";
 		std::cout << std::endl;
 
-		SetConsoleTextAttribute(h, 9);
+		FontTextColor.fontTextColor(9);
 		std::cout << "  To be confirmed type Y Yes, Type N if No: ";
 
-		SetConsoleTextAttribute(h, 11);
+		FontTextColor.fontTextColor(11);
 		std::cin >> order_confirmation;
 
 		if (order_confirmation == 'y' || order_confirmation == 'Y') {
@@ -4649,22 +3907,22 @@ OrderCars:
 			system("cls");
 			system("color 0A");
 
-			SetConsoleTextAttribute(h, 9);
+			FontTextColor.fontTextColor(9);
 			std::cout << std::endl;
 			std::cout << "   What Color of ";
-			SetConsoleTextAttribute(h, 11);
+			FontTextColor.fontTextColor(11);
 			std::cout << toyota_car_names[Cars - 1];
-			SetConsoleTextAttribute(h, 9);
+			FontTextColor.fontTextColor(9);
 			std::cout << " do you want?";
 			std::cout << std::endl;
 
 			// Callout all Color [Fomated]
 			Display_Color.display_color(toyota_car_color, sizeof(toyota_car_color) / sizeof(toyota_car_color[0]));
 
-			SetConsoleTextAttribute(h, 9);
+			FontTextColor.fontTextColor(9);
 			std::cout << "\n  Please insert the number of Color: ";
 
-			SetConsoleTextAttribute(h, 11);
+			FontTextColor.fontTextColor(11);
 			std::cin >> Color;
 
 			// Verification
@@ -4688,37 +3946,37 @@ OrderCars:
 
 				// Your order summary
 				std::cout << std::endl;
-				SetConsoleTextAttribute(h, 9);
+				FontTextColor.fontTextColor(9);
 				std::cout << "  You selected ";
-				SetConsoleTextAttribute(h, 15);
+				FontTextColor.fontTextColor(15);
 				std::cout << "[";
-				SetConsoleTextAttribute(h, 11);
+				FontTextColor.fontTextColor(11);
 				std::cout << toyota_car_color[Color - 1];
-				SetConsoleTextAttribute(h, 15);
+				FontTextColor.fontTextColor(15);
 				std::cout << "] ";
-				SetConsoleTextAttribute(h, 11);
+				FontTextColor.fontTextColor(11);
 				std::cout << toyota_car_names[Cars - 1];
-				SetConsoleTextAttribute(h, 9);
+				FontTextColor.fontTextColor(9);
 				std::cout << " for ";
-				SetConsoleTextAttribute(h, 11);
+				FontTextColor.fontTextColor(11);
 				std::cout << toyota_car_prices[Cars - 1];
-				SetConsoleTextAttribute(h, 11);
+				FontTextColor.fontTextColor(11);
 				std::cout << " pesos";
 				std::cout << std::endl;;
 
 				// Total of the order
 				std::cout << std::endl;
-				SetConsoleTextAttribute(h, 9);
+				FontTextColor.fontTextColor(9);
 				std::cout << "  Total Amount: ";
-				SetConsoleTextAttribute(h, 11);
+				FontTextColor.fontTextColor(11);
 				std::cout << Value;
 				std::cout << std::endl;
 
-				SetConsoleTextAttribute(h, 9);
+				FontTextColor.fontTextColor(9);
 				std::cout << std::endl;
 				std::cout << "  Enter The Amount of Payment: ";
 
-				SetConsoleTextAttribute(h, 11);
+				FontTextColor.fontTextColor(11);
 				std::cin >> Payment;
 
 				Change = Payment - Value;
@@ -4778,9 +4036,9 @@ OrderCars:
 				Reciept.Reciept(str, toyota_car_names[Cars - 1], toyota_car_color[Color - 1], toyota_car_prices[Cars - 1], Payment, Change);
 
 				// Order again?
-				SetConsoleTextAttribute(h, 9);
+				FontTextColor.fontTextColor(9);
 				std::cout << "\n  Do you want to order again? Type Y if yes and type N if no: ";
-				SetConsoleTextAttribute(h, 11);
+				FontTextColor.fontTextColor(11);
 				std::cin >> order_more;
 
 				if (order_more == 'n' || order_more == 'N') {
@@ -4796,7 +4054,6 @@ OrderCars:
 
 					Sleep(2000);
 					goto OrderCars;
-
 				}
 
 				else {
@@ -4811,7 +4068,6 @@ OrderCars:
 					std::cout << "   ";
 					system("pause");					goto OrderCars;
 				}
-
 			}
 
 			else {
@@ -4821,7 +4077,6 @@ OrderCars:
 				Sleep(2000);
 				goto OrderCars;
 			}
-
 		}
 
 		else if (order_confirmation == 'n' || order_confirmation == 'N') {
@@ -4842,7 +4097,6 @@ OrderCars:
 
 			goto OrderCars;
 		}
-
 	}
 
 	else {
@@ -4857,13 +4111,4 @@ OrderCars:
 
 		goto OrderCars;
 	}
-
-}
-
-void gotoxy(int x, int y)
-{
-	COORD d;
-	d.X = x;
-	d.Y = y;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), d);
 }
