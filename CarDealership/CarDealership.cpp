@@ -1,7 +1,7 @@
 ﻿/*
  * Programmer: Namias, Jhon Keneth Ryan B.
  *
- *          Title: Car Dealership
+ *          Title: Car Dealership Management Program
  * Course/Section: CS1A North
  *           Date: November 13, 2022
  *      Professor: Alban Ryan Rei
@@ -133,7 +133,7 @@ public:
 		std::cout << "| |";
 		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << " | ";
-		SetConsoleTextAttribute(TitleScreenColor, 13);
+		SetConsoleTextAttribute(TitleScreenColor, 5);
 		std::cout << "____    ____";
 		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << " |";
@@ -159,7 +159,7 @@ public:
 		std::cout << "| |";
 		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << " |";
-		SetConsoleTextAttribute(TitleScreenColor, 13);
+		SetConsoleTextAttribute(TitleScreenColor, 5);
 		std::cout << "|_   \\  /   _|";
 		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
@@ -186,7 +186,7 @@ public:
 		std::cout << "| |";
 		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << " |";
-		SetConsoleTextAttribute(TitleScreenColor, 13);
+		SetConsoleTextAttribute(TitleScreenColor, 5);
 		std::cout << "  |   \\/   |  ";
 		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
@@ -212,7 +212,7 @@ public:
 		std::cout << "| |";
 		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << " |";
-		SetConsoleTextAttribute(TitleScreenColor, 13);
+		SetConsoleTextAttribute(TitleScreenColor, 5);
 		std::cout << "  | |\\  /| |  ";
 		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
@@ -238,7 +238,7 @@ public:
 		std::cout << " | | ";
 		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
-		SetConsoleTextAttribute(TitleScreenColor, 13);
+		SetConsoleTextAttribute(TitleScreenColor, 5);
 		std::cout << " _| |_\\/_| |_ ";
 		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
@@ -264,7 +264,7 @@ public:
 		std::cout << "| |";
 		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << " |";
-		SetConsoleTextAttribute(TitleScreenColor, 13);
+		SetConsoleTextAttribute(TitleScreenColor, 5);
 		std::cout << "|_____||_____|";
 		SetConsoleTextAttribute(TitleScreenColor, 7);
 		std::cout << "|";
@@ -306,7 +306,7 @@ public:
 		std::cout << "Car ";
 		SetConsoleTextAttribute(TitleScreenColor, 4);
 		std::cout << "Dealership ";
-		SetConsoleTextAttribute(TitleScreenColor, 13);
+		SetConsoleTextAttribute(TitleScreenColor, 5);
 		std::cout << "Management ";
 		SetConsoleTextAttribute(TitleScreenColor, 11);
 		std::cout << "Program               " << std::endl;
@@ -336,9 +336,9 @@ public:
 		SetConsoleTextAttribute(TitleScreenColor, 3);
 		std::cout << "  / __ \\ ";
 		SetConsoleTextAttribute(TitleScreenColor, 4);
-		std::cout << " / / / ";
+		std::cout << " / / / /";
 		SetConsoleTextAttribute(TitleScreenColor, 5);
-		std::cout << "/ / _ \\  ";
+		std::cout << " / _ \\  ";
 		SetConsoleTextAttribute(TitleScreenColor, 6);
 		std::cout << "    / / /" << std::endl;
 
@@ -797,52 +797,52 @@ public:
 		std::string car_payment;
 		std::string car_change;
 
-		SetConsoleTextAttribute(OrderLogsColor, 13);
+		SetConsoleTextAttribute(OrderLogsColor, 7);
 		std::cout << "\n======================================================================" << std::endl;
-		SetConsoleTextAttribute(OrderLogsColor, 13);
+		SetConsoleTextAttribute(OrderLogsColor, 7);
 		std::cout << "|    ";
 		SetConsoleTextAttribute(OrderLogsColor, 10);
 		std::cout << "Date";
-		SetConsoleTextAttribute(OrderLogsColor, 13);
+		SetConsoleTextAttribute(OrderLogsColor, 7);
 		std::cout << "     |\t";
 		SetConsoleTextAttribute(OrderLogsColor, 10);
 		std::cout << "  Time";
-		SetConsoleTextAttribute(OrderLogsColor, 13);
+		SetConsoleTextAttribute(OrderLogsColor, 7);
 		std::cout << "   |   ";
 		SetConsoleTextAttribute(OrderLogsColor, 10);
 		std::cout << "Car Name";
-		SetConsoleTextAttribute(OrderLogsColor, 13);
+		SetConsoleTextAttribute(OrderLogsColor, 7);
 		std::cout << "   | ";
 		SetConsoleTextAttribute(OrderLogsColor, 10);
 		std::cout << "Car Color";
-		SetConsoleTextAttribute(OrderLogsColor, 13);
+		SetConsoleTextAttribute(OrderLogsColor, 7);
 		std::cout << " |\t";
 		SetConsoleTextAttribute(OrderLogsColor, 10);
 		std::cout << "Car Price";
-		SetConsoleTextAttribute(OrderLogsColor, 13);
+		SetConsoleTextAttribute(OrderLogsColor, 7);
 		std::cout << "\t|";
 		std::cout << "\n======================================================================" << std::endl;
 		SetConsoleTextAttribute(OrderLogsColor, 1);
 
 
 		while (Order_Logs >> date >> time >> car_name >> car_color >> car_price) {
-			SetConsoleTextAttribute(OrderLogsColor, 13);
+			SetConsoleTextAttribute(OrderLogsColor, 7);
 			std::cout << "| ";
 			SetConsoleTextAttribute(OrderLogsColor, 9);
 			std::cout << date;
-			SetConsoleTextAttribute(OrderLogsColor, 13);
+			SetConsoleTextAttribute(OrderLogsColor, 7);
 			std::cout << " |\t";
 			SetConsoleTextAttribute(OrderLogsColor, 11);
 			std::cout << time;
-			SetConsoleTextAttribute(OrderLogsColor, 13);
+			SetConsoleTextAttribute(OrderLogsColor, 7);
 			std::cout << " |   ";
 			SetConsoleTextAttribute(OrderLogsColor, 9);
 			std::cout << car_name;
-			SetConsoleTextAttribute(OrderLogsColor, 13);
+			SetConsoleTextAttribute(OrderLogsColor, 7);
 			std::cout << "\t| ";
 			SetConsoleTextAttribute(OrderLogsColor, 11);
 			std::cout << car_color;
-			SetConsoleTextAttribute(OrderLogsColor, 13);
+			SetConsoleTextAttribute(OrderLogsColor, 7);
 			std::cout << "\t    | \t";
 			SetConsoleTextAttribute(OrderLogsColor, 9);
 
@@ -861,10 +861,10 @@ public:
 
 
 			// std::cout << car_price;
-			SetConsoleTextAttribute(OrderLogsColor, 13);
+			SetConsoleTextAttribute(OrderLogsColor, 7);
 			std::cout << "\t|";
 			std::cout << std::endl;
-			SetConsoleTextAttribute(OrderLogsColor, 13);
+			SetConsoleTextAttribute(OrderLogsColor, 7);
 			std::cout << "|--------------------------------------------------------------------|";
 			std::cout << std::endl;
 		}
@@ -881,23 +881,23 @@ public:
 		std::string name;
 		std::string pass;
 
-		SetConsoleTextAttribute(ViewEmployeeData, 13);
+		SetConsoleTextAttribute(ViewEmployeeData, 7);
 		std::cout << "\n======================================================================" << std::endl;
-		SetConsoleTextAttribute(ViewEmployeeData, 13);
+		SetConsoleTextAttribute(ViewEmployeeData, 7);
 		std::cout << "|\t";
 		SetConsoleTextAttribute(ViewEmployeeData, 10);
 		std::cout << "Line";
-		SetConsoleTextAttribute(ViewEmployeeData, 13);
+		SetConsoleTextAttribute(ViewEmployeeData, 7);
 		std::cout << "\t|    ";
 		SetConsoleTextAttribute(ViewEmployeeData, 10);
 		std::cout << "Username";
-		SetConsoleTextAttribute(ViewEmployeeData, 13);
+		SetConsoleTextAttribute(ViewEmployeeData, 7);
 		std::cout << "\t |    ";
 		SetConsoleTextAttribute(ViewEmployeeData, 10);
 		std::cout << "Password";
-		SetConsoleTextAttribute(ViewEmployeeData, 13);
+		SetConsoleTextAttribute(ViewEmployeeData, 7);
 		std::cout << "\t\t\t\t|";
-		SetConsoleTextAttribute(ViewEmployeeData, 13);
+		SetConsoleTextAttribute(ViewEmployeeData, 7);
 		std::cout << "\n======================================================================" << std::endl;
 
 		SetConsoleTextAttribute(ViewEmployeeData, 1);
@@ -907,7 +907,7 @@ public:
 
 			j++;
 
-			SetConsoleTextAttribute(ViewEmployeeData, 13);
+			SetConsoleTextAttribute(ViewEmployeeData, 7);
 			std::cout << "|\t";
 			SetConsoleTextAttribute(ViewEmployeeData, 10);
 			std::cout << "[";
@@ -915,17 +915,17 @@ public:
 			std::cout << j;
 			SetConsoleTextAttribute(ViewEmployeeData, 10);
 			std::cout << "]\t";
-			SetConsoleTextAttribute(ViewEmployeeData, 13);
+			SetConsoleTextAttribute(ViewEmployeeData, 7);
 			std::cout << "|    ";
 			SetConsoleTextAttribute(ViewEmployeeData, 9);
 			std::cout << name;
-			SetConsoleTextAttribute(ViewEmployeeData, 13);
+			SetConsoleTextAttribute(ViewEmployeeData, 7);
 			std::cout << "\t |    ";
 			SetConsoleTextAttribute(ViewEmployeeData, 11);
 			std::cout << pass;
-			SetConsoleTextAttribute(ViewEmployeeData, 13);
+			SetConsoleTextAttribute(ViewEmployeeData, 7);
 			std::cout << "\t\t\t\t|" << std::endl;
-			SetConsoleTextAttribute(ViewEmployeeData, 13);
+			SetConsoleTextAttribute(ViewEmployeeData, 7);
 			std::cout << "|--------------------------------------------------------------------|";
 			std::cout << std::endl;
 
@@ -944,23 +944,23 @@ public:
 		std::string CName;
 		int CPrice;
 
-		SetConsoleTextAttribute(ViewCarData, 13);
+		SetConsoleTextAttribute(ViewCarData, 7);
 		std::cout << "\n======================================================================" << std::endl;
-		SetConsoleTextAttribute(ViewCarData, 13);
+		SetConsoleTextAttribute(ViewCarData, 7);
 		std::cout << "|      ";
 		SetConsoleTextAttribute(ViewCarData, 10);
 		std::cout << "Line";
-		SetConsoleTextAttribute(ViewCarData, 13);
+		SetConsoleTextAttribute(ViewCarData, 7);
 		std::cout << "\t |      ";
 		SetConsoleTextAttribute(ViewCarData, 10);
 		std::cout << "Name";
-		SetConsoleTextAttribute(ViewCarData, 13);
+		SetConsoleTextAttribute(ViewCarData, 7);
 		std::cout << "\t  |\t";
 		SetConsoleTextAttribute(ViewCarData, 10);
 		std::cout << "Price";
-		SetConsoleTextAttribute(ViewCarData, 13);
+		SetConsoleTextAttribute(ViewCarData, 7);
 		std::cout << "\t\t\t\t|";
-		SetConsoleTextAttribute(ViewCarData, 13);
+		SetConsoleTextAttribute(ViewCarData, 7);
 		std::cout << "\n======================================================================" << std::endl;
 		SetConsoleTextAttribute(ViewCarData, 1);
 
@@ -968,7 +968,7 @@ public:
 		while ((Cars_Name >> CName) && (Cars_Price >> CPrice)) {
 			i++;
 
-			SetConsoleTextAttribute(ViewCarData, 13);
+			SetConsoleTextAttribute(ViewCarData, 7);
 			std::cout << "|";
 			SetConsoleTextAttribute(ViewCarData, 10);
 			std::cout << "      [";
@@ -976,12 +976,12 @@ public:
 			std::cout << i;
 			SetConsoleTextAttribute(ViewCarData, 10);
 			std::cout << "]\t";
-			SetConsoleTextAttribute(ViewCarData, 13);
+			SetConsoleTextAttribute(ViewCarData, 7);
 			std::cout << " |     ";
 			SetConsoleTextAttribute(ViewCarData, 9);
 			std::cout << CName;
 			std::cout << "\t";
-			SetConsoleTextAttribute(ViewCarData, 13);
+			SetConsoleTextAttribute(ViewCarData, 7);
 			std::cout << "  |\t";
 			SetConsoleTextAttribute(ViewCarData, 11);
 
@@ -998,9 +998,9 @@ public:
 
 			SetConsoleTextAttribute(ViewCarData, 9);
 			std::cout << " pesos";
-			SetConsoleTextAttribute(ViewCarData, 13);
+			SetConsoleTextAttribute(ViewCarData, 7);
 			std::cout << "\t\t\t|";
-			SetConsoleTextAttribute(ViewCarData, 13);
+			SetConsoleTextAttribute(ViewCarData, 7);
 			std::cout << "|--------------------------------------------------------------------|";
 			std::cout << std::endl;
 		}
@@ -1015,19 +1015,19 @@ public:
 		std::string Color;
 
 		std::cout << std::endl;
-		SetConsoleTextAttribute(ViewCarData, 13);
+		SetConsoleTextAttribute(ViewCarData, 7);
 		std::cout << "======================================================================" << std::endl;
-		SetConsoleTextAttribute(ViewCarData, 13);
+		SetConsoleTextAttribute(ViewCarData, 7);
 		std::cout << "|\t";
 		SetConsoleTextAttribute(ViewCarData, 10);
 		std::cout << "Line";
-		SetConsoleTextAttribute(ViewCarData, 13);
+		SetConsoleTextAttribute(ViewCarData, 7);
 		std::cout << "\t|    ";
 		SetConsoleTextAttribute(ViewCarData, 10);
 		std::cout << "Color";
-		SetConsoleTextAttribute(ViewCarData, 13);
+		SetConsoleTextAttribute(ViewCarData, 7);
 		std::cout << "\t\t\t\t\t\t|";
-		SetConsoleTextAttribute(ViewCarData, 13);
+		SetConsoleTextAttribute(ViewCarData, 7);
 		std::cout << std::endl;
 		std::cout << "======================================================================" << std::endl;
 		SetConsoleTextAttribute(ViewCarData, 1);
@@ -1037,7 +1037,7 @@ public:
 
 			j++;
 
-			SetConsoleTextAttribute(ViewCarData, 13);
+			SetConsoleTextAttribute(ViewCarData, 7);
 			std::cout << "|";
 			SetConsoleTextAttribute(ViewCarData, 10);
 			std::cout << "\t[";
@@ -1045,13 +1045,13 @@ public:
 			std::cout << j;
 			SetConsoleTextAttribute(ViewCarData, 10);
 			std::cout << "]\t";
-			SetConsoleTextAttribute(ViewCarData, 13);
+			SetConsoleTextAttribute(ViewCarData, 7);
 			std::cout << "|    ";
 			SetConsoleTextAttribute(ViewCarData, 9);
 			std::cout << Color;
-			SetConsoleTextAttribute(ViewCarData, 13);
+			SetConsoleTextAttribute(ViewCarData, 7);
 			std::cout << "\t\t\t\t\t\t|";
-			SetConsoleTextAttribute(ViewCarData, 13);
+			SetConsoleTextAttribute(ViewCarData, 7);
 			std::cout << "|--------------------------------------------------------------------|";
 			std::cout << std::endl;
 		}
@@ -1133,6 +1133,8 @@ int main()
 	if (flag == false) {
 		TitleScreen.TitleScreen();
 	}
+
+	std::string employeeLogin;
 
 	char order_more = 'n',
 		order_confirmation;
@@ -1470,7 +1472,7 @@ LoginForm:
 							std::cout << c_user;
 							break;
 						}
-					} while (c_user != 13);
+					} while (c_user != 7);
 
 
 					adduser = userHider;
@@ -1508,7 +1510,7 @@ LoginForm:
 							std::cout << '*';
 							break;
 						}
-					} while (c_pass != 13);
+					} while (c_pass != 7);
 
 					addpass = passHider;
 
@@ -1817,7 +1819,7 @@ LoginForm:
 							std::cout << c_user;
 							break;
 						}
-					} while (c_user != 13);
+					} while (c_user != 7);
 
 					line_number = std::stoi(userHider);
 
@@ -2004,7 +2006,7 @@ LoginForm:
 							std::cout << c_user;
 							break;
 						}
-					} while (c_user != 13);
+					} while (c_user != 7);
 
 
 					line_number = std::stoi(userHider);
@@ -2249,7 +2251,7 @@ LoginForm:
 							std::cout << c_user_addname;
 							break;
 						}
-					} while (c_user_addname != 13);
+					} while (c_user_addname != 7);
 					addname = userHider_addname;
 
 					// std::cin >> addname;
@@ -2285,7 +2287,7 @@ LoginForm:
 							std::cout << c_user_addprice;
 							break;
 						}
-					} while (c_user_addprice != 13);
+					} while (c_user_addprice != 7);
 					addprice = userHider_addprice;
 
 					// std::cin >> addprice;
@@ -2363,7 +2365,7 @@ LoginForm:
 							std::cout << c_user;
 							break;
 						}
-					} while (c_user != 13);
+					} while (c_user != 7);
 
 
 					line_number = std::stoi(userHider);
@@ -2582,7 +2584,7 @@ LoginForm:
 							std::cout << c_user_addname;
 							break;
 						}
-					} while (c_user_addname != 13);
+					} while (c_user_addname != 7);
 					addname = userHider_addname;
 
 					// std::cin >> addname;
@@ -2958,7 +2960,7 @@ LoginForm:
 							std::cout << c_Color;
 							break;
 						}
-					} while (c_Color != 13);
+					} while (c_Color != 7);
 					addcolor = hideColor;
 
 					// std::cin >> addcolor;
@@ -3537,6 +3539,7 @@ LoginForm:
 			{
 				Employeelogin = 1;
 				std::cout << "\n\n   Employee login successful!";
+				employeeLogin = user;
 				Sleep(2000);
 				system("cls");
 			}
@@ -3837,7 +3840,7 @@ OrderCars:
 		UserTitleText.userTitleText("                        Admin Order Cars                      ", "Namias", "                             [", "]                           ");
 	}
 	else if (AccessLevel == 2) {
-		UserTitleText.userTitleText("                      Employee Order Cars                     ", "Miku", "                             [", "]                             ");
+		UserTitleText.userTitleText("                      Employee Order Cars                     ", employeeLogin, "                             [", "]                             ");
 	}
 	else if (AccessLevel == 3) {
 		UserTitleText.userTitleText("                       Guest Order Cars                       ", "Guest", "                             [", "]                            ");
