@@ -1114,7 +1114,6 @@ int main()
 	fontex.dwFontSize.Y = 36;
 	SetCurrentConsoleFontEx(hOut, NULL, &fontex);
 
-
 	// Loading screen
 	system("cls");
 	system("color 0A");
@@ -1213,7 +1212,6 @@ LoginForm:
 		std::cout << "\n   Username: ";
 		FontTextColor.fontTextColor(11);
 
-
 		std::string userHider;
 		char c_user;
 
@@ -1244,9 +1242,7 @@ LoginForm:
 			}
 		} while (c_user != 13);
 
-
 		user = userHider;
-
 
 		//std::cin >> user;
 		FontTextColor.fontTextColor(9);
@@ -1287,9 +1283,7 @@ LoginForm:
 			}
 		} while (c_pass != 13);
 
-
 		pass = passHider;
-
 
 		// Loading XD
 		std::cout << "\n\n   Verifying your login details please wait";
@@ -1336,7 +1330,6 @@ LoginForm:
 			}
 		}
 		input.close();
-
 
 		if (adminlogin == 1)
 		{
@@ -1472,8 +1465,7 @@ LoginForm:
 							std::cout << c_user;
 							break;
 						}
-					} while (c_user != 7);
-
+					} while (c_user != 13);
 
 					adduser = userHider;
 
@@ -1510,7 +1502,7 @@ LoginForm:
 							std::cout << '*';
 							break;
 						}
-					} while (c_pass != 7);
+					} while (c_pass != 13);
 
 					addpass = passHider;
 
@@ -1745,7 +1737,6 @@ LoginForm:
 
 						goto SearchEmployeeData;
 					}
-
 				}
 
 				// Edit Employee Data
@@ -1819,7 +1810,7 @@ LoginForm:
 							std::cout << c_user;
 							break;
 						}
-					} while (c_user != 7);
+					} while (c_user != 13);
 
 					line_number = std::stoi(userHider);
 
@@ -2006,7 +1997,7 @@ LoginForm:
 							std::cout << c_user;
 							break;
 						}
-					} while (c_user != 7);
+					} while (c_user != 13);
 
 
 					line_number = std::stoi(userHider);
@@ -2251,7 +2242,7 @@ LoginForm:
 							std::cout << c_user_addname;
 							break;
 						}
-					} while (c_user_addname != 7);
+					} while (c_user_addname != 13);
 					addname = userHider_addname;
 
 					// std::cin >> addname;
@@ -2287,7 +2278,7 @@ LoginForm:
 							std::cout << c_user_addprice;
 							break;
 						}
-					} while (c_user_addprice != 7);
+					} while (c_user_addprice != 13);
 					addprice = userHider_addprice;
 
 					// std::cin >> addprice;
@@ -2311,7 +2302,6 @@ LoginForm:
 
 				// Edit Cars Name & Price
 				else if (CarChoice == 3) {
-
 					TitleText.titleText("                      Edit Car Name & Price                     ");
 
 					ViewCarData.viewCarNamePrice();
@@ -2365,7 +2355,7 @@ LoginForm:
 							std::cout << c_user;
 							break;
 						}
-					} while (c_user != 7);
+					} while (c_user != 13);
 
 
 					line_number = std::stoi(userHider);
@@ -2405,9 +2395,9 @@ LoginForm:
 					read_file.close();
 
 					// The vector will now contain an element for each line in the file, so the 
-					 // size of the vector is the number of lines in the file.  Check to make 
-					 // sure the line number requested does not exceed the number of lines in 
-					 // the file, if it does, exit with an error message and status.
+					// size of the vector is the number of lines in the file.  Check to make 
+					// sure the line number requested does not exceed the number of lines in 
+					// the file, if it does, exit with an error message and status.
 					if (line_number > lines.size())
 					{
 						std::cout << std::endl;
@@ -2584,7 +2574,7 @@ LoginForm:
 							std::cout << c_user_addname;
 							break;
 						}
-					} while (c_user_addname != 7);
+					} while (c_user_addname != 13);
 					addname = userHider_addname;
 
 					// std::cin >> addname;
@@ -2620,7 +2610,7 @@ LoginForm:
 							std::cout << c_user_addprice;
 							break;
 						}
-					} while (c_user_addprice != 15);
+					} while (c_user_addprice != 13);
 					addprice = userHider_addprice;
 
 					// std::cin >> addprice;
@@ -2960,7 +2950,7 @@ LoginForm:
 							std::cout << c_Color;
 							break;
 						}
-					} while (c_Color != 7);
+					} while (c_Color != 13);
 					addcolor = hideColor;
 
 					// std::cin >> addcolor;
@@ -3024,8 +3014,6 @@ LoginForm:
 						system("cls");
 						goto CarData;
 					}
-
-
 
 					std::cin >> line_number;
 
@@ -3135,7 +3123,6 @@ LoginForm:
 
 					system("pause");
 					goto CarData;
-
 				}
 
 				// Delete Cars Color
@@ -3180,9 +3167,6 @@ LoginForm:
 					std::cout << "   Line: ";
 					FontTextColor.fontTextColor(11);
 
-
-
-
 					// ESC button back
 					int esc;
 					esc = _getch();
@@ -3190,8 +3174,6 @@ LoginForm:
 						system("cls");
 						goto CarData;
 					}
-
-
 
 					std::cin >> line_number;
 
@@ -3228,9 +3210,9 @@ LoginForm:
 					read_file.close();
 
 					// The vector will now contain an element for each line in the file, so the 
-					 // size of the vector is the number of lines in the file.  Check to make 
-					 // sure the line number requested does not exceed the number of lines in 
-					 // the file, if it does, exit with an error message and status.
+					// size of the vector is the number of lines in the file.  Check to make 
+					// sure the line number requested does not exceed the number of lines in 
+					// the file, if it does, exit with an error message and status.
 					if (line_number > lines.size())
 					{
 						std::cout << std::endl;
@@ -3402,7 +3384,6 @@ LoginForm:
 				system("pause");
 				goto AdminMenu;
 			}
-
 		}
 
 		// Wrong login
@@ -3557,7 +3538,6 @@ LoginForm:
 				Sleep(2000);
 				goto Employeelogin;
 			}
-
 
 			else {
 				Employeelogin = 0;
@@ -3839,12 +3819,15 @@ OrderCars:
 	if (AccessLevel == 1) {
 		UserTitleText.userTitleText("                        Admin Order Cars                      ", "Namias", "                             [", "]                           ");
 	}
+	
 	else if (AccessLevel == 2) {
 		UserTitleText.userTitleText("                      Employee Order Cars                     ", employeeLogin, "                             [", "]                             ");
 	}
+	
 	else if (AccessLevel == 3) {
 		UserTitleText.userTitleText("                       Guest Order Cars                       ", "Guest", "                             [", "]                            ");
 	}
+	
 	else {
 		UserTitleText.userTitleText("                     \"Unknown Order Cars\"                     ", "Unknown", "                            [", "]                           ");
 	}
@@ -3883,7 +3866,6 @@ OrderCars:
 		goto OrderCars;
 	}
 
-	
 	else if (Cars >= 1 || Cars <= sizeof(toyota_car_names) / sizeof(toyota_car_names[0])) {
 		// Order confirmation
 		FontTextColor.fontTextColor(9);
