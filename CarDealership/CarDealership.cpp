@@ -44,7 +44,6 @@
 
 class DetailClass {
 public:
-	
 	void AboutUs() {
 		system("cls");
 		system("color 09");
@@ -381,7 +380,6 @@ public:
 
 class HeaderClass {
 public:
-
 	void titleText(std::string TitleText) {
 		// Text color settings
 		HANDLE titleTextColor = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -576,12 +574,10 @@ public:
 		SetConsoleTextAttribute(ChoiceRed, 4);
 		std::cout << choice << std::endl;
 	}
-
 };
 
 class BackEnd {
 public:
-
 	void display_menu(const std::string& manufacturer, const std::string names[], const int prices[], const size_t numCars) {
 		std::cout << manufacturer << " Cars:" << std::endl;
 
@@ -1077,7 +1073,6 @@ bool flag = false;
 
 int main()
 {
-
 	DetailClass AboutUs;
 	DetailClass TitleScreen;
 
@@ -1097,8 +1092,8 @@ int main()
 	BackEnd Coordinate;
 	BackEnd FontTextColor;
 
+	// system title
 	system("TITLE Car Dealership Management Program By: @PP-Namias");
-
 
 	// system defaults
 	system("mode 70, 150");
@@ -1132,6 +1127,8 @@ int main()
 	if (flag == false) {
 		TitleScreen.TitleScreen();
 	}
+	
+	flag = true;
 
 	std::string employeeLogin;
 
@@ -1152,9 +1149,7 @@ int main()
 
 	// sub choices
 	int employeeData;
-
-	flag = true;
-
+	int CarChoice;
 
 	// Login Form
 LoginForm:
@@ -1174,7 +1169,6 @@ LoginForm:
 	FontTextColor.fontTextColor(11);
 	std::cin >> choice;
 	std::cin.ignore();
-
 
 	// Admin
 	if (choice == 1) {
@@ -1226,8 +1220,6 @@ LoginForm:
 				break;
 			case 27:
 				system("cls");
-				std::cin.clear();
-				std::cin.ignore(22, '\n');
 				goto LoginForm;
 			case 8:
 				if (userHider.length() > 0) {
@@ -1267,8 +1259,6 @@ LoginForm:
 				break;
 			case 27:
 				system("cls");
-				std::cin.clear();
-				std::cin.ignore(22, '\n'); 
 				goto LoginForm;
 			case 8:
 				if (passHider.length() > 0) {
@@ -1451,8 +1441,6 @@ LoginForm:
 							break;
 						case 27:
 							system("cls");
-							std::cin.clear();
-							std::cin.ignore(22, '\n');
 							goto EmployeeData;
 						case 8:
 							if (userHider.length() > 0) {
@@ -1466,7 +1454,6 @@ LoginForm:
 							break;
 						}
 					} while (c_user != 13);
-
 					adduser = userHider;
 
 					//  std::cin >> adduser;
@@ -1488,8 +1475,6 @@ LoginForm:
 							break;
 						case 27:
 							system("cls");
-							std::cin.clear();
-							std::cin.ignore(22, '\n');
 							goto EmployeeData;
 						case 8:
 							if (passHider.length() > 0) {
@@ -1503,7 +1488,6 @@ LoginForm:
 							break;
 						}
 					} while (c_pass != 13);
-
 					addpass = passHider;
 
 					//  std::cin >> addpass;
@@ -1731,10 +1715,9 @@ LoginForm:
 						std::cout << std::endl;
 						std::cout << std::endl;
 						std::cout << "   ";
+						system("pause");
 						std::cin.clear();
 						std::cin.ignore(22, '\n');
-						Sleep(2000);
-
 						goto SearchEmployeeData;
 					}
 				}
@@ -1796,8 +1779,6 @@ LoginForm:
 							std::cout << std::endl;
 							break;
 						case 27:
-							std::cin.clear();
-							std::cin.ignore(22, '\n');
 							goto EmployeeData;
 						case 8:
 							if (userHider.length() > 0) {
@@ -2137,7 +2118,6 @@ LoginForm:
 
 				TitleText.titleText("                            Cars Data                           ");
 
-				int CarChoice;
 
 				ChoiceBlue.choiceBlue("1", "View Cars Name & Price");
 				ChoiceBlue.choiceBlue("2", "Add Cars Name & Price");
@@ -3451,8 +3431,6 @@ LoginForm:
 				break;
 			case 27:
 				system("cls");
-				std::cin.clear();
-				std::cin.ignore(22, '\n');
 				goto LoginForm;
 			case 8:
 				if (userHider.length() > 0) {
@@ -3488,8 +3466,6 @@ LoginForm:
 				break;
 			case 27:
 				system("cls");
-				std::cin.clear();
-				std::cin.ignore(22, '\n');
 				goto LoginForm;
 			case 8:
 				if (passHider.length() > 0) {
@@ -3755,7 +3731,6 @@ OrderCars:
 	// Text file to array dynamically XD [Color]
 	std::string toyota_car_color[15];
 	int number_of_color = 0;
-
 	std::ifstream Cars_Color("Text Files/Cars_Color.txt");
 	if (Cars_Color.is_open())
 	{
@@ -3771,12 +3746,10 @@ OrderCars:
 		}
 	}
 	toyota_car_color[number_of_color];
-
 	
 	// Text file to array dynamically XD [Name]
 	std::string toyota_car_names[17];
 	int number_of_name = 0;
-
 	std::ifstream Cars_Name("Text Files/Cars_Name.txt");
 	if (Cars_Name.is_open())
 	{
@@ -3793,11 +3766,9 @@ OrderCars:
 	}
 	toyota_car_names[number_of_name];
 
-
 	// Text file to array dynamically XD [Price]
 	int toyota_car_prices[17];
 	int number_of_price = 0;
-
 	std::ifstream Cars_Price("Text Files/Cars_Price.txt");
 	if (Cars_Price.is_open())
 	{
