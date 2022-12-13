@@ -3,7 +3,7 @@
  *
  *          Title: Car Dealership Management Program
  * Course/Section: CS1A North
- *           Date: November 13, 2022
+ *           Date: December 13, 2022
  *      Professor: Alban Ryan Rei
  *
  *  Info:
@@ -66,7 +66,7 @@ public:
 		SetConsoleTextAttribute(aboutUsColor, 9);
 		std::cout << "   Date: ";
 		SetConsoleTextAttribute(aboutUsColor, 11);
-		std::cout << "November 26, 2022" << std::endl;
+		std::cout << "December 13, 2022" << std::endl;
 		SetConsoleTextAttribute(aboutUsColor, 9);
 		std::cout << "   Professor: ";
 		SetConsoleTextAttribute(aboutUsColor, 11);
@@ -75,20 +75,20 @@ public:
 		SetConsoleTextAttribute(aboutUsColor, 9);
 		std::cout << "   Info:" << std::endl;
 		SetConsoleTextAttribute(aboutUsColor, 15);
-		std::cout << "              This project [Car Dealership Management Program], " << std::endl;
+		std::cout << "              This project [Car Dealership Management Program],    " << std::endl;
 		std::cout << "     which is a topic of the [Fundamentals of Programming] course, " << std::endl;
 		std::cout << "     involves creating a car dealership management entirely in C++." << std::endl;
 		std::cout << "     We are pleased to announce the release of a convenient console" << std::endl;
 		std::cout << "     application for performing management system tasks like adding" << std::endl;
 		std::cout << "     new car(s) to a data set, modifying and deleting car(s) from a" << std::endl;
-		std::cout << "     data set, exporting order logs, etc." << std::endl;
+		std::cout << "     data set, exporting order logs, etc.                          " << std::endl;
 		std::cout << "     Involves creating a car dealership management entirely in C++." << std::endl;
 		std::cout << std::endl;
 		std::cout << std::endl;
 		SetConsoleTextAttribute(aboutUsColor, 10);
 	}
 
-	void TitleScreen() {
+	void titleScreen() {
 		// Text color settings
 		HANDLE TitleScreenColor = GetStdHandle(STD_OUTPUT_HANDLE);
 		
@@ -443,7 +443,6 @@ public:
 		std::cout << std::endl;
 		std::cout << " `._.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.' ";
 		std::cout << std::endl;
-		std::cout << std::endl;
 	}
 
 	void userTitleText(std::string UserTitleText, std::string UserTitle, std::string UserTitleSeparatorLeft, std::string UserTitleSeparatorRight) {
@@ -530,7 +529,6 @@ public:
 		std::cout << std::endl;
 		std::cout << " `._.-._.-._.-._.-._.-._.-_.-._.-._.-._.-._.-._.-._.-._.-._.-._.-._.' ";
 		std::cout << std::endl;
-		std::cout << std::endl;
 	}
 
 	void choiceBlue(std::string choiceNumber, std::string choice) {
@@ -579,10 +577,10 @@ public:
 class BackEnd {
 public:
 	void display_menu(const std::string& manufacturer, const std::string names[], const int prices[], const size_t numCars) {
-		std::cout << manufacturer << " Cars:" << std::endl;
-
 		// Text color settings
 		HANDLE Display_Menu_Color = GetStdHandle(STD_OUTPUT_HANDLE);
+
+		std::cout << manufacturer << " Cars:" << std::endl;
 
 		for (size_t i = 0; i < numCars; i++) {
 			SetConsoleTextAttribute(Display_Menu_Color, 10);
@@ -611,7 +609,6 @@ public:
 	}
 
 	void display_color(const std::string color_index[], const size_t numColors) {
-
 		// Text color settings
 		HANDLE Display_Color_Color = GetStdHandle(STD_OUTPUT_HANDLE);
 		
@@ -775,8 +772,6 @@ public:
 		SetConsoleTextAttribute(RecieptColor, 7);
 		std::cout << "\t+----------------------------------------------------+" << std::endl;
 		SetConsoleTextAttribute(RecieptColor, 7);
-
-
 	}
 
 	void orderLogs() {
@@ -820,7 +815,6 @@ public:
 		std::cout << "\n======================================================================" << std::endl;
 		SetConsoleTextAttribute(OrderLogsColor, 1);
 
-
 		while (Order_Logs >> date >> time >> car_name >> car_color >> car_price) {
 			SetConsoleTextAttribute(OrderLogsColor, 7);
 			std::cout << "| ";
@@ -841,22 +835,12 @@ public:
 			SetConsoleTextAttribute(OrderLogsColor, 7);
 			std::cout << "\t    | \t";
 			SetConsoleTextAttribute(OrderLogsColor, 9);
-
-
-
-
 			struct group_facet : public std::numpunct<char> {
 			protected:
 				std::string do_grouping() const { return "\003"; }
 			};
-
 			std::cout.imbue(std::locale(std::cout.getloc(), new group_facet));
-
 			std::cout << std::fixed << car_price;
-
-
-
-			// std::cout << car_price;
 			SetConsoleTextAttribute(OrderLogsColor, 7);
 			std::cout << "\t|";
 			std::cout << std::endl;
@@ -865,7 +849,6 @@ public:
 			std::cout << std::endl;
 		}
 		SetConsoleTextAttribute(OrderLogsColor, 9);
-
 	}
 
 	void viewEmployeeData() {
@@ -900,9 +883,7 @@ public:
 
 		int j = 0;
 		while (EmployeeFile >> name >> pass) {
-
 			j++;
-
 			SetConsoleTextAttribute(ViewEmployeeData, 7);
 			std::cout << "|\t";
 			SetConsoleTextAttribute(ViewEmployeeData, 10);
@@ -924,10 +905,7 @@ public:
 			SetConsoleTextAttribute(ViewEmployeeData, 7);
 			std::cout << "|--------------------------------------------------------------------|";
 			std::cout << std::endl;
-
 		}
-
-
 	}
 	
 	void viewCarNamePrice() {
@@ -963,7 +941,6 @@ public:
 		int i = 0;
 		while ((Cars_Name >> CName) && (Cars_Price >> CPrice)) {
 			i++;
-
 			SetConsoleTextAttribute(ViewCarData, 7);
 			std::cout << "|";
 			SetConsoleTextAttribute(ViewCarData, 10);
@@ -980,18 +957,12 @@ public:
 			SetConsoleTextAttribute(ViewCarData, 7);
 			std::cout << "  |\t";
 			SetConsoleTextAttribute(ViewCarData, 11);
-
-
 			struct group_facet : public std::numpunct<char> {
 			protected:
 				std::string do_grouping() const { return "\003"; }
 			};
-
 			std::cout.imbue(std::locale(std::cout.getloc(), new group_facet));
-
 			std::cout << std::fixed << CPrice;
-
-
 			SetConsoleTextAttribute(ViewCarData, 9);
 			std::cout << " pesos";
 			SetConsoleTextAttribute(ViewCarData, 7);
@@ -1030,9 +1001,7 @@ public:
 
 		int j = 0;
 		while (CarColorFile >> Color) {
-
 			j++;
-
 			SetConsoleTextAttribute(ViewCarData, 7);
 			std::cout << "|";
 			SetConsoleTextAttribute(ViewCarData, 10);
@@ -1067,10 +1036,6 @@ public:
 	}
 };
 
-
-// Title screen call-out once [Flagging]
-bool flag = false;
-
 int main()
 {
 	DetailClass AboutUs;
@@ -1098,7 +1063,6 @@ int main()
 	// system defaults
 	system("mode 70, 150");
 
-
 	// Font and Command Promt size
 	static CONSOLE_FONT_INFOEX  fontex;
 	fontex.cbSize = sizeof(CONSOLE_FONT_INFOEX);
@@ -1123,15 +1087,16 @@ int main()
 	}
 	std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
 
-
+	// Title screen call-out once [Flagging]
+	bool flag = false;
 	if (flag == false) {
-		TitleScreen.TitleScreen();
+		TitleScreen.titleScreen();
 	}
-	
 	flag = true;
 
 	std::string employeeLogin;
 
+	// confirmation
 	char order_more = 'n',
 		order_confirmation;
 
@@ -1139,8 +1104,10 @@ int main()
 		Value,
 		Change,
 		Cars,
-		Color,
-		AccessLevel = 0;
+		Color;
+
+	// access identifier
+	int AccessLevel = 0;
 
 	// main choices
 	int choice;
@@ -1156,6 +1123,7 @@ LoginForm:
 
 	TitleText.titleText("                    Welcome to the Login Menu                   ");
 
+	std::cout << std::endl;
 	ChoiceBlue.choiceBlue("1", "Admin");
 	ChoiceBlue.choiceBlue("2", "Employee");
 	ChoiceBlue.choiceBlue("3", "Guest\n");
@@ -1276,6 +1244,7 @@ LoginForm:
 		pass = passHider;
 
 		// Loading XD
+		FontTextColor.fontTextColor(9);
 		std::cout << "\n\n   Verifying your login details please wait";
 		for (int i = 0; i < 6; i++)
 		{
@@ -1345,7 +1314,7 @@ LoginForm:
 
 			UserTitleText.userTitleText("                           Admin Menu                         ", user, "                             [", "]                           ");
 
-
+			std::cout << std::endl;
 			ChoiceBlue.choiceBlue("1", "Employee Data");
 			ChoiceBlue.choiceBlue("2", "Cars Data");
 			ChoiceBlue.choiceBlue("3", "Order Logs");
@@ -1383,6 +1352,7 @@ LoginForm:
 
 				TitleText.titleText("                          Employee Data                         ");
 
+				std::cout << std::endl;
 				ChoiceBlue.choiceBlue("1", "Add Employee Data");
 				ChoiceBlue.choiceBlue("2", "View Employee Data");
 				ChoiceBlue.choiceBlue("3", "Search Employee Data");
@@ -1494,6 +1464,7 @@ LoginForm:
 
 					std::ofstream reg("Text Files/Employee.txt", std::ios::app);
 					reg << adduser << '\t' << addpass << std::endl;
+					FontTextColor.fontTextColor(9);
 					std::cout << "\n   Employee Data Added!" << std::endl;
 					std::cout << "\n   ";
 					system("pause");
@@ -1586,8 +1557,8 @@ LoginForm:
 
 					FontTextColor.fontTextColor(9);
 					std::cout << "    Enter your choice: ";
-					FontTextColor.fontTextColor(11);
 
+					FontTextColor.fontTextColor(11);
 					std::cin >> ch;
 
 					switch (ch)
@@ -1598,7 +1569,9 @@ LoginForm:
 						std::string searchuser, su, sp;
 						std::cout << std::endl;
 						std::cout << std::endl;
-						std::cout << "   Enter in your Username: ";
+						FontTextColor.fontTextColor(9);
+						std::cout << "    Enter in your Username: ";
+						FontTextColor.fontTextColor(11);
 						std::cin >> searchuser;
 
 						std::ifstream searchu("Text Files/Employee.txt");
@@ -1616,31 +1589,33 @@ LoginForm:
 						if (login == 1)
 						{
 							std::cout << std::endl;
+							FontTextColor.fontTextColor(9);
+							std::cout << "    Noice, your account has been found";
 							std::cout << std::endl;
-							std::cout << "   Noice, your account has been found";
-							std::cout << std::endl;
-							std::cout << std::endl;
-							std::cout << "   Your password is |[\"" << sp << "\"]|";
+							FontTextColor.fontTextColor(9);
+							std::cout << "    Your password is |[\"";
+							FontTextColor.fontTextColor(15);
+							std::cout << sp;
+							FontTextColor.fontTextColor(9);
+							std::cout << "\"]|";
 							std::cout << std::endl;
 							std::cout << std::endl;
 							std::cout << "   ";
 
 							system("pause");
-							// std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 							goto SearchEmployeeData;
 						}
 
 						else
 						{
 							std::cout << std::endl;
-							std::cout << "   Sorry, Your username is not found in our database";
+							FontTextColor.fontTextColor(9);
+							std::cout << "    Sorry, Your username is not found in our database";
 							std::cout << std::endl;
-							std::cout << std::endl;
-							std::cout << "   Please kindly contact your system administrator for more details";
+							std::cout << "    Please kindly contact your system administrator for more details";
 							std::cout << std::endl;
 							std::cout << std::endl;
 							std::cout << "   ";
-
 							system("pause");
 							goto SearchEmployeeData;
 						}
@@ -1655,7 +1630,7 @@ LoginForm:
 						std::string searchpass, su2, sp2;
 						std::cout << std::endl;
 						std::cout << std::endl;
-						std::cout << "   Enter in your Password: ";
+						std::cout << "    Enter in your Password: ";
 						std::cin >> searchpass;
 
 						std::ifstream searchp("Text Files/Employee.txt");
@@ -1674,29 +1649,31 @@ LoginForm:
 						if (login == 1)
 						{
 							std::cout << std::endl;
+							FontTextColor.fontTextColor(9);
+							std::cout << "    Noice, your account has been found";
 							std::cout << std::endl;
-							std::cout << "   Noice, your account has been found";
+							FontTextColor.fontTextColor(9);
+							std::cout << "    Your username is |[\"";
+							FontTextColor.fontTextColor(15);
+							std::cout << su2;
+							FontTextColor.fontTextColor(9);
+							std::cout << "\"]|";
 							std::cout << std::endl;
 							std::cout << std::endl;
-							std::cout << "   Your username is |[\"" << su2 << "\"]|";
-							std::cout << std::endl;
-							std::cout << std::endl;
-							std::cout << "   ";
+							std::cout << "    ";
 							system("pause");
 							goto SearchEmployeeData;
-
 						}
 
 						else
 						{
 							std::cout << std::endl;
-							std::cout << "   Sorry, We cannot found your password in our database";
+							std::cout << "    Sorry, We cannot found your password in our database";
+							std::cout << std::endl;
+							std::cout << "    Please kindly contact your system administrator for more details";
 							std::cout << std::endl;
 							std::cout << std::endl;
-							std::cout << "   Please kindly contact your system administrator for more details";
-							std::cout << std::endl;
-							std::cout << std::endl;
-							std::cout << "   ";
+							std::cout << "    ";
 							system("pause");
 							goto SearchEmployeeData;
 						}
@@ -1711,10 +1688,11 @@ LoginForm:
 
 					default:
 						std::cout << std::endl;
-						std::cout << "   Sorry, You entered wrong choice. Kindly try again";
+						FontTextColor.fontTextColor(9);
+						std::cout << "    Sorry, You entered wrong choice. Kindly try again";
 						std::cout << std::endl;
 						std::cout << std::endl;
-						std::cout << "   ";
+						std::cout << "    ";
 						system("pause");
 						std::cin.clear();
 						std::cin.ignore(22, '\n');
@@ -1964,8 +1942,6 @@ LoginForm:
 							break;
 						case 27:
 							system("cls");
-							std::cin.clear();
-							std::cin.ignore(22, '\n');
 							goto EmployeeData;
 						case 8:
 							if (userHider.length() > 0) {
@@ -1979,8 +1955,6 @@ LoginForm:
 							break;
 						}
 					} while (c_user != 13);
-
-
 					line_number = std::stoi(userHider);
 
 					// std::cin >> line_number;
@@ -2072,6 +2046,7 @@ LoginForm:
 					// Close our access to the file since we are done working with it
 					write_file.close();
 
+					FontTextColor.fontTextColor(9);
 					std::cout << std::endl;
 					std::cout << "   Line " << line_number + 1 << " has been deleted";
 
@@ -2118,7 +2093,7 @@ LoginForm:
 
 				TitleText.titleText("                            Cars Data                           ");
 
-
+				std::cout << std::endl;
 				ChoiceBlue.choiceBlue("1", "View Cars Name & Price");
 				ChoiceBlue.choiceBlue("2", "Add Cars Name & Price");
 				ChoiceBlue.choiceBlue("3", "Edit Cars Name & Price");
@@ -2186,6 +2161,7 @@ LoginForm:
 					TitleText.titleText("                      Add Cars Name & Price                     ");
 
 					FontTextColor.fontTextColor(10);
+					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back";
 					std::cout << std::endl;
 
@@ -2210,7 +2186,7 @@ LoginForm:
 							system("cls");
 							std::cin.clear();
 							std::cin.ignore(22, '\n');
-							goto EmployeeData;
+							goto CarData;
 						case 8:
 							if (userHider_addname.length() > 0) {
 								userHider_addname.erase(userHider_addname.end() - 1);
@@ -2288,9 +2264,9 @@ LoginForm:
 
 					FontTextColor.fontTextColor(10);
 					std::cout << std::endl;
-					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 					FontTextColor.fontTextColor(9);
+					goto CarData;
 					std::cout << "   Type the number of line to edit";
 
 					// deletion per line
@@ -2895,6 +2871,7 @@ LoginForm:
 					TitleText.titleText("                          Add Car Colors                        ");
 
 					FontTextColor.fontTextColor(10);
+					std::cout << std::endl;
 					std::cout << "   Press ESC button to go back" << std::endl;
 
 					std::string addcolor;
@@ -2916,8 +2893,6 @@ LoginForm:
 							break;
 						case 27:
 							system("cls");
-							std::cin.clear();
-							std::cin.ignore(22, '\n');
 							goto CarData;
 						case 8:
 							if (hideColor.length() > 0) {
@@ -2933,7 +2908,6 @@ LoginForm:
 					} while (c_Color != 13);
 					addcolor = hideColor;
 
-					// std::cin >> addcolor;
 					FontTextColor.fontTextColor(1);
 
 					std::ofstream Cars_Color("Text Files/Cars_Color.txt", std::ios::app);
@@ -3482,6 +3456,7 @@ LoginForm:
 		pass = passHider;
 
 		// Loading XD
+		FontTextColor.fontTextColor(9);
 		std::cout << "\n\n   Verifying you login details please wait";
 		for (int i = 0; i < 6; i++)
 		{
@@ -3532,6 +3507,7 @@ LoginForm:
 		EmployeeMenu:
 			UserTitleText.userTitleText("                         Employee Menu                        ", user, "                             [", "]                             ");
 
+			std::cout << std::endl;
 			ChoiceBlue.choiceBlue("1", "Order Logs");
 			ChoiceBlue.choiceBlue("2", "Order Cars\n");
 
@@ -3567,7 +3543,6 @@ LoginForm:
 				OrderLogs.orderLogs();
 
 				FontTextColor.fontTextColor(9);
-				std::cout << std::endl;
 				std::cout << "\n   All Order Logs Data!";
 				std::cout << std::endl;
 				std::cout << "   ";
@@ -3823,7 +3798,6 @@ OrderCars:
 		system("cls");
 
 		goto LoginForm;
-
 	}
 
 	else if (Cars < 1 || Cars > sizeof(toyota_car_names) / sizeof(toyota_car_names[0])) {
@@ -3876,7 +3850,7 @@ OrderCars:
 			Display_Color.display_color(toyota_car_color, sizeof(toyota_car_color) / sizeof(toyota_car_color[0]));
 
 			FontTextColor.fontTextColor(9);
-			std::cout << "\n  Please insert the number of Color: ";
+			std::cout << "\n   Please insert the number of Color: ";
 
 			FontTextColor.fontTextColor(11);
 			std::cin >> Color;
@@ -3885,10 +3859,13 @@ OrderCars:
 			if (Color < 1 || Color > sizeof(toyota_car_color) / sizeof(toyota_car_color[0])) {
 				system("cls");
 				system("color 4f");
-				std::cout << "\n  Please try again if you entered the incorrect information.";
+				std::cout << "\n   Please try again if you entered the incorrect information.";
 				std::cout << std::endl;
 				std::cout << "   ";
-				system("pause");				goto SelectColor;
+				std::cin.clear();
+				std::cin.ignore(22, '\n'); 
+				system("pause");
+				goto SelectColor;
 			}
 
 			else if (Color >= 1 || Color <= sizeof(toyota_car_color) / sizeof(toyota_car_color[0])) {
@@ -4030,7 +4007,8 @@ OrderCars:
 				system("cls");
 				system("color 4f");
 				std::cout << "\n  Invalid input please try again." << std::endl;
-				Sleep(2000);
+				std::cin.clear();
+				std::cin.ignore(22, '\n');
 				goto OrderCars;
 			}
 		}

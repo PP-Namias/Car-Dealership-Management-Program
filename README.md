@@ -3,77 +3,74 @@ This project, which is a topic of the Fundamentals of Programming course, involv
 
 ### Programmer: Jhon Keneth Ryan B. Namias
 
-### Title: Car Dealership
+### Title: Car Dealership Management Program
 
 ### Course/Section: CS1A North
 
-### Date: November 26, 2022
+### Date: December 13, 2022
 
-### Professor: Alban Rei Ryan
+### Professor: Alban Ryan Rei
 
 ## Features
-
 Planned (✘) and currently working (✓) - but not necessarily fully completed - features:
 
-
 ### Admin 
-
-- ✓ Edit Employee Data
-    * ✓ Add Employee Data
-    * ✓ Display Employee Data
-    * ✓ Search Employee Data
-    * ✓ Edit Employee Data
-    * ✓ Delete Employee Data
-> 
-- ✓ Cars Data
-    * ✓ View Cars Name & Price
-    * ✓ Add Cars Name & Price
-    * ✘ Edit Cars Name & Price
-    * ✓ Delete Cars Name & Price
-    * ✓ View Cars Color
-    * ✓ Add Cars Color
-    * ✓ Edit Cars Color
-    * ✓ Delete Cars Color
->
-- ✓ Order Logs
-    * ✓ Date
-    * ✓ Time 
-    * ✓ Car Name 
-    * ✓ Car Color 
-    * ✓ Car Price 
->
-- ✓ Order Cars
-    * ✓ Cars Name & Price
-    * ✓ Cars Colors
-    * ✓ Cashier
-    * ✓ All logic corrected
->
-- ✓ About Us
+  - ✓ Edit Employee Data
+      * ✓ Add Employee Data
+      * ✓ Display Employee Data
+      * ✓ Search Employee Data
+      * ✓ Edit Employee Data
+      * ✓ Delete Employee Data
+  >
+  - ✓ Cars Data
+      * ✓ View Cars Name & Price
+      * ✓ Add Cars Name & Price
+      * ✓ Edit Cars Name & Price
+      * ✓ Delete Cars Name & Price
+      * ✓ View Cars Color
+      * ✓ Add Cars Color
+      * ✓ Edit Cars Color
+      * ✓ Delete Cars Color
+  >
+  - ✓ Order Logs
+      * ✓ Date
+      * ✓ Time 
+      * ✓ Car Name 
+      * ✓ Car Color 
+      * ✓ Car Price 
+  >
+  - ✓ Order Cars
+      * ✓ Cars Name & Price
+      * ✓ Cars Colors
+      * ✓ Cashier
+      * ✓ All logic corrected
+  >
+  - ✓ About Us
 
 ### Employee
-- ✓ Order Logs
-    * ✓ Date
-    * ✓ Time 
-    * ✓ Car Name 
-    * ✓ Car Color 
-    * ✓ Car Price 
->
-- ✓ Order Cars
-    * ✓ Cars Name & Price
-    * ✓ Cars Colors
-    * ✓ Cashier
-    * ✓ All logic corrected
->
-- ✓ About Us
+  - ✓ Order Logs
+      * ✓ Date
+      * ✓ Time 
+      * ✓ Car Name 
+      * ✓ Car Color 
+      * ✓ Car Price 
+  >
+  - ✓ Order Cars
+      * ✓ Cars Name & Price
+      * ✓ Cars Colors
+      * ✓ Cashier
+      * ✓ All logic corrected
+  >
+  - ✓ About Us
 
-### Guest (Public)
-- ✓ Order Cars
-    * ✓ Cars Name & Price
-    * ✓ Cars Colors
-    * ✓ Cashier
-    * ✓ All logic corrected
->
-- ✓ About Us
+  ### Guest (Public)
+  - ✓ Order Cars
+      * ✓ Cars Name & Price
+      * ✓ Cars Colors
+      * ✓ Cashier
+      * ✓ All logic corrected
+  >
+  - ✓ About Us
 
 
 ## Flowchart
@@ -82,11 +79,10 @@ Planned (✘) and currently working (✓) - but not necessarily fully completed 
 </p>
 
 ## Programming Paradigms & Principles Used
-
-* Object-Oriented Programming
-* Code Reusability
-* Procedural Programming
-* File Handling
+  * Object-Oriented Programming
+  * Code Reusability
+  * Procedural Programming
+  * File Handling
 
 ## How to Use
 The user must first log in; if they do not already have an account, they can utilize the 'Guest' or public entry option.
@@ -94,15 +90,12 @@ Once in the Main, all users may proceed to order Toyota cars.
 However, only those with admin level access may view the order logs and edit a car's data. Administrators must answer for their conduct. 
 
 ## Login Information
-
 ### Admin
-
 |      Username      |      Password     |
 | -----------------  | ----------------- |  
 |       Namias       |       Namias      |
 
 ### Employee
-
 |      Username      |      Password     |
 | ------------------ | ----------------- |  
 |        Miku        |        Miku       |
@@ -123,7 +116,6 @@ However, only those with admin level access may view the order logs and edit a c
 - Can only take 1 order at a time
 - Can't display product images
 
-<p> ​</p>
 
 ![Car-Dealership-Management-Program Demo](images/demo.gif)
 
