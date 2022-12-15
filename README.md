@@ -7,7 +7,7 @@ This project, which is a topic of the Fundamentals of Programming course, involv
 
 ### Course/Section: CS1A North
 
-### Date: December 13, 2022
+### Date: December 16, 2022
 
 ### Professor: Alban Ryan Rei
 
@@ -137,7 +137,7 @@ Enjoy :)
 
 <table>
   <tr>
-    <th>2. Login Page</th>
+    <th colspan="1" align="center">2. Login Page</th>
   </tr>
   <tr>
     <td><img src="images/CDM Login page.png"></td>
@@ -146,19 +146,18 @@ Enjoy :)
 
 <table>
   <tr>
-    <th>3. Admin Login</th>
-    <th>4. Employee Login</th>
+    <th align="center">3. Admin Login</th>
+    <th align="center">4. Employee Login</th>
   </tr><tr>
      <td><img src="images/CDM Admin Login page.png"></td>
     <td><img src="images/CDM Employee Login page.png"></td>
   </tr>
 </table>
 
-
 <table>
   <tr>
-    <th>5. Admin Menu</th>
-    <th>6. Employee Menu</th>
+    <th align="center">5. Admin Menu</th>
+    <th align="center">6. Employee Menu</th>
   </tr>
   <tr>
     <td><img src="images/CDM Admin Menu.png"></td>
@@ -168,15 +167,24 @@ Enjoy :)
 
 <table>
   <tr>
-    <th colspan="6" align="center">7. Employee Data</th>
+    <th align="center">7. Employee Data</th>
+    <th align="center">8. Add Employee Data</th>
   </tr>
   <tr>
     <td><img src="images/CDM Employee Data.png"></td>
     <td><img src="images/CDM Add Employee Data.png"></td>
   </tr>
   <tr>
+    <th align="center">9. View Employee Data</th>
+    <th align="center">10. Search Employee Data</th>
+  </tr>
+  <tr>
     <td><img src="images/CDM View Employee Data.png"></td>
     <td><img src="images/CDM Search Employee Data.png"></td>
+  </tr>
+  <tr>
+    <th align="center">11. Edit Employee Data</th>
+    <th align="center">12. Delete Employee Data</th>
   </tr>
   <tr>
     <td><img src="images/CDM Edit Employee Data.png"></td>
@@ -186,7 +194,7 @@ Enjoy :)
 
 <table>
   <tr>
-    <th>8. Cars Data</th>
+    <th colspan="1" align="center">13. Cars Data</th>
   </tr>
   <tr>
     <td><img src="images/CDM Cars Data.png" ></td>
@@ -195,7 +203,42 @@ Enjoy :)
 
 <table>
   <tr>
-    <th>9. Order Logs</th>
+    <th align="center">14. View Cars Name & Price</th>
+    <th align="center">15. Add Cars Name & Price</th>
+  </tr>
+  <tr>
+    <td><img src="images/CDM View Cars Name & Price.png"></td>
+    <td><img src="images/CDM Add Cars Name & Price.png"></td>
+  </tr>
+   <tr>
+    <th align="center">16. Edit Cars Name & Price</th>
+    <th align="center">17. Delete Cars Name & Price</th>
+  </tr>
+  <tr>
+    <td><img src="images/CDM Edit Cars Name & Price.png"></td>
+    <td><img src="images/CDM Delete Cars Name & Price.png"></td>
+  </tr>
+   <tr>
+    <th align="center">18. View Cars Color</th>
+    <th align="center">19. Add Cars Color</th>
+  </tr>
+  <tr>
+    <td><img src="images/CDM View Cars Color.png"></td>
+    <td><img src="images/CDM Add Cars Color.png"></td>
+  </tr>
+   <tr>
+    <th align="center">20. Edit Cars Color</th>
+    <th align="center">21. Delete Cars Color</th>
+  </tr>
+  <tr>
+    <td><img src="images/CDM Edit Cars Color.png"></td>
+    <td><img src="images/CDM Delete Cars Color.png"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th align="center">22. Order Logs</th>
   </tr>
   <tr>
     <td><img src="images/CDM Order Logs.png" ></td>
@@ -204,52 +247,52 @@ Enjoy :)
 
 <table>
   <tr>
-    <th>10. Order Cars</th>
+    <th align="center">23. Login Logs</th>
   </tr>
   <tr>
-    <td><img src="images/CDM Order Cars.png"></td>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <th>11. Order Car Color</th>
-  </tr>
-  <tr>
-    <td><img src="images/CDM Order Car Color.png"></td>
+    <td><img src="images/CDM Login Logs.png" ></td>
   </tr>
 </table>
 
 <table>
   <tr>
-    <th>12. Cashier</th>
+    <th align="center">24. Order Cars</th>
+  </tr>
+  <tr>
+    <td><img src="images/CDM Admin Order Cars.png"></td>
+  </tr>
+  <tr>
+    <th align="center">25. Order Car Color</th>
+  </tr>
+  <tr>
+    <td><img src="images/CDM Order Car Select Color.png"></td>
+  </tr>
+  <tr>
+    <th align="center">26. Cashier</th>
   </tr>
   <tr>
     <td><img src="images/CDM Cashier.png"></td>
   </tr>
-</table>
-
-<table>
   <tr>
-    <th>13. Receipt</th>
+    <th align="center">27. Receipt</th>
   </tr>
   <tr>
     <td><img src="images/CDM Receipt.png"></td>
   </tr>
 </table>
 
-<table >
+<table>
   <tr>
-    <th>14. About Us</th>
+    <th align="center">28. About Us</th>
   </tr>
   <tr>
     <td><img src="images/CDM About Us.png"></td>
   </tr>
 </table>
 
-<table >
+<table>
   <tr>
-    <th>15. Loading Screen</th>
+    <th align="center">29. Loading Screen</th>
   </tr>
   <tr>
     <td><img src="images/CDM Loading Screen.png"></td>
