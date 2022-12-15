@@ -1257,7 +1257,7 @@ int main()
 
 		if (userHider.length() == 0) {
 			system("CLS");
-			system("COLOR 4f");
+			system("COLOR 4F");
 			std::cout << "\n   Please enter Username!" << std::endl;
 			std::cout << std::endl;
 			std::cout << "   ";
@@ -1305,7 +1305,7 @@ int main()
 
 		if (passHider.length() == 0) {
 				system("CLS");
-				system("COLOR 4f");
+				system("COLOR 4F");
 				std::cout << "\n   Please enter Password!" << std::endl;
 				std::cout << std::endl;
 				std::cout << "   ";
@@ -1355,7 +1355,7 @@ int main()
 				else {
 					adminlogin = 0;
 					system("CLS");
-					system("COLOR 4f");
+					system("COLOR 4F");
 					std::cout << "\n   Wrong Username or Password!"
 						<< "\n   Try to login again\n" << std::endl;
 					Sleep(2000);
@@ -1696,7 +1696,7 @@ int main()
 
 								if (searchuserHider.length() == 0) {
 									system("CLS");
-									system("COLOR 4f");
+									system("COLOR 4F");
 									std::cout << "\n   Please enter Username!" << std::endl;
 									std::cout << std::endl;
 									std::cout << "   ";
@@ -1816,7 +1816,7 @@ int main()
 
 							if (searchpassHider.length() == 0) {
 								system("CLS");
-								system("COLOR 4f");
+								system("COLOR 4F");
 								std::cout << "\n   Please enter Password!" << std::endl;
 								std::cout << std::endl;
 								std::cout << "   ";
@@ -1963,7 +1963,7 @@ int main()
 						// If file failed to open, exit with an error message and error exit status
 						if (read_file.fail())
 						{
-							system("COLOR 4f");
+							system("COLOR 4F");
 							std::cout << std::endl;
 							std::cout << "   Error opening file." << std::endl;
 
@@ -2013,7 +2013,7 @@ int main()
 						// If the file failed to open, exit with an error message and exit status
 						if (write_file.fail())
 						{
-							system("COLOR 4f");
+							system("COLOR 4F");
 
 							std::cout << std::endl;
 							std::cout << "   Error opening file." << std::endl;
@@ -2129,7 +2129,7 @@ int main()
 						// If file failed to open, exit with an error message and error exit status
 						if (read_file.fail())
 						{
-							system("COLOR 4f");
+							system("COLOR 4F");
 							std::cout << std::endl;
 							std::cout << "   Error opening file." << std::endl;
 
@@ -2179,7 +2179,7 @@ int main()
 						// If the file failed to open, exit with an error message and exit status
 						if (write_file.fail())
 						{
-							system("COLOR 4f");
+							system("COLOR 4F");
 
 							std::cout << std::endl;
 							std::cout << "   Error opening file." << std::endl;
@@ -2227,7 +2227,7 @@ int main()
 						system("TITLE Car Dealership Management Program [Error Employee Data]");
 
 						system("CLS");
-						system("COLOR 4f");
+						system("COLOR 4F");
 						std::cout << "\n   Wrong input entered!" << std::endl;
 						std::cin.clear();
 						std::cin.ignore(22, '\n');
@@ -2374,7 +2374,7 @@ int main()
 
 						if (addnameHider.length() == 0) {
 							system("CLS");
-							system("COLOR 4f");
+							system("COLOR 4F");
 							std::cout << "\n   Please enter the name of the car!" << std::endl;
 							std::cout << std::endl;
 							std::cout << "   ";
@@ -2422,7 +2422,7 @@ int main()
 
 						if (addpriceHider.length() == 0) {
 							system("CLS");
-							system("COLOR 4f");
+							system("COLOR 4F");
 							std::cout << "\n   Please enter the price of the car!" << std::endl;
 							std::cout << std::endl;
 							std::cout << "   ";
@@ -2513,7 +2513,7 @@ int main()
 						// If file failed to open, exit with an error message and error exit status
 						if (read_file.fail())
 						{
-							system("COLOR 4f");
+							system("COLOR 4F");
 							std::cout << std::endl;
 							std::cout << "   Error opening file." << std::endl;
 
@@ -2563,7 +2563,7 @@ int main()
 						// If the file failed to open, exit with an error message and exit status
 						if (write_file.fail())
 						{
-							system("COLOR 4f");
+							system("COLOR 4F");
 
 							std::cout << std::endl;
 							std::cout << "   Error opening file." << std::endl;
@@ -2605,7 +2605,7 @@ int main()
 						// If file failed to open, exit with an error message and error exit status
 						if (read_file_Cars_Price.fail())
 						{
-							system("COLOR 4f");
+							system("COLOR 4F");
 							std::cout << std::endl;
 							std::cout << "   Error opening file." << std::endl;
 
@@ -2655,7 +2655,7 @@ int main()
 						// If the file failed to open, exit with an error message and exit status
 						if (write_file_Cars_Price.fail())
 						{
-							system("COLOR 4f");
+							system("COLOR 4F");
 
 							std::cout << std::endl;
 							std::cout << "   Error opening file." << std::endl;
@@ -2831,7 +2831,7 @@ int main()
 						// If file failed to open, exit with an error message and error exit status
 						if (read_file.fail())
 						{
-							system("COLOR 4f");
+							system("COLOR 4F");
 							std::cout << std::endl;
 							std::cout << "   Error opening file." << std::endl;
 
@@ -2881,7 +2881,7 @@ int main()
 						// If the file failed to open, exit with an error message and exit status
 						if (write_file.fail())
 						{
-							system("COLOR 4f");
+							system("COLOR 4F");
 
 							std::cout << std::endl;
 							std::cout << "   Error opening file." << std::endl;
@@ -2924,7 +2924,7 @@ int main()
 						// If file failed to open, exit with an error message and error exit status
 						if (read_file_Cars_Price.fail())
 						{
-							system("COLOR 4f");
+							system("COLOR 4F");
 							std::cout << std::endl;
 							std::cout << "   Error opening file." << std::endl;
 
@@ -2974,7 +2974,7 @@ int main()
 						// If the file failed to open, exit with an error message and exit status
 						if (write_file_Cars_Price.fail())
 						{
-							system("COLOR 4f");
+							system("COLOR 4F");
 
 							std::cout << std::endl;
 							std::cout << "   Error opening file." << std::endl;
@@ -3185,7 +3185,7 @@ int main()
 						// If file failed to open, exit with an error message and error exit status
 						if (read_file.fail())
 						{
-							system("COLOR 4f");
+							system("COLOR 4F");
 							std::cout << std::endl;
 							std::cout << "   Error opening file." << std::endl;
 
@@ -3235,7 +3235,7 @@ int main()
 						// If the file failed to open, exit with an error message and exit status
 						if (write_file.fail())
 						{
-							system("COLOR 4f");
+							system("COLOR 4F");
 
 							std::cout << std::endl;
 							std::cout << "   Error opening file." << std::endl;
@@ -3347,7 +3347,7 @@ int main()
 						// If file failed to open, exit with an error message and error exit status
 						if (read_file.fail())
 						{
-							system("COLOR 4f");
+							system("COLOR 4F");
 							std::cout << std::endl;
 							std::cout << "   Error opening file." << std::endl;
 
@@ -3397,7 +3397,7 @@ int main()
 						// If the file failed to open, exit with an error message and exit status
 						if (write_file.fail())
 						{
-							system("COLOR 4f");
+							system("COLOR 4F");
 
 							std::cout << std::endl;
 							std::cout << "   Error opening file." << std::endl;
@@ -3445,7 +3445,7 @@ int main()
 						system("TITLE Car Dealership Management Program [Error Cars Data]");
 					
 						system("CLS");
-						system("COLOR 4f");
+						system("COLOR 4F");
 						std::cout << "\n   Wrong input entered!" << std::endl;
 						std::cin.clear();
 						std::cin.ignore(22, '\n');
@@ -3581,7 +3581,7 @@ int main()
 					system("TITLE Car Dealership Management Program [Error Admin Menu]");
 				
 					system("CLS");
-					system("COLOR 4f");
+					system("COLOR 4F");
 					std::cout << "\n   Wrong input entered!" << std::endl;
 					std::cin.clear();
 					std::cin.ignore(22, '\n');
@@ -3599,7 +3599,7 @@ int main()
 				system("TITLE Car Dealership Management Program [Error Wrong login]");
 
 				system("CLS");
-				system("COLOR 4f");
+				system("COLOR 4F");
 				std::cout << "\n   Wrong input entered!" << std::endl;
 				std::cin.clear();
 				std::cin.ignore(22, '\n');
@@ -3677,7 +3677,7 @@ int main()
 
 		if (userHider.length() == 0) {
 			system("CLS");
-			system("COLOR 4f");
+			system("COLOR 4F");
 			std::cout << "\n   Please enter Username!" << std::endl;
 			std::cout << std::endl;
 			std::cout << "   ";
@@ -3725,7 +3725,7 @@ int main()
 
 		if (passHider.length() == 0) {
 			system("CLS");
-			system("COLOR 4f");
+			system("COLOR 4F");
 			std::cout << "\n   Please enter Password!" << std::endl;
 			std::cout << std::endl;
 			std::cout << "   ";
@@ -3775,7 +3775,7 @@ int main()
 			else {
 				Employeelogin = 0;
 				system("CLS");
-				system("COLOR 4f");
+				system("COLOR 4F");
 				std::cout << "\n   Wrong Username or Password!"
 					<< "\n   Try to login again" << std::endl;
 				Sleep(2000);
@@ -3917,7 +3917,7 @@ int main()
 				system("TITLE Car Dealership Management Program [Error Wrong Input]");
 
 				system("CLS");
-				system("COLOR 4f");
+				system("COLOR 4F");
 				std::cout << "\n   Wrong input entered!" << std::endl;
 				std::cin.clear();
 				std::cin.ignore(22, '\n');
@@ -3935,7 +3935,7 @@ int main()
 			system("TITLE Car Dealership Management Program [Error Wrong Login]");
 
 			system("CLS");
-			system("COLOR 4f");
+			system("COLOR 4F");
 			std::cout << "\n   LOGIN ERROR!!!"
 				<< "\n   Please check your Username and Password" << std::endl;
 			Sleep(3000);
@@ -4032,7 +4032,7 @@ int main()
 		system("TITLE Car Dealership Management Program [Error Wrong Input]");
 	
 		system("CLS");
-		system("COLOR 4f");
+		system("COLOR 4F");
 		std::cout << "\n   Wrong input entered!" << std::endl;
 		std::cin.clear();
 		std::cin.ignore(22, '\n');
@@ -4140,7 +4140,7 @@ OrderCars:
 
 	else if (Cars < 1 || Cars > sizeof(toyota_car_names) / sizeof(toyota_car_names[0])) {
 		system("CLS");
-		system("COLOR 4f");
+		system("COLOR 4F");
 		std::cout << "\n  Invalid input please try ordering again." << std::endl;
 		std::cin.clear();
 		std::cin.ignore(22, '\n');
@@ -4175,6 +4175,28 @@ OrderCars:
 			system("CLS");
 			system("COLOR 0A");
 
+
+			system("COLOR 0A");
+
+			if (AccessLevel == 1) {
+				UserTitleText.userTitleText("                    Admin Select Car Color                    ", "Namias", "                             [", "]                           ");
+			}
+
+			else if (AccessLevel == 2) {
+				UserTitleText.userTitleText("                  Employee Select Car Color                   ", employeeLogin, "                             [", "]                             ");
+			}
+
+			else if (AccessLevel == 3) {
+				UserTitleText.userTitleText("                    Guest Select Car Color                    ", "Guest", "                             [", "]                            ");
+			}
+
+			else {
+				UserTitleText.userTitleText("                  \"Unknown Select Car Color\"                  ", "Unknown", "                            [", "]                           ");
+			}
+
+			Choice.choiceBack("0", "Back");
+
+
 			FontTextColor.fontTextColor(9);
 			std::cout << std::endl;
 			std::cout << "   What Color of ";
@@ -4194,22 +4216,30 @@ OrderCars:
 			std::cin >> Color;
 
 			// Verification
-			if (Color < 1 || Color > sizeof(toyota_car_color) / sizeof(toyota_car_color[0])) {
+			if (Color == 0) {
+				std::cin.clear();
+				std::cin.ignore(22, '\n');
 				system("CLS");
-				system("COLOR 4f");
+
+				goto OrderCars;
+			}
+
+			else if (Color < 1 || Color > sizeof(toyota_car_color) / sizeof(toyota_car_color[0])) {
+				system("CLS");
+				system("COLOR 4F");
 				std::cout << "\n   Please try again if you entered the incorrect information.";
 				std::cout << std::endl;
 				std::cout << "   ";
 				std::cin.clear();
-				std::cin.ignore(22, '\n'); 
+				std::cin.ignore(22, '\n');
 				system("PAUSE");
 				goto SelectColor;
 			}
 
 			else if (Color >= 1 || Color <= sizeof(toyota_car_color) / sizeof(toyota_car_color[0])) {
 
+				Cashier:
 				Value = toyota_car_prices[Cars - 1];
-
 
 				// Cashier 
 				system("CLS");
@@ -4253,41 +4283,57 @@ OrderCars:
 				Change = Payment - Value;
 
 				if (Change >= 1) {
-					std::cout << "\n  Change: " << Change << "\n" << std::endl;
+					FontTextColor.fontTextColor(9);
+					std::cout << "\n  Change: ";
+					FontTextColor.fontTextColor(11);
+					std::cout << Change << "\n" << std::endl;
 
+					FontTextColor.fontTextColor(9);
 					std::cout << std::endl;
 					std::cout << "  ";
 					system("PAUSE");
 				}
 
 				else if (Change == 0) {
-					std::cout << "\n  You paid the exact amount of money needed.\n" << std::endl;
+					FontTextColor.fontTextColor(9);
+					std::cout << "\n  You paid the exact amount of money needed." << std::endl;
 
 					std::cout << std::endl;
 					std::cout << "  ";
 					system("PAUSE");
 				}
 
-				else if (Change <= -1) {
+				else if (Payment == 0) {
 					system("CLS");
-					system("COLOR 4f");
-					std::cout << "\n  You don't have enough money.";
-					std::cin.clear();
-					std::cin.ignore(22, '\n');
-
-					Sleep(2000);
-					goto OrderCars;
-				}
-
-				else {
-					system("CLS");
-					system("COLOR 4f");
+					system("COLOR 4F");
 					std::cout << "\n  Invalid input please try ordering again." << std::endl;
 					std::cin.clear();
 					std::cin.ignore(22, '\n');
 
 					Sleep(2000);
-					goto OrderCars;
+					goto Cashier;
+				}
+
+				else if (Change <= -1) {
+					system("CLS");
+					system("COLOR 4F");
+					std::cout << "\n  You don't have enough money.";
+					std::cin.clear();
+					std::cin.ignore(22, '\n');
+
+					Sleep(2000);
+					goto Cashier;
+				}
+
+				else {
+					system("CLS");
+					system("COLOR 4F");
+					std::cout << "\n  Invalid input please try ordering again." << std::endl;
+					std::cin.clear();
+					std::cin.ignore(22, '\n');
+
+					Sleep(2000);
+					goto Cashier;
 				}
 
 
@@ -4303,6 +4349,7 @@ OrderCars:
 				Order_Logs << std::endl << str << "\t" << toyota_car_names[Cars - 1] << '\t' << toyota_car_color[Color - 1] << '\t' << toyota_car_prices[Cars - 1];
 				Order_Logs.close();
 
+				Reciept:
 				Reciept.Reciept(str, toyota_car_names[Cars - 1], toyota_car_color[Color - 1], toyota_car_prices[Cars - 1], Payment, Change);
 
 				// Order again?
@@ -4312,7 +4359,7 @@ OrderCars:
 				std::cin >> order_more;
 
 				if (order_more == 'n' || order_more == 'N') {
-
+					FontTextColor.fontTextColor(9);
 					std::cout << "  Thank you for your purchase! <3";
 
 					Sleep(2000);
@@ -4320,6 +4367,7 @@ OrderCars:
 				}
 
 				else if (order_more == 'y' || order_more == 'Y') {
+					FontTextColor.fontTextColor(9);
 					std::cout << "  Thank you for your purchase! <3";
 
 					Sleep(2000);
@@ -4328,29 +4376,27 @@ OrderCars:
 
 				else {
 					system("CLS");
-					system("COLOR 4f");
+					system("COLOR 4F");
 					std::cout << "\n  Invalid input! Type only Y or N" << std::endl;
-
-					std::cout << "\n   Press Enter to Continue!";
-					std::cin.get();
-
 					std::cout << std::endl;
-					std::cout << "   ";
-					system("PAUSE");					goto OrderCars;
+					std::cin.clear();
+					std::cin.ignore(22, '\n');
+					std::cout << "  ";
+					system("PAUSE");					
+					goto Reciept;
 				}
 			}
 
 			else {
 				system("CLS");
-				system("COLOR 4f");
+				system("COLOR 4F");
 				std::cout << "\n  Invalid input please try again." << std::endl;
-				std::cin.clear();
-				std::cin.ignore(22, '\n');
-				goto OrderCars;
+				goto SelectColor;
 			}
 		}
 
 		else if (order_confirmation == 'n' || order_confirmation == 'N') {
+			FontTextColor.fontTextColor(9);
 			std::cout << "\n  You Canceled the order." << std::endl;
 			Sleep(2000);
 
@@ -4359,7 +4405,7 @@ OrderCars:
 
 		else {
 			system("CLS");
-			system("COLOR 4f");
+			system("COLOR 4F");
 			std::cout << "\n  Invalid input! Type only Y or N" << std::endl;
 			std::cin.clear();
 			std::cin.ignore(22, '\n');
@@ -4372,7 +4418,7 @@ OrderCars:
 
 	else {
 		system("CLS");
-		system("COLOR 4f");
+		system("COLOR 4F");
 		std::cout << "\n  Invalid input please try ordering again.";
 		std::cin.clear();
 		std::cin.ignore(22, '\n');
