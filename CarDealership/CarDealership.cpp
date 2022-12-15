@@ -42,7 +42,6 @@
 #include <limits>
 #include <ios>
 
-
 class HeaderClass {
 public:
 	void titleText(std::string TitleText) {
@@ -1270,16 +1269,16 @@ int main()
 			user = userHider;
 		}
 
-			FontTextColor.fontTextColor(9);
-			std::cout << "   Password: ";
-			FontTextColor.fontTextColor(11);
+		FontTextColor.fontTextColor(9);
+		std::cout << "   Password: ";
+		FontTextColor.fontTextColor(11);
 
-			int i = 0;
+		int i = 0;
 
-			std::string passHider;
-			char c_pass;
+		std::string passHider;
+		char c_pass;
 
-			do {
+		do {
 				c_pass = _getch();
 				switch (c_pass) {
 				case 0:
@@ -1304,7 +1303,7 @@ int main()
 				}
 			} while (c_pass != 13);
 
-			if (passHider.length() == 0) {
+		if (passHider.length() == 0) {
 				system("CLS");
 				system("COLOR 4f");
 				std::cout << "\n   Please enter Password!" << std::endl;
@@ -1314,22 +1313,22 @@ int main()
 				goto AdminLogin;
 			}
 
-			else {
+		else {
 				pass = passHider;
 			}
 
-			// Loading XD
-			FontTextColor.fontTextColor(9);
-			std::cout << "\n   Verifying your login details please wait";
-			for (int i = 0; i < 6; i++)
+		// Loading XD
+		FontTextColor.fontTextColor(9);
+		std::cout << "\n   Verifying your login details please wait";
+		for (int i = 0; i < 6; i++)
 			{
 				std::cout << ".";
 				Sleep(500);
 			}
 
-			std::ifstream input("Text Files/Admin.txt");
+		std::ifstream input("Text Files/Admin.txt");
 
-			while (input >> u >> p)
+		while (input >> u >> p)
 			{
 				if (u == user && p == pass)
 				{
@@ -1363,9 +1362,9 @@ int main()
 					goto AdminLogin;
 				}
 			}
-			input.close();
+		input.close();
 
-			if (adminlogin == 1)
+		if (adminlogin == 1)
 			{
 				// Loading screen
 				system("CLS");
@@ -3593,8 +3592,8 @@ int main()
 				}
 			}
 
-			// Wrong login
-			else
+		// Wrong login
+		else
 			{
 				// system title
 				system("TITLE Car Dealership Management Program [Error Wrong login]");

@@ -1,4 +1,8 @@
-# Car-Dealership-Management-Program
+<p align="center">
+<img src="images/banner.png" alt="Banner">
+</p>
+
+# Car Dealership Management Program
 This project, which is a topic of the Fundamentals of Programming course, involves creating a car dealership management entirely in C++. We are pleased to announce the release of a convenient console application for performing management system tasks like adding new car(s) to a data set, modifying and deleting car(s) from a data set, exporting order logs, etc.
 
 ### Programmer: Jhon Keneth Ryan B. Namias
@@ -14,7 +18,7 @@ This project, which is a topic of the Fundamentals of Programming course, involv
 ## Features
 Planned (✘) and currently working (✓) - but not necessarily fully completed - features:
 
-### Admin 
+### Admin
   - ✓ Edit Employee Data
       * ✓ Add Employee Data
       * ✓ Display Employee Data
@@ -102,11 +106,11 @@ However, only those with admin level access may view the order logs and edit a c
 
 ## How to Run
 
-### Requirements
+### Requirements 🧾
 - Download and Install Microsft Visual Studio 2019 or higher version.
 - Download and Install MinGW driver
 
-### Setup
+### Setup 🖥️
 1. Clone the repository or Download and Extract the source code zip file.
 2. Open the extracted file and open "CarDealership.exe" 
 3. That's it. 
