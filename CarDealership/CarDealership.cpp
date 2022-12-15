@@ -513,6 +513,7 @@ public:
 
 		std::cout << "     '----------------'   '----------------'   '----------------' " << std::endl;
 
+		std::cout << std::endl;
 		std::cout << "                  ";
 		SetConsoleTextAttribute(TitleScreenColor, 1);
 		std::cout << "Car ";
@@ -522,19 +523,6 @@ public:
 		std::cout << "Management ";
 		SetConsoleTextAttribute(TitleScreenColor, 11);
 		std::cout << "Program               " << std::endl;
-
-		std::cout << std::endl;
-		/*
-		std::cout << "								 _.-=\"_-         _                              " << std::endl;
-		std::cout << "						 _.-=\"   _-          | ||\"\"\"\"\"\"\"---._______     __..    " << std::endl;
-		std::cout << "			 ___.==\"\"\"\"-.______-,,,,,,,,,,,,`-''----\" \"\"\"\"\"       \"\"\"\"\"  __'   " << std::endl;
-		std::cout << "	  __.--\"\"     __        ,'                   o \\           __        [__|   " << std::endl;
-		std::cout << " __-\"\"=======.--\"\"  \"\"--.=================================.--\"\"  \"\"--.=======:" << std::endl;
-		std::cout << "]       [w] : /        \\ : |========================|    : /        \\ :  [w] :" << std::endl;
-		std::cout << "V___________:|          |: |========================|    :|          |:   _-\" " << std::endl;
-		std::cout << " V__________: \\        / :_|=======================/_____: \\        / :__-\"   " << std::endl;
-		std::cout << " -----------'  \"-____-\"  `-------------------------------'  \"-____-\"          " << std::endl;
-		*/
 		SetConsoleTextAttribute(TitleScreenColor, 1);
 		std::cout << "             _____";
 		SetConsoleTextAttribute(TitleScreenColor, 2);
@@ -4179,22 +4167,23 @@ OrderCars:
 			system("COLOR 0A");
 
 			if (AccessLevel == 1) {
-				UserTitleText.userTitleText("                    Admin Select Car Color                    ", "Namias", "                             [", "]                           ");
+				UserTitleText.userTitleText("                     Admin Select Car Color                   ", "Namias", "                             [", "]                           ");
 			}
 
 			else if (AccessLevel == 2) {
-				UserTitleText.userTitleText("                  Employee Select Car Color                   ", employeeLogin, "                             [", "]                             ");
+				UserTitleText.userTitleText("                   Employee Select Car Color                  ", employeeLogin, "                             [", "]                             ");
 			}
 
 			else if (AccessLevel == 3) {
-				UserTitleText.userTitleText("                    Guest Select Car Color                    ", "Guest", "                             [", "]                            ");
+				UserTitleText.userTitleText("                     Guest Select Car Color                   ", "Guest", "                             [", "]                            ");
 			}
 
 			else {
-				UserTitleText.userTitleText("                  \"Unknown Select Car Color\"                  ", "Unknown", "                            [", "]                           ");
+				UserTitleText.userTitleText("                   \"Unknown Select Car Color\"                 ", "Unknown", "                            [", "]                           ");
 			}
 
-			Choice.choiceBack("0", "Back");
+			std::cout << std::endl;
+			Choice.choiceGreen("0", "Back");
 
 
 			FontTextColor.fontTextColor(9);
@@ -4237,13 +4226,26 @@ OrderCars:
 			}
 
 			else if (Color >= 1 || Color <= sizeof(toyota_car_color) / sizeof(toyota_car_color[0])) {
+			Cashier:
+				// Cashier 
 
-				Cashier:
 				Value = toyota_car_prices[Cars - 1];
 
-				// Cashier 
-				system("CLS");
-				system("COLOR 0E");
+				if (AccessLevel == 1) {
+					UserTitleText.userTitleText("                         Admin Cashier                        ", "Namias", "                             [", "]                           ");
+				}
+
+				else if (AccessLevel == 2) {
+					UserTitleText.userTitleText("                        Employee Cashier                      ", employeeLogin, "                             [", "]                             ");
+				}
+
+				else if (AccessLevel == 3) {
+					UserTitleText.userTitleText("                         Guest Cashier                        ", "Guest", "                             [", "]                            ");
+				}
+
+				else {
+					UserTitleText.userTitleText("                        \"Unknown Cashier\"                     ", "Unknown", "                            [", "]                           ");
+				}
 
 				// Your order summary
 				std::cout << std::endl;
