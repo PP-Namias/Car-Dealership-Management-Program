@@ -53,7 +53,7 @@ Planned (✘) and currently working (✓) - but not necessarily fully completed 
       * ✓ Cars Name & Price
       * ✓ Cars Colors
       * ✓ Cashier
-      * ✓ All logic corrected
+      * ✓ Reciept
   >
   - ✓ About Us
 
@@ -69,7 +69,7 @@ Planned (✘) and currently working (✓) - but not necessarily fully completed 
       * ✓ Cars Name & Price
       * ✓ Cars Colors
       * ✓ Cashier
-      * ✓ All logic corrected
+      * ✓ Reciept
   >
   - ✓ About Us
 
@@ -78,7 +78,7 @@ Planned (✘) and currently working (✓) - but not necessarily fully completed 
       * ✓ Cars Name & Price
       * ✓ Cars Colors
       * ✓ Cashier
-      * ✓ All logic corrected
+      * ✓ Reciept
   >
   - ✓ About Us
 
