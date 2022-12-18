@@ -19,7 +19,7 @@ This project, which is a topic of the Fundamentals of Programming course, involv
 Planned (✘) and currently working (✓) - but not necessarily fully completed - features:
 
 ### Admin
-  - ✓ Edit Employee Data
+  - ✓ Employee Data
       * ✓ Add Employee Data
       * ✓ Display Employee Data
       * ✓ Search Employee Data
@@ -42,6 +42,12 @@ Planned (✘) and currently working (✓) - but not necessarily fully completed 
       * ✓ Car Name 
       * ✓ Car Color 
       * ✓ Car Price 
+  >  
+  - ✓ Login Logs
+      * ✓ Username
+      * ✓ Access 
+      * ✓ Date 
+      * ✓ Time 
   >
   - ✓ Order Cars
       * ✓ Cars Name & Price
@@ -186,9 +192,19 @@ Enjoy :)
     <td><img src="images/CDM View Employee Data.png"></td>
     <td><img src="images/CDM Search Employee Data.png"></td>
   </tr>
+   <tr>
+    <th align="center">11. Search Password by Username</th>
+    <th align="center">12. Search Username by Password</th>
+  </tr>
   <tr>
-    <th align="center">11. Edit Employee Data</th>
-    <th align="center">12. Delete Employee Data</th>
+    <td><img src="images/CDM Search Password by Username.png"></td>
+    <td><img src="images/CDM Search Username by Password.png"></td>
+  </tr>
+
+
+  <tr>
+    <th align="center">13. Edit Employee Data</th>
+    <th align="center">14. Delete Employee Data</th>
   </tr>
   <tr>
     <td><img src="images/CDM Edit Employee Data.png"></td>
@@ -198,7 +214,7 @@ Enjoy :)
 
 <table>
   <tr>
-    <th colspan="1" align="center">13. Cars Data</th>
+    <th colspan="1" align="center">15. Cars Data</th>
   </tr>
   <tr>
     <td><img src="images/CDM Cars Data.png" ></td>
@@ -207,32 +223,32 @@ Enjoy :)
 
 <table>
   <tr>
-    <th align="center">14. View Cars Name & Price</th>
-    <th align="center">15. Add Cars Name & Price</th>
+    <th align="center">16. View Cars Name & Price</th>
+    <th align="center">17. Add Cars Name & Price</th>
   </tr>
   <tr>
     <td><img src="images/CDM View Cars Name & Price.png"></td>
     <td><img src="images/CDM Add Cars Name & Price.png"></td>
   </tr>
    <tr>
-    <th align="center">16. Edit Cars Name & Price</th>
-    <th align="center">17. Delete Cars Name & Price</th>
+    <th align="center">18. Edit Cars Name & Price</th>
+    <th align="center">19. Delete Cars Name & Price</th>
   </tr>
   <tr>
     <td><img src="images/CDM Edit Cars Name & Price.png"></td>
     <td><img src="images/CDM Delete Cars Name & Price.png"></td>
   </tr>
    <tr>
-    <th align="center">18. View Cars Color</th>
-    <th align="center">19. Add Cars Color</th>
+    <th align="center">20. View Cars Color</th>
+    <th align="center">21. Add Cars Color</th>
   </tr>
   <tr>
     <td><img src="images/CDM View Cars Color.png"></td>
     <td><img src="images/CDM Add Cars Color.png"></td>
   </tr>
    <tr>
-    <th align="center">20. Edit Cars Color</th>
-    <th align="center">21. Delete Cars Color</th>
+    <th align="center">22. Edit Cars Color</th>
+    <th align="center">23. Delete Cars Color</th>
   </tr>
   <tr>
     <td><img src="images/CDM Edit Cars Color.png"></td>
@@ -242,7 +258,7 @@ Enjoy :)
 
 <table>
   <tr>
-    <th align="center">22. Order Logs</th>
+    <th align="center">24. Order Logs</th>
   </tr>
   <tr>
     <td><img src="images/CDM Order Logs.png" ></td>
@@ -251,7 +267,7 @@ Enjoy :)
 
 <table>
   <tr>
-    <th align="center">23. Login Logs</th>
+    <th align="center">25. Login Logs</th>
   </tr>
   <tr>
     <td><img src="images/CDM Login Logs.png" ></td>
@@ -260,25 +276,25 @@ Enjoy :)
 
 <table>
   <tr>
-    <th align="center">24. Order Cars</th>
+    <th align="center">26. Order Cars</th>
   </tr>
   <tr>
     <td><img src="images/CDM Admin Order Cars.png"></td>
   </tr>
   <tr>
-    <th align="center">25. Order Car Color</th>
+    <th align="center">27. Order Car Color</th>
   </tr>
   <tr>
     <td><img src="images/CDM Order Car Select Color.png"></td>
   </tr>
   <tr>
-    <th align="center">26. Cashier</th>
+    <th align="center">28. Cashier</th>
   </tr>
   <tr>
     <td><img src="images/CDM Cashier.png"></td>
   </tr>
   <tr>
-    <th align="center">27. Receipt</th>
+    <th align="center">29. Receipt</th>
   </tr>
   <tr>
     <td><img src="images/CDM Receipt.png"></td>
@@ -287,7 +303,7 @@ Enjoy :)
 
 <table>
   <tr>
-    <th align="center">28. About Us</th>
+    <th align="center">30. About Us</th>
   </tr>
   <tr>
     <td><img src="images/CDM About Us.png"></td>
@@ -296,7 +312,7 @@ Enjoy :)
 
 <table>
   <tr>
-    <th align="center">29. Loading Screen</th>
+    <th align="center">31. Loading Screen</th>
   </tr>
   <tr>
     <td><img src="images/CDM Loading Screen.png"></td>
